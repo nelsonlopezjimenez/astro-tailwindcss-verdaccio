@@ -125,18 +125,31 @@ npm create astro@latest
 ```
 You may (or may not) be able to run it on your laptops. It depends on several factors. I will show you how it run when connected to the Internet, where you have access to the most updated versions of all packages and process. If you cannot do it in your laptops, I will show the alternative ways to install it in your laptops.
 
-But first the installation with access to the Internet in pictures or video.  
+But first watch Astro installation with access to the Internet:
 
-![](here/goes/video)
+![](/npm-create-astro-at-latest-command.mp4)
+<!-- [![](https://markdown-videos-api.jorgenkh.no/youtube/{video_id})](https://youtu.be/{video_id}) -->
+![](/public/npm-create-astro-at-latest-command.mp4)
+<video width="320" height="240" controls>
+  <source src="npm-create-astro-at-latest-command.mp4" type="video/mp4">
+  <source src="npm-create-astro-at-latest-command.mp4" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
 
 Now in the terminal (within VS Code or not), you can run
 ```
 npm run dev
 ```
 
-Got to http://localhost:4321, you should see
+Got to http://localhost:4321, you should see the following:
 
-![](view of astro in the browser)
+
+![](/public/cd-astroapp-ls-cat-config-files.mp4)
+<video width="320" height="240" controls>
+  <source src="cd-astroapp-ls-cat-config-files.mp4" type="video/mp4">
+  <source src="cd-astroapp-ls-cat-config-files.mp4" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
 
 ## About VS Code configuration
 

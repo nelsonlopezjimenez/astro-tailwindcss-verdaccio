@@ -2,9 +2,9 @@
 title: Hello, World
 ---
 
-# Hi there!
+# Hi there! Welcome to class!!!
 
-This Markdown file creates a page at `your-domain.com/page-1/`
+This Markdown file creates a page at `localhost:4321/my/`
 
 It probably isn't styled much, but Markdown does support:
 - **bold** and _italics._
@@ -15,7 +15,6 @@ It probably isn't styled much, but Markdown does support:
 
 # Module 1
 <h1>GOALS </h1>
-## Goals
 
 Define the problem, understand the problem, define both the application and the architecture. Install PocketBase locally. Start some initial data modeling. Create collections.
 
@@ -34,7 +33,7 @@ among others.
 
 In this module we are going to focus on what our application requirements are. Also I am going to explain why are we are to pick the tech stack we will use in this class. 
 
-The project is based on the latest Flavio Copes bootcamp so some of the materials are comming from his github account, as well as from the bootcamp itself.
+The project is based on the latest Flavio Copes bootcamp so some of the materials are coming from his github account, as well as from the bootcamp itself.
 
 Our hope is that by building the application you will allow you to learn techniques and patterns that you will apply to any kind of web application in the future. 
 
@@ -95,22 +94,39 @@ So please the following user stories that your code will tackle and resolve:
 ## PocketBase installation
 
 The installation binaries are in your laptop in the 'Public' folder.
-The file is 'pocketbase_0.22.8_windows_amd64.zip'. Extract the file in /c/Users/PublicPrograms/ folder. cd into the folder, right-click in your touchpad, open terminal (any terminal, cmd or gitbash or powershell). Start pocketbase by typing in the command line ./pocketbase serve (gitbash) or .\pocketbase.exe serve (windows command line or powershell).
+The file is 'pocketbase_0.22.8_windows_amd64.zip'. Extract the file in /c/Users/PublicPrograms/ folder. cd into the folder, right-click in your touchpad, open terminal (any terminal, cmd or gitbash or powershell). Start pocketbase by typing in the command line
+
+```
+./pocketbase serve (gitbash) 
+or 
+.\pocketbase.exe serve (windows command line or powershell).
+```
 
 As for your app, and in order to keep things organized, you will create a folder labeled 'QUARTER-3' inside your Documents folder. Everything related to our class will be in that folder. Or, if you have your class folder in the Desktop, you can keep using the Desktop for our class materials. It is up to you, as long as you can identify and easily find our class materials including submissions, labs, reading materials, etc.
 
-Once the pocketserve starts, go to chrome browser, type either URL 
+Once the serve starts, go to chrome browser, type either URL 
 
-```'http://localhost:8090/_/' 
+```
+'http://localhost:8090/_/' 
+
 or 
+
 'http://127.0.0.1:8090/_/' 
 ```
 
 to access the Admin UI.
 
-The first time you will see the setup screen with the text  'Create your first admin account in order to continue'. 
+The first time you will see the setup screen with the text  
 
-For the email field use your lastName first initial @ voced dot ed. Enter an easy to remember password. Choose a not very complex password since we are not going to store anything important, just we want to practice. If you forget your admin password there are ways to recover it, so do not worry. Once you create your admin account, click the 'Create and login' button. 
+```
+'Create your first admin account in order to continue'. 
+```
+
+For the email field use your 
+```
+lastName first initial @ voced dot ed. 
+```
+Enter an easy to remember password. Choose a not very complex password since we are not going to store anything important, just we want to practice. If you forget your admin password there are ways to recover it, so do not worry. Once you create your admin account, click the 'Create and login' button. 
 
 If you are a night owl, PocketBase does not offer a dark mode feature, but you can use a browser extension to display it dark, like 'Dark Reader'. Please remind me to pass it to you in class.
 
@@ -142,7 +158,7 @@ You can add more if you want. You can choose from various formats and types: Pla
 
 ### The collection API Rules
 
-In the API Rules panel you can set permissions to perform the "CRUD" operations: Create / Read / Update / Delete and List/Search operation.
+In the API Rules panel you can set permissions to perform  **CRUD** operations: Create / Read / Update / Delete and List/Search operation.
 
 This panel is important in the app security. You can enforce security on the data by correctly setting those API rules.
 
@@ -181,7 +197,7 @@ You can visualize all connection logs. Clicking each request data will give you 
 
 ### PocketBase Sytem settings 
 
-In the application panel, you can set the application name. Let's call it "Spring24App"
+In the application panel, you can set the application name. Let's call it **SPRING24APP**
 
 In 'Mail settings' you can configure the email sender name/email, and the emails sent when the users register.
 
@@ -225,9 +241,9 @@ The select type allow you to write the options separated by a comma.
 
 Then we need to store information about who created the project. We need to select the 'Relation' type that link the project name with an user. Type in the field created_by. The 'Single' option next to both the Select and Relation field types means a project can only have one status (not multiple), and a project can only have a user who created it.
 
-Click the little gear icon at the far right on the field.
+Click the little gear icon **&#9881; &#x2699;** at the far right on the field.
 
-![](created_by_img.png)
+![](/created_by_img.png)
 
 The 'Cascade delete' option is very interesting. If an user is deleted, by selecting cascade delete allows to automatically delete the projects associated to that user. It is useful, because all the work happens under the hood just by enabling the checkbox. Set it to 'true'. Finally, click the 'Create' button.
 
@@ -265,7 +281,7 @@ The collection was created.
 
 ## Editing the API rules
 
-One extremely important functionality PocketBase provides ia we can set authorization rules upon each operation we can perform on the collection data: list/search, read, update, delete, and create (CRUD operations).
+One extremely important functionality PocketBase provides ia we can set authorization rules upon each operation we can perform on the collection data: list/search, read, update, delete, and create (**CRUD** operations).
 
 If you open the users collection and click the gear to edit the settings, in the API rules tab you'll see the default rules for the table: only the currently authenticated user can view, list/search, update or delete users. Anyone can create them (since when someone creates an account, they're not logged in yet). You'll see 
 ```
@@ -276,7 +292,7 @@ or
 Leave empty to grant everyone access...
 ```
 
-Now switch to projects collection: by ddefault, no rule is set:
+Now switch to projects collection: by default, no rule is set:
 which meand **nobody can do anything**
 
 If you hover over one of the rules you'll see a hint:
