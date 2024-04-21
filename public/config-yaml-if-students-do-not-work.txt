@@ -1,0 +1,10 @@
+The config dot yaml is in case if students version does not work.
+I tried npm-extra run verdaccio but it did not recognize the yaml file.
+I tried symlinks first, then move verdaccio and npm, npm-extra, and npm-some date found in public/bin/npm-versions folder. I moved the verdaccio folder as well to their location in %appdaata% but it did not work
+I had to install again verdaccio global, and it did open verdaccio server.
+
+Also, the astro versions are quite different from day to day. So instead of installing the same versions as in npm install package.json, start from fresh in students laptops and see what might be missing.
+
+node_modules and bootcamp-4.20.2024 came from flavio original version I believe where astro is 4.4.4. I tried to install it on students laptop but too many warnings and complaints.
+
+PLAN. start installing one  by one and see what happens.
