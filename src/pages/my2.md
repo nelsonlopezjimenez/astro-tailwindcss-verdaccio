@@ -131,8 +131,8 @@ But first watch Astro installation with access to the Internet:
 <!-- [![](https://markdown-videos-api.jorgenkh.no/youtube/{video_id})](https://youtu.be/{video_id}) -->
 ![](/npm-create-astro-at-latest-command.mp4)
 <video width="320" height="240" controls>
-  <source src="npm-create-astro-at-latest-command.mp4" type="video/mp4">
-  <source src="npm-create-astro-at-latest-command.mp4" type="video/ogg">
+  <source src="/npm-create-astro-at-latest-command.mp4" type="video/mp4">
+  <source src="/npm-create-astro-at-latest-command.mp4" type="video/ogg">
   Your browser does not support the video tag.
 </video>
 
@@ -146,8 +146,8 @@ Got to http://localhost:4321, you should see the following:
 
 ![](/cd-astroapp-ls-cat-config-files.mp4)
 <video width="320" height="240" controls>
-  <source src="cd-astroapp-ls-cat-config-files.mp4" type="video/mp4">
-  <source src="cd-astroapp-ls-cat-config-files.mp4" type="video/ogg">
+  <source src="/cd-astroapp-ls-cat-config-files.mp4" type="video/mp4">
+  <source src="/cd-astroapp-ls-cat-config-files.mp4" type="video/ogg">
   Your browser does not support the video tag.
 </video>
 
@@ -231,8 +231,8 @@ In dark mode:
 Here the view in a mobile device:
 
 <video width="320" height="240" controls>
-  <source src="spring24app-mobile-view.mp4" type="video/mp4">
-  <source src="spring24app-mobile-view.mp4" type="video/ogg">
+  <source src="/spring24app-mobile-view.mp4" type="video/mp4">
+  <source src="/spring24app-mobile-view.mp4" type="video/ogg">
   Your browser does not support the video tag.
 </video>
 
