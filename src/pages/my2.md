@@ -206,6 +206,193 @@ The combination of the two will let us create SPA-grade applications with a simp
 
 ## Homepage 
 
+Firstly, you are not going to create an award-winning landing page. 
+
+But, it will be something simple and nice to look at. When the app will make some money we may hire a designer.
+
+In light mode: 
+
+![](/head-pic1a.png)
+![](/head-after-pic1a.png)
+![](/head-after-pic1b.png)
+![](/head-after-pic1c.png)
+![](/head-after-pic1d.png)
+![](/head-after-pic1e.png)
+
+
+In cark mode: 
+
+![](/dark-1a.png)
+![](/dark-1c.png)
+![](/dark-1d.png)
+![](/dark-1e.png)
+![](/dark-1f.png)
+
+Here the view in a mobile device:
+
+<video width="320" height="240" controls>
+  <source src="spring24app-mobile-view.mp4" type="video/mp4">
+  <source src="spring24app-mobile-view.mp4" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+
+
+We will implement this page from top to bottom.
+
+We are going to use Tailwind CSS. 
+
+Tailwind is a library that makes super easy to style HTML pages using CSS
+
+I will install Tailwind CSS IntelliSense, Docs, Headwind
+
+## Install the Astro Tailwind extension
+
+Back to the terminal, stop the currently running app with the keyboard combination ctrl-c. Run
+```
+npx astro add tailwind
+```
+TIP: 
+
+npx is a command we use to run an npm package without installing it first
+
+When prompted press Enter to apply the default options. 
+If you can not run npx command, I will provide with the output directly to you through canvas. In short, the script will allow to configure Tailwind in your app. Once you're done, you can restart Astro app with **npm run dev** command
+
+You’ll notice the “Astro” text is now a bit smaller, because Tailwind resets the default browser style when installed (something called preflight), by adding a few initial baseline rules that will help us avoid having to reset any pre-existing applied styles, and start from a blank slate.
+
+
+## Create a layout
+
+he first thing we’re going to do is, we create a layout for our site HTML rendering structure.
+
+In the src/pages/index.astro file we’re now rendering all the HTML the page will generate.
+
+But a lot of this HTML will be common to other pages as well. So instead of replicating all the HTML, we create a layout, and then we’ll import this layout in our index.astro page.
+
+Create a src/layouts folder.
+
+
+
+inside it, create an empty file named <code>LayoutSite.astro</code>:
+
+![]()
+
+Now take everything you have in <code>index.astro</code> and copy it over to <code>LayoutSite.astro</code>:
+
+```
+---
+
+---
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+
+    <title>Spring24app</title>
+  </head>
+  <body>
+    <h1>Astro</h1>
+  </body>
+</html>
+```
+
+Now in <code>index.astro</code> you can import <code>LayoutSite.astro</code> at the top, and then you can use the <code>LayoutSite</code> component in the HTML part, like this:
+
+```
+---
+import LayoutSite from '../layouts/LayoutSite.astro'
+---
+
+<LayoutSite />
+```
+
+The part between --- is JavaScript/Typescript code.
+
+<code>import</code> in particular is part of what we call 'ES modules' syntax. Import make a file available in another file. The page rendered in the browser is exactly like before: everything in the layout gets printed in <code>src/pages/index.astro</code>.
+
+This is a component, a layout component. Setting parts of the page as components make more easily to build and manage a page, like with legos building a more complex structure. We may have a header component, a pricing component, a navigation component and so on.
+
+<code>&lt;LayoutSite /> </code>is a **self-closing** tag, as it has not content inside it.
+
+We can put a special tag called <code>&lt;slot /></code> in the layout, and everything inside the tags will be put where the <code>&lt;slot /></code> tag is.
+
+Let's do it!!
+
+
+```
+---
+
+---
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+
+    <title>Spring24app</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+```
+.
+
+```
+---
+import LayoutSite from '../layouts/LayoutSite.astro'
+---
+<LayoutSite>
+   <h1>Astro</h1>
+</LayoutSite>
+```
+
+The beauty of this approach is that if you want to create another page in your site, you reuse the layout, but add different content into it, like this:
+
+```
+---
+import LayoutSite from '../layouts/LayoutSite.astro'
+---
+<LayoutSite>
+   <h1>Another page</h1>
+   <p>Test ...</p>
+</LayoutSite>
+```
+
+In this way we avoid duplication of all the HTML that usually goes into the <code>&lt;head></code> tag of the page, plus any of the common page layout. This of the footer, or the header in the same way.
+
+In order to simplify the import syntax, and avoid setting relative paths of the imports, you can edit the <code>tsconfig.json</code> file and add these new lines:
+
+```
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@lib/*": ["src/lib/*"],
+      "@data/*": ["src/data/*"],
+      "@src/*": ["src/*"],
+    }
+  }
+}
+```
+Now you can use this import syntax in <code>src/pages/index.astro</code>
+
+```
+---
+import LayoutSite from '@layouts/LayoutSite.astro'
+---
+
+<LayoutSite>
+  <h1>Astro</h1>
+</LayoutSite>
+```
+Since you don't have to use relative URL to access a particular resource, you don't have to think 'where is this or that file in the folder structure, and you can move the file around without breaking the import statements.
+
+
 
 
 # Tips from Flavio Copes
