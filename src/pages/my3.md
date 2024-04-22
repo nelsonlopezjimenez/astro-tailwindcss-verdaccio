@@ -127,9 +127,9 @@ You may (or may not) be able to run it on your laptops. It depends on several fa
 
 But first watch Astro installation with access to the Internet:
 
-
-<!-- [![](https://markdown-videos-api.jorgenkh.no/youtube/{video_id})](https://youtu.be/{video_id}) -->
 ![](/npm-create-astro-at-latest-command.mp4)
+<!-- [![](https://markdown-videos-api.jorgenkh.no/youtube/{video_id})](https://youtu.be/{video_id}) -->
+![](/public/npm-create-astro-at-latest-command.mp4)
 <video width="320" height="240" controls>
   <source src="npm-create-astro-at-latest-command.mp4" type="video/mp4">
   <source src="npm-create-astro-at-latest-command.mp4" type="video/ogg">
@@ -144,7 +144,7 @@ npm run dev
 Got to http://localhost:4321, you should see the following:
 
 
-![](/cd-astroapp-ls-cat-config-files.mp4)
+![](/public/cd-astroapp-ls-cat-config-files.mp4)
 <video width="320" height="240" controls>
   <source src="cd-astroapp-ls-cat-config-files.mp4" type="video/mp4">
   <source src="cd-astroapp-ls-cat-config-files.mp4" type="video/ogg">
@@ -220,7 +220,7 @@ In light mode:
 ![](/head-after-pic1e.png)
 
 
-In dark mode: 
+In cark mode: 
 
 ![](/dark-1a.png)
 ![](/dark-1c.png)
@@ -248,7 +248,6 @@ I will install Tailwind CSS IntelliSense, Docs, Headwind
 ## Install the Astro Tailwind extension
 
 Back to the terminal, stop the currently running app with the keyboard combination ctrl-c. Run
-
 ```
 npx astro add tailwind
 ```
@@ -276,7 +275,6 @@ Create a src/layouts folder.
 
 inside it, create an empty file named <code>LayoutSite.astro</code>:
 
-here goes image
 
 Now take everything you have in <code>index.astro</code> and copy it over to <code>LayoutSite.astro</code>:
 
@@ -319,79 +317,6 @@ This is a component, a layout component. Setting parts of the page as components
 We can put a special tag called <code>&lt;slot /></code> in the layout, and everything inside the tags will be put where the <code>&lt;slot /></code> tag is.
 
 Let's do it!!
-
-
-```
----
-
----
-<html lang='en'>
-  <head>
-    <meta charset='utf-8' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='viewport' content='width=device-width' />
-
-    <title>Spring24app</title>
-  </head>
-  <body>
-    <slot />
-  </body>
-</html>
-```
-.
-
-```
----
-import LayoutSite from '../layouts/LayoutSite.astro'
----
-<LayoutSite>
-   <h1>Astro</h1>
-</LayoutSite>
-```
-
-The beauty of this approach is that if you want to create another page in your site, you reuse the layout, but add different content into it, like this:
-
-```
----
-import LayoutSite from '../layouts/LayoutSite.astro'
----
-<LayoutSite>
-   <h1>Another page</h1>
-   <p>Test ...</p>
-</LayoutSite>
-```
-
-In this way we avoid duplication of all the HTML that usually goes into the <code>&lt;head></code> tag of the page, plus any of the common page layout. This of the footer, or the header in the same way.
-
-In order to simplify the import syntax, and avoid setting relative paths of the imports, you can edit the <code>tsconfig.json</code> file and add these new lines:
-
-```
-{
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@lib/*": ["src/lib/*"],
-      "@data/*": ["src/data/*"],
-      "@src/*": ["src/*"],
-    }
-  }
-}
-```
-Now you can use this import syntax in <code>src/pages/index.astro</code>
-
-```
----
-import LayoutSite from '@layouts/LayoutSite.astro'
----
-
-<LayoutSite>
-  <h1>Astro</h1>
-</LayoutSite>
-```
-Since you don't have to use relative URL to access a particular resource, you don't have to think 'where is this or that file in the folder structure, and you can move the file around without breaking the import statements.
 
 
 
