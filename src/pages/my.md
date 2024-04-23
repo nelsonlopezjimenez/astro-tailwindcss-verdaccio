@@ -97,9 +97,13 @@ The installation binaries are in your laptop in the 'Public' folder.
 The file is 'pocketbase_0.22.8_windows_amd64.zip'. Extract the file in /c/Users/PublicPrograms/ folder. cd into the folder, right-click in your touchpad, open terminal (any terminal, cmd or gitbash or powershell). Start pocketbase by typing in the command line
 
 ```
+
 ./pocketbase serve (gitbash) 
+
 or 
+
 .\pocketbase.exe serve (windows command line or powershell).
+
 ```
 
 As for your app, and in order to keep things organized, you will create a folder labeled 'QUARTER-3' inside your Documents folder. Everything related to our class will be in that folder. Or, if you have your class folder in the Desktop, you can keep using the Desktop for our class materials. It is up to you, as long as you can identify and easily find our class materials including submissions, labs, reading materials, etc.
@@ -107,11 +111,13 @@ As for your app, and in order to keep things organized, you will create a folder
 Once the serve starts, go to chrome browser, type either URL 
 
 ```
+
 'http://localhost:8090/_/' 
 
 or 
 
 'http://127.0.0.1:8090/_/' 
+
 ```
 
 to access the Admin UI.
@@ -119,13 +125,19 @@ to access the Admin UI.
 The first time you will see the setup screen with the text  
 
 ```
+
 'Create your first admin account in order to continue'. 
+
 ```
 
 For the email field use your 
+
 ```
+
 lastName first initial @ voced dot ed. 
+
 ```
+
 Enter an easy to remember password. Choose a not very complex password since we are not going to store anything important, just we want to practice. If you forget your admin password there are ways to recover it, so do not worry. Once you create your admin account, click the 'Create and login' button. 
 
 If you are a night owl, PocketBase does not offer a dark mode feature, but you can use a browser extension to display it dark, like 'Dark Reader'. Please remind me to pass it to you in class.
@@ -163,9 +175,13 @@ In the API Rules panel you can set permissions to perform  **CRUD** operations: 
 This panel is important in the app security. You can enforce security on the data by correctly setting those API rules.
 
 The default rule is:
+
 ```
+
 id = @request.auth.id
+
 ```
+
 which means 'the id field of the collection must match the id of the currently authenticated user'
 
 Simply stated: users can only access their own user data.
@@ -284,16 +300,24 @@ The collection was created.
 One extremely important functionality PocketBase provides ia we can set authorization rules upon each operation we can perform on the collection data: list/search, read, update, delete, and create (**CRUD** operations).
 
 If you open the users collection and click the gear to edit the settings, in the API rules tab you'll see the default rules for the table: only the currently authenticated user can view, list/search, update or delete users. Anyone can create them (since when someone creates an account, they're not logged in yet). You'll see 
+
 ```
+
 id = @request.auth.id
+
 ```
+
 or
+
 ```
+
 Leave empty to grant everyone access...
+
 ```
 
 Now switch to projects collection: by default, no rule is set:
-which meand **nobody can do anything**
+
+which means **nobody can do anything**
 
 If you hover over one of the rules you'll see a hint:
 `Unlock and set custom rule`

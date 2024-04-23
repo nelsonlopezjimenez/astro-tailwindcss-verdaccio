@@ -8,7 +8,7 @@ Now we are going to create a Astro-based website. It consists of homepage, blog,
 1. Introduction 
 1. What is Astro
 1. Installing Astro
-1. 
+
 
 ## Introduction
 
@@ -123,7 +123,7 @@ cd into ~/Documents/QUARTER_3/dev folder and run
 ```
 npm create astro@latest
 ```
-You may (or may not) be able to run it on your laptops. It depends on several factors. I will show you how it run when connected to the Internet, where you have access to the most updated versions of all packages and process. If you cannot do it in your laptops, I will show the alternative ways to install it in your laptops.
+You may (or may not) be able to run it on your laptops. It depends on several factors. I will show you how it run when connected to the Internet, where you have access to the most updated versions of all packages and process. If you cannot do it in your laptops, I will show the alternative ways to install it in your laptops. In the video you'll see a series of options for the installation. You either choose an option, or hit enter to select the default. The first question is about the app's name, it has to be unique. In the following section I will explain the steps to install Astro manually. 
 
 But first watch Astro installation with access to the Internet:
 
@@ -136,9 +136,139 @@ But first watch Astro installation with access to the Internet:
   Your browser does not support the video tag.
 </video>
 
-Now in the terminal (within VS Code or not), you can run
+
+1. **Install Astro**
+
+First, install the Astro project dependencies inside your project. **IMPORTANT** Astro must be installed locally, not globally. Make sure you are not running <code>npm install -g astro</code>
+
+In <code>~/QUARTER-3/dev</code>folder create a folder by running the command <code>mkdir spring24app</code>.
+
+cd into it and run <code>npm init --yes</code>
+
+Then start the installacion of Astro modules:
+
 ```
+npm install astro@4.4.4
+```
+
+If the command is <code>npm install astro</code>(with no particular version number), it searches for the latest version. If the version's dependencies are not found in verdaccio server the installation of node_modules folder will be aborted since there is not connection to the public registry.
+
+Then, replace any placehoder "scripts" section of your package.json with the following:
+
+![](/astro-manual-packagejson-scripts.png)
+
+1. **Create Folder Structure**
+
+Run the following commands inside your spring24app folder
+
+```
+
+mkdir src
+mkdir src/pages
+mkdir public
+touch astro.config.mjs
+touch tsconfig.json
+touch README.md
+touch src/pages/env.d.ts
+touch src/pages/index.astro
+
+```
+
+Your folder now should look like this:
+
+![](/astro-manual-installation-tree.png)
+
+1. **Create your first page**
+
+Edit file <code>index.astro</code> in the path <code>src/pages/index.astro</code>. 
+
+For this guide, copy-and-paste the following code snippet (including the <code>---</code> dashes) into your new file: 
+
+```
+
+---
+// Welcome to Astro! Everything between these triple-dash code fences
+// is your "component frontmatter". It never runs in the browser.
+console.log('This runs in your terminal, not the browser!');
+---
+<!-- Below is your "component template." It's just HTML, but with
+     some magic sprinkled in to help you build great templates. -->
+<html>
+  <body>
+    <h1>Hello, World!</h1>
+    <h2>Welcome to Astro!</h2>
+  </body>
+</html>
+<style>
+  h1 {
+    color: orange;
+  }
+</style>
+
+```
+1. **Create your first static asset**
+
+In the <code>public/</code> directory you will store static assets. Astro will always include these assets in your final build, so you can safely reference them from inside your component templates.
+
+Create a new file in <code>public/robots.txt</code>. This file is a simple file that most wites will include to tell search bots ike Google how to treat your site. 
+
+For this guide, copy-and-paste the following code snippet into your new file:
+
+```
+
+# Example: Allow all bots to scan and index your site.
+# Full syntax: https://developers.google.com/search/docs/advanced/robots/create-robots-txt
+User-agent: *
+Allow: /
+
+```
+
+1. **Edit <code>astro.config.mjs</code>**
+
+Astro is configured using <code>astro.config.mjs</code>. This file is optional if you do not need to configure Astro, but you may wish to create it now.
+
+```
+
+import { defineConfig } from 'astro/config';
+
+// https://astro.build/config
+export default defineConfig({});
+
+```
+
+If you want to include UI framework components such as React, Svelte, etc. or use other tools such as Tailwind or Partytown in your project, here is where you will manually import and configure integrations.
+
+1. **Add Typescript support**
+
+Typescript is configured using <code>tsconfig.json</code>. This file allows Astro and VS Code know how to understand your project. 
+
+If you do intend to write TypeScript code, using Astro's <code>strict</code> or <code>strictest</code> template is **recommended**
+
+Edit <code>tsconfig.json</code> at the root of your project:
+```
+
+{
+  "extends": "astro/tsconfigs/base"
+}
+
+```
+
+Finally, edit <code>src/env.d.ts</code> to let TypeScript know about ambien types available in an Astro project:
+
+```
+
+/// <reference types="astro/client" />
+
+```
+
+1. **Start Astro**
+
+Now in the terminal (within VS Code or not), you can run
+
+```
+
 npm run dev
+
 ```
 
 Got to http://localhost:4321, you should see the following:
@@ -161,7 +291,7 @@ Also, you may modify Prettier settings 'Semi' and 'Single Attribute Per Line.
 
 ## About Typescript
 
-It is basically JavaScript, but with types support, so we could say 'we expect this value to be a string (an not a number)' or 'this is a number (and not a string)' which JavaScript does not provide out of the box. In this project you will use a lot of inferred types, which means there is a minimal amount of type annotations in some critical places, and then TypeScript fill figure out automatically the rest.
+It is basically JavaScript, but with types support, so we could say 'we expect this value to be a string (and not a number)' or 'this is a number (and not a string)' which JavaScript does not provide out of the box. In this project you will use a lot of inferred types, which means there is a minimal amount of type annotations in some critical places, and then TypeScript fill figure out automatically the rest.
 
 This approach has few advantages:
 
@@ -172,13 +302,16 @@ This approach has few advantages:
 ## Overview of the starter Astro site
 
 The page with the 'Welcome to Astro' title in it was generated by Astro, through the file 
+
 ```
+
 src/pages/index.astro
+
 ```
 
 In Astro components the part between three dashes '---' is server-side code with the import required. After that, there's the HTML rendered in the browser.
 
-The HTML defined in this Astro page component is almost the same you see in the browser, except for the doctype and the head tags, and the Vite (the build tool used by Astro) script which is used in development for hot reloading / automatic refres of the page when you change something in your editor.
+The HTML defined in this Astro page component is almost the same you see in the browser, except for the doctype and the head tags, and the Vite (the build tool used by Astro) script which is used in development for hot reloading / automatic refresh of the page when you change something in your editor.
 
 Look at the Elements panel of the browser DevTools
 
@@ -210,7 +343,7 @@ Firstly, you are not going to create an award-winning landing page.
 
 But, it will be something simple and nice to look at. When the app will make some money we may hire a designer.
 
-In light mode: 
+## **In light mode:** 
 
 ![](/head-pic1a.png)
 ![](/head-after-pic1a.png)
@@ -220,7 +353,7 @@ In light mode:
 ![](/head-after-pic1e.png)
 
 
-In dark mode: 
+## **In dark mode:** 
 
 ![](/dark-1a.png)
 ![](/dark-1c.png)
@@ -228,7 +361,7 @@ In dark mode:
 ![](/dark-1e.png)
 ![](/dark-1f.png)
 
-Here the view in a mobile device:
+## **Here the view in a mobile device:**
 
 <video width="320" height="240" controls>
   <source src="/spring24app-mobile-view.mp4" type="video/mp4">
@@ -247,10 +380,13 @@ I will install Tailwind CSS IntelliSense, Docs, Headwind
 
 ## Install the Astro Tailwind extension
 
+
 Back to the terminal, stop the currently running app with the keyboard combination ctrl-c. Run
 
 ```
+
 npx astro add tailwind
+
 ```
 TIP: 
 
@@ -260,6 +396,76 @@ When prompted press Enter to apply the default options.
 If you can not run npx command, I will provide with the output directly to you through canvas. In short, the script will allow to configure Tailwind in your app. Once you're done, you can restart Astro app with **npm run dev** command
 
 You’ll notice the “Astro” text is now a bit smaller, because Tailwind resets the default browser style when installed (something called preflight), by adding a few initial baseline rules that will help us avoid having to reset any pre-existing applied styles, and start from a blank slate.
+
+1. **Tailwind Manual Install**
+
+[Manual install](https://docs.astro.build/en/guides/integrations-guide/tailwind/)
+
+At the root of your project run:
+
+```
+
+npm install tailwindcss@3.4.1 @astrojs/tailwind@5.1.0
+
+```
+
+Then, apply the integration to astro.config.mjs file using the <code>integrations</code> property:
+
+![](/astro-config-mjs-edit-1a.png)
+
+Then, create <code>tailwind.config.mjs</code> file at the root of your project. You can use the command **<code>npx tailwindcss init</code>** but since it is not sure just create the file and enter the following code:
+
+```
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
+```
+
+1. **Install @astrojs/node**
+
+Nodejs is a JavaScript runtime for server-side code. @astrojs/node can be use either in standalone mode or as middleware for other http servers, such as express.
+
+Reference [here](https://docs.astro.build/en/guides/integrations-guide/node/)
+
+You can do automatic installation using the command <code>npx astro add node</node>. Just in case, here is the manual install steps:
+
+```
+
+npm install @astrojs/node@8.2.3
+
+```
+
+edit your **astro.config.mjs** file:
+
+```
+
+import { defineConfig } from 'astro/config';
+import node from '@astrojs/node';
+
+export default defineConfig({
+  output: 'server',
+  adapter: node({
+    mode: 'standalone',
+  }),
+});
+
+```
+
+1. **Install dotenv**
+
+```
+
+npm install dotenv@16.4.5
+
+```
+
 
 
 ## Create a layout
