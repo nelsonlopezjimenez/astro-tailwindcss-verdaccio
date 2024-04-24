@@ -7,7 +7,22 @@ Now we are going to create a Astro-based website. It consists of homepage, blog,
 
 1. Introduction 
 1. What is Astro
-1. Installing Astro
+1. Installing Astro locally using both **npx** and **npm**
+1. Creating folder structure manually
+1. Create first Astro page
+1. Create first static asset
+1. Edit **astro.config.mjs** file
+1. Adding TypeScript support
+1. Starting Astro application
+1. Configuring VS Code Prettier extension
+1. Overview of starter Astro site
+1. Astro vs other JS frameworks
+1. Astro Homepage
+1. Manual install Astro Tailwind extension
+1. Manual install NodeJS integration
+1. Instal dotenv module
+1. Create a layout
+1. Tips from Flavio Copes
 
 
 ## Introduction
@@ -81,6 +96,7 @@ We'll use Astro on the backend side of our stack because:
  Look at the code snippet below that showcases the displaying of a &lt;h2> tag on the home route using vanilla JavaScript and Express. 
 
 ```
+
 //NodeJS
 const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/html');
@@ -99,6 +115,7 @@ const app = express();
 app.get('/', (req, res) => {
     res.send('<h2>Hello from the Ably Blog</h2>');
 });
+
 ```
 In NodeJS, we create an http server, use setHeader to manually set the response content type and write all the required HTML tags to be able to display the &lt;h2> tag.
 
@@ -121,7 +138,9 @@ Inside you should have a folder ~/Documents/QUARTER_3/dev
 
 cd into ~/Documents/QUARTER_3/dev folder and run 
 ```
+
 npm create astro@latest
+
 ```
 You may (or may not) be able to run it on your laptops. It depends on several factors. I will show you how it run when connected to the Internet, where you have access to the most updated versions of all packages and process. If you cannot do it in your laptops, I will show the alternative ways to install it in your laptops. In the video you'll see a series of options for the installation. You either choose an option, or hit enter to select the default. The first question is about the app's name, it has to be unique. In the following section I will explain the steps to install Astro manually. 
 
@@ -148,7 +167,9 @@ cd into it and run <code>npm init --yes</code>
 Then start the installacion of Astro modules:
 
 ```
+
 npm install astro@4.4.4
+
 ```
 
 If the command is <code>npm install astro</code>(with no particular version number), it searches for the latest version. If the version's dependencies are not found in verdaccio server the installation of node_modules folder will be aborted since there is not connection to the public registry.
@@ -245,6 +266,7 @@ Typescript is configured using <code>tsconfig.json</code>. This file allows Astr
 If you do intend to write TypeScript code, using Astro's <code>strict</code> or <code>strictest</code> template is **recommended**
 
 Edit <code>tsconfig.json</code> at the root of your project:
+
 ```
 
 {
@@ -345,21 +367,21 @@ But, it will be something simple and nice to look at. When the app will make som
 
 ## **In light mode:** 
 
-![](/head-pic1a.png)
-![](/head-after-pic1a.png)
-![](/head-after-pic1b.png)
-![](/head-after-pic1c.png)
-![](/head-after-pic1d.png)
-![](/head-after-pic1e.png)
+![](./head-after-pic1a.png)
+![](./head-pic1a.png)
+![](./head-after-pic1b.png)
+![](./head-after-pic1c.png)
+![](./head-after-pic1d.png)
+![](./head-after-pic1e.png)
 
 
 ## **In dark mode:** 
 
-![](/dark-1a.png)
-![](/dark-1c.png)
-![](/dark-1d.png)
-![](/dark-1e.png)
-![](/dark-1f.png)
+![](./dark-1a.png)
+![](./dark-1c.png)
+![](./dark-1d.png)
+![](./dark-1e.png)
+![](./dark-1f.png)
 
 ## **Here the view in a mobile device:**
 
@@ -411,7 +433,7 @@ npm install tailwindcss@3.4.1 @astrojs/tailwind@5.1.0
 
 Then, apply the integration to astro.config.mjs file using the <code>integrations</code> property:
 
-![](/astro-config-mjs-edit-1a.png)
+![](./astro-config-mjs-edit-1a.png)
 
 Then, create <code>tailwind.config.mjs</code> file at the root of your project. You can use the command **<code>npx tailwindcss init</code>** but since it is not sure just create the file and enter the following code:
 
@@ -512,6 +534,7 @@ import LayoutSite from '../layouts/LayoutSite.astro'
 ---
 
 <LayoutSite />
+
 ```
 
 The part between --- is JavaScript/Typescript code.
@@ -553,6 +576,7 @@ import LayoutSite from '../layouts/LayoutSite.astro'
 <LayoutSite>
    <h1>Astro</h1>
 </LayoutSite>
+
 ```
 
 The beauty of this approach is that if you want to create another page in your site, you reuse the layout, but add different content into it, like this:
@@ -565,6 +589,7 @@ import LayoutSite from '../layouts/LayoutSite.astro'
    <h1>Another page</h1>
    <p>Test ...</p>
 </LayoutSite>
+
 ```
 
 In this way we avoid duplication of all the HTML that usually goes into the <code>&lt;head></code> tag of the page, plus any of the common page layout. This of the footer, or the header in the same way.
@@ -572,6 +597,7 @@ In this way we avoid duplication of all the HTML that usually goes into the <cod
 In order to simplify the import syntax, and avoid setting relative paths of the imports, you can edit the <code>tsconfig.json</code> file and add these new lines:
 
 ```
+
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
@@ -585,10 +611,12 @@ In order to simplify the import syntax, and avoid setting relative paths of the 
     }
   }
 }
+
 ```
 Now you can use this import syntax in <code>src/pages/index.astro</code>
 
 ```
+
 ---
 import LayoutSite from '@layouts/LayoutSite.astro'
 ---
@@ -596,6 +624,7 @@ import LayoutSite from '@layouts/LayoutSite.astro'
 <LayoutSite>
   <h1>Astro</h1>
 </LayoutSite>
+
 ```
 Since you don't have to use relative URL to access a particular resource, you don't have to think 'where is this or that file in the folder structure, and you can move the file around without breaking the import statements.
 
