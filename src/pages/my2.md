@@ -367,21 +367,20 @@ But, it will be something simple and nice to look at. When the app will make som
 
 ## **In light mode:** 
 
-![](./head-after-pic1a.png)
-![](./head-pic1a.png)
-![](./head-after-pic1b.png)
-![](./head-after-pic1c.png)
-![](./head-after-pic1d.png)
-![](./head-after-pic1e.png)
-
+![](/head-pic1a.png)
+![](/head-after-pic1a.png)
+![](/head-after-pic1b.png)
+![](/head-after-pic1c.png)
+![](/head-after-pic1d.png)
+![](/head-after-pic1e.png)
 
 ## **In dark mode:** 
 
-![](./dark-1a.png)
-![](./dark-1c.png)
-![](./dark-1d.png)
-![](./dark-1e.png)
-![](./dark-1f.png)
+![](/dark-1a.png)
+![](/dark-1c.png)
+![](/dark-1d.png)
+![](/dark-1e.png)
+![](/dark-1f.png)
 
 ## **Here the view in a mobile device:**
 
@@ -398,7 +397,7 @@ We are going to use Tailwind CSS.
 
 Tailwind is a library that makes super easy to style HTML pages using CSS
 
-I will install Tailwind CSS IntelliSense, Docs, Headwind
+I will install Tailwind CSS IntelliSense, Docs, Tailwind
 
 ## Install the Astro Tailwind extension
 
@@ -433,7 +432,7 @@ npm install tailwindcss@3.4.1 @astrojs/tailwind@5.1.0
 
 Then, apply the integration to astro.config.mjs file using the <code>integrations</code> property:
 
-![](./astro-config-mjs-edit-1a.png)
+![](/astro-config-mjs-edit-1a.png)
 
 Then, create <code>tailwind.config.mjs</code> file at the root of your project. You can use the command **<code>npx tailwindcss init</code>** but since it is not sure just create the file and enter the following code:
 
