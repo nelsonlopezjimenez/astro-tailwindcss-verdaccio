@@ -56,8 +56,9 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 ## LOG
 
 ### 4.21.2024
+```
 npm 
-$ npm install
+npm install
 npm WARN EBADENGINE Unsupported engine {
 npm WARN EBADENGINE   package: '@astrojs/prism@3.1.0',
 npm WARN EBADENGINE   required: { node: '^18.17.1 || ^20.3.0 || >=21.0.0' },
@@ -84,3 +85,38 @@ added 499 packages, and audited 500 packages in 7s
   run `npm fund` for details
 
 found 0 vulnerabilities
+
+```
+
+# 2024 week 4.17
+
+## Folder structure
+
+
+```text
+/
+├── dist/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── env.d.ts
+│   ├── components/
+│   │   └── Card.astro
+│   ├── layouts/
+│   │   └── Layout.astro
+│   │   └── LayoutSite.astro
+│   └── pages/
+│       └── index.astro    EDITED to add links to my, my2, my3, offine sites
+│       └── index1.astro   import LayoutSite
+│       └── index3.astro    import LayoutSite
+│       └── my.md
+│       └── my2.md         EDITED: pics/videos source as ./ instead of /
+│       └── my3.md
+├── astro.config.mjs
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── README.md
+├── tailwin.config.mjs
+├── tsconfig.json
+```
