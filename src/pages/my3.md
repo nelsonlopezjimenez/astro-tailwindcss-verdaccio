@@ -39,47 +39,131 @@ import LayoutSite from '@layouts/LayoutSite.astro';
 ## The top bar
 
 Let’s add the top bar now.
+
 The top bar includes the site logo, a few navigation links, and a
 link to the login page.
+
 We’ll need the top bar in all pages of the site.
-Create a components folder in src .
-Inside it we’re going to have a lot of components, so we’d better
+
+
+Inside **src/components/** folder we’re going to have a lot of components, so we’d better
 think about organizing them nicely.
-Our Astro site will handle both the public-facing site, and the
-web app part, so the first big organization is to separate them
-into site and app components.
-Inside src/components/site we can further organize by creating a
-common folder to host components reused across all the website
-(like the top bar component) and a homepage folder that will host only components related to the homepage, our most complicated
+
+Our Astro site will handle both the public-facing site, and the web app part, so the first big organization is to separate them into **site** and **app** components.
+
+Inside **src/components/site** we can further organize by creating a **common** folder to host components reused across all the website
+(like the top bar component) and a **homepage** folder that will host only components related to the homepage, our most complicated
 page.
 
-Inside common create the file TopBar.astro .
-Import it in LayoutSite.astro , and include it right before the
-&lt;slot />:
+![]('src-compnts-site-common-homepage_image.webp')
+
+Inside **common** create the file **TopBar.astro**.
+
+Import it in LayoutSite.astro , and include it right before the &lt;slot />:
 
 ```
-
 ---
 import TopBar from '@components/site/common/TopBar.astro'
 ---
+
 <html lang='en'>
-<head>
+  <head>
     <meta charset='utf-8' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg'
-    />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='viewport' content='width=device-width' />
-    <title>Spring24app</title>
-</head>
-<body>
+    <title>Secretplan</title>
+  </head>
+  <body>
     <TopBar />
     <slot />
-</body>
+  </body>
 </html>
 
 ```
 
 Now write “Top Bar” in the TopBar.astro component, and it will
-appear in the website.
+appear in the website:
+
+![]('/topbar-astro_image.webp')
+
+The logo1 is in the public folder of the Astro site:
+
+
+Anything in the public folder is statically served from Astro, this means you can access it using as http://localhost:4321/logo1.svg.
+
+Inside your components you can reference it as
+
+```
+
+<img src='/logo.svg' />
+
+```
+
+
+Save this into TopBar.astro:
+
+```
+
+<nav class='flex justify-between p-6 text-sm font-semibold'>
+  <a href='/' class='flex-1'>
+    <img src='/logo.svg' alt='Logo' class='h-5 invert dark:invert-0' />
+  </a>
+  
+  <div class='hidden md:flex gap-x-12'>
+    <a href='/#features'>Features</a>
+    <a href='/#pricing'>Pricing</a>
+    <a href='/blog'>Blog</a>
+  </div>
+  
+  <div class='flex-1 text-right'>
+    <a href='/login'>Log in &rarr;</a>
+  </div>
+</nav>
+
+```
+We have a bunch of HTML tags.
+
+Everything is wrapped in a <nav> tag, which semantically represents a section of a page that links to other pages or to parts within the page.
+
+We use a lot of classes. This is Tailwind CSS in action.
+
+Stripped down, the pure HTML looks like this:
+
+```
+<nav>
+  <a href='/'>
+    <img src='/logo.svg' alt='Logo' />
+  </a>
+  
+  <div>
+    <a href='/#features'>Features</a>
+    <a href='/#pricing'>Pricing</a>
+    <a href='/blog'>Blog</a>
+  </div>
+  
+  <div>
+    <a href='/login'>Log in &rarr;</a>
+  </div>
+</nav>
+
+```
+
+
+The links point to locations we’ll create later on. In particular, /login and /blog are different pages (we’ll build blog later in this module). /#pricing and /#features will be locations in the homepage where people can find information about (guess what) the features and the pricing.
+
+An important class we use, that determines how the whole component looks like, is **flex**. This enables flexbox on the <nav> tag.
+
+justify-between equally separates the 3 children of nav.
+
+The flex-1 class on the first and last makes sure they expand to equally take the space remaining, so one stays left, one right.
+
+The middle part, we only show it when the screen is large enough, using hidden md:flex.
+
+Then the each individual link is separated from each other using gap-x-12.
+
+This is the result:
+
+
 
 # Tips from Flavio Copes
 
