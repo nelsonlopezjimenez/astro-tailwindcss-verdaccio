@@ -1109,3 +1109,163 @@ import Footer from '@components/site/common/Footer.astro'
 
 ```
 ## Create the blog
+
+Now it’s time to create the product’s blog.
+
+The product blog is where we’ll post updates, sneak peeks, new releases, new features, tips and tricks, case studies, whatever is related to our product / “startup”, maybe also stuff we can post and then promote on social media to get more people to check out our app.
+
+This is what we want to achieve initially, a minimal blog setup that will be available on the **/blog** route:
+
+![]('_image-9C.png')
+
+And when we click a blog post, we get the single blog post view, corresponding to the URL **/blog/&lt;post-name>**:
+
+![]('_image-9CA.png')
+
+## Create a collection
+
+The first thing to do is to create a **content collection**.
+
+A collecation is a super powerful feature of Astro.
+
+
+It is a way to define a category of content, that we author using **markdowwn**. We can have for example, blog posts, tutorial, changelog or different types of content.
+
+Create a **src/content** folder. Then create **src/content/config.ts** file.
+
+In **contig.ts** file, we define a **blog** collection as follows:
+
+```
+
+import { z, defineCollection } from 'astro:content'
+
+const blog = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    date: z.date(),
+  }),
+})
+
+export const collections = {
+  blog,
+}
+
+```
+
+We import the **defineCollection** function, and the **z** object, from Astro.
+
+Then we define the **schema** of the collection. Schema is the "structure": title (of type string), and a date (of type **date**).
+
+If the input title is not a string, or the input date is not a date, Astro will display an error.
+
+![]('') 9CC
+
+Restart the server (ctrl-^) followed by **npm run dev**. Astro needs to see the content of the collection in order to generate the types that Typescript wants to see.
+
+**NOTE**: if you see a red line the command **<code>Developer: Restart Extension Host</code>** may help. If not, restart Astro server.
+
+## Create the blog plost list
+
+Now create the **blog** folder at **src/content**. The blog posts will have the 'md' extension (markdown).
+
+Let's start with a 'hello world' blog post. Create **src/content/blog/hello-world.md**:
+
+```
+---
+title: Hello, world!
+date: 2024-01-20
+---
+
+We did it! aaaa
+
+```
+
+**FRONTMATTER** is the part between **---**.
+
+Below it is the content. **Markdown** is like HTML but much simpler. Start learning the basics, it is worth. 
+
+It is time to create the **'route'** that will listen on **/blog**, by creating **src/pages/blog.astro**:
+
+```
+
+
+---
+import LayoutSite from '../layouts/LayoutSite.astro'
+
+import { getCollection } from 'astro:content'
+let posts = await getCollection('blog')
+
+posts = posts.sort(
+  (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
+)
+---
+
+<LayoutSite title={'Blog'}>
+  <ul class="py-10 px-6 mx-auto max-w-7xl space-y-10">
+    {
+      posts.map((post) => {
+        return (
+          <li class="p-8 border rounded-lg">
+            <a href={`/blog/${post.slug}/`} class="text-2xl font-bold">
+              {post.data.title}
+            </a>
+          </li>
+        )
+      })
+    }
+  </ul>
+</LayoutSite>
+
+```
+
+The **imports** are at the top: **getCollection** function from Astro. We call it to get the list of posts using **await getCollection('blog')**.
+It an async function. Async function always return a promise. The promise will be either resolved (fullfilled) or rejected at some point in time later. It depends on the network traffic and other factors. 
+
+Now the **posts** object contains the array of posts. 
+
+We then call the **sort()** method to order posts based on date.
+
+in **blog.astro** file in the markup component we iterate over the posts array to print the list of blog posts.
+
+We pass a **title** prop (a string) to the **LayoutSite** component, so in the LayoutSite.astro **title** field is printed dynamically.
+
+```
+
+---
+import TopBar from '@components/site/common/TopBar.astro'
+import Footer from '@components/site/common/Footer.astro'
+
+const { title = 'Secretplan' } = Astro.props
+---
+
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+
+    <title>Secretplan</title>
+    <title>{title}</title>
+  </head>
+
+  <body class='dark:bg-black dark:text-white'>
+    <div class='max-w-5xl px-4 py-4 mx-auto'>
+      <TopBar />
+      <slot />
+      <Footer />
+    </div>
+  </body>
+</html>
+
+```
+
+
+This is the page responsible for showing the list of blog posts.
+
+Now go to http://localhost:4321/blog
+
+![]('') 9ccd
+
+## The single blog post view
+
