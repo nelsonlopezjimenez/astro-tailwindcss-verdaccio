@@ -1116,12 +1116,12 @@ The product blog is where we’ll post updates, sneak peeks, new releases, new f
 
 This is what we want to achieve initially, a minimal blog setup that will be available on the **/blog** route:
 
-![]('_image-9C.png')
+![]('_image-9CDD.png')
 
 And when we click a blog post, we get the single blog post view, corresponding to the URL **/blog/&lt;post-name>**:
 
 ![]('_image-9CA.png')
-
+PENDING
 ## Create a collection
 
 The first thing to do is to create a **content collection**.
@@ -1159,7 +1159,7 @@ Then we define the **schema** of the collection. Schema is the "structure": titl
 
 If the input title is not a string, or the input date is not a date, Astro will display an error.
 
-![]('') 9CC
+![]('_image-9CC.webp') 
 
 Restart the server (ctrl-^) followed by **npm run dev**. Astro needs to see the content of the collection in order to generate the types that Typescript wants to see.
 
@@ -1265,7 +1265,276 @@ This is the page responsible for showing the list of blog posts.
 
 Now go to http://localhost:4321/blog
 
-![]('') 9ccd
+![]('_image9CCD.png') 
 
 ## The single blog post view
+
+In the previous section we learned how to display all the posts. Now we are going to learn how to display just one post. For that, by clicking on a given post, the web page should be redirected to the content of that post. In order to do that, we need an URL pointing to that specific post. Create the file **src/layouts/MarkdownLayout.astro**. In this file we'll take care of rendering the markdown content of each blog post:
+
+```
+
+---
+import LayoutSite from './LayoutSite.astro'
+
+const { title, date } = Astro.props
+
+const formattedDate = (date: string) =>
+  new Date(date).toLocaleDateString('en-us', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  })
+---
+
+<LayoutSite title={title}>
+  <div id="markdown" class="py-10 px-6 mx-auto max-w-7xl space-y-10">
+    <h1>{title}</h1>
+    <p>{formattedDate(date)}</p>
+    <hr class="my-4 border-zinc-500" />
+    <slot />
+  </div>
+</LayoutSite>
+
+```
+
+The **MarkdownLayout.astro**'s purpose is just to customize how the blog post is rendered. We could've used the regular **LayoutSite** for that purpose, but then the date would be shown in its defult format. By using a second layout, it allows us to add a **markdown** id attribute to a container **div**, so we can later style the markdown with CSS. SUPERIMPORTANT!!!
+
+Now, let's create a dynamic route (URL) to render one post. Create **src/pages/blog/[slug].astro**.
+
+Each blog post's file title will determine the website page route (URL). For instance, **hello-world.md** turns into **src/pages/blog/hello-world**. 
+
+You don't need to create a route for each blog post (remember Reddit web site? the **/r/something route**?). The **[slug].astro** takes care of the dynamic part. 
+
+in **[slug].astro** file we add:
+
+```
+
+---
+import MarkdownLayout from '@layouts/MarkdownLayout.astro'
+import { getCollection } from 'astro:content'
+
+export async function getStaticPaths() {
+  let posts = await getCollection('blog')
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }))
+}
+
+const { post } = Astro.props
+const { Content } = await post.render()
+---
+
+<MarkdownLayout title={post.data.title} date={post.data.date}>
+  <Content />
+</MarkdownLayout>
+
+```
+
+Basically Astro at build time will generate the blog posts from our blog collection.
+
+Notice how we use the MarkdownLayout component we’ve previously created, passing it the title and the date, which is then used in src/layouts/MarkdownLayout.astro.
+
+Awesome!
+
+Things work, but our blog posts look a bit boring: everything looks the same, the title is not big enough, the list is not rendered as a list…
+
+![]('/_image-9D.png')
+
+We can add some CSS to style our blog posts, and here’s how the markdown id we added to MarkdownLayout.astro will prove to be useful.
+
+Create a **src/site.css** file:
+
+```
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  #markdown {
+    @apply text-black dark:text-white;
+  }
+  #markdown h1 {
+    @apply text-4xl font-extrabold tracking-tight mt-0;
+  }
+
+  #markdown h2 {
+    @apply text-3xl font-extrabold tracking-tight mt-10;
+  }
+
+  #markdown h3 {
+    @apply text-2xl font-extrabold tracking-tight mt-10;
+  }
+
+  #markdown h4 {
+    @apply mt-4 text-gray-500 mb-4;
+  }
+
+  #markdown p {
+    @apply mt-4;
+  }
+
+  #markdown ul,
+  #markdown ol {
+    @apply mt-2  list-inside;
+  }
+  #markdown ul {
+    @apply list-disc;
+  }
+  #markdown ol {
+    @apply list-decimal;
+  }
+  #markdown li {
+    @apply pt-2;
+  }
+
+  #markdown img {
+    @apply dark:invert;
+  }
+}
+
+```
+
+Now import it in the LayoutSite.astro to load the CSS:
+
+```
+
+---
+import TopBar from '@components/site/common/TopBar.astro'
+import Footer from '@components/site/common/Footer.astro'
+
+import '@src/site.css'
+
+const { title = 'Secretplan' } = Astro.props
+---
+```
+
+![]('/_image-9D20.png')
+
+## List the latest blog post in the homepage
+
+One thing I want to do is showing the latest blog post in the homepage.
+
+It’s nice to show visitors the latest news.
+
+We’ll do that in src/components/site/homepage/Hero.astro.
+
+First we add a section to gather the posts from the blog collection, and order them by date:
+
+```
+
+---
+import { getCollection } from 'astro:content'
+let posts = await getCollection('blog')
+
+posts = posts.sort(
+  (a, b) =>
+    new Date(b.data.date).valueOf() -
+    new Date(a.data.date).valueOf()
+)
+---
+
+```
+Then we add the latest blog post data to the HTML by referencing posts[0] (the first blog post in the list, now ordered from most recent to oldest):
+
+```
+
+    </p>
+
+    <div class='mx-auto mb-10'>
+      <a
+        href={`/blog/${posts[0].slug}`}
+        class='px-4 py-2 text-sm rounded-full bg-zinc-800 text-zinc-200 font-semibold'>
+        New: {posts[0].data.title} &rarr;
+      </a>
+    </div>
+
+    <h1
+      class='text-4xl font-bold tracking-tight sm:text-6xl'>
+      The easiest way to manage your projects
+    </h1>
+
+```
+
+Use as a reference the **<code><h1></code> tag** to add the code snippet in the correct place. 
+
+
+Here it is:
+
+![]('/_image-9D22.png')
+
+
+The logo needs to be fixed. I'll do it at a later date.
+
+## Wrapping the module 2
+
+We did it!
+
+We build a pretty cool site with a homepage built using a component-based approach.
+
+We used content collections to create a blog.
+
+The site works on mobile or desktop, looks nice in light or dark mode.
+
+The website is statically pre-rendered at build time.
+
+What does this mean? Basically, when you deploy the site, Astro generates the HTML, and that’s it.
+
+In the next modules we’ll add Server-Side Rendering (SSR) in order to make our application dynamic, but what you’ve built so far is a static site that can be deployed on a simple hosting platform like Netlify or Cloudflare Pages without any more work to do.
+
+## Troubleshooting 
+
+Sometimes I run into issues in VS Code when working in my Astro projects, I don’t know it it’s VS Code, TypeScript, Astro, more likely a combination of it all.
+
+Sometimes errors are subtle / confusing, for example in one case I create a file and imported it, but I got a red line under the import saying Cannot find module ... or its corresponding type declarations
+
+You can try opening the VS Code command palette and execute Developer: Restart Extension Host or Developer: Reload Window and more often than not, the error goes away.
+
+Also try stopping npm run dev and restarting it.
+
+Final try, close VS Code and reopen it.
+
+Sometimes the issue is that Types were not generated. If you click on "quick fix" if available it may solve the issue. Note that VS Code will add some code defining the types. Check your code for any changes.
+
+Running ***npx astro sync** may work. If nothing works, ask for help.
+
+## Source code
+
+I will provide the full code of this module at the beginning of our next week (week 5 in our quarter). Also, I will provide the full code each week toward the end of the week depending our progress.
+
+
+### This was the content of this module:
+
+1:	Introduction to the module
+2:	Introducing Astro
+3:	Using Astro via StackBlitz
+4:	Installing Astro locally
+5:	A note on configuration
+6:	About TypeScript
+7:	Overview of the starter Astro site
+8:	Astro vs other JS frameworks
+9:	Let’s start with the homepage
+10:	Install the Astro Tailwind extension
+11:	Create a layout
+12:	The top bar
+13:	Dark mode issues
+14:	The hero section
+15:	The screenshot of the app in action
+16:	The features list
+17:	Improving the Features component using JavaScript
+18:	The testimonial(s)
+19:	The pricing section
+20:	Frequently asked questions
+21:	The footer
+22:	Create the blog
+23:	Create a collection
+24:	Create the blog posts list
+25:	The single blog post view
+26:	List the latest blog post in the homepage
+27:	Wrapping up module 2
+28:	Push your code to GitHub
+29:	Troubleshooting
+30:	Source code
 
