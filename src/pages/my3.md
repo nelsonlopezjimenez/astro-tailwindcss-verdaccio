@@ -55,7 +55,13 @@ Inside **src/components/site** we can further organize by creating a **common** 
 (like the top bar component) and a **homepage** folder that will host only components related to the homepage, our most complicated
 page.
 
-![]('src-compnts-site-common-homepage_image.webp')
+# AAA
+
+<!-- ![src-compnts-site-common-homepage_image.webp]('/src-compnts-site-common-homepage_image.webp') -->
+
+<!-- ![src-compnts-site-common-homepage_image.webp]('/public/src-compnts-site-common-homepage_image.webp') -->
+
+<!-- ![nnnnnnnnnnnnnnnnnnnnnnn]({Astro.resolve('./src-compnts-site-common-homepage_image.webp')}) -->
 
 Inside **common** create the file **TopBar.astro**.
 
@@ -84,7 +90,9 @@ import TopBar from '@components/site/common/TopBar.astro'
 Now write “Top Bar” in the TopBar.astro component, and it will
 appear in the website:
 
-![]('/topbar-astro_image.webp')
+# AAA
+<!-- ![]('/topbar-astro_image.webp') -->
+<!-- ![]('/public/topbar-astro_image.webp') -->
 
 The logo1 is in the public folder of the Astro site:
 
@@ -163,13 +171,14 @@ Then the each individual link is separated from each other using **gap-x-12**.
 
 This is the result:
 
-![]('/secretplan-svg-navlfexmenu.webp')
+# AAA
+<!-- ![]('/secretplan-svg-navlfexmenu.webp') -->
 
 ## Dark mode issues
 
 If you use dark mode in your OS you don’t see the logo, because the logo is white. In light mode we invert it to black using the invert class, but we revert the invert in dark mode using **dark:invert-0.**
 
-![]('/public/_image-4.webp')
+<!-- ![]('/public/_image-4.webp') -->
 
 We fix this by using a dark background in dark mode, and by setting the font white using **dark:bg-black dark:text-white** on the body:
 
@@ -196,7 +205,8 @@ import TopBar from '@components/site/common/TopBar.astro'
 
 ```
 
-![]('/_image-5.webp')
+# AAA
+<!-- ![]('/_image-5.webp') -->
 
 We also set some padding on an inner div, the max width with max-w-5xl, and mx-auto to center this into the page.
 
@@ -264,7 +274,8 @@ import Hero from '@components/site/homepage/Hero.astro'
 
 ```
 
-![]('/_image-6.webp')
+# AAA
+<!-- ![]('/_image-6.webp') -->
 
 ## The screenshot of the app  in action
 
@@ -272,7 +283,7 @@ Let’s now add a big screenshot of the app in action. We haven’t built the ap
 
 Use this screenshot image:
 
-![]('/head-after-pic1a.png')
+<!-- ![]('/head-after-pic1a.png') -->
 
 Create **src/components/site/homepage/Screenshot.astro**
 ```
@@ -312,7 +323,8 @@ import Screenshot from '@components/site/homepage/Screenshot.astro'
 
 Here we go:
 
-![]('/_image-7.webp.png')
+# AAA
+<!-- ![]('/_image-7.webp.png') -->
 
 ## The feature list
 
@@ -320,12 +332,13 @@ Let’s now add the features list.
 
 This is the end result we want:
 
-![]('/_image-7.png')
+# AAA
+<!-- ![]('/_image-7.png') -->
 
 
 When the screen gets smaller:
 
-![]('/_image-9.png')
+<!-- ![]('/_image-9.png') -->
 
 
 Here’s the code to make this work. Suppose your designer handed it to you, or you got this generated from a tool like Figma.
@@ -663,13 +676,14 @@ import Testimonial from '@components/site/homepage/Testimonial.astro'
 
 Looks pretty nice:
 
-![]('/_image-9a.png')
+# AAA
+<!-- ![]('/_image-9a.png') -->
 
 ## The pricing section
 
 Here is what we’ll have in the pricing section of the homepage:
 
-![]('_image-9AB.webp')
+<!-- ![]('_image-9AB.webp') -->
 
 
 As mentioned in the first module, we’ll make the usage of our app free for individuals, and paid for teams.
@@ -896,7 +910,8 @@ import FAQ from '@components/site/homepage/FAQ.astro'
 
 ```
 
-![]('_image-9ABC.png')
+# AAA
+<!-- ![]('_image-9ABC.png') -->
 
 
 Note that using this approach you can easily reorder the components on the page by moving them up or down in **index.astro**, so you can experiment with different layouts, for example putting price up or down and measuring the results.
@@ -909,11 +924,11 @@ In the footer we’ll add a bunch of links that we’ll later “connect” to p
 
 This is going to be the result:
 
-![]("/_image-9ABCD.webp")
+<!-- ![]("/_image-9ABCD.webp") -->
 
 See, we have 4 columns that turn into 2 when the screen is small:
 
-![]("/_image-9B.webp")
+<!-- ![]("/_image-9B.webp") -->
 
 
 This is the HTML we need for this:
@@ -1116,11 +1131,14 @@ The product blog is where we’ll post updates, sneak peeks, new releases, new f
 
 This is what we want to achieve initially, a minimal blog setup that will be available on the **/blog** route:
 
-![]('_image-9CDD.png')
+# AAA
+<!-- ![]('_image-9CDD.png') -->
 
 And when we click a blog post, we get the single blog post view, corresponding to the URL **/blog/&lt;post-name>**:
 
-![]('_image-9CA.png')
+<!-- ![]('_image-9CA.png') -->
+
+
 PENDING
 ## Create a collection
 
@@ -1159,7 +1177,8 @@ Then we define the **schema** of the collection. Schema is the "structure": titl
 
 If the input title is not a string, or the input date is not a date, Astro will display an error.
 
-![]('_image-9CC.webp') 
+# AAA
+<!-- ![]('_image-9CC.webp')  -->
 
 Restart the server (ctrl-^) followed by **npm run dev**. Astro needs to see the content of the collection in order to generate the types that Typescript wants to see.
 
@@ -1265,7 +1284,8 @@ This is the page responsible for showing the list of blog posts.
 
 Now go to http://localhost:4321/blog
 
-![]('_image9CCD.png') 
+# AAA
+<!-- ![]('_image9CCD.png')  -->
 
 ## The single blog post view
 
@@ -1340,7 +1360,8 @@ Awesome!
 
 Things work, but our blog posts look a bit boring: everything looks the same, the title is not big enough, the list is not rendered as a list…
 
-![]('/_image-9D.png')
+# AAA
+<!-- ![]('/_image-9D.png') -->
 
 We can add some CSS to style our blog posts, and here’s how the markdown id we added to MarkdownLayout.astro will prove to be useful.
 
@@ -1411,7 +1432,8 @@ const { title = 'Secretplan' } = Astro.props
 ---
 ```
 
-![]('/_image-9D20.png')
+# AAA
+<!-- ![]('/_image-9D20.png') -->
 
 ## List the latest blog post in the homepage
 
@@ -1463,7 +1485,8 @@ Use as a reference the **<code><h1></code> tag** to add the code snippet in the 
 
 Here it is:
 
-![]('/_image-9D22.png')
+# AAA
+<!-- ![]('/_image-9D22.png') -->
 
 
 The logo needs to be fixed. I'll do it at a later date.
