@@ -56,9 +56,9 @@ Inside **src/components/site** we can further organize by creating a **common** 
 page.
 
 
-<img src="../src-compnts-site-common-homepage_image.webp" alt="topbar-astro_image.webp" width=100%/>
+<img class="myMd" src="../src-compnts-site-common-homepage_image.webp" alt="topbar-astro_image.webp" width=100%/>
 
-<img src="/src-compnts-site-common-homepage_image.webp" alt="topbar-astro_image.webp" width=100% />
+<img class="myMd" src="/src-compnts-site-common-homepage_image.webp" alt="topbar-astro_image.webp" width=100% />
 
 Inside **common** create the file **TopBar.astro**.
 
@@ -88,8 +88,8 @@ Now write “Top Bar” in the TopBar.astro component, and it will
 appear in the website:
 
 
-<img src="../topbar-astro_image.webp" alt="topbar-astro_image.webp" width=100%>
-<img src="/topbar-astro_image.webp" alt="topbar-astro_image.webp" width=100%>
+<img class="myMd" src="../topbar-astro_image.webp" alt="topbar-astro_image.webp" width=100%>
+<img class="myMd" src="/topbar-astro_image.webp" alt="topbar-astro_image.webp" width=100%>
 
 The logo1 is in the public folder of the Astro site:
 
@@ -168,8 +168,8 @@ Then the each individual link is separated from each other using **gap-x-12**.
 
 This is the result:
 
-<img src="../secretplan-svg-navflexmenu.webp" alt="secretplan-svg-navlfexmenu.webp" width=100%>
-<img src="/secretplan-svg-navflexmenu.webp" alt="secretplan-svg-navlfexmenu.webp" width=100%>
+<img class="myMd" src="../secretplan-svg-navflexmenu.webp" alt="secretplan-svg-navlfexmenu.webp" width=100%>
+<img class="myMd" src="/secretplan-svg-navflexmenu.webp" alt="secretplan-svg-navlfexmenu.webp" width=100%>
 
 
 ## Dark mode issues
@@ -177,8 +177,8 @@ This is the result:
 If you use dark mode in your OS you don’t see the logo, because the logo is white. In light mode we invert it to black using the invert class, but we revert the invert in dark mode using **dark:invert-0.**
 
 <!-- ![]('/public/_image-4.webp') -->
-<img src="../_image-4.webp" alt="_image-4.webp" width=100%>
-<img src="/_image-4.webp" alt="/_image-4.webp" width=100%>
+<img class="myMd" src="../_image-4.webp" alt="_image-4.webp" width=100%>
+<img class="myMd" src="/_image-4.webp" alt="/_image-4.webp" width=100%>
 
 We fix this by using a dark background in dark mode, and by setting the font white using **dark:bg-black dark:text-white** on the body:
 
@@ -205,8 +205,8 @@ import TopBar from '@components/site/common/TopBar.astro'
 
 ```
 
-<img src="../_image-5.webp" alt="_image-5.webp" width=100%>
-<img src="/_image-5.webp" alt="/_image-5.webp" width=100%>
+<img class="myMd" src="../_image-5.webp" alt="_image-5.webp" width=100%>
+<img class="myMd" src="/_image-5.webp" alt="/_image-5.webp" width=100%>
 <!-- ![]('/_image-5.webp') -->
 
 We also set some padding on an inner div, the max width with max-w-5xl, and mx-auto to center this into the page.
@@ -275,8 +275,8 @@ import Hero from '@components/site/homepage/Hero.astro'
 
 ```
 
-<img src="../_image-6.webp" alt="6" width=100%>
-<img src="/_image-6.webp" alt="6" width=100%>
+<img class="myMd" src="../_image-6.webp" alt="6" width=100%>
+<img class="myMd" src="/_image-6.webp" alt="6" width=100%>
 <!-- ![]('/_image-6.webp') -->
 
 ## The screenshot of the app  in action
@@ -286,8 +286,8 @@ Let’s now add a big screenshot of the app in action. We haven’t built the ap
 Use this screenshot image:
 
 <!-- ![]('/head-after-pic1a.png') -->
-<img src="../head-after-pic1a.png" alt="pic1a" width=100%>
-<img src="/head-after-pic1a.png" alt="/pic1a" width=100%>
+<img class="myMd" src="../head-after-pic1a.png" alt="pic1a" width=100%>
+<img class="myMd" src="/head-after-pic1a.png" alt="/pic1a" width=100%>
 
 Create **src/components/site/homepage/Screenshot.astro**
 ```
@@ -327,8 +327,8 @@ import Screenshot from '@components/site/homepage/Screenshot.astro'
 
 Here we go:
 
-<img src="../_image-7.webp" alt="" width=100%>
-<img src="/_image-7.webp" alt="" width=100%>
+<img class="myMd" src="../_image-7.webp" alt="" width=100%>
+<img class="myMd" src="/_image-7.webp" alt="" width=100%>
 <!-- ![]('/_image-7.webp.png') -->
 
 ## The feature list
@@ -337,15 +337,15 @@ Let’s now add the features list.
 
 This is the end result we want:
 
-<img src="../_image-7.webp.png" alt="" width=100%>
-<img src="/_image-7.webp.png" alt="" width=100%>
+<img class="myMd" src="../_image-7.webp.png" alt="" width=100%>
+<img class="myMd" src="/_image-7.webp.png" alt="" width=100%>
 <!-- ![]('/_image-7.png') -->
 
 
 When the screen gets smaller:
 
-<img src="../_image-9.webp" alt="" width=100%>
-<img src="/_image-9.webp" alt="" width=100%>
+<img class="myMd" src="../_image-9.webp" alt="" width=100%>
+<img class="myMd" src="/_image-9.webp" alt="" width=100%>
 <!-- ![]('/_image-9.png') -->
 
 
@@ -684,16 +684,16 @@ import Testimonial from '@components/site/homepage/Testimonial.astro'
 
 Looks pretty nice:
 
-<img src="../_image-9a.webp.png" alt="" width=100%>
-<img src="/_image-9a.webp.png" alt="" width=100%>
+<img class="myMd" src="../_image-9a.webp.png" alt="" width=100%>
+<img class="myMd" src="/_image-9a.webp.png" alt="" width=100%>
 <!-- ![]('/_image-9a.png') -->
 
 ## The pricing section
 
 Here is what we’ll have in the pricing section of the homepage:
 
-<img src="../_image9AB.webp" alt="" width=100%>
-<img src="/_image9AB.webp" alt="" width=100%>
+<img class="myMd" src="../_image9AB.webp" alt="" width=100%>
+<img class="myMd" src="/_image9AB.webp" alt="" width=100%>
 <!-- ![]('_image-9AB.webp') -->
 
 
@@ -921,8 +921,8 @@ import FAQ from '@components/site/homepage/FAQ.astro'
 
 ```
 
-<img src="../_image9ABC.webp.png" alt="" width=100%>
-<img src="/_image9ABC.webp.png" alt="" width=100%>
+<img class="myMd" src="../_image9ABC.webp.png" alt="" width=100%>
+<img class="myMd" src="/_image9ABC.webp.png" alt="" width=100%>
 <!-- ![]('_image-9ABC.png') -->
 
 
@@ -936,15 +936,15 @@ In the footer we’ll add a bunch of links that we’ll later “connect” to p
 
 This is going to be the result:
 
-<img src="../_image-9ABCD.webp" alt="" width=100%>
-<img src="/_image9-ABCD.webp" alt="" width=100%>
+<img class="myMd" src="../_image-9ABCD.webp" alt="" width=100%>
+<img class="myMd" src="/_image9-ABCD.webp" alt="" width=100%>
 <!-- ![]("/_image-9ABCD.webp") -->
 
 See, we have 4 columns that turn into 2 when the screen is small:
 
 <!-- ![]("/_image-9B.webp") -->
-<img src="../_image-9B.webp" alt="" width=50%>
-<img src="/_image-9B.webp" alt="" width=50%>
+<img class="myMd" src="../_image-9B.webp" alt="" width=50%>
+<img class="myMd" src="/_image-9B.webp" alt="" width=50%>
 
 This is the HTML we need for this:
 
@@ -1146,8 +1146,8 @@ The product blog is where we’ll post updates, sneak peeks, new releases, new f
 
 This is what we want to achieve initially, a minimal blog setup that will be available on the **/blog** route:
 
-<img src="../_image-9CCD.webp" alt="" width=100%>
-<img src="/_image-9CCD.webp" alt="" width=100%>
+<img class="myMd" src="../_image-9CCD.webp" alt="" width=100%>
+<img class="myMd" src="/_image-9CCD.webp" alt="" width=100%>
 <!-- ![]('_image-9CDD.png') -->
 
 And when we click a blog post, we get the single blog post view, corresponding to the URL **/blog/&lt;post-name>**:
@@ -1193,8 +1193,8 @@ Then we define the **schema** of the collection. Schema is the "structure": titl
 
 If the input title is not a string, or the input date is not a date, Astro will display an error.
 
-<img src="../_image-9CC.webp" alt="" width=100%>
-<img src="/_image-9CC.webp" alt="" width=100%>
+<img class="myMd" src="../_image-9CC.webp" alt="" width=100%>
+<img class="myMd" src="/_image-9CC.webp" alt="" width=100%>
 <!-- ![]('_image-9CC.webp')  -->
 
 Restart the server (ctrl-^) followed by **npm run dev**. Astro needs to see the content of the collection in order to generate the types that Typescript wants to see.
@@ -1301,8 +1301,8 @@ This is the page responsible for showing the list of blog posts.
 
 Now go to http://localhost:4321/blog
 
-<img src="../_image-9CCD.webp.png" alt="" width=100%>
-<img src="/_image-9CCD.webp.png" alt="" width=100%>
+<img class="myMd" src="../_image-9CCD.webp.png" alt="" width=100%>
+<img class="myMd" src="/_image-9CCD.webp.png" alt="" width=100%>
 <!-- ![]('_image9CCD.png')  -->
 
 ## The single blog post view
@@ -1378,8 +1378,8 @@ Awesome!
 
 Things work, but our blog posts look a bit boring: everything looks the same, the title is not big enough, the list is not rendered as a list…
 
-<img src="../_image-9D.png" alt="" width=100%>
-<img src="/_image-9D.png" alt="" width=100%>
+<img class="myMd" src="../_image-9D.png" alt="" width=100%>
+<img class="myMd" src="/_image-9D.png" alt="" width=100%>
 <!-- ![]('/_image-9D.png') -->
 
 We can add some CSS to style our blog posts, and here’s how the markdown id we added to MarkdownLayout.astro will prove to be useful.
@@ -1451,8 +1451,8 @@ const { title = 'Secretplan' } = Astro.props
 ---
 ```
 
-<img src="../_image-9D20.png" alt="" width=100%>
-<img src="/_image-9D20.png" alt="" width=100%>
+<img class="myMd" src="../_image-9D20.png" alt="" width=100%>
+<img class="myMd" src="/_image-9D20.png" alt="" width=100%>
 <!-- ![]('/_image-9D20.png') -->
 
 ## List the latest blog post in the homepage
@@ -1505,8 +1505,8 @@ Use as a reference the **<code><h1></code> tag** to add the code snippet in the 
 
 Here it is:
 
-<img src="../_image-9D22.png" alt="" width=100%>
-<img src="/_image-9D22.png" alt="" width=100%>
+<img class="myMd" src="../_image-9D22.png" alt="" width=100%>
+<img class="myMd" src="/_image-9D22.png" alt="" width=100%>
 <!-- ![]('/_image-9D22.png') -->
 
 
@@ -1551,34 +1551,33 @@ I will provide the full code of this module at the beginning of our next week (w
 
 ### This was the content of this module:
 
-1:	Introduction to the module
-2:	Introducing Astro
-3:	Using Astro via StackBlitz
-4:	Installing Astro locally
-5:	A note on configuration
-6:	About TypeScript
-7:	Overview of the starter Astro site
-8:	Astro vs other JS frameworks
-9:	Let’s start with the homepage
-10:	Install the Astro Tailwind extension
-11:	Create a layout
-12:	The top bar
-13:	Dark mode issues
-14:	The hero section
-15:	The screenshot of the app in action
-16:	The features list
-17:	Improving the Features component using JavaScript
-18:	The testimonial(s)
-19:	The pricing section
-20:	Frequently asked questions
-21:	The footer
-22:	Create the blog
-23:	Create a collection
-24:	Create the blog posts list
-25:	The single blog post view
-26:	List the latest blog post in the homepage
-27:	Wrapping up module 2
-28:	Push your code to GitHub
-29:	Troubleshooting
-30:	Source code
-
+1.	Introduction to the module
+2.	Introducing Astro
+3.	Using Astro via StackBlitz
+4.	Installing Astro locally
+5.	A note on configuration
+6.	About TypeScript
+7.	Overview of the starter Astro site
+8.	Astro vs other JS frameworks
+9.	Let’s start with the homepage
+10.	Install the Astro Tailwind extension
+11.	Create a layout
+12.	The top bar
+13.	Dark mode issues
+14.	The hero section
+15.	The screenshot of the app in action
+16.	The features list
+17.	Improving the Features component using JavaScript
+18.	The testimonial(s)
+19.	The pricing section
+20.	Frequently asked questions
+21.	The footer
+22.	Create the blog
+23.	Create a collection
+24.	Create the blog posts list
+25.	The single blog post view
+26.	List the latest blog post in the homepage
+27.	Wrapping up module 2
+28.	Push your code to GitHub
+29.	Troubleshooting
+30.	Source code.
