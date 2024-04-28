@@ -43,4 +43,8 @@
   #markdown img {
     @apply dark:invert;
   }
+
+  #myMd img {
+    @apply border-4 border-orange-300;
+  }
 }

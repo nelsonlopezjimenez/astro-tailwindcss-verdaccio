@@ -296,7 +296,7 @@ npm run dev
 Got to http://localhost:4321, you should see the following:
 
 
-![](/cd-astroapp-ls-cat-config-files.mp4)
+<!-- ![](/cd-astroapp-ls-cat-config-files.mp4) -->
 <video width="320" height="240" controls>
   <source src="/cd-astroapp-ls-cat-config-files.mp4" type="video/mp4">
   <source src="/cd-astroapp-ls-cat-config-files.mp4" type="video/ogg">
@@ -367,25 +367,28 @@ But, it will be something simple and nice to look at. When the app will make som
 
 ## **In light mode:** 
 
-![](/head-pic1a.png)
-![](/head-after-pic1a.png)
-![](/head-after-pic1b.png)
-![](/head-after-pic1c.png)
-![](/head-after-pic1d.png)
-![](/head-after-pic1e.png)
+
+![Image 1a](/Public/head-pic1a.png)
+![Image 1a](/Public/head-after-pic1a.png)
+![Image 1b](/Public/head-after-pic1b.png)
+![Image 1v](/Public/head-after-pic1c.png)
+![Image 1d](/Public/head-after-pic1d.png)
+![Image 1e](/Public/head-after-pic1e.png)
+
 
 ## **In dark mode:** 
 
-![](/dark-1a.png)
-![](/dark-1c.png)
-![](/dark-1d.png)
-![](/dark-1e.png)
-![](/dark-1f.png)
+![](/Public/dark-1a.png)
+![](/Public/dark-1c.png)
+![](/Public/dark-1d.png)
+![](/Public/dark-1e.png)
+![](/Public/dark-1f.png)
 
 ## **Here the view in a mobile device:**
 
 <video width="320" height="240" controls>
   <source src="/spring24app-mobile-view.mp4" type="video/mp4">
+  <!-- <source src="/public/spring24app-mobile-view.mp4" type="video/mp4"> -->
   <source src="/spring24app-mobile-view.mp4" type="video/ogg">
   Your browser does not support the video tag.
 </video>
