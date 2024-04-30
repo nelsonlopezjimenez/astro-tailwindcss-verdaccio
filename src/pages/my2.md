@@ -1,5 +1,5 @@
 
-# Module 2 - week 4.17
+# Module 2 - week 4.17 - PART A
 
 Now we are going to create a Astro-based website. It consists of homepage, blog, projects page, etc. We'll be using Tailwind to build a layout that is responsive and handles dark and bright mode. We'll learn how to use Astro components to compose the HTML, server side, using JavaScript imports. Also, we'll learn how to create dynamic routes and how to use content collections to build the app. 
 
@@ -127,7 +127,7 @@ NestJS is a framework that uses both JavasCript and Typescript. It follows a mod
 
 
 
- ref https://ably.com/blog/best-nodejs-frameworks
+ ref  https://ably.com/blog/best-nodejs-frameworks
 
 
 ## Installing Astro Locally
@@ -150,6 +150,7 @@ But first watch Astro installation with access to the Internet:
 <!-- [![](https://markdown-videos-api.jorgenkh.no/youtube/{video_id})](https://youtu.be/{video_id}) -->
 ![](/npm-create-astro-at-latest-command.mp4)
 <video width="320" height="240" controls>
+  <source src="../npm-create-astro-at-latest-command.mp4" type="video/mp4">
   <source src="/npm-create-astro-at-latest-command.mp4" type="video/mp4">
   <source src="/npm-create-astro-at-latest-command.mp4" type="video/ogg">
   Your browser does not support the video tag.
@@ -176,7 +177,8 @@ If the command is <code>npm install astro</code>(with no particular version numb
 
 Then, replace any placehoder "scripts" section of your package.json with the following:
 
-![](/astro-manual-packagejson-scripts.png)
+<!-- ![](/astro-manual-packagejson-scripts.png) -->
+<img src="../astro-manual-packagejson-scripts.png" alt="astro-manual-packagejson-scripts.png" width=50% style="border:14px solid pink">
 
 1. **Create Folder Structure**
 
@@ -197,7 +199,11 @@ touch src/pages/index.astro
 
 Your folder now should look like this:
 
-![](/astro-manual-installation-tree.png)
+<!-- ![](/astro-manual-installation-tree.png) -->
+
+<!-- <img src="" alt="" width=70% style="border: 14px solid pink"> -->
+
+<img src="../astro-manual-installation-tree.png" alt="astro-manual-installation-tree.png" width=50% style="border: 14px solid pink">
 
 1. **Create your first page**
 
@@ -238,7 +244,9 @@ For this guide, copy-and-paste the following code snippet into your new file:
 ```
 
 # Example: Allow all bots to scan and index your site.
+
 # Full syntax: https://developers.google.com/search/docs/advanced/robots/create-robots-txt
+
 User-agent: *
 Allow: /
 
@@ -298,6 +306,7 @@ Got to http://localhost:4321, you should see the following:
 
 <!-- ![](/cd-astroapp-ls-cat-config-files.mp4) -->
 <video width="320" height="240" controls>
+  <source src="../cd-astroapp-ls-cat-config-files.mp4" type="video/mp4">
   <source src="/cd-astroapp-ls-cat-config-files.mp4" type="video/mp4">
   <source src="/cd-astroapp-ls-cat-config-files.mp4" type="video/ogg">
   Your browser does not support the video tag.
@@ -368,21 +377,52 @@ But, it will be something simple and nice to look at. When the app will make som
 ## **In light mode:** 
 
 
-![Image 1a](/Public/head-pic1a.png)
-![Image 1a](/Public/head-after-pic1a.png)
-![Image 1b](/Public/head-after-pic1b.png)
-![Image 1v](/Public/head-after-pic1c.png)
-![Image 1d](/Public/head-after-pic1d.png)
-![Image 1e](/Public/head-after-pic1e.png)
+<!-- ![Image 1a](/Public/head-pic1a.png) -->
+
+<!-- <img src="" alt="" width=70% style="border: 14px solid pink"> -->
+
+<img src="/head-pic1a.png" alt="/head-pic1a.png" width=70% style="border: 14px solid pink">
+<img src="/head-after-pic1a.png" alt="/head-after-pic1a.png" width=70% style="border: 14px solid pink">
+<img src="/head-after-pic1b.png" alt="/head-after-pic1b.png" width=70% style="border: 14px solid pink">
+<img src="/head-after-pic1c.png" alt="/head-after-pic1c.png" width=70% style="border: 14px solid pink">
+<img src="/head-after-pic1d.png" alt="/head-after-pic1d.png" width=70% style="border: 14px solid pink">
+<img src="/head-after-pic1e.png" alt="/head-after-pic1e.png" width=70% style="border: 14px solid pink">
+
+<img src="../head-pic1a.png" alt="../head-pic1a.png" width=70% style="border: 14px solid pink">
+<img src="../head-after-pic1a.png" alt="../head-after-pic1a.png" width=70% style="border: 14px solid pink">
+<img src="../head-after-pic1b.png" alt="../head-after-pic1b.png" width=70% style="border: 14px solid pink">
+<img src="../head-after-pic1c.png" alt="../head-after-pic1c.png" width=70% style="border: 14px solid pink">
+<img src="../head-after-pic1d.png" alt="../head-after-pic1d.png" width=70% style="border: 14px solid pink">
+<img src="../head-after-pic1e.png" alt="../head-after-pic1e.png" width=70% style="border: 14px solid pink">
+<!-- ![Image 1a](/head-after-pic1a.png)
+![Image 1b](/head-after-pic1b.png)
+![Image 1v](/head-after-pic1c.png)
+![Image 1d](/head-after-pic1d.png)
+![Image 1e](/head-after-pic1e.png) -->
 
 
 ## **In dark mode:** 
-
+<!-- 
 ![](/Public/dark-1a.png)
 ![](/Public/dark-1c.png)
 ![](/Public/dark-1d.png)
 ![](/Public/dark-1e.png)
-![](/Public/dark-1f.png)
+![](/Public/dark-1f.png) -->
+
+
+<!-- <img src="" alt="" width=70% style="border: 14px solid pink"> -->
+<img src="/dark-1a.png" alt="dark-1a.png" width=70% style="border: 14px solid pink">
+<img src="/dark-1c.png" alt="dark-1c.png" width=70% style="border: 14px solid pink">
+<img src="/dark-1d.png" alt="dark-1d.png" width=70% style="border: 14px solid pink">
+<img src="/dark-1e.png" alt="dark-1e.png" width=70% style="border: 14px solid pink">
+<img src="/dark-1f.png" alt="dark-1f.png" width=70% style="border: 14px solid pink">
+
+
+<img src="../dark-1a.png" alt="../dark-1a.png" width=70% style="border: 14px solid pink">
+<img src="../dark-1c.png" alt="../dark-1c.png" width=70% style="border: 14px solid pink">
+<img src="../dark-1d.png" alt="../dark-1d.png" width=70% style="border: 14px solid pink">
+<img src="../dark-1e.png" alt="../dark-1e.png" width=70% style="border: 14px solid pink">
+<img src="../dark-1f.png" alt="../dark-1f.png" width=70% style="border: 14px solid pink">
 
 ## **Here the view in a mobile device:**
 
@@ -414,7 +454,7 @@ npx astro add tailwind
 ```
 TIP: 
 
-npx is a command we use to run an npm package without installing it first
+npx is a command we use to run an npm package without installing it first. **IF NPX DOES NOT WORK, JUMP INTO NEXT SECTION: "TAILWIND MANUAL INSTALL"**
 
 When prompted press Enter to apply the default options. 
 If you can not run npx command, I will provide with the output directly to you through canvas. In short, the script will allow to configure Tailwind in your app. Once you're done, you can restart Astro app with **npm run dev** command
@@ -423,7 +463,7 @@ You’ll notice the “Astro” text is now a bit smaller, because Tailwind rese
 
 1. **Tailwind Manual Install**
 
-[Manual install](https://docs.astro.build/en/guides/integrations-guide/tailwind/)
+[https://docs.astro.build/en/guides/integrations-guide/tailwind/ ](https://docs.astro.build/en/guides/integrations-guide/tailwind/)
 
 At the root of your project run:
 
@@ -435,7 +475,10 @@ npm install tailwindcss@3.4.1 @astrojs/tailwind@5.1.0
 
 Then, apply the integration to astro.config.mjs file using the <code>integrations</code> property:
 
-![](/astro-config-mjs-edit-1a.png)
+<!-- ![](/astro-config-mjs-edit-1a.png) -->
+<!-- <img src="" alt="" width=70% style="border: 14px solid pink"> -->
+<img src="/astro-config-mjs-edit-1a.png" alt="/astro-config-mjs-edit-1a.png" width=70% style="border: 14px solid pink">
+<img src="../astro-config-mjs-edit-1a.png" alt="../astro-config-mjs-edit-1a.png" width=70% style="border: 14px solid pink">
 
 Then, create <code>tailwind.config.mjs</code> file at the root of your project. You can use the command **<code>npx tailwindcss init</code>** but since it is not sure just create the file and enter the following code:
 
@@ -456,7 +499,7 @@ export default {
 
 Nodejs is a JavaScript runtime for server-side code. @astrojs/node can be use either in standalone mode or as middleware for other http servers, such as express.
 
-Reference [here](https://docs.astro.build/en/guides/integrations-guide/node/)
+Reference [https://docs.astro.build/en/guides/integrations-guide/node/](https://docs.astro.build/en/guides/integrations-guide/node/)
 
 You can do automatic installation using the command <code>npx astro add node</node>. Just in case, here is the manual install steps:
 
