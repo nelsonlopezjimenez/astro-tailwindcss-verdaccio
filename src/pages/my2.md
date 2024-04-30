@@ -388,6 +388,8 @@ But, it will be something simple and nice to look at. When the app will make som
 <img src="/head-after-pic1d.png" alt="/head-after-pic1d.png" width=70% style="border: 14px solid pink">
 <img src="/head-after-pic1e.png" alt="/head-after-pic1e.png" width=70% style="border: 14px solid pink">
 
+# .
+
 <img src="../head-pic1a.png" alt="../head-pic1a.png" width=70% style="border: 14px solid pink">
 <img src="../head-after-pic1a.png" alt="../head-after-pic1a.png" width=70% style="border: 14px solid pink">
 <img src="../head-after-pic1b.png" alt="../head-after-pic1b.png" width=70% style="border: 14px solid pink">
@@ -417,6 +419,7 @@ But, it will be something simple and nice to look at. When the app will make som
 <img src="/dark-1e.png" alt="dark-1e.png" width=70% style="border: 14px solid pink">
 <img src="/dark-1f.png" alt="dark-1f.png" width=70% style="border: 14px solid pink">
 
+# .
 
 <img src="../dark-1a.png" alt="../dark-1a.png" width=70% style="border: 14px solid pink">
 <img src="../dark-1c.png" alt="../dark-1c.png" width=70% style="border: 14px solid pink">
@@ -427,6 +430,7 @@ But, it will be something simple and nice to look at. When the app will make som
 ## **Here the view in a mobile device:**
 
 <video width="320" height="240" controls>
+  <source src="../spring24app-mobile-view.mp4" type="video/mp4">
   <source src="/spring24app-mobile-view.mp4" type="video/mp4">
   <!-- <source src="/public/spring24app-mobile-view.mp4" type="video/mp4"> -->
   <source src="/spring24app-mobile-view.mp4" type="video/ogg">
