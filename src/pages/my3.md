@@ -142,7 +142,7 @@ Run the command from the folder that contains package.json (the root folder of A
 
 ```
 
-npm install pocketbase
+npm install pocketbase@0.21.1
 
 ```
 
@@ -217,7 +217,7 @@ We’re going to create a lot of screens in the “app” portion of our project
 ```
 
 ---
-const { title = 'Secretplan' } = Astro.props
+const { title = 'Spring24app' } = Astro.props
 ---
 
 <html lang='en'>
@@ -247,7 +247,7 @@ const { title = 'Secretplan' } = Astro.props
 
 ```
 
-This layout has a title prop, that will be used to fill the <title> tag content.
+This layout has a title prop, that will be used to fill the &lt;title> tag content.
 
 Any page that uses this layout can pass the title information as a prop, like this:
 
@@ -285,7 +285,7 @@ const projects = await pb
 
 ```
 
-**TIP** Sometimes you may get an error when adding a file to VS Code and then import it. Running \*\*Developer: Restart Extension Host" command in VS Code from the Command Palette (cmd-shift-p OR ctrl-shift-p OR shift-greaterthan key).
+**TIP** Sometimes you may get an error when adding a file to VS Code and then import it. Running **Developer: Restart Extension Host** command in VS Code from the Command Palette (cmd-shift-p OR ctrl-shift-p OR shift-greaterthan key).
 
 The layout now provides some built-in padding that will be set across all pages in our app:
 
@@ -300,7 +300,7 @@ Create the file src/components/app/projects/ProjectCard.astro and inside it we�
 
 VS Code tip: you can right click after all the files list in the root of the project, select “New File…”, then paste that whole string including / in the root of the project VS Code will auto-create all folders, pretty handy
 
-We get the project object as a prop, and we print the project name in a <li> tag:
+We get the project object as a prop, and we print the project name in a &lt;li> tag:
 
 ```
 
@@ -373,7 +373,6 @@ const { project } = Astro.props
 
 This adds some padding to each project, and also links to the project detail page when each card is clicked:
 
-
 <img src="../_image3MR.png" alt="image3MR" width=70% />
 
 <img src="  /_image3MR.png" alt="image3MR" width=70% />
@@ -397,18 +396,15 @@ Now in src/pages/app/dashboard.astro we can wrap our cards in a container with g
 
 ```
 
-
 <img src="../_image3MS.png" alt="image3MS" width=70% />
 
 <img src="  /_image3MS.png" alt="image3MS" width=70% />
 
 On small screens you’ll get 1 column, thanks to using sm: before grid-cols-2 in our Tailwind CSS class:
 
-
 <img src="../_image3MT.png" alt="image3MT" width=70% />
 
 <img src="  /_image3MT.png" alt="image3MT" width=70% />
-
 
 Let’s also add a title so users knows what they’re looking at:
 
@@ -437,11 +433,9 @@ Let’s also add a title so users knows what they’re looking at:
 
 Pretty nice:
 
-
 <img src="../_image3MU.png" alt="image3MU" width=70% />
 
 <img src="  /_image3MU.png" alt="image3MU" width=70% />
-
 
 ## Show the project status
 
@@ -449,21 +443,15 @@ Now let’s display each project’s status in the project card.
 
 Remember, we have the status information that stores the current project state, for example “not started” or “in progress” or “completed”:
 
-IMAGE 3MV
-
 <img src="../_image3MV.png" alt="image3MV" width=70% />
 
 <img src="  /_image3MV.png" alt="image3MV" width=70% />
 
-
 Here’s what we want to achieve:
-
-3MW
 
 <img src="../_image3MW.png" alt="image3MW" width=70% />
 
 <img src="  /_image3MW.png" alt="image3MW" width=70% />
-
 
 To do this, first we add some markup to the card HTML in src/components/app/projects/ProjectCard.astro:
 
@@ -532,7 +520,7 @@ export function projectStatus(status: string) {
 
 ```
 
-Finally, we add a <style> tag to include 2 custom CSS classes: bg-stripes-darkgray-yellow and dashed-border-top:
+Finally, we add a &lt;style> tag to include 2 custom CSS classes: bg-stripes-darkgray-yellow and dashed-border-top:
 
 ```
 
@@ -565,7 +553,7 @@ Finally, we add a <style> tag to include 2 custom CSS classes: bg-stripes-darkgr
 
 ```
 
-Here’s the complete src/components/app/projects/ProjectCard.astro file:
+Here’s the complete **src/components/app/projects/ProjectCard.astro file**:
 
 ```
 
@@ -659,12 +647,9 @@ export function projectStatus(status: string) {
 
 Looks pretty cool (I changed the status of the projects in PocketBase, to see how it changed its design):
 
-3MX
-
 <img src="../_image3MX.png" alt="image3MX" width=70% />
 
 <img src="  /_image3MX.png" alt="image3MX" width=70% />
-
 
 ## The problem we are facing with static rendering
 
@@ -678,11 +663,9 @@ We are currently running Astro in development mode, as we ran npm run dev.
 
 Each time we change something in our pages, the result you see in the browser changes. And new data coming from PocketBase is fetched without issues, as you can see by adding a new project in PocketBase:
 
-
 <img src="../_image3PA.webp" alt="image3PA" width=70% />
 
 <img src="  /_image3PA.webp" alt="image3PA" width=70% />
-
 
 Now let’s do something.
 
@@ -690,52 +673,41 @@ Let’s build the app for production.
 
 Stop **npm run dev** by pressing **cmd-c** or **ctrl-c** and run:
 
-
 ```
 
 npm run build
 
 ```
 
-
 <img src="../_image3PB.webp" alt="image3PB" width=70% />
 
 <img src="  /_image3PB.webp" alt="image3PB" width=70% />
 
-
 The **build** command is defined in **package.json** as:
-
 
 <img src="../_image3PC.webp" alt="image3PC" width=70% />
 
 <img src="  /_image3PC.webp" alt="image3PC" width=70% />
 
-
 When you run this command, first Astro runs astro check to check for possible errors, and then, if there are no problems, it runs astro build to create the production version in the dist folder in your project.
 
 You should be able to see dist folder in VS Code:
-
 
 <img src="../_image3PD.webp" alt="image3PD" width=70% />
 
 <img src="  /_image3PD.webp" alt="image3PD" width=70% />
 
-
 Now run **npm run preview** to run **astro preview**, the Astro command that starts a local server and serves the content of the **dist** folder.
-
 
 <img src="../_image3PE.webp" alt="image3PE" width=70% />
 
 <img src="  /_image3PE.webp" alt="image3PE" width=70% />
 
-
 Now try accessing the URL, go to the **/app/dashboard** route and you’ll see the projects, as we had before:
-
 
 <img src="../_image3PF.webp" alt="image3PF" width=70% />
 
 <img src="  /_image3PF.webp" alt="image3PF" width=70% />
-
 
 But now try removing the “new project” you just added - you still see the project on the website!
 
@@ -823,15 +795,11 @@ Do the same for **src/pages/blog.astro** and also **src/pages/blog/[slug].astro*
 
 Now run **npm run build** again, notice some things changed compared to the last time we ran that command:
 
-
 <img src="../_image3PG.webp" alt="image3PG" width=70% />
 
 <img src="  /_image3PG.webp" alt="image3PG" width=70% />
 
-
 Now run **npm run preview**, this command changed too:
-
-
 
 <img src="../_image3PH.webp" alt="image3PH" width=70% />
 
@@ -842,8 +810,6 @@ Now go to **http://localhost:4321/app/dashboard**, and now try doing what we tri
 After reloading the page, you’ll see the new data reflected on the website.
 
 ## SSR vs SSG: Server Side Rendering vs Server Side Generator
-
-
 
 The upside is that we now have fresh data.
 
@@ -942,7 +908,6 @@ const projects = await pb
 
 You should see the button in place:
 
-
 <img src="../_image3PJ.webp" alt="image3PJ" width=70% />
 
 <img src="  /_image3PJ.webp" alt="image3PJ" width=70% />
@@ -1001,7 +966,7 @@ document.querySelector('dialog').close()
 
 ```
 
-Let's start by adding a **&lth;dialog>** element in **src/layouts/LayoutApp.astro**:
+Let's start by adding a **&lt;dialog>** element in **src/layouts/LayoutApp.astro**:
 
 ```
 
@@ -1066,8 +1031,6 @@ export const partial = true
 
 ```
 
-
-
 This is a page partial (see https://astro.build/blog/astro-340/ and https://docs.astro.build/en/basics/astro-pages/#partials)
 
 We’ll later implement this, but let’s get to the point this content is shown in the page.
@@ -1092,17 +1055,16 @@ Install it from the terminal:
 
 ```
 
-npm install htmx.org@X.X.X
+npm install htmx.org@1.9.10
 
 ```
-
 
 Then import it in the layout src/layouts/LayoutApp.astro:
 
 ```
 
 ---
-const { title = 'Srping24app' } = Astro.props
+const { title = 'Spring24app' } = Astro.props
 ---
 
 <html lang='en'>
@@ -1150,13 +1112,9 @@ const { title = 'Srping24app' } = Astro.props
 
 Doing so now you have all the documentation and hints about htmx right in VS Code:
 
-
-
 We add the line **window.htmx = htmx** in case we want to access the htmx object in other pages, so we don’t have to pass it around.
 
-
 ## Show the modal
-
 
 Now that htmx is loaded, add these 2 lines to the **src/components/app/projects/AddNewProjectCard.astro** component:
 
@@ -1180,7 +1138,6 @@ Now that htmx is loaded, add these 2 lines to the **src/components/app/projects/
 
 ```
 
-
 This tells htmx to get the HTML returned by the URL **/modals/project/new** (the page route we just created above), and put it inside the &lt;dialog> element.
 
 We just have one dialog element in our app, and I don’t think we’ll need more, so we’ll just target it this way.
@@ -1192,19 +1149,13 @@ Now try clicking “Add new”.
 Nothing seems to happen, but if you look at the network panel in the devtools you’ll see a request to
 **/modals/project/new**:
 
-
-fig3QA
+fig3RA
 
 If you open the details of this request you’ll see the HTML we wrote in the page partial we wrote:
-
 
 And notice how fast the request is, just 7ms.
 
 This HTML we retrieved was added to the &lt;dialog> tag by htmx:
-
-
-fig3QB
-
 
 This is the first time we used htmx, but notice how much stuff it did behind the scenes, just by adding those 2 lines:
 
@@ -1214,7 +1165,6 @@ hx-get='/app/modals/project/new'
 hx-target='dialog'
 
 ```
-
 
 Why don’t we see the content on the page, though?
 
@@ -1242,9 +1192,6 @@ export const partial = true
 </div>
 
 ```
-
-
-
 
 We can now add a special &lt;dialog>-specific CSS line in **src/layouts/LayoutApp.astro** to make all the content “behind” the dialog to blur:
 
@@ -1304,10 +1251,7 @@ const { title = 'Spring24app' } = Astro.props
 
 ```
 
-
-
 ## Add the form to the modal
-
 
 Now that our modal appears on the screen, let’s add the form into it.
 
@@ -1319,7 +1263,7 @@ In there, we create **ModalLayout.astro**.
 
 We’re going to reuse this across all the modals.
 
-This component gets a title through its props, and has a &lt;slot /> element inside it, so basically we can add more HTML and components by requiring it, and passing content as its child elements.
+This component gets a title through its props, and has a **&lt;slot />** element inside it, so basically we can add more HTML and components by requiring it, and passing content as its child elements.
 
 ```
 
@@ -1348,7 +1292,6 @@ const { title } = Astro.props
 
 ```
 
-
 We’re going to use this layout in **src/pages/app/modals/project/new**.astro, replacing the pre-existing content:
 
 ```
@@ -1366,10 +1309,7 @@ import ModalLayout from '@components/app/modals/ModalLayout.astro'
 
 ```
 
-
 See how we pass the **title** prop, and that is reflected in the modal. Also, we pass child HTML elements inside the **ModalLayout** element, and they are put inside the modal thanks to our use of &lt;slot />.
-
-
 
 Let’s now add the actual modal we’ll use to add a new project. We’re going to have an input field for the name, and 2 buttons, one to add the project, another one to cancel.
 
@@ -1460,13 +1400,9 @@ import InputField from '@components/app/modals/InputField.astro'
 
 ```
 
-
-
-
 Note how the input field is automatically set to focus by the browser, thanks to the use of the &lt;dialog> element.
 
 ## Close the modal when we click outside of it
-
 
 Also note how the modal is closed when we press the “esc” button. This is a browser feature, also thanks to the use of the &lt;dialog> element.
 
@@ -1486,7 +1422,7 @@ function onClickOutside(element, callback) {
   }, true)
 }
 
-const targetElement = document.querySelector('#yourElementId') 
+const targetElement = document.querySelector('#yourElementId')
 
 onClickOutside(targetElement, () => {
   document.querySelector('dialog').close()
@@ -1500,13 +1436,11 @@ Instead, however, we’re going to introduce a library we’ll use for several o
 
 With Alpine.js, all this JavaScript can be turned into 1 line:
 
-
 ```
 
 @click.outside.capture="document.querySelector('dialog').close()"
 
 ```
-
 
 See this page on the Alpine.js documentation https://alpinejs.dev/directives/on for reference.
 
@@ -1518,19 +1452,18 @@ We do so using npm:
 
 ```
 
-npm install alpinejs@X.X.X
+npm install alpinejs@3.13.7
 
-npm install --dev @types/alpinejs@X.X.X
+npm install --dev @types/alpinejs@3.13.9
 
 ```
 
 Then in our **src/layouts/LayoutApp.astro** we include it:
 
-
 ```
 
 ---
-const { title = 'Secretplan' } = Astro.props
+const { title = 'Spring24app' } = Astro.props
 ---
 
 <html lang='en'>
@@ -1575,7 +1508,7 @@ const { title = 'Secretplan' } = Astro.props
     </style>
   </head>
 
-  -<body>
+  -<body>  //DELETE
   +<body x-data>
     <main
       class='min-h-screen dark:bg-black dark:text-white'>
@@ -1589,8 +1522,7 @@ const { title = 'Secretplan' } = Astro.props
 
 ```
 
-
-Now in src/components/app/modals/ModalLayout.astro we add:
+Now in **src/components/app/modals/ModalLayout.astro** we add:
 
 ```
 
@@ -1620,22 +1552,25 @@ const { title } = Astro.props
 
 ```
 
-
 …and the modal closes when we click outside of it.
 
 ## Create the new project
-
 
 When the “Add” button is pressed, right now nothing happens.
 
 Actually, something happens: htmx makes a **POST** request to **/app/api/projects**, which results in a **404 Not Found** response as we haven’t created this route yet.
 
+<img src="../_image46.png" alt="" width=70%>
+<img src="/_image46.png" alt="" width=70%>
+
+As you can see if you switch to the request Payload tab, you’ll see the project_name input field value was correctly sent to the server, as we expect a form to do:
+
+<img src="../_image47.png" alt="" width=70%>
+<img src="/_image467.png" alt="" width=70%>
 
 Check out the network tab in chrome developer tools. The **project_name** input field value was correctly sent to the server.
 
-
-
-If you remember, in the src/pages/app/dashboard.astro file we used those lines to retrieve the projects list:
+If you remember, in the **src/pages/app/dashboard.astro** file we used those lines to retrieve the projects list:
 
 ```
 
@@ -1649,114 +1584,158 @@ const projects = await pb
 
 ```
 
-
 Since we’re going to work a lot with PocketBase and its data APIs, let’s move this to a separate file.
 
-Create a src/data folder, and inside it create the pocketbase.ts file.
+Create a **src/data** folder, and inside it create the **pocketbase.ts** file.
 
 Let’s add:
+
+```
 
 import PocketBase from 'pocketbase'
 
 export const pb = new PocketBase('http://127.0.0.1:8090')
-actually let’s store the PocketBase URL in the .env file, that’s were we store the environment variables.
 
-Create it first, in the project root (along with astro.config.mjs and package.json), then add:
+```
+
+actually let’s store the PocketBase URL in the **.env** file, that’s were we store the environment variables.
+
+Create it first, in the project root (along with **astro.config.mjs** and **package.json**), then add:
+
+```
 
 POCKETBASE_URL=http://127.0.0.1:8090
-(use the URL that PocketBase tells you):
 
+```
 
-
-NOTE: when using PocketHost, this needs to be the URL to reach the PocketHost instance
-
-In this screenshot you can see the .env file I created:
-
-
+<img src="../_image(48).png" alt="" width=70%>
+<img src="/_image(48).png" alt="" width=70%>
 
 After creating the file, restart the npm run dev process.
 
 Now change the line to initialize PocketBase to this:
 
-export const pb = new PocketBase(import.meta.env.POCKETBASE_URL ||
-    process.env.POCKETBASE_URL)
-NOTE: on localhost in dev mode (npm run dev), we get env vars using import.meta.env.*, but when deploying on a server we get vars using process.env.*. This is why I use the syntax import.meta.env.POCKETBASE_URL || process.env.POCKETBASE_URL to get the first one, if defined, or the second one if the first is not defined.
+```
+
+export const pb = new PocketBase(import.meta.env.POCKETBASE*URL ||
+process.env.POCKETBASE_URL)
+
+```
+
+NOTE: on localhost in dev mode (npm run dev), we get env vars using import.meta.env.\*, but when deploying on a server we get vars using process.env.\_. This is why I use the syntax import.meta.env.POCKETBASE_URL || process.env.POCKETBASE_URL to get the first one, if defined, or the second one if the first is not defined.
 
 If you see an error like “Something went wrong while processing your request.”, see the troubleshooting section at the end of this page.
 
 If you see this error:
 
-
+<img src="../_image(50).png" alt="" width=70%>
+<img src="/_image(50).png" alt="" width=70%>
 
 to fix it, run:
 
+```
+
 npm install --save-dev @types/node
-Create a getProjects function now that will retrieve the projects list:
+
+```
+
+Create a **getProjects** function now that will retrieve the projects list:
+
+```
 
 import PocketBase from 'pocketbase'
 
 export const pb = new PocketBase(import.meta.env.POCKETBASE_URL ||
-    process.env.POCKETBASE_URL)
+process.env.POCKETBASE_URL)
 
 export async function getProjects() {
-  const projects = await pb
-    .collection('projects')
-    .getFullList()
+const projects = await pb
+.collection('projects')
+.getFullList()
 
-  return projects
+return projects
 }
-Use this in src/pages/app/dashboard.astro:
 
-import PocketBase from 'pocketbase'
+```
+
+Use this in **src/pages/app/dashboard.astro**:
+
+```
+
+import PocketBase from 'pocketbase'  //DELETE
 
 const pb = new PocketBase('http://127.0.0.1:8090')
 
 const projects = await pb
-  .collection('projects')
-  .getFullList()
+.collection('projects')
+.getFullList()
 
 import { getProjects } from '@data/pocketbase'
 
 const projects = await getProjects()
+
+```
+
 Things should work as before in the dashboard.
 
-Let’s now implement an addProject() function in src/data/pocketbase.ts:
+Let’s now implement an **addProject()** function in **src/data/pocketbase.ts**:
+
+```
 
 export async function addProject(name: string) {
-  const newProject = await pb.collection('projects')
-    .create({
-      name,
-      status: 'not started',
-    })
-    
-  return newProject
+const newProject = await pb.collection('projects')
+.create({
+name,
+status: 'not started',
+})
+
+return newProject
 }
-Now create src/pages/app/api/.
 
-We create this “API” folder as this will be the place for our “HTML API”. We’ll handle POST, GET, PUT requests to the resources we manage, and we’ll respond with HTML partials.
+```
 
-In there create the projects.astro file as we’re going to respond to a POST request to /app/api/projects, we fetch the project_name from the request formData object, and we then call addProject() to add the project to PocketBase:
+Now create **src/pages/app/api/**.
+
+We create this “API” folder as this will be the place for our “HTML API”. We’ll handle
+
+```
+
+POST, GET, PUT requests
+
+```
+
+to the resources we manage, and we’ll respond with HTML partials.
+
+In there create the **projects.astro** file as we’re going to respond to a POST request to **/app/api/projects**, we fetch the project_name from the request **formData** object, and we then call **addProject()** to add the project to PocketBase:
+
+```
 
 ---
+
 export const partial = true
 
 import { addProject } from '@data/pocketbase'
 
 if (Astro.request.method === 'POST') {
-  const formData = await Astro.request.formData()
+const formData = await Astro.request.formData()
 
-  const project_name = formData.get('project_name')?.toString() || ''
+const project_name = formData.get('project_name')?.toString() || ''
 
-  const project = await addProject(project_name)
+const project = await addProject(project_name)
 }
+
 ---
-The call to /app/api/projects should now work and return a 200 OK response.
+
+```
+
+The call to **/app/api/projects** should now work and return a 200 OK response.
 
 Try it!
 
 The new project was added to PocketBase, and you’ll see it if you refresh the page, however right now we see this:
 
-
+<img src="../_image(51).png" alt="" width=70%>
+<img src="/_image(51).png" alt="" width=70%>
 
 Why?
 
@@ -1764,62 +1743,78 @@ By default htmx replaces the innerHTML (the content) of the element that trigger
 
 And we returned no HTML at all from our request, so htmx just replaced the existing HTML with nothing.
 
-The easiest thing we can do now is to add a special htmx header to the response called HX-Redirect in src/pages/app/api/projects.astro, like this:
+The easiest thing we can do now is to add a special htmx header to the response called **HX-Redirect** in **src/pages/app/api/projects.astro**, like this:
+
+```
 
 ---
+
 export const partial = true
 
 import { addProject } from '@data/pocketbase'
 
 if (Astro.request.method === 'POST') {
-  const formData = await Astro.request.formData()
+const formData = await Astro.request.formData()
 
-  const project_name = formData
-    .get('project_name')
-     as string
-    
-  const project = await addProject(project_name)
-  
-  Astro.response.headers.set('HX-Redirect', `/app/dashboard`)
+const project_name = formData
+.get('project_name')
+as string
+
+const project = await addProject(project_name)
+
+Astro.response.headers.set('HX-Redirect', `/app/dashboard`)
 }
+
 ---
+
+```
+
 TIP: “as string” is a way to tell TypeScript this is a string even when the value could be undefined
 
-After just adding this line, htmx when gets the response back (an empty document, actually, since we didn’t return any HTML from our “HTML API” partial page), will redirect the user to the /app/dashboard page.
+After just adding this line, htmx when gets the response back (an empty document, actually, since we didn’t return any HTML from our “HTML API” partial page), will redirect the user to the **/app/dashboard** page.
 
 It’s all happening so fast we didn’t even notice we have an additional request on top.
 
 This is just one of the things you can do with htmx, you can fine-tune this later to send specific HTML to update the projects list, for example, but I think it’s fine to start with.
 
-Create the single project page
+## Create the single project page
+
 Let’s now create the single project page.
 
-Create the src/pages/app/project folder, and inside it, add [project_id].astro.
+Create the **src/pages/app/project** folder, and inside it, add **[project_id].astro**.
 
 This will handle the /app/project/<project_id> URLs.
 
 Just type “Project page” in this file, you should see this if you click a link to a project from the dashboard:
 
-
+<img src="../_image(52).png" alt="" width=70%>
+<img src="/_image(52).png" alt="" width=70%>
 
 Let’s make this pretty, and let’s fetch the project name from PocketBase.
 
-Add this to src/data/pocketbase.ts:
+Add this to **src/data/pocketbase.ts**:
+
+```
 
 export async function getProject(id: string) {
-  const project = await pb.collection('projects').getOne(id)
+const project = await pb.collection('projects').getOne(id)
 
-  return project
+return project
 }
-We’ll use this in src/pages/app/project/[project_id].astro.
 
-First we retrieve the project_id value from Astro.params.
+```
 
-If we don’t get a project corresponding to the id from the getProject() call, we redirect back to the dashboard (notice this doesn’t work now because getProject() raises an exception, so we’d need to wrap this into a try/catch, but we’ll do this later - see https://flaviocopes.com/javascript-exceptions/)
+We’ll use this in **src/pages/app/project/[project_id].astro**.
+
+First we retrieve the **project_id** value from **Astro.params**.
+
+If we don’t get a project corresponding to the **id** from the **getProject()** call, we redirect back to the dashboard (notice this doesn’t work now because **getProject()** raises an exception, so we’d need to wrap this into a try/catch, but we’ll do this later.
 
 Otherwise we show the project name in the UI:
 
+```
 ---
+
 import LayoutApp from '@layouts/LayoutApp.astro'
 import { getProject } from '@data/pocketbase'
 
@@ -1828,8 +1823,9 @@ const { project_id = '' } = Astro.params
 const project = await getProject(project_id)
 
 if (!project) {
-  return Astro.redirect('/app/dashboard')
+return Astro.redirect('/app/dashboard')
 }
+
 ---
 
 <LayoutApp title={project.name}>
@@ -1841,14 +1837,20 @@ if (!project) {
     </div>
   </div>
 </LayoutApp>
+
+```
+
 We’ve got it:
 
-
+<img src="../_image(53).png" alt="" width=70%>
+<img src="/_image(53).png" alt="" width=70%>
 
 Add a way to add tasks to a project
-On the same file, src/pages/app/project/[project_id].astro, let’s create a “box” to list tasks on the page:
+On the same file, **src/pages/app/project/[project_id].astro**, let’s create a “box” to list tasks on the page:
 
+```
 ---
+
 import LayoutApp from '@layouts/LayoutApp.astro'
 import { getProject } from '@data/pocketbase'
 
@@ -1857,8 +1859,9 @@ const { project_id = '' } = Astro.params
 const project = await getProject(project_id)
 
 if (!project) {
-  return Astro.redirect('/app/dashboard')
+return Astro.redirect('/app/dashboard')
 }
+
 ---
 
 <LayoutApp title={project.name}>
@@ -1878,17 +1881,22 @@ if (!project) {
         </h2>
       </div>
     </div>
+
   </div>
 </LayoutApp>
 
+```
 
 Now we create a button to add a new task.
 
-Create the folder src/components/app/tasks, we’ll store all tasks-related components here.
+Create the folder **src/components/app/tasks**, we’ll store all tasks-related components here.
 
-Create ButtonAddNewTask.astro:
+Create **ButtonAddNewTask.astro**:
+
+```
 
 ---
+
 const { project_id } = Astro.props
 ---
 
@@ -1901,9 +1909,15 @@ const { project_id } = Astro.props
     Add new
   </button>
 </div>
-Now you can import and add this component to src/pages/app/project/[project_id].astro:
+
+```
+
+Now you can import and add this component to **src/pages/app/project/[project_id].astro**:
+
+```
 
 ---
+
 import LayoutApp from '@layouts/LayoutApp.astro'
 import { getProject } from '@data/pocketbase'
 
@@ -1914,8 +1928,9 @@ const { project_id = '' } = Astro.params
 const project = await getProject(project_id)
 
 if (!project) {
-  return Astro.redirect('/app/dashboard')
+return Astro.redirect('/app/dashboard')
 }
+
 ---
 
 <LayoutApp title={project.name}>
@@ -1937,21 +1952,26 @@ if (!project) {
         <ButtonAddNewTask project_id={project_id} />
       </div>
     </div>
+
   </div>
 </LayoutApp>
-You should see the button:
 
+```
 
+You should see the button.
 
-The button loads the HTML partial content coming from the page route /modals/project/${project_id}/task/new
+The button loads the HTML partial content coming from the page route **/modals/project/${project_id}/task/new**
 
-Create the file src/pages/app/modals/project/[project_id]/task/new.astro (and all the folders needed to create it)
+Create the file **src/pages/app/modals/project/[project_id]/task/new.astro** (and all the folders needed to create it)
 
-In this file we build a form similarly to what we did in src/pages/app/modals/project/new.astro.
+In this file we build a form similarly to what we did in **src/pages/app/modals/project/new.astro**.
 
-What changes (apart from changing from “project” to “task”) is we now get the project_id from the URL, and we use it to build the correct hx-post value:
+What changes (apart from changing from “project” to “task”) is we now get the project_id from the URL, and we use it to build the correct **hx-post** value:
+
+```
 
 ---
+
 export const partial = true
 
 import ModalLayout from '@components/app/modals/ModalLayout.astro'
@@ -1959,8 +1979,7 @@ import ButtonSubmit from '@components/app/modals/ButtonSubmit.astro'
 import ButtonCancel from '@components/app/modals/ButtonCancel.astro'
 import InputField from '@components/app/modals/InputField.astro'
 
-const { project_id } = Astro.params
----
+## const { project_id } = Astro.params
 
 <ModalLayout title='New task'>
   <form
@@ -1977,19 +1996,25 @@ const { project_id } = Astro.params
     </div>
   </form>
 </ModalLayout>
+
+```
+
 You should now see this show up if you click the “Add task” button:
 
+<img src="../_image(56).png" alt="" width=70%>
+<img src="/_image(56).png" alt="" width=70%>
 
+This form uses htmx, through the use of the **hx-post** attribute, to POST data to **/app/api/project/${project_id}/task**.
 
-This form uses htmx, through the use of the hx-post attribute, to POST data to /app/api/project/${project_id}/task.
+Let’s create this route by adding the file **src/pages/app/api/project/[project_id]/task.astro**
 
-Let’s create this route by adding the file src/pages/app/api/project/[project_id]/task.astro
+In there we’ll handle the POST request and we’ll send the project id and the task text to an **addTask()** function that we’ll now write in **pocketbase.ts**.
 
-In there we’ll handle the POST request and we’ll send the project id and the task text to an addTask() function that we’ll now write in pocketbase.ts.
+Once the task is added, we use the **HX-Redirect** to simply tell the client to reload the project page, which will automatically fetch the new task.
 
-Once the task is added, we use the HX-Redirect to simply tell the client to reload the project page, which will automatically fetch the new task.
-
+```
 ---
+
 export const partial = true
 
 import { addTask, getProject } from '@data/pocketbase'
@@ -1999,52 +2024,70 @@ const { project_id = '' } = Astro.params
 const project = await getProject(project_id)
 
 if (Astro.request.method === 'POST') {
-  const formData = await Astro.request.formData()
-  const task_text =
-    formData.get('task_text') as string
+const formData = await Astro.request.formData()
+const task_text =
+formData.get('task_text') as string
 
-  await addTask(project_id, task_text)
-  
-  Astro.response.headers.set(
-    'HX-Redirect',
-    `/app/project/${project_id}`
-  )
+await addTask(project_id, task_text)
+
+Astro.response.headers.set(
+'HX-Redirect',
+`/app/project/${project_id}`
+)
 }
+
 ---
-Switch to src/data/pocketbase.ts and add this:
+
+```
+
+Switch to **src/data/pocketbase.ts** and add this:
+
+```
 
 export async function addTask(
-  project_id: string,
-  text: string
+project_id: string,
+text: string
 ) {
-  const newTask = await pb.collection('tasks').create({
-    project: project_id,
-    text,
-  })
+const newTask = await pb.collection('tasks').create({
+project: project_id,
+text,
+})
 
-  return newTask
+return newTask
 }
+
+```
+
 Tasks are now saved to PocketBase!
 
-List the project tasks
+## List the project tasks
+
 Now that we have tasks, it’s time to list the tasks in the project page.
 
-Add a getTasks() function to pocketbase.ts:
+Add a **getTasks()** function to pocketbase.ts:
+
+```
 
 export async function getTasks(project_id: string) {
-  const options = {
-    filter: `project = "${project_id}"`,
-  }
-
-  const tasks = await pb
-    .collection('tasks')
-    .getFullList(options)
-
-  return tasks
+const options = {
+filter: `project = "${project_id}"`,
 }
-We use this in src/pages/app/project/[project_id].astro:
+
+const tasks = await pb
+.collection('tasks')
+.getFullList(options)
+
+return tasks
+}
+
+```
+
+We use this in **src/pages/app/project/[project_id].astro**:
+
+```
 
 ---
+
 import LayoutApp from '@layouts/LayoutApp.astro'
 import { getProject } from '@data/pocketbase'
 import { getProject, getTasks } from '@data/pocketbase'
@@ -2056,11 +2099,10 @@ const { project_id = '' } = Astro.params
 const project = await getProject(project_id)
 
 if (!project) {
-  return Astro.redirect('/app/dashboard')
+return Astro.redirect('/app/dashboard')
 }
 
 const tasks = await getTasks(project_id)
----
 
 <LayoutApp title={project.name}>
   <div
@@ -2095,20 +2137,27 @@ const tasks = await getTasks(project_id)
         <ButtonAddNewTask project_id={project_id} />
       </div>
     </div>
+
   </div>
 </LayoutApp>
-The tasks.length === 0 && () part is a way, in Astro components (and React’s JSX) to include the part inside parentheses only if the condition is true. In this case we show “Nothing yet” if the tasks number is 0.
+
+```
+
+The **tasks.length === 0 && ()** part is a way, in Astro components (and React’s JSX) to include the part inside parentheses only if the condition is true. In this case we show “Nothing yet” if the tasks number is 0.
 
 Here is the result, after adding some sample tasks:
 
+<img src="../_image(57).png" alt="" width=70%>
+<img src="/_image(57).png" alt="" width=70%>
 
+## Troubleshooting
 
-Troubleshooting
 Here are some common errors you might stumble upon.
 
 If you see an error like “Something went wrong while processing your request.”
 
-
+<img src="../_image(58).png" alt="" width=70%>
+<img src="/_image(58).png" alt="" width=70%>
 
 it means Astro cannot connect to PocketBase. Double-check PocketBase is running, and you set the connection URL value (usually POCKETBASE_URL=http://127.0.0.1:8090) in the .env file.
 
@@ -2118,37 +2167,47 @@ Restart npm run dev when changing your .env file content.
 
 Then also double-check this variable is picked up correctly in src/data/pocketbase.ts
 
+```
+
 console.log(
-  import.meta.env.POCKETBASE_URL ||
-    process.env.POCKETBASE_URL
+import.meta.env.POCKETBASE_URL ||
+process.env.POCKETBASE_URL
 )
+
+```
+
 and check what this prints to the console (restart npm run dev again)
 
 Another issue I’ve seen is permissions on PocketBase collections.
 
 If you get an error page saying “Only admins can perform this action”, make sure permissions are open to everyone, as you can see in those screenshots, for both projects and tasks:
 
+<img src="../_image(59).png" alt="" width=70%>
+<img src="/_image(59).png" alt="" width=70%>
 
-
-
+<img src="../_image(60).png" alt="" width=70%>
+<img src="/_image(60).png" alt="" width=70%>
 
 and that those settings are saved.
 
 If you see a “Failed to create record” error when creating a project, check that the ‘status’ field in the projects PocketBase collection has all these options: not started, started, in progress, almost finished, done, ongoing, on hold, archived
 
+<img src="../_image(61).png" alt="" width=70%>
+<img src="/_image(61).png" alt="" width=70%>
 
-
-Any time there is a PocketBase-related error that’s a bit vague, try looking in the PocketBase logs page at http://localhost:8090/_/?#/logs
+Any time there is a PocketBase-related error that’s a bit vague, try looking in the PocketBase logs page at **http://localhost:8090/\_/?#/logs**
 
 For example here I erroneously renamed the project field of the tasks collection to projects, so the filter for project didn’t work and I got this error “invalid left operand “project” - unknown field “project"" - this can point you in the right direction.
 
-
+<img src="../_image(62).png" alt="" width=70%>
+<img src="/_image(62).png" alt="" width=70%>
 
 To make things easier, if you type “error” in the search bar and press enter, PocketBase will show all the requests that resulted in an error.
 
-Wrapping up
+## Wrapping up
+
 In this module we started to see how we can interface Astro and PocketBase to fetch and store data.
 
-We’ve also started using htmx and Alpine to help us create interactive experiences on our pages.
+We’ve also started using **htmx** and **Alpine** to help us create interactive experiences on our pages.
 
-It’s a lot of new stuff! But you’ve been introduced to the entire stack we’ll be using in the Bootcamp, for the next 9 modules we’ll be adding features and crafting the application user experience by using this core set of technologies: Astro, PocketBase, htmx, Alpine.js, gradually learning how to use those tools to do everything we need.
+It’s a lot of new stuff! But you’ve been introduced to the entire stack we’ll be using, for the next 9 modules we’ll be adding features and crafting the application user experience by using this core set of technologies: Astro, PocketBase, htmx, Alpine.js, gradually learning how to use those tools to do everything we need.
