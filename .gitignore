@@ -1,6 +1,9 @@
 # build output
 dist/
 dist*/
+*.zip
+*.tar
+*.gz
 
 # generated types
 .astro/

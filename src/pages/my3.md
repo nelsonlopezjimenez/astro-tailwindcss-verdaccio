@@ -1566,7 +1566,7 @@ Actually, something happens: htmx makes a **POST** request to **/app/api/project
 As you can see if you switch to the request Payload tab, you’ll see the project_name input field value was correctly sent to the server, as we expect a form to do:
 
 <img src="../_image47.png" alt="" width=70%>
-<img src="/_image467.png" alt="" width=70%>
+<img src="/_image47.png" alt="" width=70%>
 
 Check out the network tab in chrome developer tools. The **project_name** input field value was correctly sent to the server.
 
