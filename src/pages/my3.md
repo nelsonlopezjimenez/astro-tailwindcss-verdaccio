@@ -2210,4 +2210,30 @@ In this module we started to see how we can interface Astro and PocketBase to fe
 
 We’ve also started using **htmx** and **Alpine** to help us create interactive experiences on our pages.
 
-It’s a lot of new stuff! But you’ve been introduced to the entire stack we’ll be using, for the next 9 modules we’ll be adding features and crafting the application user experience by using this core set of technologies: Astro, PocketBase, htmx, Alpine.js, gradually learning how to use those tools to do everything we need.
+It’s a lot of new stuff! But you’ve been introduced to the entire stack we’ll be using, for the next modules we’ll be adding features and crafting the application user experience by using this core set of technologies: Astro, PocketBase, htmx, Alpine.js, gradually learning how to use those tools to do everything we need.
+
+# content of this module
+
+
+1.	Introduction to the module
+1.	Create a dashboard
+1.	Start fetching data from PocketBase
+1.	Show the projects list on the page
+1.	Create a layout for the app
+1.	Show projects nicely
+1.	Show the project status
+1.	The problem we’re facing with static site rendering1.	
+1. Enable SSR mode in Astro
+1.	SSR vs SSG mode
+1.	Add a way to create a new project from the app
+1.	Create a modal container
+1.	Time to introduce htmx
+1.	Show the modal
+1.	Add the form to the modal
+1.	Close the modal when we click outside of it
+1.	Create the new project
+1.	Create the single project page
+1.	Add a way to add tasks to a project
+1.	List the project tasks
+1.	Troubleshooting
+1.	Wrapping up
