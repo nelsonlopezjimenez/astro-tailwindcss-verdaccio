@@ -4,6 +4,8 @@ dist*/
 *.zip
 *.tar
 *.gz
+dist
+dist*
 
 # generated types
 .astro/
