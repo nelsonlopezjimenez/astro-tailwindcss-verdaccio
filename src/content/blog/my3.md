@@ -43,6 +43,8 @@ In the this and following modules we’ll add Server-Side Rendering (SSR) in ord
 
 # Introduction
 
+[&rarr; top](#)
+
 In module 1, we talked about what the app will do, we defined the data model, we installed PocketBase, explored it, and then we created the projects and tasks collections to store our app data.
 
 In module 2 we started working with Astro and we created the “site” part of the project.
@@ -137,6 +139,8 @@ Add a few records, just to have some data to visualize:
 <img src="  /_image3ML.webp" alt="image3MA" width=70% />
 
 ## Start fetching data from PocketBase
+
+[&rarr; top](#)
 
 Now we’re ready to fetch the data from PocketBase.
 
