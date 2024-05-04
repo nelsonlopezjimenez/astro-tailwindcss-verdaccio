@@ -23,19 +23,22 @@ const arrTopics = [
 "Troubleshooting",
 "Wrapping up"
 ]
-const buildAnchor = arrTopics.map(item => {
-  let linkDashedUpper = item.replaceAll(' ', '-');
-  let linkDashedLower = linkDashedUpper.toLowerCase();
-  return `<a href="/blog/my3#${linkDashedLower}/">${item}</a>`
-})
-console.log(buildAnchor)
+// const buildAnchor = arrTopics.map(item => {
+//   let linkDashedUpper = item.replaceAll(' ', '-');
+//   let linkDashedLower = linkDashedUpper.toLowerCase();
+//   return `<a href="/blog/my3#${linkDashedLower}/">${item}</a>`
+// })
+
 ---
 
 
 <aside class="text-white">
   <div
-    class="flex flex-col rounded-lg bg-zinc-900 px-5 py-4 sm:py-2.5 text-xl sm:text-2xl md:text-3xl text-white uppercase text-center font-extrabold font-rounded"
+    class="flex flex-col  bg-zinc-300 px-5  sm:py-2.5 text-xs sm:text-xl md:text-xl text-white  text-center font-extrabold font-rounded"
   >
+  <!-- <div
+    class="flex flex-col rounded-lg bg-zinc-900 px-5 py-4 sm:py-2.5 text-xl sm:text-2xl md:text-3xl text-white uppercase text-center font-extrabold font-rounded"
+  > -->
     <!-- <div class="flex-col mb-6 rounded-lg bg-zinc-800"> -->
     <a href="">Back</a>
     <a href="/blog/my3#introduction">Introduction to the module</a>

@@ -58,7 +58,7 @@ In this module, module 3, we’ll start working on the “app” part:
 
 ## Create a dashboard
 
-[go to the top](#content)
+[&rarr; top](#)
 
 Create the folder **src/pages/app** and inside it create the file **dashboard.astro**
 
@@ -189,7 +189,7 @@ You should see all the projects data printed:
 
 ## Show the projects list on the page
 
-[go to the top](#content)
+[&rarr; top](#)
 
 The dashboard is still an empty page.
 
@@ -302,7 +302,7 @@ The layout now provides some built-in padding that will be set across all pages 
 
 ## Show projects nicely
 
-[go to the top](#content)
+[&rarr; top](#)
 
 Now I’m going to create a ProjectCard component that will be responsible for showing a single project in our list.
 
@@ -450,7 +450,7 @@ Pretty nice:
 
 ## Show the project status
 
-[go to the top](#content)
+[&rarr; top](#)
 
 Now let’s display each project’s status in the project card.
 
@@ -667,7 +667,7 @@ Looks pretty cool (I changed the status of the projects in PocketBase, to see ho
 
 ## The problem we are facing with static rendering
 
-[go to the top](#content)
+[&rarr; top](#)
 
 There is a big problem now that we haven’t yet realized we have.
 
@@ -746,7 +746,7 @@ The solution is: we need to enable server-side rendering (SSR) mode in Astro.
 
 **(Server Side Rendering)**
 
-[go to the top](#content)
+[&rarr; top](#)
 
 To enable SSR mode, run the command
 
@@ -834,7 +834,7 @@ After reloading the page, you’ll see the new data reflected on the website.
 
 **Server Side Rendering vs Server Side Generator**
 
-[go to the top](#content)
+[&rarr; top](#)
 
 The upside is that we now have fresh data.
 
@@ -861,7 +861,7 @@ The production build is more optimized. And development mode ships a “client�
 
 ## Add a way to create a new project from the app
 
-[go to the top](#content)
+[&rarr; top](#)
 
 Now that we’re back in development mode, let’s add a way to create a new project from the app.
 
@@ -963,7 +963,7 @@ So we’ll build a “modal container” in a very generic way that can be reuse
 
 ## Create a modal container
 
-[go to the top](#content)
+[&rarr; top](#)
 
 We’ll use the &lt;dialog> HTML element for the modal.
 
@@ -1073,7 +1073,7 @@ How? Using **htmx**.
 
 ## What is htmx??  
 
-[go to the top](#content)
+[&rarr; top](#)
 
 htmx is a wonderful tiny library that allows us to perform actions and make our app feel like it’s built with a complex JavaScript framework, while in reality it’s not.
 
@@ -1151,7 +1151,7 @@ We add the line **window.htmx = htmx** in case we want to access the htmx object
 
 ## Show the modal
 
-[go to the top](#content)
+[&rarr; top](#)
 
 Now that htmx is loaded, add these 2 lines to the **src/components/app/projects/AddNewProjectCard.astro** component:
 
@@ -1290,7 +1290,7 @@ const { title = 'Spring24app' } = Astro.props
 
 ## Add the form to the modal
 
-[go to the top](#content)
+[&rarr; top](#)
 
 Now that our modal appears on the screen, let’s add the form into it.
 
@@ -1442,6 +1442,8 @@ import InputField from '@components/app/modals/InputField.astro'
 Note how the input field is automatically set to focus by the browser, thanks to the use of the &lt;dialog> element.
 
 ## Close the modal when we click outside of it
+
+[&rarr; top](#)
 
 Also note how the modal is closed when we press the “esc” button. This is a browser feature, also thanks to the use of the &lt;dialog> element.
 
@@ -1596,7 +1598,7 @@ const { title } = Astro.props
 
 ## Create the new project
 
-[go to the top](#content)
+[&rarr; top](#)
 
 When the “Add” button is pressed, right now nothing happens.
 
@@ -1822,7 +1824,7 @@ This is just one of the things you can do with htmx, you can fine-tune this late
 
 ## Create the single project page
 
-[go to the top](#content)
+[&rarr; top](#)
 
 Let’s now create the single project page.
 
@@ -1893,7 +1895,7 @@ We’ve got it:
 
 ## Add a way to add tasks to a project
 
-[go to the top](#content)
+[&rarr; top](#)
 
 
 On the same file, **src/pages/app/project/[project_id].astro**, let’s create a “box” to list tasks on the page:
@@ -2114,7 +2116,7 @@ Tasks are now saved to PocketBase!
 
 ## List the project tasks
 
-[go to the top](#content)
+[&rarr; top](#)
 
 Now that we have tasks, it’s time to list the tasks in the project page.
 
@@ -2207,7 +2209,7 @@ Here is the result, after adding some sample tasks:
 
 ## Troubleshooting
 
-[go to the top](#content)
+[&rarr; top](#)
 
 Here are some common errors you might stumble upon.
 
@@ -2264,7 +2266,7 @@ To make things easier, if you type “error” in the search bar and press enter
 
 ## Wrapping up
 
-[go to the top](#content)
+[&rarr; top](#)
 
 In this module we started to see how we can interface Astro and PocketBase to fetch and store data.
 
@@ -2298,4 +2300,4 @@ It’s a lot of new stuff! But you’ve been introduced to the entire stack we�
 21. [Troubleshooting](#troubleshooting)
 22. [Wrapping up](#wrapping-up)
 
-[go to the top](#content)
+[&rarr; top](#)
