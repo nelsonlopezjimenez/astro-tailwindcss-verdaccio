@@ -18,28 +18,28 @@ In the this and following modules we’ll add Server-Side Rendering (SSR) in ord
 
 ## Content
 
-1. [Introduction to the module](#Introduction)
+1. [Introduction to the module](#introduction)
 2. [Create a dashboard](#create-a-dashboard)
 3. [Start fetching data from PocketBase](#start-fetching-data-from-pocketbase)
 4. [Show the projects list on the page](#show-the-projects-list-on-the-page)
 5. [Create a layout for the app](#create-a-layout-for-the-app)
-6. Show projects nicely
-7. Show the project status
-8. The problem we’re facing with static site rendering
-9. Enable SSR mode in Astro
-10. SSR vs SSG mode
-11. Add a way to create a new project from the app
-12. Create a modal container
-13. Time to introduce htmx
-14. Show the modal
-15. Add the form to the modal
-16. Close the modal when we click outside of it
-17. Create the new project
-18. Create the single project page
-19. Add a way to add tasks to a project
-20. List the project tasks
-21. Troubleshooting
-22. Wrapping up
+6. [Show projects nicely](#show-projects-nicely)
+7. [Show the project status](#show-the-project-status)
+8. [The problem we’re facing with static site rendering](#the-problem-we-are-facing-with-static-rendering)
+9. [Enable SSR mode in Astro](#enable-ssr-server-side-rendering-mode-in-astro)
+10. [SSR vs SSG mode](#ssr-vs-ssg-mode)
+11. [Add a way to create a new project from the app](#add-a-way-to-create-a-new-project-from-the-app)
+12. [Create a modal container](#create-a-modal-container)
+13. [Time to introduce htmx](#what-is-htmx)
+14. [Show the modal](#show-the-modal)
+15. [Add the form to the modal](#add-the-form-to-the-modal)
+16. [Close the modal when we click outside of it](#close-the-modal-when-we-click-outside-of-it)
+17. [Create the new project](#create-the-new-project)
+18. [Create the single project page](#create-the-single-project-page)
+19. [Add a way to add tasks to a project](#add-a-way-to-add-tasks-to-a-project)
+20. [List the project tasks](#list-the-project-tasks)
+21. [Troubleshooting](#troubleshooting)
+22. [Wrapping up](#wrapping-up)
 
 # Introduction
 
@@ -57,6 +57,8 @@ In this module, module 3, we’ll start working on the “app” part:
 1. we’ll introduce htmx and I’ll show you how to use it to perform actions
 
 ## Create a dashboard
+
+[go to the top](#content)
 
 Create the folder **src/pages/app** and inside it create the file **dashboard.astro**
 
@@ -187,6 +189,8 @@ You should see all the projects data printed:
 
 ## Show the projects list on the page
 
+[go to the top](#content)
+
 The dashboard is still an empty page.
 
 In the dashboard.astro page component now we can iterate the projects array, similarly to how we iterated over arrays when we built the homepage to show features or the footer:
@@ -297,6 +301,8 @@ The layout now provides some built-in padding that will be set across all pages 
 <img src="  /_image3MQ.webp" alt="image3MA" width=70% />
 
 ## Show projects nicely
+
+[go to the top](#content)
 
 Now I’m going to create a ProjectCard component that will be responsible for showing a single project in our list.
 
@@ -441,7 +447,10 @@ Pretty nice:
 
 <img src="  /_image3MU.png" alt="image3MU" width=70% />
 
+
 ## Show the project status
+
+[go to the top](#content)
 
 Now let’s display each project’s status in the project card.
 
@@ -655,7 +664,10 @@ Looks pretty cool (I changed the status of the projects in PocketBase, to see ho
 
 <img src="  /_image3MX.png" alt="image3MX" width=70% />
 
+
 ## The problem we are facing with static rendering
+
+[go to the top](#content)
 
 There is a big problem now that we haven’t yet realized we have.
 
@@ -729,7 +741,12 @@ But this doesn’t work for us, because we are building a dynamic application.
 
 The solution is: we need to enable server-side rendering (SSR) mode in Astro.
 
-## Enable SSR (Server Side Rendering) mode in Astro
+
+## Enable SSR mode in Astro
+
+**(Server Side Rendering)**
+
+[go to the top](#content)
 
 To enable SSR mode, run the command
 
@@ -813,7 +830,11 @@ Now go to **http://localhost:4321/app/dashboard**, and now try doing what we tri
 
 After reloading the page, you’ll see the new data reflected on the website.
 
-## SSR vs SSG: Server Side Rendering vs Server Side Generator
+## SSR vs SSG mode
+
+**Server Side Rendering vs Server Side Generator**
+
+[go to the top](#content)
 
 The upside is that we now have fresh data.
 
@@ -837,7 +858,10 @@ Now that we have SSR enabled, stop npm run preview and let’s go back to runnin
 
 The production build is more optimized. And development mode ships a “client” script to enable “hot module reloading” (that’s the magic that happens when the app refreshes when you save a file in your editor).
 
+
 ## Add a way to create a new project from the app
+
+[go to the top](#content)
 
 Now that we’re back in development mode, let’s add a way to create a new project from the app.
 
@@ -936,7 +960,10 @@ but also to edit a project’s name, or a team’s name.
 
 So we’ll build a “modal container” in a very generic way that can be reused for everything.
 
+
 ## Create a modal container
+
+[go to the top](#content)
 
 We’ll use the &lt;dialog> HTML element for the modal.
 
@@ -1043,7 +1070,10 @@ To do this, we’ll load the HTML partial inside the &lt;dialog> HTML element wh
 
 How? Using **htmx**.
 
-## What is **htmx??**
+
+## What is htmx??  
+
+[go to the top](#content)
 
 htmx is a wonderful tiny library that allows us to perform actions and make our app feel like it’s built with a complex JavaScript framework, while in reality it’s not.
 
@@ -1118,7 +1148,10 @@ Doing so now you have all the documentation and hints about htmx right in VS Cod
 
 We add the line **window.htmx = htmx** in case we want to access the htmx object in other pages, so we don’t have to pass it around.
 
+
 ## Show the modal
+
+[go to the top](#content)
 
 Now that htmx is loaded, add these 2 lines to the **src/components/app/projects/AddNewProjectCard.astro** component:
 
@@ -1256,6 +1289,8 @@ const { title = 'Spring24app' } = Astro.props
 ```
 
 ## Add the form to the modal
+
+[go to the top](#content)
 
 Now that our modal appears on the screen, let’s add the form into it.
 
@@ -1558,7 +1593,10 @@ const { title } = Astro.props
 
 …and the modal closes when we click outside of it.
 
+
 ## Create the new project
+
+[go to the top](#content)
 
 When the “Add” button is pressed, right now nothing happens.
 
@@ -1781,7 +1819,10 @@ It’s all happening so fast we didn’t even notice we have an additional reque
 
 This is just one of the things you can do with htmx, you can fine-tune this later to send specific HTML to update the projects list, for example, but I think it’s fine to start with.
 
+
 ## Create the single project page
+
+[go to the top](#content)
 
 Let’s now create the single project page.
 
@@ -1849,7 +1890,12 @@ We’ve got it:
 <img src="../_image(53).png" alt="" width=70%>
 <img src="/_image(53).png" alt="" width=70%>
 
-Add a way to add tasks to a project
+
+## Add a way to add tasks to a project
+
+[go to the top](#content)
+
+
 On the same file, **src/pages/app/project/[project_id].astro**, let’s create a “box” to list tasks on the page:
 
 ```
@@ -2062,9 +2108,13 @@ return newTask
 
 ```
 
+
 Tasks are now saved to PocketBase!
 
+
 ## List the project tasks
+
+[go to the top](#content)
 
 Now that we have tasks, it’s time to list the tasks in the project page.
 
@@ -2154,7 +2204,10 @@ Here is the result, after adding some sample tasks:
 <img src="../_image(57).png" alt="" width=70%>
 <img src="/_image(57).png" alt="" width=70%>
 
+
 ## Troubleshooting
+
+[go to the top](#content)
 
 Here are some common errors you might stumble upon.
 
@@ -2208,7 +2261,10 @@ For example here I erroneously renamed the project field of the tasks collection
 
 To make things easier, if you type “error” in the search bar and press enter, PocketBase will show all the requests that resulted in an error.
 
+
 ## Wrapping up
+
+[go to the top](#content)
 
 In this module we started to see how we can interface Astro and PocketBase to fetch and store data.
 
@@ -2216,28 +2272,30 @@ We’ve also started using **htmx** and **Alpine** to help us create interactive
 
 It’s a lot of new stuff! But you’ve been introduced to the entire stack we’ll be using, for the next modules we’ll be adding features and crafting the application user experience by using this core set of technologies: Astro, PocketBase, htmx, Alpine.js, gradually learning how to use those tools to do everything we need.
 
-# content of this module
+## content of this module
 
 
-1.	Introduction to the module
-1.	Create a dashboard
-1.	Start fetching data from PocketBase
-1.	Show the projects list on the page
-1.	Create a layout for the app
-1.	Show projects nicely
-1.	Show the project status
-1.	The problem we’re facing with static site rendering1.	
-1. Enable SSR mode in Astro
-1.	SSR vs SSG mode
-1.	Add a way to create a new project from the app
-1.	Create a modal container
-1.	Time to introduce htmx
-1.	Show the modal
-1.	Add the form to the modal
-1.	Close the modal when we click outside of it
-1.	Create the new project
-1.	Create the single project page
-1.	Add a way to add tasks to a project
-1.	List the project tasks
-1.	Troubleshooting
-1.	Wrapping up
+1. [Introduction to the module](#introduction)
+2. [Create a dashboard](#create-a-dashboard)
+3. [Start fetching data from PocketBase](#start-fetching-data-from-pocketbase)
+4. [Show the projects list on the page](#show-the-projects-list-on-the-page)
+5. [Create a layout for the app](#create-a-layout-for-the-app)
+6. [Show projects nicely](#show-projects-nicely)
+7. [Show the project status](#show-the-project-status)
+8. [The problem we’re facing with static site rendering](#the-problem-we-are-facing-with-static-rendering)
+9. [Enable SSR mode in Astro](#enable-ssr-server-side-rendering-mode-in-astro)
+10. [SSR vs SSG mode](#ssr-vs-ssg-mode)
+11. [Add a way to create a new project from the app](#add-a-way-to-create-a-new-project-from-the-app)
+12. [Create a modal container](#create-a-modal-container)
+13. [Time to introduce htmx](#what-is-htmx)  
+14. [Show the modal](#show-the-modal)
+15. [Add the form to the modal](#add-the-form-to-the-modal)
+16. [Close the modal when we click outside of it](#close-the-modal-when-we-click-outside-of-it)
+17. [Create the new project](#create-the-new-project)
+18. [Create the single project page](#create-the-single-project-page)
+19. [Add a way to add tasks to a project](#add-a-way-to-add-tasks-to-a-project)
+20. [List the project tasks](#list-the-project-tasks)
+21. [Troubleshooting](#troubleshooting)
+22. [Wrapping up](#wrapping-up)
+
+[go to the top](#content)
