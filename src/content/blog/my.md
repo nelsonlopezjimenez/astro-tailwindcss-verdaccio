@@ -273,7 +273,7 @@ An SMTP server definition:
 
 <!-- ![](/smtp-server.png) -->
 <img src="/smtp-server.png" alt="smtp server" width=50%>
-<img src="../smtp-server.png" alt="smtp server" width=50%>
+<!-- <img src="../smtp-server.png" alt="smtp server" width=50%> -->
 
 
 If we have time I will set up a SMTP server in class, as well as in your laptops, so you could see all the emails that your app sends, only if we have time.
@@ -312,9 +312,10 @@ The select type allow you to write the options separated by a comma.
 
 Then we need to store information about who created the project. We need to select the 'Relation' type that link the project name with an user. Type in the field created_by. The 'Single' option next to both the Select and Relation field types means a project can only have one status (not multiple), and a project can only have a user who created it.
 
-Click the little gear icon **&#9881; &#x2699;** at the far right on the field.
+Click the little gear icon &#9881; at the far right on the field.
 
-![](/created_by_img.png)
+<!-- ![](/created_by_img.png) -->
+<img src="/created_by_img.png" alt="/created by" width=50%>
 
 The 'Cascade delete' option is very interesting. If an user is deleted, by selecting cascade delete allows to automatically delete the projects associated to that user. It is useful, because all the work happens under the hood just by enabling the checkbox. Set it to 'true'. Finally, click the 'Create' button.
 

@@ -1,24 +1,53 @@
 ---
-title: Hello, World
+title: Module 1
+date: 4/1/2024
+myData: Introduction to the module, The app requirements, How we’re going to store the data, Data modeling after the requisites, PocketBase installation options, Explore PocketBase,
 ---
 
 # Hi there! Welcome to class!!!
 
-This Markdown file creates a page at `localhost:4321/my/`
+This Markdown file creates a page at [localhost:4321/blog/my](#)
 
 It probably isn't styled much, but Markdown does support:
 - **bold** and _italics._
 - lists
-- [links](https://astro.build)
+- [Modules](/blog)
 - and more!
 
 
-# Module 1
-<h1>GOALS </h1>
+## Content
+
+
+1.	[Introduction to the module](#introduction-to-the-module)
+4.	[The app requirements](#the-app-requirements)
+5.	[How we’re going to store the data](#how-we-are-going-to-store-the-data)
+6.	[Data modeling after the requisites](#data-modeling)
+7.	[PocketBase installation options](#pocketbase-installation)
+11.	[Explore PocketBase](#explore-pocketbase)
+13.	[The collections API Rules](#the-collection-api-rules)
+14.	[Users collection options](#users-collection-options)
+15.	[The PocketBase API Preview](#the-pocketbase-api-preview)
+16.	[PocketBase Logs](#pocketbase-logs)
+17.	[PocketBase System settings](#pocketbase-sytem-settings)
+18.	[Create the projects collection on PocketBase](#create-the-projects-collection-on-pocketbase)
+19.	[Create the tasks collection on PocketBase](#create-the-tasks-collection-on-pocketbase)
+20.	[Editing the API Rules](#editing-the-api-rules)
+23.	[Wrapping up the module](#wrapping-the-module)
+11. [top](#)
+
+[← back to all modules](/blog)
+
+
+
+## Goals
+
+[&rarr; top](#)
 
 Define the problem, understand the problem, define both the application and the architecture. Install PocketBase locally. Start some initial data modeling. Create collections.
 
-## Introduction
+## Introduction to the module
+
+[&rarr; top](#)
 
 The goal is to build from scratch a complex application that will allow you to explore techniques and challenges solving problems that may include:
 
@@ -46,6 +75,8 @@ The skills you learn will allow you to create your own products and run your own
 
 ## The app requirements
 
+[&rarr; top](#)
+
 There some user stories you will have to solve in the app:
 
 1. Loggin into the app with email and password (no dependency on 3d party providers)
@@ -58,7 +89,9 @@ There some user stories you will have to solve in the app:
 
 For everything the app will have a responsive design so it looks nice no matter what device is being used to run it.
 
-## How data will be stored
+## How we are going to store the data
+
+[&rarr; top](#)
 
 Data will be stored in a database. The choice is wide (sql-type and non-sql type databases). Historically we have used mongo database which is a nonsql type database. This year I will offer a sort of mixture between both types: it is called Pocketbase.
 
@@ -82,6 +115,8 @@ With Pocketbase you could build 10 different apps in very little time and see wh
 
 ## Data modeling
 
+[&rarr; top](#)
+
 Earlier in this document we talked about projects, tasks, users.
 
 So please the following user stories that your code will tackle and resolve:
@@ -92,6 +127,8 @@ So please the following user stories that your code will tackle and resolve:
 1. As admin you will track all the activites across projects
 
 ## PocketBase installation
+
+[&rarr; top](#)
 
 The installation binaries are in your laptop in the 'Public' folder.
 The file is 'pocketbase_0.22.8_windows_amd64.zip'. Extract the file in /c/Users/PublicPrograms/ folder. cd into the folder, right-click in your touchpad, open terminal (any terminal, cmd or gitbash or powershell). Start pocketbase by typing in the command line
@@ -126,7 +163,7 @@ The first time you will see the setup screen with the text
 
 ```
 
-'Create your first admin account in order to continue'. 
+'Create your first admin account in order to continue'.
 
 ```
 
@@ -143,6 +180,8 @@ Enter an easy to remember password. Choose a not very complex password since we 
 If you are a night owl, PocketBase does not offer a dark mode feature, but you can use a browser extension to display it dark, like 'Dark Reader'. Please remind me to pass it to you in class.
 
 ## Explore PocketBase
+
+[&rarr; top](#)
 
 PocketBase is tiny, yet powerful.
 
@@ -170,6 +209,8 @@ You can add more if you want. You can choose from various formats and types: Pla
 
 ### The collection API Rules
 
+[&rarr; top](#)
+
 In the API Rules panel you can set permissions to perform  **CRUD** operations: Create / Read / Update / Delete and List/Search operation.
 
 This panel is important in the app security. You can enforce security on the data by correctly setting those API rules.
@@ -192,6 +233,8 @@ We will tweak the rules later.
 
 ### Users collection options
 
+[&rarr; top](#)
+
 
 The last tab on the panel is "Options" tab. PocketBase allows 3 different authentication methods: username/password, email/password, and OAuth2 (login with Google, etc).
 
@@ -201,6 +244,8 @@ Also, enable 'Always require email'. Press 'Save changes' button to apply the ch
 
 ### The PocketBase API Preview
 
+[&rarr; top](#)
+
 Now try clicking the 'API Preview' button.
 
 PocketBase has built-in documentation about how to interface with it using JavaScript. Take a look around, explore the documentation, review the offline PocketBase documentation site at http://localhost:22022/pocketbase URL in your browser. 
@@ -209,9 +254,14 @@ The offine web site did not downloaded completely. After you start visiting a li
 
 ### PocketBase Logs
 
+[&rarr; top](#)
+
 You can visualize all connection logs. Clicking each request data will give you more details. This is very useful when debugging your app, or to figure out what runs too slow. You will be able to filter requests by log level and API route. 
 
 ### PocketBase Sytem settings 
+
+[&rarr; top](#)
+
 
 In the application panel, you can set the application name. Let's call it **SPRING24APP**
 
@@ -221,7 +271,10 @@ In a real app, you'll also want to configure a SMTP mail server to actually send
 
 An SMTP server definition:
 
-![](/smtp-server.png)
+<!-- ![](/smtp-server.png) -->
+<img src="/smtp-server.png" alt="smtp server" width=50%>
+<!-- <img src="../smtp-server.png" alt="smtp server" width=50%> -->
+
 
 If we have time I will set up a SMTP server in class, as well as in your laptops, so you could see all the emails that your app sends, only if we have time.
 
@@ -238,6 +291,8 @@ In 'Token options' you can tweak the application token durations.
 In 'Admins' you can add other admin users to the PocketBase instance. 
 
 ## Create the projects collection on PocketBase
+
+[&rarr; top](#)
 
 Based on the data we defined earlier, we're now going to define these collections:
 
@@ -257,15 +312,18 @@ The select type allow you to write the options separated by a comma.
 
 Then we need to store information about who created the project. We need to select the 'Relation' type that link the project name with an user. Type in the field created_by. The 'Single' option next to both the Select and Relation field types means a project can only have one status (not multiple), and a project can only have a user who created it.
 
-Click the little gear icon **&#9881; &#x2699;** at the far right on the field.
+Click the little gear icon &#9881; at the far right on the field.
 
-![](/created_by_img.png)
+<!-- ![](/created_by_img.png) -->
+<img src="/created_by_img.png" alt="/created by" width=50%>
 
 The 'Cascade delete' option is very interesting. If an user is deleted, by selecting cascade delete allows to automatically delete the projects associated to that user. It is useful, because all the work happens under the hood just by enabling the checkbox. Set it to 'true'. Finally, click the 'Create' button.
 
 The new collection should now be visible. 
 
 ## Create the tasks collection on PocketBase
+
+[&rarr; top](#)
 
 Similarly, let's create a new collection: tasks.
 
@@ -296,6 +354,8 @@ Click the 'Create' button.
 The collection was created.
 
 ## Editing the API rules
+
+[&rarr; top](#)
 
 One extremely important functionality PocketBase provides ia we can set authorization rules upon each operation we can perform on the collection data: list/search, read, update, delete, and create (**CRUD** operations).
 
@@ -331,7 +391,11 @@ We'll implement security rules and add authentication later.
 
 ## Wrapping the module
 
+[&rarr; top](#)
+
 - We defined our app functionality
 - set data model
 - set up collections
 - set up API rules
+
+[&rarr; top](#)
