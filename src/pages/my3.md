@@ -1,4 +1,8 @@
-# Module 3 week 5.18
+---
+title: Module 3
+date: 5/3/2024
+---
+
 
 We build a pretty cool site with a homepage built using a component-based approach.
 
@@ -14,30 +18,32 @@ In the this and following modules we’ll add Server-Side Rendering (SSR) in ord
 
 ## Content
 
-1. Introduction to the module
-2. Create a dashboard
-3. Start fetching data from PocketBase
-4. Show the projects list on the page
-5. Create a layout for the app
-6. Show projects nicely
-7. Show the project status
-8. The problem we’re facing with static site rendering
-9. Enable SSR mode in Astro
-10. SSR vs SSG mode
-11. Add a way to create a new project from the app
-12. Create a modal container
-13. Time to introduce htmx
-14. Show the modal
-15. Add the form to the modal
-16. Close the modal when we click outside of it
-17. Create the new project
-18. Create the single project page
-19. Add a way to add tasks to a project
-20. List the project tasks
-21. Troubleshooting
-22. Wrapping up
+1. [Introduction to the module](#introduction)
+2. [Create a dashboard](#create-a-dashboard)
+3. [Start fetching data from PocketBase](#start-fetching-data-from-pocketbase)
+4. [Show the projects list on the page](#show-the-projects-list-on-the-page)
+5. [Create a layout for the app](#create-a-layout-for-the-app)
+6. [Show projects nicely](#show-projects-nicely)
+7. [Show the project status](#show-the-project-status)
+8. [The problem we’re facing with static site rendering](#the-problem-we-are-facing-with-static-rendering)
+9. [Enable SSR mode in Astro](#enable-ssr-server-side-rendering-mode-in-astro)
+10. [SSR vs SSG mode](#ssr-vs-ssg-mode)
+11. [Add a way to create a new project from the app](#add-a-way-to-create-a-new-project-from-the-app)
+12. [Create a modal container](#create-a-modal-container)
+13. [Time to introduce htmx](#what-is-htmx)
+14. [Show the modal](#show-the-modal)
+15. [Add the form to the modal](#add-the-form-to-the-modal)
+16. [Close the modal when we click outside of it](#close-the-modal-when-we-click-outside-of-it)
+17. [Create the new project](#create-the-new-project)
+18. [Create the single project page](#create-the-single-project-page)
+19. [Add a way to add tasks to a project](#add-a-way-to-add-tasks-to-a-project)
+20. [List the project tasks](#list-the-project-tasks)
+21. [Troubleshooting](#troubleshooting)
+22. [Wrapping up](#wrapping-up)
 
-## Introduction
+# Introduction
+
+[&rarr; top](#)
 
 In module 1, we talked about what the app will do, we defined the data model, we installed PocketBase, explored it, and then we created the projects and tasks collections to store our app data.
 
@@ -54,28 +60,30 @@ In this module, module 3, we’ll start working on the “app” part:
 
 ## Create a dashboard
 
+[&rarr; top](#)
+
 Create the folder **src/pages/app** and inside it create the file **dashboard.astro**
 
 Now visit the URL **http://localhost:4321/app/dashboard**.
 
 You'll see a blank page.
 
-<img src="../_image3MA.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3MA.webp" alt="image3MA" width=70% /> -->
 <img src="/_image3MA.webp" alt="image3MA" width=70% />
 
 In Astro, if there’s no page route corresponding to a URL, you’ll see a “404 not found” page:
 
-<img src="../_image3MB.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3MB.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3MB.webp" alt="image3MA" width=70% />
 
 404 is the HTTP response status code for “page not found”. The HTTP server returns this status code to the client.
 
 You can see the HTTP response status code in the **DevTools Network panel**:
 
-<img src="../_image3MC.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3MC.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3MC.webp" alt="image3MA" width=70% />
 
-<img src="../_image3MD.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3MD.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3MD.webp" alt="image3MA" width=70% />
 
 A successful response has status code 200.
@@ -86,7 +94,7 @@ Go to the PocketBase “Admin UI” URL **http://127.0.0.1:8090/_/**, as we’ve
 
 Here is the projects collection we created in module 1:
 
-<img src="../_image3ME.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3ME.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3ME.webp" alt="image3MA" width=70% />
 
 I want to add some projects here, using the PocketBase interface.
@@ -95,42 +103,44 @@ But first we have to add a user. The reason is that each product has a created_b
 
 So first go to the users collection and add a user by clicking “New record”:
 
-<img src="../_image3MF.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3MF.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3MF.webp" alt="image3MA" width=70% />
 
 You’ll see a form show up:
 
-<img src="../_image3MG.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3MG.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3MG.webp" alt="image3MA" width=70% />
 
 Fill the Email and Password fields. Also set Public: On on the email field (see the green text in the screenshot below) — we’ll talk about this later, but basically we’ll use this to be able to search users by email, by default unlocked for privacy reasons.
 
-<img src="../_image3MH.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3MH.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3MH.webp" alt="image3MA" width=70% />
 
 Click “Create” and you should see the record:
 
-<img src="../_image3MI.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3MI.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3MI.webp" alt="image3MA" width=70% />
 
 Now select to the projects collection.
 
 Click “New record” and add a few sample projects:
 
-<img src="../_image3MJ.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3MJ.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3MJ.webp" alt="image3MA" width=70% />
 
 Set a name, a status from the list, and pick a user:
 
-<img src="../_image3MK.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3MK.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3MK.webp" alt="image3MA" width=70% />
 
 Add a few records, just to have some data to visualize:
 
-<img src="../_image3ML.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3ML.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3ML.webp" alt="image3MA" width=70% />
 
 ## Start fetching data from PocketBase
+
+[&rarr; top](#)
 
 Now we’re ready to fetch the data from PocketBase.
 
@@ -146,12 +156,12 @@ npm install pocketbase@0.21.1
 
 ```
 
-<img src="../_image3MM.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3MM.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3MM.webp" alt="image3MA" width=70% />
 
 The entry has been added to the package.json file:
 
-<img src="../_image3MN.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3MN.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3MN.webp" alt="image3MA" width=70% />
 
 (your exact version numbers will change but don’t worry)
@@ -178,10 +188,12 @@ Reload the dashboard, now in the terminal you should see the output of the conso
 
 You should see all the projects data printed:
 
-<img src="../_image3MO.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3MO.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3MO.webp" alt="image3MA" width=70% />
 
 ## Show the projects list on the page
+
+[&rarr; top](#)
 
 The dashboard is still an empty page.
 
@@ -205,7 +217,7 @@ const projects = await pb.collection('projects').getFullList()
 
 Here is the result:
 
-<img src="../_image3MP.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3MP.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3MP.webp" alt="image3MA" width=70% />
 
 ## Create a layout for the app
@@ -289,10 +301,12 @@ const projects = await pb
 
 The layout now provides some built-in padding that will be set across all pages in our app:
 
-<img src="../_image3MQ.webp" alt="image3MA" width=70% />
+<!-- <img src="../_image3MQ.webp" alt="image3MA" width=70% /> -->
 <img src="  /_image3MQ.webp" alt="image3MA" width=70% />
 
 ## Show projects nicely
+
+[&rarr; top](#)
 
 Now I’m going to create a ProjectCard component that will be responsible for showing a single project in our list.
 
@@ -373,7 +387,7 @@ const { project } = Astro.props
 
 This adds some padding to each project, and also links to the project detail page when each card is clicked:
 
-<img src="../_image3MR.png" alt="image3MR" width=70% />
+<!-- <img src="../_image3MR.png" alt="image3MR" width=70% /> -->
 
 <img src="  /_image3MR.png" alt="image3MR" width=70% />
 
@@ -396,13 +410,13 @@ Now in src/pages/app/dashboard.astro we can wrap our cards in a container with g
 
 ```
 
-<img src="../_image3MS.png" alt="image3MS" width=70% />
+<!-- <img src="../_image3MS.png" alt="image3MS" width=70% /> -->
 
 <img src="  /_image3MS.png" alt="image3MS" width=70% />
 
 On small screens you’ll get 1 column, thanks to using sm: before grid-cols-2 in our Tailwind CSS class:
 
-<img src="../_image3MT.png" alt="image3MT" width=70% />
+<!-- <img src="../_image3MT.png" alt="image3MT" width=70% /> -->
 
 <img src="  /_image3MT.png" alt="image3MT" width=70% />
 
@@ -433,23 +447,26 @@ Let’s also add a title so users knows what they’re looking at:
 
 Pretty nice:
 
-<img src="../_image3MU.png" alt="image3MU" width=70% />
+<!-- <img src="../_image3MU.png" alt="image3MU" width=70% /> -->
 
 <img src="  /_image3MU.png" alt="image3MU" width=70% />
 
+
 ## Show the project status
+
+[&rarr; top](#)
 
 Now let’s display each project’s status in the project card.
 
 Remember, we have the status information that stores the current project state, for example “not started” or “in progress” or “completed”:
 
-<img src="../_image3MV.png" alt="image3MV" width=70% />
+<!-- <img src="../_image3MV.png" alt="image3MV" width=70% /> -->
 
 <img src="  /_image3MV.png" alt="image3MV" width=70% />
 
 Here’s what we want to achieve:
 
-<img src="../_image3MW.png" alt="image3MW" width=70% />
+<!-- <img src="../_image3MW.png" alt="image3MW" width=70% /> -->
 
 <img src="  /_image3MW.png" alt="image3MW" width=70% />
 
@@ -647,11 +664,14 @@ export function projectStatus(status: string) {
 
 Looks pretty cool (I changed the status of the projects in PocketBase, to see how it changed its design):
 
-<img src="../_image3MX.png" alt="image3MX" width=70% />
+<!-- <img src="../_image3MX.png" alt="image3MX" width=70% /> -->
 
 <img src="  /_image3MX.png" alt="image3MX" width=70% />
 
+
 ## The problem we are facing with static rendering
+
+[&rarr; top](#)
 
 There is a big problem now that we haven’t yet realized we have.
 
@@ -663,7 +683,7 @@ We are currently running Astro in development mode, as we ran npm run dev.
 
 Each time we change something in our pages, the result you see in the browser changes. And new data coming from PocketBase is fetched without issues, as you can see by adding a new project in PocketBase:
 
-<img src="../_image3PA.webp" alt="image3PA" width=70% />
+<!-- <img src="../_image3PA.webp" alt="image3PA" width=70% /> -->
 
 <img src="  /_image3PA.webp" alt="image3PA" width=70% />
 
@@ -679,13 +699,13 @@ npm run build
 
 ```
 
-<img src="../_image3PB.webp" alt="image3PB" width=70% />
+<!-- <img src="../_image3PB.webp" alt="image3PB" width=70% /> -->
 
 <img src="  /_image3PB.webp" alt="image3PB" width=70% />
 
 The **build** command is defined in **package.json** as:
 
-<img src="../_image3PC.webp" alt="image3PC" width=70% />
+<!-- <img src="../_image3PC.webp" alt="image3PC" width=70% /> -->
 
 <img src="  /_image3PC.webp" alt="image3PC" width=70% />
 
@@ -693,19 +713,19 @@ When you run this command, first Astro runs astro check to check for possible er
 
 You should be able to see dist folder in VS Code:
 
-<img src="../_image3PD.webp" alt="image3PD" width=70% />
+<!-- <img src="../_image3PD.webp" alt="image3PD" width=70% /> -->
 
 <img src="  /_image3PD.webp" alt="image3PD" width=70% />
 
 Now run **npm run preview** to run **astro preview**, the Astro command that starts a local server and serves the content of the **dist** folder.
 
-<img src="../_image3PE.webp" alt="image3PE" width=70% />
+<!-- <img src="../_image3PE.webp" alt="image3PE" width=70% /> -->
 
 <img src="  /_image3PE.webp" alt="image3PE" width=70% />
 
 Now try accessing the URL, go to the **/app/dashboard** route and you’ll see the projects, as we had before:
 
-<img src="../_image3PF.webp" alt="image3PF" width=70% />
+<!-- <img src="../_image3PF.webp" alt="image3PF" width=70% /> -->
 
 <img src="  /_image3PF.webp" alt="image3PF" width=70% />
 
@@ -725,7 +745,12 @@ But this doesn’t work for us, because we are building a dynamic application.
 
 The solution is: we need to enable server-side rendering (SSR) mode in Astro.
 
-## Enable SSR (Server Side Rendering) mode in Astro
+
+## Enable SSR mode in Astro
+
+**(Server Side Rendering)**
+
+[&rarr; top](#)
 
 To enable SSR mode, run the command
 
@@ -795,13 +820,13 @@ Do the same for **src/pages/blog.astro** and also **src/pages/blog/[slug].astro*
 
 Now run **npm run build** again, notice some things changed compared to the last time we ran that command:
 
-<img src="../_image3PG.webp" alt="image3PG" width=70% />
+<!-- <img src="../_image3PG.webp" alt="image3PG" width=70% /> -->
 
 <img src="  /_image3PG.webp" alt="image3PG" width=70% />
 
 Now run **npm run preview**, this command changed too:
 
-<img src="../_image3PH.webp" alt="image3PH" width=70% />
+<!-- <img src="../_image3PH.webp" alt="image3PH" width=70% /> -->
 
 <img src="  /_image3PH.webp" alt="image3PH" width=70% />
 
@@ -809,7 +834,11 @@ Now go to **http://localhost:4321/app/dashboard**, and now try doing what we tri
 
 After reloading the page, you’ll see the new data reflected on the website.
 
-## SSR vs SSG: Server Side Rendering vs Server Side Generator
+## SSR vs SSG mode
+
+**Server Side Rendering vs Server Side Generator**
+
+[&rarr; top](#)
 
 The upside is that we now have fresh data.
 
@@ -833,7 +862,10 @@ Now that we have SSR enabled, stop npm run preview and let’s go back to runnin
 
 The production build is more optimized. And development mode ships a “client” script to enable “hot module reloading” (that’s the magic that happens when the app refreshes when you save a file in your editor).
 
+
 ## Add a way to create a new project from the app
+
+[&rarr; top](#)
 
 Now that we’re back in development mode, let’s add a way to create a new project from the app.
 
@@ -908,7 +940,7 @@ const projects = await pb
 
 You should see the button in place:
 
-<img src="../_image3PJ.webp" alt="image3PJ" width=70% />
+<!-- <img src="../_image3PJ.webp" alt="image3PJ" width=70% /> -->
 
 <img src="  /_image3PJ.webp" alt="image3PJ" width=70% />
 
@@ -932,7 +964,10 @@ but also to edit a project’s name, or a team’s name.
 
 So we’ll build a “modal container” in a very generic way that can be reused for everything.
 
+
 ## Create a modal container
+
+[&rarr; top](#)
 
 We’ll use the &lt;dialog> HTML element for the modal.
 
@@ -1039,7 +1074,10 @@ To do this, we’ll load the HTML partial inside the &lt;dialog> HTML element wh
 
 How? Using **htmx**.
 
-## What is **htmx??**
+
+## What is htmx??  
+
+[&rarr; top](#)
 
 htmx is a wonderful tiny library that allows us to perform actions and make our app feel like it’s built with a complex JavaScript framework, while in reality it’s not.
 
@@ -1114,7 +1152,10 @@ Doing so now you have all the documentation and hints about htmx right in VS Cod
 
 We add the line **window.htmx = htmx** in case we want to access the htmx object in other pages, so we don’t have to pass it around.
 
+
 ## Show the modal
+
+[&rarr; top](#)
 
 Now that htmx is loaded, add these 2 lines to the **src/components/app/projects/AddNewProjectCard.astro** component:
 
@@ -1252,6 +1293,8 @@ const { title = 'Spring24app' } = Astro.props
 ```
 
 ## Add the form to the modal
+
+[&rarr; top](#)
 
 Now that our modal appears on the screen, let’s add the form into it.
 
@@ -1404,6 +1447,8 @@ Note how the input field is automatically set to focus by the browser, thanks to
 
 ## Close the modal when we click outside of it
 
+[&rarr; top](#)
+
 Also note how the modal is closed when we press the “esc” button. This is a browser feature, also thanks to the use of the &lt;dialog> element.
 
 It would be cool if we could close the modal also when the user clicks outside of it.
@@ -1554,18 +1599,21 @@ const { title } = Astro.props
 
 …and the modal closes when we click outside of it.
 
+
 ## Create the new project
+
+[&rarr; top](#)
 
 When the “Add” button is pressed, right now nothing happens.
 
 Actually, something happens: htmx makes a **POST** request to **/app/api/projects**, which results in a **404 Not Found** response as we haven’t created this route yet.
 
-<img src="../_image46.png" alt="" width=70%>
+<!-- <img src="../_image46.png" alt="" width=70%> -->
 <img src="/_image46.png" alt="" width=70%>
 
 As you can see if you switch to the request Payload tab, you’ll see the project_name input field value was correctly sent to the server, as we expect a form to do:
 
-<img src="../_image47.png" alt="" width=70%>
+<!-- <img src="../_image47.png" alt="" width=70%> -->
 <img src="/_image47.png" alt="" width=70%>
 
 Check out the network tab in chrome developer tools. The **project_name** input field value was correctly sent to the server.
@@ -1608,7 +1656,7 @@ POCKETBASE_URL=http://127.0.0.1:8090
 
 ```
 
-<img src="../_image(48).png" alt="" width=70%>
+<!-- <img src="../_image(48).png" alt="" width=70%> -->
 <img src="/_image(48).png" alt="" width=70%>
 
 After creating the file, restart the npm run dev process.
@@ -1628,7 +1676,7 @@ If you see an error like “Something went wrong while processing your request.�
 
 If you see this error:
 
-<img src="../_image(50).png" alt="" width=70%>
+<!-- <img src="../_image(50).png" alt="" width=70%> -->
 <img src="/_image(50).png" alt="" width=70%>
 
 to fix it, run:
@@ -1734,7 +1782,7 @@ Try it!
 
 The new project was added to PocketBase, and you’ll see it if you refresh the page, however right now we see this:
 
-<img src="../_image(51).png" alt="" width=70%>
+<!-- <img src="../_image(51).png" alt="" width=70%> -->
 <img src="/_image(51).png" alt="" width=70%>
 
 Why?
@@ -1777,7 +1825,10 @@ It’s all happening so fast we didn’t even notice we have an additional reque
 
 This is just one of the things you can do with htmx, you can fine-tune this later to send specific HTML to update the projects list, for example, but I think it’s fine to start with.
 
+
 ## Create the single project page
+
+[&rarr; top](#)
 
 Let’s now create the single project page.
 
@@ -1787,7 +1838,7 @@ This will handle the /app/project/<project_id> URLs.
 
 Just type “Project page” in this file, you should see this if you click a link to a project from the dashboard:
 
-<img src="../_image(52).png" alt="" width=70%>
+<!-- <img src="../_image(52).png" alt="" width=70%> -->
 <img src="/_image(52).png" alt="" width=70%>
 
 Let’s make this pretty, and let’s fetch the project name from PocketBase.
@@ -1842,10 +1893,15 @@ return Astro.redirect('/app/dashboard')
 
 We’ve got it:
 
-<img src="../_image(53).png" alt="" width=70%>
+<!-- <img src="../_image(53).png" alt="" width=70%> -->
 <img src="/_image(53).png" alt="" width=70%>
 
-Add a way to add tasks to a project
+
+## Add a way to add tasks to a project
+
+[&rarr; top](#)
+
+
 On the same file, **src/pages/app/project/[project_id].astro**, let’s create a “box” to list tasks on the page:
 
 ```
@@ -2001,7 +2057,7 @@ import InputField from '@components/app/modals/InputField.astro'
 
 You should now see this show up if you click the “Add task” button:
 
-<img src="../_image(56).png" alt="" width=70%>
+<!-- <img src="../_image(56).png" alt="" width=70%> -->
 <img src="/_image(56).png" alt="" width=70%>
 
 This form uses htmx, through the use of the **hx-post** attribute, to POST data to **/app/api/project/${project_id}/task**.
@@ -2058,9 +2114,13 @@ return newTask
 
 ```
 
+
 Tasks are now saved to PocketBase!
 
+
 ## List the project tasks
+
+[&rarr; top](#)
 
 Now that we have tasks, it’s time to list the tasks in the project page.
 
@@ -2147,16 +2207,19 @@ The **tasks.length === 0 && ()** part is a way, in Astro components (and React�
 
 Here is the result, after adding some sample tasks:
 
-<img src="../_image(57).png" alt="" width=70%>
+<!-- <img src="../_image(57).png" alt="" width=70%> -->
 <img src="/_image(57).png" alt="" width=70%>
 
+
 ## Troubleshooting
+
+[&rarr; top](#)
 
 Here are some common errors you might stumble upon.
 
 If you see an error like “Something went wrong while processing your request.”
 
-<img src="../_image(58).png" alt="" width=70%>
+<!-- <img src="../_image(58).png" alt="" width=70%> -->
 <img src="/_image(58).png" alt="" width=70%>
 
 it means Astro cannot connect to PocketBase. Double-check PocketBase is running, and you set the connection URL value (usually POCKETBASE_URL=http://127.0.0.1:8090) in the .env file.
@@ -2182,29 +2245,32 @@ Another issue I’ve seen is permissions on PocketBase collections.
 
 If you get an error page saying “Only admins can perform this action”, make sure permissions are open to everyone, as you can see in those screenshots, for both projects and tasks:
 
-<img src="../_image(59).png" alt="" width=70%>
+<!-- <img src="../_image(59).png" alt="" width=70%> -->
 <img src="/_image(59).png" alt="" width=70%>
 
-<img src="../_image(60).png" alt="" width=70%>
+<!-- <img src="../_image(60).png" alt="" width=70%> -->
 <img src="/_image(60).png" alt="" width=70%>
 
 and that those settings are saved.
 
 If you see a “Failed to create record” error when creating a project, check that the ‘status’ field in the projects PocketBase collection has all these options: not started, started, in progress, almost finished, done, ongoing, on hold, archived
 
-<img src="../_image(61).png" alt="" width=70%>
+<!-- <img src="../_image(61).png" alt="" width=70%> -->
 <img src="/_image(61).png" alt="" width=70%>
 
 Any time there is a PocketBase-related error that’s a bit vague, try looking in the PocketBase logs page at **http://localhost:8090/\_/?#/logs**
 
 For example here I erroneously renamed the project field of the tasks collection to projects, so the filter for project didn’t work and I got this error “invalid left operand “project” - unknown field “project"" - this can point you in the right direction.
 
-<img src="../_image(62).png" alt="" width=70%>
+<!-- <img src="../_image(62).png" alt="" width=70%> -->
 <img src="/_image(62).png" alt="" width=70%>
 
 To make things easier, if you type “error” in the search bar and press enter, PocketBase will show all the requests that resulted in an error.
 
+
 ## Wrapping up
+
+[&rarr; top](#)
 
 In this module we started to see how we can interface Astro and PocketBase to fetch and store data.
 
@@ -2212,28 +2278,30 @@ We’ve also started using **htmx** and **Alpine** to help us create interactive
 
 It’s a lot of new stuff! But you’ve been introduced to the entire stack we’ll be using, for the next modules we’ll be adding features and crafting the application user experience by using this core set of technologies: Astro, PocketBase, htmx, Alpine.js, gradually learning how to use those tools to do everything we need.
 
-# content of this module
+## content of this module
 
 
-1.	Introduction to the module
-1.	Create a dashboard
-1.	Start fetching data from PocketBase
-1.	Show the projects list on the page
-1.	Create a layout for the app
-1.	Show projects nicely
-1.	Show the project status
-1.	The problem we’re facing with static site rendering1.	
-1. Enable SSR mode in Astro
-1.	SSR vs SSG mode
-1.	Add a way to create a new project from the app
-1.	Create a modal container
-1.	Time to introduce htmx
-1.	Show the modal
-1.	Add the form to the modal
-1.	Close the modal when we click outside of it
-1.	Create the new project
-1.	Create the single project page
-1.	Add a way to add tasks to a project
-1.	List the project tasks
-1.	Troubleshooting
-1.	Wrapping up
+1. [Introduction to the module](#introduction)
+2. [Create a dashboard](#create-a-dashboard)
+3. [Start fetching data from PocketBase](#start-fetching-data-from-pocketbase)
+4. [Show the projects list on the page](#show-the-projects-list-on-the-page)
+5. [Create a layout for the app](#create-a-layout-for-the-app)
+6. [Show projects nicely](#show-projects-nicely)
+7. [Show the project status](#show-the-project-status)
+8. [The problem we’re facing with static site rendering](#the-problem-we-are-facing-with-static-rendering)
+9. [Enable SSR mode in Astro](#enable-ssr-server-side-rendering-mode-in-astro)
+10. [SSR vs SSG mode](#ssr-vs-ssg-mode)
+11. [Add a way to create a new project from the app](#add-a-way-to-create-a-new-project-from-the-app)
+12. [Create a modal container](#create-a-modal-container)
+13. [Time to introduce htmx](#what-is-htmx)  
+14. [Show the modal](#show-the-modal)
+15. [Add the form to the modal](#add-the-form-to-the-modal)
+16. [Close the modal when we click outside of it](#close-the-modal-when-we-click-outside-of-it)
+17. [Create the new project](#create-the-new-project)
+18. [Create the single project page](#create-the-single-project-page)
+19. [Add a way to add tasks to a project](#add-a-way-to-add-tasks-to-a-project)
+20. [List the project tasks](#list-the-project-tasks)
+21. [Troubleshooting](#troubleshooting)
+22. [Wrapping up](#wrapping-up)
+
+[&rarr; top](#)
