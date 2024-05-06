@@ -6,6 +6,7 @@ dist*/
 *.gz
 dist.zip
 dist*.zip
+*.7z
 
 # generated types
 .astro/

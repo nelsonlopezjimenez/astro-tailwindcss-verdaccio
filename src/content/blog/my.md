@@ -1,6 +1,7 @@
 ---
 title: Module 1
 date: 4/1/2024
+myData: Introduction to the module, The app requirements, How we’re going to store the data, Data modeling after the requisites, PocketBase installation options, Explore PocketBase,
 ---
 
 # Hi there! Welcome to class!!!
@@ -162,7 +163,7 @@ The first time you will see the setup screen with the text
 
 ```
 
-'Create your first admin account in order to continue'. 
+'Create your first admin account in order to continue'.
 
 ```
 
@@ -270,7 +271,10 @@ In a real app, you'll also want to configure a SMTP mail server to actually send
 
 An SMTP server definition:
 
-![](/smtp-server.png)
+<!-- ![](/smtp-server.png) -->
+<img src="/smtp-server.png" alt="smtp server" width=50%>
+<img src="../smtp-server.png" alt="smtp server" width=50%>
+
 
 If we have time I will set up a SMTP server in class, as well as in your laptops, so you could see all the emails that your app sends, only if we have time.
 

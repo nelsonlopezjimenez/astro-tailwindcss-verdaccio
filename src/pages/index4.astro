@@ -1,0 +1,11 @@
+---
+import LayoutSite from "@layouts/LayoutSite.astro";
+import SidebarGeneric from '@components/SidebarGeneric.astro'
+
+let contentArr = [
+    'q'
+]
+---
+<LayoutSite myData={contentArr} title="INDEX 2">
+    <slot />
+ </LayoutSite>

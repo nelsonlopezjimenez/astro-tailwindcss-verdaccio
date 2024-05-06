@@ -1,35 +1,151 @@
 ---
 let theprops = Astro.props
-console.log(theprops);
+console.log(theprops)
 
-const contentArr = [
-"Introduction to the module",
-"hi there! Welcome to the class",
-"Content",
-"The app requirements",
-"How we are going to store the data",
-"Data modeling",
-"PocketBase installation",
-"Explore PocketBase",
-"The collections structure",
-"The collections API Rules",
-"Users collection options",
-"The PocketBase API Preview",
-"PocketBase Logs",
-"PocketBase System settings",
-"Create the projects collection on PocketBase",
-"Create the tasks collection on PocketBase",
-"Editing the API Rules",
-"Wrapping up the module",
+const contentArr1 = [
+'Introduction to the module',
+'The app requirements',
+'How we’re going to store the data',
+'Data modeling after the requisites',
+'PocketBase installation options',
+'Explore PocketBase',
+'The collections API Rules',
+'Users collection options',
+'The PocketBase API Preview',
+'PocketBase Logs',
+'PocketBase System settings',
+'Create the projects collection on PocketBase',
+'Create the tasks collection on PocketBase',
+'Editing the API Rules',
+'Wrapping up the module',
+];
+let contentArr2 = [
+'Introduction',
+'Goals',
+'What is Astro',
+'Installing Astro locally',
+'Install Astro',
+'Creating folder structure manually',
+'Create first Astro page',
+'Create first static asset',
+'Edit astro config mjs file',
+'Adding TypeScript support',
+'Starting Astro application',
+'Configuring VS Code Prettier extension',
+'About TypeScript',
+'Overview of starter Astro site',
+'Astro vs other JS frameworks',
+'Astro Homepage',
+'Light mode',
+'Dark mode',
+'In mobile device',
+'Manual install Astro Tailwind extension',
+'Manual install NodeJS integration',
+'Instal dotenv module',
+'Create a layout',
+'Tips from Flavio Copes',
+'Module2 part B',
+'The top bar',
+'Dark mode',
+'The hero section',
+'Screenshot of the app in action',
+'The feature list',
+'Improving the Feature component using JavaScript',
+'Testimonials',
+'The pricing section',
+'Frequently asked questions',
+'The footer',
+'Create the blog',
+'Create a collection',
+'Create the blog post list',
+'The single blog post view',
+'Wrapping module 2',
+'Troubleshooting',
+
 ]
-const anchorLink = contentArr.map(i => {
-    return `#"${i.replaceAll(' ', '-')}`
-})
-console.log(anchorLink);
+
+const contentArr3 = [
+'Introduction to the module',
+'Create a dashboard',
+'Start fetching data from PocketBase',
+'Show the projects list on the page',
+'Create a layout for the app',
+'Show projects nicely',
+'Show the project status',
+'The problem we’re facing with static site rendering',
+'Enable SSR mode in Astro',
+'SSR vs SSG mode',
+'Add a way to create a new project from the app',
+'Create a modal container',
+'Time to introduce htmx',
+'Show the modal',
+'Add the form to the modal',
+'Close the modal when we click outside of it',
+'Create the new project',
+'Create the single project page',
+'Add a way to add tasks to a project',
+'List the project tasks',
+'Troubleshooting',
+'Wrapping up'
+
+]
+
+const contentArr4 = [
+'Introduction to the module',
+'Add a sidebar',
+'List projects in the sidebar',
+'Add hamburger menu to show projects list on mobile',
+'Add x-cloak to prevent flicker',
+'Moving styles to app.css',
+'Use hx-boost to smooth navigation',
+'Sort projects by status',
+'Fix the TS errors',
+'Use the logo font for the pages title',
+'Delete a project',
+'Allow to edit the project status',
+'Let people edit the project’s name.',
+'Delete a task',
+'Add a way to mark tasks as done',
+'Show “done” tasks in a different list',
+'Star a task',
+'Show starred tasks in the dashboard',
+'Edit the task text',
+'Wrapping up',
+]
+
+let titleSplit = theprops.title.split(' ');
+let modIdx = titleSplit[1];
 ---
 
-{theprops.title}
+<div class="bg-red">
+    <p>Astro.props: <a href=`/index${modIdx}`>{theprops.title}</a></p>
+    <p>Astro.props: <a href=`/blog/my${modIdx}`>{theprops.title}</a></p>
+</div>
 
 {
-    contentArr.map(i => <a href={'#'+ i.replaceAll(' ', '-').toLowerCase()}>{i}</a><br/>)
+    theprops.title.includes('1') ?
+        contentArr1.map(i => <a href={'#'+ i.replaceAll(' ', '-').toLowerCase()}>{i}</a><br/>)
+    
+    :   (
+        theprops.title.includes('2') ?
+        contentArr2.map(i => <a href={'#'+ i.replaceAll(' ', '-').toLowerCase()}>{i}</a><br/>)
+        :
+        (
+            theprops.title.includes('3') ?
+            contentArr3.map(i => <a href={'#'+ i.replaceAll(' ', '-').toLowerCase()}>{i}</a><br/>)
+            
+            :
+            (
+                theprops.title.includes('4') ?
+                contentArr4.map(i => <a href={'#'+ i.replaceAll(' ', '-').toLowerCase()}>{i}</a><br/>)
+
+                :
+                'It is not 1 or 3'
+            )
+        )
+        
+    
+    )
+
 }
+

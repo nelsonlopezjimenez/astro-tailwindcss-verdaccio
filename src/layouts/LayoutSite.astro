@@ -6,7 +6,10 @@ import SidebarGeneric from '@components/SidebarGeneric.astro'
 import '@fontsource/m-plus-rounded-1c'
 import '@fontsource/m-plus-rounded-1c/800.css'
 
-const { title = 'Spring24app' } = Astro.props
+const { title = 'Spring24app', myData = "nodata" } = Astro.props
+console.log(Astro.props)
+// const { data } = Astro.props;
+// console.log(data.length)
 ---
 
 <html lang='en'>
@@ -47,8 +50,8 @@ const { title = 'Spring24app' } = Astro.props
             <!-- <Sidebar /> -->
 
             <!-- <SidebarGeneric /> -->
-            <!-- <SidebarGeneric title="Astro.props" /> -->
-            <Sidebarmd />
+            <SidebarGeneric title={title}  myData={myData}/>
+            <!-- <Sidebarmd /> -->
             
           </div>
           <div class='w-full sm:w-2/3' x-data='{showMenu : false}'>
