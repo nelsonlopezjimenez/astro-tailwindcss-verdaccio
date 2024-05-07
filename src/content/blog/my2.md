@@ -5,7 +5,7 @@ date: 4/1/2024
 
 # Module 2 - week 4.17 - PART A
 
-Now we are going to create a Astro-based website. It consists of homepage, blog, projects page, etc. We'll be using Tailwind to build a layout that is responsive and handles dark and bright mode. We'll learn how to use Astro components to compose the HTML, server side, using JavaScript imports. Also, we'll learn how to create dynamic routes and how to use content collections to build the app. 
+Now we are going to create a Astro-based website. It consists of homepage, blog, projects page, etc. We'll be using Tailwind to build a layout that is responsive and handles dark and bright mode. We'll learn how to use Astro components to compose the HTML, server side, using JavaScript imports. Also, we'll learn how to create dynamic routes and how to use content collections to build the app.
 
 ## Contents
 
@@ -35,7 +35,6 @@ Now we are going to create a Astro-based website. It consists of homepage, blog,
 1. [Tips from Flavio Copes](#tips-from-flavio-copes)
 1. [Module2 part B](#module-2-part-b)
 
-
 ## Introduction
 
 [&rarr; top](#)
@@ -62,7 +61,7 @@ In this module we'll introduce Astro that will be our backend framework. We'll c
 
 Astro is a backend framework written in JavaScript (Typescript actually) that you use to build websites and web applications.
 
-What is its role in our applicataion? 
+What is its role in our applicataion?
 
 how does it paly with PocketBase?
 
@@ -81,9 +80,9 @@ Astro will:
 - generate the HTML of the signup and login forms
 - handle aunthenticated requests for users that are logged in
 - provide a customized dashboard to each user, gathering from PocketBase the user-specific data
-- handle all the HTTP requests the users will generate by clicking around the app in the browser, to create projects, delete projects, add tasks, etc. 
+- handle all the HTTP requests the users will generate by clicking around the app in the browser, to create projects, delete projects, add tasks, etc.
 
-PocketBase is the database server. Astro is the backend server (or application server). 
+PocketBase is the database server. Astro is the backend server (or application server).
 
 We'll use Astro on the backend side of our stack because:
 
@@ -96,21 +95,21 @@ We'll use Astro on the backend side of our stack because:
 - it evolves to become more complex, but always it starts as a simple backend tool
 - being JavaScript, you can use any NodeJS API or npm package you may need.
 
- But What Is a Framework?
+But What Is a Framework?
 
- NodeJS is a JavaScript runtime environment for running JavaScript applications outside the browser. It is asynchronous. It is event-driven. 
+NodeJS is a JavaScript runtime environment for running JavaScript applications outside the browser. It is asynchronous. It is event-driven.
 
- With around 50,000 open source packages available through npm (Node Package Manager), it offers quite a variety of tools and option in fullstack web development
+With around 50,000 open source packages available through npm (Node Package Manager), it offers quite a variety of tools and option in fullstack web development
 
- So a framework. Nodejs frameworks are a set of libraries, templates, and tools built on top of the Node environment. They offer a basic structure for applications including routes, middleware, and templates that streamline the development process. 
+So a framework. Nodejs frameworks are a set of libraries, templates, and tools built on top of the Node environment. They offer a basic structure for applications including routes, middleware, and templates that streamline the development process.
 
- Why use NodeJS frameworks?
+Why use NodeJS frameworks?
 
- It provides so called syntactic sugar (easier, simpler looking syntax).
+It provides so called syntactic sugar (easier, simpler looking syntax).
 
- What does it mean?
+What does it mean?
 
- Look at the code snippet below that showcases the displaying of a &lt;h2> tag on the home route using vanilla JavaScript and Express. 
+Look at the code snippet below that showcases the displaying of a &lt;h2> tag on the home route using vanilla JavaScript and Express.
 
 ```
 
@@ -128,24 +127,22 @@ const server = http.createServer((req, res) => {
 // Express
 const express = require('express');
 const app = express();
- 
+
 app.get('/', (req, res) => {
     res.send('<h2>Hello from the Ably Blog</h2>');
 });
 
 ```
+
 In NodeJS, we create an http server, use setHeader to manually set the response content type and write all the required HTML tags to be able to display the &lt;h2> tag.
 
-In Express, we only need to just send the &lt;h2> tag as a response. 
+In Express, we only need to just send the &lt;h2> tag as a response.
 
 Express is a minimalistic web framework to simplify the backend application development with a robust set of features including routing, middleware, error handling, and templating
 
 NestJS is a framework that uses both JavasCript and Typescript. It follows a modular architecture. The use of modules ensures maintainability and reusability across various parts of the application.
 
-
-
- ref  https://ably.com/blog/best-nodejs-frameworks
-
+ref https://ably.com/blog/best-nodejs-frameworks
 
 ## Installing Astro Locally
 
@@ -155,26 +152,24 @@ Your workspace should be in either ~/Desktop or ~/Documents folders. The tilde r
 
 Inside you should have a folder ~/Documents/QUARTER_3/dev
 
-cd into ~/Documents/QUARTER_3/dev folder and run 
+cd into ~/Documents/QUARTER_3/dev folder and run
+
 ```
 
 npm create astro@latest
 
 ```
-You may (or may not) be able to run it on your laptops. It depends on several factors. I will show you how it run when connected to the Internet, where you have access to the most updated versions of all packages and process. If you cannot do it in your laptops, I will show the alternative ways to install it in your laptops. In the video you'll see a series of options for the installation. You either choose an option, or hit enter to select the default. The first question is about the app's name, it has to be unique. In the following section I will explain the steps to install Astro manually. 
+
+You may (or may not) be able to run it on your laptops. It depends on several factors. I will show you how it run when connected to the Internet, where you have access to the most updated versions of all packages and process. If you cannot do it in your laptops, I will show the alternative ways to install it in your laptops. In the video you'll see a series of options for the installation. You either choose an option, or hit enter to select the default. The first question is about the app's name, it has to be unique. In the following section I will explain the steps to install Astro manually.
 
 But first watch Astro installation with access to the Internet:
 
-
-<!-- [![](https://markdown-videos-api.jorgenkh.no/youtube/{video_id})](https://youtu.be/{video_id}) -->
-![](/npm-create-astro-at-latest-command.mp4)
 <video width="320" height="240" controls>
-  <source src="../npm-create-astro-at-latest-command.mp4" type="video/mp4">
-  <source src="/npm-create-astro-at-latest-command.mp4" type="video/mp4">
-  <source src="/npm-create-astro-at-latest-command.mp4" type="video/ogg">
+  <source src="/video/npm-create-astro-at-latest-command.mp4" type="video/mp4">
+  <source src="/video/npm-create-astro-at-latest-command.mp4" type="video/mp4">
+  <source src="/video/npm-create-astro-at-latest-command.mp4" type="video/ogg">
   Your browser does not support the video tag.
 </video>
-
 
 ## Install Astro
 
@@ -199,7 +194,7 @@ If the command is <code>npm install astro</code>(with no particular version numb
 Then, replace any placehoder "scripts" section of your package.json with the following:
 
 <!-- ![](/astro-manual-packagejson-scripts.png) -->
-<img src="../astro-manual-packagejson-scripts.png" alt="astro-manual-packagejson-scripts.png" width=50% style="border:14px solid pink">
+<img src="/image/astro-manual-packagejson-scripts.png" alt="astro-manual-packagejson-scripts.png" width=50% style="border:14px solid pink">
 
 ## Creating folder Structure manually
 
@@ -226,15 +221,15 @@ Your folder now should look like this:
 
 <!-- <img src="" alt="" width=70% style="border: 14px solid pink"> -->
 
-<img src="../astro-manual-installation-tree.png" alt="astro-manual-installation-tree.png" width=50% style="border: 14px solid pink">
+<img src="/image/astro-manual-installation-tree.png" alt="astro-manual-installation-tree.png" width=50% style="border: 14px solid pink">
 
 ## Create your first page
 
 [&rarr; top](#)
 
-Edit file <code>index.astro</code> in the path <code>src/pages/index.astro</code>. 
+Edit file <code>index.astro</code> in the path <code>src/pages/index.astro</code>.
 
-For this guide, copy-and-paste the following code snippet (including the <code>---</code> dashes) into your new file: 
+For this guide, copy-and-paste the following code snippet (including the <code>---</code> dashes) into your new file:
 
 ```
 
@@ -258,13 +253,14 @@ console.log('This runs in your terminal, not the browser!');
 </style>
 
 ```
+
 ## Create first static asset
 
 [&rarr; top](#)
 
 In the <code>public/</code> directory you will store static assets. Astro will always include these assets in your final build, so you can safely reference them from inside your component templates.
 
-Create a new file in <code>public/robots.txt</code>. This file is a simple file that most wites will include to tell search bots ike Google how to treat your site. 
+Create a new file in <code>public/robots.txt</code>. This file is a simple file that most wites will include to tell search bots ike Google how to treat your site.
 
 For this guide, copy-and-paste the following code snippet into your new file:
 
@@ -300,7 +296,7 @@ If you want to include UI framework components such as React, Svelte, etc. or us
 
 [&rarr; top](#)
 
-Typescript is configured using <code>tsconfig.json</code>. This file allows Astro and VS Code know how to understand your project. 
+Typescript is configured using <code>tsconfig.json</code>. This file allows Astro and VS Code know how to understand your project.
 
 If you do intend to write TypeScript code, using Astro's <code>strict</code> or <code>strictest</code> template is **recommended**
 
@@ -336,12 +332,10 @@ npm run dev
 
 Got to http://localhost:4321, you should see the following:
 
-
 <!-- ![](/cd-astroapp-ls-cat-config-files.mp4) -->
 <video width="320" height="240" controls>
-  <source src="../cd-astroapp-ls-cat-config-files.mp4" type="video/mp4">
-  <source src="/cd-astroapp-ls-cat-config-files.mp4" type="video/mp4">
-  <source src="/cd-astroapp-ls-cat-config-files.mp4" type="video/ogg">
+  <source src="/video/cd-astroapp-ls-cat-config-files.mp4" type="video/mp4">
+  <source src="/video/cd-astroapp-ls-cat-config-files.mp4" type="video/ogg">
   Your browser does not support the video tag.
 </video>
 
@@ -349,7 +343,7 @@ Got to http://localhost:4321, you should see the following:
 
 [&rarr; top](#)
 
-Everyone has his/her preferences with code style. You can select your own preferences. Some of the examples are taken from github. If you want your code to match them, use Prettier, a style formatting extension for VS Code. I am not sure if you have it yet. 
+Everyone has his/her preferences with code style. You can select your own preferences. Some of the examples are taken from github. If you want your code to match them, use Prettier, a style formatting extension for VS Code. I am not sure if you have it yet.
 
 In any case, go to the VS Code Settings and enable 'Editor: Format On Save'. The code will auto-format every time you save a file (or automatically if you have auto-save).
 
@@ -366,12 +360,11 @@ This approach has few advantages:
 - code completion in VS Code: a nice development experience or DX that only types can provide
 - the TypeScript compiler can warn about possible issues related to types, for example, using a property not defined on a type, or passing the wrong type to a function.
 
-
 ## Overview of starter Astro site
 
 [&rarr; top](#)
 
-The page with the 'Welcome to Astro' title in it was generated by Astro, through the file 
+The page with the 'Welcome to Astro' title in it was generated by Astro, through the file
 
 ```
 
@@ -409,11 +402,11 @@ All while not limiting you to use a frontend framework if you want, thanks to it
 
 The combination of the two will let us create SPA-grade applications with a simplicity that will make you wonder why are people dealing with a heavy frontend framework at all. This is a question on one of Flavio Copes blog. And I think the answer lies in the mobile vs non-mobile devices usage.
 
-## Astro Homepage 
+## Astro Homepage
 
 [&rarr; top](#)
 
-Firstly, you are not going to create an award-winning landing page. 
+Firstly, you are not going to create an award-winning landing page.
 
 But, it will be something simple and nice to look at. When the app will make some money we may hire a designer.
 
@@ -425,70 +418,39 @@ But, it will be something simple and nice to look at. When the app will make som
 
 <!-- <img src="" alt="" width=70% style="border: 14px solid pink"> -->
 
-<img src="/head-pic1a.png" alt="/head-pic1a.png" width=70% style="border: 14px solid pink">
-<img src="/head-after-pic1a.png" alt="/head-after-pic1a.png" width=70% style="border: 14px solid pink">
-<img src="/head-after-pic1b.png" alt="/head-after-pic1b.png" width=70% style="border: 14px solid pink">
-<img src="/head-after-pic1c.png" alt="/head-after-pic1c.png" width=70% style="border: 14px solid pink">
-<img src="/head-after-pic1d.png" alt="/head-after-pic1d.png" width=70% style="border: 14px solid pink">
-<img src="/head-after-pic1e.png" alt="/head-after-pic1e.png" width=70% style="border: 14px solid pink">
-
-# .
-
-<img src="../head-pic1a.png" alt="../head-pic1a.png" width=70% style="border: 14px solid pink">
-<img src="../head-after-pic1a.png" alt="../head-after-pic1a.png" width=70% style="border: 14px solid pink">
-<img src="../head-after-pic1b.png" alt="../head-after-pic1b.png" width=70% style="border: 14px solid pink">
-<img src="../head-after-pic1c.png" alt="../head-after-pic1c.png" width=70% style="border: 14px solid pink">
-<img src="../head-after-pic1d.png" alt="../head-after-pic1d.png" width=70% style="border: 14px solid pink">
-<img src="../head-after-pic1e.png" alt="../head-after-pic1e.png" width=70% style="border: 14px solid pink">
-<!-- ![Image 1a](/head-after-pic1a.png)
-![Image 1b](/head-after-pic1b.png)
-![Image 1v](/head-after-pic1c.png)
-![Image 1d](/head-after-pic1d.png)
-![Image 1e](/head-after-pic1e.png) -->
-
+<img src="/image/head-pic1a.png" alt="/head-pic1a.png" width=70% style="border: 14px solid pink">
+<img src="/image/head-after-pic1a.png" alt="/head-after-pic1a.png" width=70% style="border: 14px solid pink">
+<img src="/image/head-after-pic1b.png" alt="/head-after-pic1b.png" width=70% style="border: 14px solid pink">
+<img src="/image/head-after-pic1c.png" alt="/head-after-pic1c.png" width=70% style="border: 14px solid pink">
+<img src="/image/head-after-pic1d.png" alt="/head-after-pic1d.png" width=70% style="border: 14px solid pink">
+<img src="/image/head-after-pic1e.png" alt="/head-after-pic1e.png" width=70% style="border: 14px solid pink">
 
 ## In dark mode
 
 [&rarr; top](#)
-<!-- 
-![](/Public/dark-1a.png)
-![](/Public/dark-1c.png)
-![](/Public/dark-1d.png)
-![](/Public/dark-1e.png)
-![](/Public/dark-1f.png) -->
-
 
 <!-- <img src="" alt="" width=70% style="border: 14px solid pink"> -->
-<img src="/dark-1a.png" alt="dark-1a.png" width=70% style="border: 14px solid pink">
-<img src="/dark-1c.png" alt="dark-1c.png" width=70% style="border: 14px solid pink">
-<img src="/dark-1d.png" alt="dark-1d.png" width=70% style="border: 14px solid pink">
-<img src="/dark-1e.png" alt="dark-1e.png" width=70% style="border: 14px solid pink">
-<img src="/dark-1f.png" alt="dark-1f.png" width=70% style="border: 14px solid pink">
-
-# .
-
-<img src="../dark-1a.png" alt="../dark-1a.png" width=70% style="border: 14px solid pink">
-<img src="../dark-1c.png" alt="../dark-1c.png" width=70% style="border: 14px solid pink">
-<img src="../dark-1d.png" alt="../dark-1d.png" width=70% style="border: 14px solid pink">
-<img src="../dark-1e.png" alt="../dark-1e.png" width=70% style="border: 14px solid pink">
-<img src="../dark-1f.png" alt="../dark-1f.png" width=70% style="border: 14px solid pink">
+<img src="/image/dark-1a.png" alt="dark-1a.png" width=70% style="border: 14px solid pink">
+<img src="/image/dark-1c.png" alt="dark-1c.png" width=70% style="border: 14px solid pink">
+<img src="/image/dark-1d.png" alt="dark-1d.png" width=70% style="border: 14px solid pink">
+<img src="/image/dark-1e.png" alt="dark-1e.png" width=70% style="border: 14px solid pink">
+<img src="/image/dark-1f.png" alt="dark-1f.png" width=70% style="border: 14px solid pink">
 
 ## Here the view in a mobile device
 
 [&rarr; top](#)
 
 <video width="320" height="240" controls>
-  <source src="../spring24app-mobile-view.mp4" type="video/mp4">
-  <source src="/spring24app-mobile-view.mp4" type="video/mp4">
-  <!-- <source src="/public/spring24app-mobile-view.mp4" type="video/mp4"> -->
-  <source src="/spring24app-mobile-view.mp4" type="video/ogg">
+
+  <source src="/video/spring24app-mobile-view.mp4" type="video/mp4">
+  <!-- <source src="/image/public/spring24app-mobile-view.mp4" type="video/mp4"> -->
+  <source src="/video/spring24app-mobile-view.mp4" type="video/ogg">
   Your browser does not support the video tag.
 </video>
 
-
 We will implement this page from top to bottom.
 
-We are going to use Tailwind CSS. 
+We are going to use Tailwind CSS.
 
 Tailwind is a library that makes super easy to style HTML pages using CSS
 
@@ -498,7 +460,6 @@ I will install Tailwind CSS IntelliSense, Docs, Tailwind
 
 [&rarr; top](#)
 
-
 Back to the terminal, stop the currently running app with the keyboard combination ctrl-c. Run
 
 ```
@@ -506,11 +467,12 @@ Back to the terminal, stop the currently running app with the keyboard combinati
 npx astro add tailwind
 
 ```
-TIP: 
+
+TIP:
 
 npx is a command we use to run an npm package without installing it first. **IF NPX DOES NOT WORK, JUMP INTO NEXT SECTION: "TAILWIND MANUAL INSTALL"**
 
-When prompted press Enter to apply the default options. 
+When prompted press Enter to apply the default options.
 If you can not run npx command, I will provide with the output directly to you through canvas. In short, the script will allow to configure Tailwind in your app. Once you're done, you can restart Astro app with **npm run dev** command
 
 You’ll notice the “Astro” text is now a bit smaller, because Tailwind resets the default browser style when installed (something called preflight), by adding a few initial baseline rules that will help us avoid having to reset any pre-existing applied styles, and start from a blank slate.
@@ -531,8 +493,7 @@ Then, apply the integration to astro.config.mjs file using the <code>integration
 
 <!-- ![](/astro-config-mjs-edit-1a.png) -->
 <!-- <img src="" alt="" width=70% style="border: 14px solid pink"> -->
-<img src="/astro-config-mjs-edit-1a.png" alt="/astro-config-mjs-edit-1a.png" width=70% style="border: 14px solid pink">
-<img src="../astro-config-mjs-edit-1a.png" alt="../astro-config-mjs-edit-1a.png" width=70% style="border: 14px solid pink">
+<img src="/image/astro-config-mjs-edit-1a.png" alt="/astro-config-mjs-edit-1a.png" width=70% style="border: 14px solid pink">
 
 Then, create <code>tailwind.config.mjs</code> file at the root of your project. You can use the command **<code>npx tailwindcss init</code>** but since it is not sure just create the file and enter the following code:
 
@@ -591,8 +552,6 @@ npm install dotenv@16.4.5
 
 ```
 
-
-
 ## Create a layout
 
 [&rarr; top](#)
@@ -604,8 +563,6 @@ In the src/pages/index.astro file we’re now rendering all the HTML the page wi
 But a lot of this HTML will be common to other pages as well. So instead of replicating all the HTML, we create a layout, and then we’ll import this layout in our index.astro page.
 
 Create a src/layouts folder.
-
-
 
 inside it, create an empty file named <code>LayoutSite.astro</code>:
 
@@ -654,7 +611,6 @@ We can put a special tag called <code>&lt;slot /></code> in the layout, and ever
 
 Let's do it!!
 
-
 ```
 ---
 
@@ -672,6 +628,7 @@ Let's do it!!
   </body>
 </html>
 ```
+
 .
 
 ```
@@ -718,6 +675,7 @@ In order to simplify the import syntax, and avoid setting relative paths of the 
 }
 
 ```
+
 Now you can use this import syntax in <code>src/pages/index.astro</code>
 
 ```
@@ -731,17 +689,14 @@ import LayoutSite from '@layouts/LayoutSite.astro'
 </LayoutSite>
 
 ```
+
 Since you don't have to use relative URL to access a particular resource, you don't have to think 'where is this or that file in the folder structure, and you can move the file around without breaking the import statements.
-
-
-
 
 # Tips from Flavio Copes
 
 [&rarr; top](#)
 
 💁‍♂️ TIP: Tailwind is called a “utility framework”. If you already know another framework like Bootstrap, Tailwind is similar but kind of different. Instead of providing you with more CSS classes, like .container or .btn-primary that do not tell you exactly what they do, you have what it’s called utility classes. Like .text-right or .text-left. They tell you precisely what they do. And they just do one thing. In this case, they move the text to the right or left. This is just an example. There are many more of those classes, each applying a single property of CSS rather than many at once as happens with Bootstrap.
-
 
 ## MODULE 2 PART B
 
@@ -801,7 +756,6 @@ link to the login page.
 
 We’ll need the top bar in all pages of the site.
 
-
 Inside **src/components/** folder we’re going to have a lot of components, so we’d better
 think about organizing them nicely.
 
@@ -811,11 +765,7 @@ Inside **src/components/site** we can further organize by creating a **common** 
 (like the top bar component) and a **homepage** folder that will host only components related to the homepage, our most complicated
 page.
 
-
-<img class="myMd" src="../_image2AA.webp" alt="src folder structure" width=70% />
-<img class="myMd" src="/_image2AA.webp" alt="src folder structure" width=70% />
-
-
+<img class="myMd" src="/image/_image2AA.webp" alt="src folder structure" width=70% />
 
 Inside **common** create the file **TopBar.astro**.
 
@@ -844,12 +794,9 @@ import TopBar from '@components/site/common/TopBar.astro'
 Now write “Top Bar” in the TopBar.astro component, and it will
 appear in the website:
 
-
-<img class="myMd" src="../_image2AB.webp" alt="topbar with astro title" width=70% />
-<img class="myMd" src="/_image2AB.webp" alt="topbar with astro title" width=70% />
+<img class="myMd" src="/image/_image2AB.webp" alt="topbar with astro title" width=70% />
 
 The logo1 is in the public folder of the Astro site:
-
 
 Anything in the public folder is statically served from Astro, this means you can access it using as http://localhost:4321/logo1.svg.
 
@@ -861,7 +808,6 @@ Inside your components you can reference it as
 
 ```
 
-
 Save this into TopBar.astro:
 
 ```
@@ -870,19 +816,20 @@ Save this into TopBar.astro:
   <a href='/' class='flex-1'>
     <img src='/logo.svg' alt='Logo' class='h-5 invert dark:invert-0' />
   </a>
-  
+
   <div class='hidden md:flex gap-x-12'>
     <a href='/#features'>Features</a>
     <a href='/#pricing'>Pricing</a>
     <a href='/blog'>Blog</a>
   </div>
-  
+
   <div class='flex-1 text-right'>
     <a href='/login'>Log in &rarr;</a>
   </div>
 </nav>
 
 ```
+
 We have a bunch of HTML tags.
 
 Everything is wrapped in a <nav> tag, which semantically represents a section of a page that links to other pages or to parts within the page.
@@ -896,20 +843,19 @@ Stripped down, the pure HTML looks like this:
   <a href='/'>
     <img src='/logo.svg' alt='Logo' />
   </a>
-  
+
   <div>
     <a href='/#features'>Features</a>
     <a href='/#pricing'>Pricing</a>
     <a href='/blog'>Blog</a>
   </div>
-  
+
   <div>
     <a href='/login'>Log in &rarr;</a>
   </div>
 </nav>
 
 ```
-
 
 The links point to locations we’ll create later on. In particular, **/login** and **/blog** are different pages (we’ll build blog later in this module). **/#pricing** and **/#features** will be locations in the homepage where people can find information about (guess what) the features and the pricing.
 
@@ -925,17 +871,12 @@ Then the each individual link is separated from each other using **gap-x-12**.
 
 This is the result:
 
-<img class="myMd" src="../_image2AC.webp" alt="_image2AC.webp" width=100%>
-<img class="myMd" src="/_image2AC.webp" alt="_image2AC.webp" width=100%>
+<img class="myMd" src="/image/_image2AC.webp" alt="_image2AC.webp" width=100%>
 
 (if you don’t see the logo, is your OS in dark mode? try switching to light mode)
 When the window is a little bit larger, you’ll see the central menu items too, which are hidden and only shown on medium sized screens:
 
-<img class="myMd" src="../_image2AD.webp" alt="_image2AD.webp" width=100%>
-<img class="myMd" src="/_image2AD.webp" alt="_image2AD.webp" width=100%>
-
-
-
+<img class="myMd" src="/image/_image2AD.webp" alt="_image2AD.webp" width=100%>
 
 ## Dark mode
 
@@ -944,12 +885,10 @@ When the window is a little bit larger, you’ll see the central menu items too,
 If you use dark mode in your OS you don’t see the logo, because the logo is white. In light mode we invert it to black using the invert class, but we revert the invert in dark mode using **dark:invert-0.**
 
 <!-- ![]('/public/_image-4.webp') -->
-<img class="myMd" src="../_image-4.webp" alt="_image-4.webp" width=100%>
-<img class="myMd" src="/_image-4.webp" alt="/_image-4.webp" width=100%>
+
+<img class="myMd" src="/image/_image-4.webp" alt="/_image-4.webp" width=100%>
 
 We fix this by using a dark background in dark mode, and by setting the font white using **dark:bg-black dark:text-white** on the body:
-
-
 
 ```
 
@@ -972,8 +911,7 @@ import TopBar from '@components/site/common/TopBar.astro'
 
 ```
 
-<img class="myMd" src="../_image-5.webp" alt="_image-5.webp" width=100%>
-<img class="myMd" src="/_image-5.webp" alt="/_image-5.webp" width=100%>
+<img class="myMd" src="/image/_image-5.webp" alt="/_image-5.webp" width=100%>
 <!-- ![]('/_image-5.webp') -->
 
 We also set some padding on an inner div, the max width with max-w-5xl, and mx-auto to center this into the page.
@@ -983,7 +921,6 @@ I highly encourage you to search on the Tailwind CSS official documentation what
 ## The hero section
 
 [&rarr; top](#)
-
 
 Create **src/components/site/homepage/Hero.astro** file. Add the following content:
 
@@ -1023,7 +960,7 @@ Create **src/components/site/homepage/Hero.astro** file. Add the following conte
 
 ```
 
-This component is just HTML with some Tailwind CSS classes. 
+This component is just HTML with some Tailwind CSS classes.
 
 As an exercise, try removing classes and see what happens. You won't learn until you start messing with the code.
 
@@ -1044,8 +981,7 @@ import Hero from '@components/site/homepage/Hero.astro'
 
 ```
 
-<img class="myMd" src="../_image-6.webp" alt="6" width=100%>
-<img class="myMd" src="/_image-6.webp" alt="6" width=100%>
+<img class="myMd" src="/image/_image-6.webp" alt="6" width=100%>
 <!-- ![]('/_image-6.webp') -->
 
 ## The screenshot of the app in action
@@ -1057,10 +993,11 @@ Let’s now add a big screenshot of the app in action. We haven’t built the ap
 Use this screenshot image:
 
 <!-- ![]('/head-after-pic1a.png') -->
-<img class="myMd" src="../head-after-pic1a.png" alt="pic1a" width=100%>
-<img class="myMd" src="/head-after-pic1a.png" alt="/pic1a" width=100%>
+
+<img class="myMd" src="/image/head-after-pic1a.png" alt="/pic1a" width=100%>
 
 Create **src/components/site/homepage/Screenshot.astro**
+
 ```
 
 <div class='mt-16 sm:mt-24'>
@@ -1098,8 +1035,7 @@ import Screenshot from '@components/site/homepage/Screenshot.astro'
 
 Here we go:
 
-<img class="myMd" src="../_image-7.webp" alt="" width=100%>
-<img class="myMd" src="/_image-7.webp" alt="" width=100%>
+<img class="myMd" src="/image/_image-7.webp" alt="" width=100%>
 <!-- ![]('/_image-7.webp.png') -->
 
 ## The feature list
@@ -1110,17 +1046,13 @@ Let’s now add the features list.
 
 This is the end result we want:
 
-<img class="myMd" src="../_image-7.webp.png" alt="" width=100%>
-<img class="myMd" src="/_image-7.webp.png" alt="" width=100%>
+<img class="myMd" src="/image/_image-7.webp.png" alt="" width=100%>
 <!-- ![]('/_image-7.png') -->
-
 
 When the screen gets smaller:
 
-<img class="myMd" src="../_image-9.webp" alt="" width=100%>
-<img class="myMd" src="/_image-9.webp" alt="" width=100%>
+<img class="myMd" src="/image/_image-9.webp" alt="" width=100%>
 <!-- ![]('/_image-9.png') -->
-
 
 Here’s the code to make this work. Suppose your designer handed it to you, or you got this generated from a tool like Figma.
 
@@ -1193,9 +1125,9 @@ Add this HTML to **src/components/site/homepage/Features.astro**:
           <div
             class="absolute top-0 left-0 flex items-center justify-center w-10 h-10 bg-blue-600 rounded-lg">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-            
+
             <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
-            
+
             </svg>
           </div>
           Multiplayer mode
@@ -1209,8 +1141,6 @@ Add this HTML to **src/components/site/homepage/Features.astro**:
 </div>
 
 ```
-
-
 
 We initially have an “anchor”. When clicking the “features” link, the browser will point to this place in the page.
 
@@ -1233,7 +1163,6 @@ import Features from '@components/site/homepage/Features.astro'
 </LayoutSite>
 
 ```
-
 
 ## Improving the Features component using JavaScript
 
@@ -1290,6 +1219,7 @@ First we “extract” all the SVG icons to their own component. Create the **sr
 </svg>
 
 ```
+
 Import them all at the top of **src/components/site/homepage/Features.astro**:
 
 ```
@@ -1358,7 +1288,6 @@ Now in the HTML down below we use the syntax:
 ```
 
 to iterate every item in the **features** array, and inside the parentheses we generate the HTML we want:
-
 
 ```
 
@@ -1439,6 +1368,7 @@ Create a **src/components/site/homepage/Testimonial.astro** component:
 </div>
 
 ```
+
 and include it in **src/pages/index.astro**:
 
 ```
@@ -1461,8 +1391,7 @@ import Testimonial from '@components/site/homepage/Testimonial.astro'
 
 Looks pretty nice:
 
-<img class="myMd" src="../_image-9a.webp.png" alt="" width=100%>
-<img class="myMd" src="/_image-9a.webp.png" alt="" width=100%>
+<img class="myMd" src="/image/_image-9a.webp.png" alt="" width=100%>
 <!-- ![]('/_image-9a.png') -->
 
 ## The pricing section
@@ -1471,10 +1400,8 @@ Looks pretty nice:
 
 Here is what we’ll have in the pricing section of the homepage:
 
-<img class="myMd" src="../_image9AB.webp" alt="" width=100%>
-<img class="myMd" src="/_image9AB.webp" alt="" width=100%>
+<img class="myMd" src="/image/_image9AB.webp.png" alt="" width=100%>
 <!-- ![]('_image-9AB.webp') -->
-
 
 As mentioned in the first module, we’ll make the usage of our app free for individuals, and paid for teams.
 
@@ -1612,6 +1539,7 @@ Create **src/components/site/homepage/Pricing.astro** and add this HTML markup:
 </div>
 
 ```
+
 Include this in **src/pages/index.astro**:
 
 ```
@@ -1702,10 +1630,8 @@ import FAQ from '@components/site/homepage/FAQ.astro'
 
 ```
 
-<img class="myMd" src="../_image9ABC.webp.png" alt="" width=100%>
-<img class="myMd" src="/_image9ABC.webp.png" alt="" width=100%>
+<img class="myMd" src="/image/_image9ABC.webp.png" alt="" width=100%>
 <!-- ![]('_image-9ABC.png') -->
-
 
 Note that using this approach you can easily reorder the components on the page by moving them up or down in **index.astro**, so you can experiment with different layouts, for example putting price up or down and measuring the results.
 
@@ -1719,15 +1645,14 @@ In the footer we’ll add a bunch of links that we’ll later “connect” to p
 
 This is going to be the result:
 
-<img class="myMd" src="../_image-9ABCD.webp" alt="" width=100%>
-<img class="myMd" src="/_image9-ABCD.webp" alt="" width=100%>
+<img class="myMd" src="/image/_image-9ABCD.webp.png" alt="-9abcd" width=100%>
 <!-- ![]("/_image-9ABCD.webp") -->
 
 See, we have 4 columns that turn into 2 when the screen is small:
 
 <!-- ![]("/_image-9B.webp") -->
-<img class="myMd" src="../_image-9B.webp" alt="" width=50%>
-<img class="myMd" src="/_image-9B.webp" alt="" width=50%>
+
+<img class="myMd" src="/image/_image-9B.webp.png" alt="9b" width=50%>
 
 This is the HTML we need for this:
 
@@ -1825,7 +1750,6 @@ This is the HTML we need for this:
 
 ```
 
-
 Again, we can rewrite this HTML to this to avoid the endless repetition of HTML tags that all look the same:
 
 ```
@@ -1890,6 +1814,7 @@ const columns = [
 </div>
 
 ```
+
 Write this in **src/components/site/common/Footer**.astro, and this time include it in the layout, as we’ll share this across all pages in the site:
 
 ```
@@ -1921,6 +1846,7 @@ import Footer from '@components/site/common/Footer.astro'
 </html>
 
 ```
+
 ## Create the blog
 
 [&rarr; top](#)
@@ -1931,16 +1857,15 @@ The product blog is where we’ll post updates, sneak peeks, new releases, new f
 
 This is what we want to achieve initially, a minimal blog setup that will be available on the **/blog** route:
 
-<img class="myMd" src="../_image-9CCD.webp" alt="" width=100%>
-<img class="myMd" src="/_image-9CCD.webp" alt="" width=100%>
+<img class="myMd" src="/image/_image-9CCD.webp.png" alt="9ccd" width=100%>
 <!-- ![]('_image-9CDD.png') -->
 
 And when we click a blog post, we get the single blog post view, corresponding to the URL **/blog/&lt;post-name>**:
 
 <!-- ![]('_image-9CA.png') -->
 
-
 PENDING
+
 ## Create a collection
 
 [&rarr; top](#)
@@ -1948,7 +1873,6 @@ PENDING
 The first thing to do is to create a **content collection**.
 
 A collecation is a super powerful feature of Astro.
-
 
 It is a way to define a category of content, that we author using **markdowwn**. We can have for example, blog posts, tutorial, changelog or different types of content.
 
@@ -1980,8 +1904,7 @@ Then we define the **schema** of the collection. Schema is the "structure": titl
 
 If the input title is not a string, or the input date is not a date, Astro will display an error.
 
-<img class="myMd" src="../_image-9CC.webp" alt="" width=100%>
-<img class="myMd" src="/_image-9CC.webp" alt="" width=100%>
+<img class="myMd" src="/image/_image-9CC.webp" alt="" width=100%>
 <!-- ![]('_image-9CC.webp')  -->
 
 Restart the server (ctrl-^) followed by **npm run dev**. Astro needs to see the content of the collection in order to generate the types that Typescript wants to see.
@@ -2008,7 +1931,7 @@ We did it! aaaa
 
 **FRONTMATTER** is the part between **---**.
 
-Below it is the content. **Markdown** is like HTML but much simpler. Start learning the basics, it is worth. 
+Below it is the content. **Markdown** is like HTML but much simpler. Start learning the basics, it is worth.
 
 It is time to create the **'route'** that will listen on **/blog**, by creating **src/pages/blog.astro**:
 
@@ -2045,9 +1968,9 @@ posts = posts.sort(
 ```
 
 The **imports** are at the top: **getCollection** function from Astro. We call it to get the list of posts using **await getCollection('blog')**.
-It an async function. Async function always return a promise. The promise will be either resolved (fullfilled) or rejected at some point in time later. It depends on the network traffic and other factors. 
+It an async function. Async function always return a promise. The promise will be either resolved (fullfilled) or rejected at some point in time later. It depends on the network traffic and other factors.
 
-Now the **posts** object contains the array of posts. 
+Now the **posts** object contains the array of posts.
 
 We then call the **sort()** method to order posts based on date.
 
@@ -2085,13 +2008,11 @@ const { title = 'Secretplan' } = Astro.props
 
 ```
 
-
 This is the page responsible for showing the list of blog posts.
 
 Now go to http://localhost:4321/blog
 
-<img class="myMd" src="../_image-9CCD.webp.png" alt="" width=100%>
-<img class="myMd" src="/_image-9CCD.webp.png" alt="" width=100%>
+<img class="myMd" src="/image/_image-9CCD.webp.png" alt="" width=100%>
 <!-- ![]('_image9CCD.png')  -->
 
 ## The single blog post view
@@ -2130,9 +2051,9 @@ The **MarkdownLayout.astro**'s purpose is just to customize how the blog post is
 
 Now, let's create a dynamic route (URL) to render one post. Create **src/pages/blog/[slug].astro**.
 
-Each blog post's file title will determine the website page route (URL). For instance, **hello-world.md** turns into **src/pages/blog/hello-world**. 
+Each blog post's file title will determine the website page route (URL). For instance, **hello-world.md** turns into **src/pages/blog/hello-world**.
 
-You don't need to create a route for each blog post (remember Reddit web site? the **/r/something route**?). The **[slug].astro** takes care of the dynamic part. 
+You don't need to create a route for each blog post (remember Reddit web site? the **/r/something route**?). The **[slug].astro** takes care of the dynamic part.
 
 in **[slug].astro** file we add:
 
@@ -2169,8 +2090,7 @@ Awesome!
 
 Things work, but our blog posts look a bit boring: everything looks the same, the title is not big enough, the list is not rendered as a list…
 
-<img class="myMd" src="../_image-9D.png" alt="" width=100%>
-<img class="myMd" src="/_image-9D.png" alt="" width=100%>
+<img class="myMd" src="/image/_image-9D.png" alt="-9d" width=100%>
 <!-- ![]('/_image-9D.png') -->
 
 We can add some CSS to style our blog posts, and here’s how the markdown id we added to MarkdownLayout.astro will prove to be useful.
@@ -2242,8 +2162,7 @@ const { title = 'Secretplan' } = Astro.props
 ---
 ```
 
-<img class="myMd" src="../_image-9D20.png" alt="" width=100%>
-<img class="myMd" src="/_image-9D20.png" alt="" width=100%>
+<img class="myMd" src="/image/_image-9D20.png" alt="" width=100%>
 <!-- ![]('/_image-9D20.png') -->
 
 ## List the latest blog post in the homepage
@@ -2272,6 +2191,7 @@ posts = posts.sort(
 ---
 
 ```
+
 Then we add the latest blog post data to the HTML by referencing posts[0] (the first blog post in the list, now ordered from most recent to oldest):
 
 ```
@@ -2293,20 +2213,16 @@ Then we add the latest blog post data to the HTML by referencing posts[0] (the f
 
 ```
 
-Use as a reference the **<code><h1></code> tag** to add the code snippet in the correct place. 
-
+Use as a reference the **<code><h1></code> tag** to add the code snippet in the correct place.
 
 Here it is:
+<img class="myMd" src="/image/_image-9D22.png" alt="9d22" width=100%>
 
-<img class="myMd" src="../_image-9D22.png" alt="" width=100%>
-<img class="myMd" src="/_image-9D22.png" alt="" width=100%>
 <!-- ![]('/_image-9D22.png') -->
-
 
 The logo needs to be fixed. I'll do it at a later date.
 
 ## Wrapping module 2
-
 
 [&rarr; top](#)
 
@@ -2324,7 +2240,7 @@ What does this mean? Basically, when you deploy the site, Astro generates the HT
 
 In the next modules we’ll add Server-Side Rendering (SSR) in order to make our application dynamic, but what you’ve built so far is a static site that can be deployed on a simple hosting platform like Netlify or Cloudflare Pages without any more work to do.
 
-## Troubleshooting 
+## Troubleshooting
 
 [&rarr; top](#)
 
@@ -2340,14 +2256,13 @@ Final try, close VS Code and reopen it.
 
 Sometimes the issue is that Types were not generated. If you click on "quick fix" if available it may solve the issue. Note that VS Code will add some code defining the types. Check your code for any changes.
 
-Running ***npx astro sync** may work. If nothing works, ask for help.
+Running **\*npx astro sync** may work. If nothing works, ask for help.
 
 ## Source code
 
 [&rarr; top](#)
 
 I will provide the full code of this module at the beginning of our next week (week 5 in our quarter). Also, I will provide the full code each week toward the end of the week depending our progress.
-
 
 ### This was the content of this module:
 
@@ -2393,4 +2308,3 @@ I will provide the full code of this module at the beginning of our next week (w
 1. [The single blog post view](#list-the-latest-blog-post-in-the-homepage)
 1. [Wrapping module 2](#wrapping-module-2)
 1. [Troubleshooting](#troubleshooting)
-

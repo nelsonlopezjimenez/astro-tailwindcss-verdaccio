@@ -1,75 +1,61 @@
 ---
-import '@src/site.css'
-import Topbar from '@components/site/common/TopBar.astro'
-import Sidebarmd from '@components/Sidebarmd.md'
-import SidebarGeneric from '@components/SidebarGeneric.astro'
-import '@fontsource/m-plus-rounded-1c'
-import '@fontsource/m-plus-rounded-1c/800.css'
+import '@src/site.css';
+import Topbar from '@components/site/common/TopBar.astro';
+import SidebarGeneric from '@components/SidebarGeneric.astro';
+import '@fontsource/m-plus-rounded-1c';
+import '@fontsource/m-plus-rounded-1c/800.css';
 
-const { title = 'Spring24app', myData = "nodata" } = Astro.props
-console.log(Astro.props)
+const { title = 'Spring24app', myData = 'nodata' } = Astro.props;
+// console.log(Astro.props);
 // const { data } = Astro.props;
 // console.log(data.length)
 ---
 
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='utf-8' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='viewport' content='width=device-width' />
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
-    <meta name='description' content='A project management tool' />
+    <meta name="description" content="A project management tool" />
 
     <script>
-      import * as htmx from 'htmx.org'
-      import Alpine from 'alpinejs'
+      import * as htmx from 'htmx.org';
+      import Alpine from 'alpinejs';
 
       declare global {
         interface Window {
-          htmx: any
-          Alpine: any
+          htmx: any;
+          Alpine: any;
         }
       }
 
-      window.htmx = htmx //optional
-      window.Alpine = Alpine //optional
+      window.htmx = htmx; //optional
+      window.Alpine = Alpine; //optional
 
-      Alpine.start()
+      Alpine.start();
 
-      htmx.process(document.body)
+      htmx.process(document.body);
     </script>
   </head>
 
-  <body x-data hx-boost='true'>
-    <main class='min-h-screen dark:bg-black dark:text-white'>
-      <div class='max-w-5xl px-4 py-4 mx-auto'>
+  <body x-data hx-boost="true">
+    <main class="min-h-screen dark:bg-black dark:text-white">
+      <div class="max-w-5xl px-4 py-4 mx-auto">
         <Topbar />
         <dialog></dialog>
-        <div class='flex sm:space-x-6'>
-          <div class='hidden w-1/3 sm:block list-decimal'>
-            <!-- <Sidebar /> -->
-
-            <!-- <SidebarGeneric /> -->
-            <SidebarGeneric title={title}  myData={myData}/>
-            <!-- <Sidebarmd /> -->
-            
+        <div class="flex sm:space-x-6">
+          <div class="hidden w-1/3 sm:block list-decimal">
+            <SidebarGeneric title={title} myData={myData} />
           </div>
-          <div class='w-full sm:w-2/3' x-data='{showMenu : false}'>
-           
+          <div class="w-full sm:w-2/3" x-data="{showMenu : false}">
             <slot />
-
           </div>
         </div>
       </div>
     </main>
   </body>
 </html>
-
-
-
-
-
-
 
 <!-- ---
 import TopBar from '../components/site/common/TopBar.astro';
