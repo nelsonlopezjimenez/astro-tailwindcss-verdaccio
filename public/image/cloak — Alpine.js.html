@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://alpinejs.dev/directives/cloak -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" href="./cloak — Alpine.js_files/css@3">
+
+<link rel="stylesheet" href="./cloak — Alpine.js_files/app.077f0c39.css">
+    <script defer="" src="./cloak — Alpine.js_files/cdn.min.js.download"></script>
+    <script defer="" src="./cloak — Alpine.js_files/cdn.min(1).js.download"></script>
+    <script defer="" src="./cloak — Alpine.js_files/cdn.min(2).js.download"></script>
+    <script defer="" src="./cloak — Alpine.js_files/cdn.min(3).js.download"></script>
+    <script defer="" src="./cloak — Alpine.js_files/cdn.min(4).js.download"></script>
+    <script defer="" src="./cloak — Alpine.js_files/cdn.min(5).js.download"></script>
+    <script defer="" src="./cloak — Alpine.js_files/cdn.min(6).js.download"></script>
+    <script defer="" src="./cloak — Alpine.js_files/cdn.min(7).js.download"></script>
+    <script defer="" src="./cloak — Alpine.js_files/cdn.min(8).js.download"></script>
+    <script defer="" src="./cloak — Alpine.js_files/cdn.min(9).js.download"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com/">
+<link href="./cloak — Alpine.js_files/css2" rel="stylesheet">
+
+<!-- Social Media -->
+<meta name="twitter:card" content="summary_large_image">
+    <meta name="og:title" content="cloak — Alpine.js">
+<meta name="og:description" content="">
+<meta name="og:image" content="">
+
+    <title>cloak — Alpine.js</title>
+
+<meta name="description" content="">
+
+<!-- Favicon -->
+<link rel="icon" href="https://alpinejs.dev/favicon.png">
+
+<style>
+    h1, h2, h3, h4, .font-title { font-family: 'Karla', system-ui, -apple-system, /* Firefox supports this but not yet `system-ui` */ 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'; }
+    code { font-family: MonoLisa, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace }
+    html { scroll-behavior: smooth;  }
+    ::selection { background-color: #c9f3fd; }
+    [x-cloak] { display: none; }
+</style>
+<style>[wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid], [wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short], [wire\:loading\.delay\.long], [wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest] {display:none;}[wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {animation-duration: 50000s;animation-name: livewireautofill;}@keyframes livewireautofill { from {} }</style>
+
+    <!-- Fathom Analytics -->
+    <script src="./cloak — Alpine.js_files/script.js.download" data-site="AROBLZOR" defer=""></script>
+
+    </head>
+<body>
+    <header class="bg-white md:fixed md:left-0 md:right-0 md:top-0 md:z-30 md:h-[5rem]">
+        <div class="flex items-center justify-between pt-3">
+            <div class="py-0 pl-6 text-2xl font-semibold text-gray-800 hover:text-gray-900 md:w-64">
+                <a href="https://alpinejs.dev/" class="flex items-center">
+                    <img src="./cloak — Alpine.js_files/alpine_long.svg" class="w-[200px] md:w-[290px]" alt="">
+                </a>
+            </div>
+
+            <div class="hidden items-center justify-end space-x-6 py-4 pr-6 text-gray-800 md:flex">
+                <div>
+                    <div id="docsearch"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"><kbd class="DocSearch-Button-Key"><svg width="15" height="15" class="DocSearch-Control-Key-Icon"><path d="M4.505 4.496h2M5.505 5.496v5M8.216 4.496l.055 5.993M10 7.5c.333.333.5.667.5 1v2M12.326 4.5v5.996M8.384 4.496c1.674 0 2.116 0 2.116 1.5s-.442 1.5-2.116 1.5M3.205 9.303c-.09.448-.277 1.21-1.241 1.203C1 10.5.5 9.513.5 8V7c0-1.57.5-2.5 1.464-2.494.964.006 1.134.598 1.24 1.342M12.553 10.5h1.953" stroke-width="1.2" stroke="currentColor" fill="none" stroke-linecap="square"></path></svg></kbd><kbd class="DocSearch-Button-Key">K</kbd></span></button></div>
+                </div>
+
+                <a href="https://github.com/alpinejs/alpine" class="block hover:text-gray-600"><svg class="h-5 w-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>GitHub</title><path d="M10 0a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0 0 10 0"></path></svg></a>
+                <a href="https://twitter.com/Alpine_JS" class="block hover:text-gray-600"><svg class="h-5 w-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Twitter</title><path d="M6.29 18.25c7.55 0 11.67-6.25 11.67-11.67v-.53c.8-.59 1.49-1.3 2.04-2.13-.75.33-1.54.55-2.36.65a4.12 4.12 0 0 0 1.8-2.27c-.8.48-1.68.81-2.6 1a4.1 4.1 0 0 0-7 3.74 11.65 11.65 0 0 1-8.45-4.3 4.1 4.1 0 0 0 1.27 5.49C2.01 8.2 1.37 8.03.8 7.7v.05a4.1 4.1 0 0 0 3.3 4.03 4.1 4.1 0 0 1-1.86.07 4.1 4.1 0 0 0 3.83 2.85A8.23 8.23 0 0 1 0 16.4a11.62 11.62 0 0 0 6.29 1.84"></path></svg></a>
+                <a href="https://alpinejs.codewithhugo.com/chat/" class="block hover:text-gray-600"><svg class="h-5 w-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 146 146"><title>Discord</title><path d="M107.75 125.001s-4.5-5.375-8.25-10.125c16.375-4.625 22.625-14.875 22.625-14.875-5.125 3.375-10 5.75-14.375 7.375-6.25 2.625-12.25 4.375-18.125 5.375-12 2.25-23 1.625-32.375-.125-7.125-1.375-13.25-3.375-18.375-5.375-2.875-1.125-6-2.5-9.125-4.25-.375-.25-.75-.375-1.125-.625-.25-.125-.375-.25-.5-.375-2.25-1.25-3.5-2.125-3.5-2.125s6 10 21.875 14.75c-3.75 4.75-8.375 10.375-8.375 10.375-27.625-.875-38.125-19-38.125-19 0-40.25 18-72.875 18-72.875 18-13.5 35.125-13.125 35.125-13.125l1.25 1.5c-22.5 6.5-32.875 16.375-32.875 16.375s2.75-1.5 7.375-3.625c13.375-5.875 24-7.5 28.375-7.875.75-.125 1.375-.25 2.125-.25 7.625-1 16.25-1.25 25.25-.25 11.875 1.375 24.625 4.875 37.625 12 0 0-9.875-9.375-31.125-15.875l1.75-2S110 19.626 128 33.126c0 0 18 32.625 18 72.875 0 0-10.625 18.125-38.25 19zM49.625 66.626c-7.125 0-12.75 6.25-12.75 13.875s5.75 13.875 12.75 13.875c7.125 0 12.75-6.25 12.75-13.875.125-7.625-5.625-13.875-12.75-13.875zm45.625 0c-7.125 0-12.75 6.25-12.75 13.875s5.75 13.875 12.75 13.875c7.125 0 12.75-6.25 12.75-13.875s-5.625-13.875-12.75-13.875z" fill-rule="nonzero"></path></svg></a>
+            </div>
+
+            
+            <div class="flex items-center pr-6 md:hidden" x-data="{ show: false }">
+                <button class="text-gray-600 focus:outline-none" x-on:click="show = ! show">
+                    <span class="sr-only">Show navigation</span>
+                    <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg>
+                </button>
+
+                <div class="fixed top-0 bottom-0 right-0 z-[199] w-1/2 overflow-y-auto bg-gray-100 p-6 shadow-xl md:top-[4rem]" x-show="show" x-trap.inert.noscroll="show" x-on:click.outside="show = false" x-on:keydown.escape.prevent.stop="show = false" x-transition:enter="transition ease-in-out duration-300 transform" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in-out duration-300 transform" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" style="display: none;">
+                    <div class="flex justify-end">
+                        <button class="text-gray-600 focus:outline-none" x-on:click="show = ! show">
+                            <span class="sr-only">Close navigation</span>
+                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <ul class="space-y-2 text-gray-800">
+                                                    <!-- If it's the components section: -->
+                                                                                        <li class="font-medium"><a href="https://alpinejs.dev/start-here" class="hover:text-gray-900">Start Here</a></li>
+                                                                                <!-- If it's the components section: -->
+                                                                                        <li class="font-medium"><a href="https://alpinejs.dev/upgrade-guide" class="hover:text-gray-900">Upgrade From V2</a></li>
+                                                                                <!-- If it's the components section: -->
+                                                                                        <li>
+                                    <span class="font-medium">Essentials</span>
+                                    <ul class="pl-3">
+                                                                                <li class=""><a href="https://alpinejs.dev/essentials/installation" class="hover:text-gray-900">Installation</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/essentials/state" class="hover:text-gray-900">State</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/essentials/templating" class="hover:text-gray-900">Templating</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/essentials/events" class="hover:text-gray-900">Events</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/essentials/lifecycle" class="hover:text-gray-900">Lifecycle</a></li>
+                                                                            </ul>
+                                </li>
+                                                                                <!-- If it's the components section: -->
+                                                            <li>
+                                    <!-- If were not on a component page: -->
+                                                                            <a href="https://alpinejs.dev/component/dropdown" class="font-medium hover:text-gray-900">
+                                            <div class="relative">
+                                                UI Components
+                                            </div>
+
+                                            </a><ul class="relative pl-3 font-medium"><a href="https://alpinejs.dev/component/dropdown" class="font-medium hover:text-gray-900">
+                                                <div class="absolute inset-0 bg-gradient-to-b from-[#fff2] to-gray-100"></div>
+                                                                                                    </a><li><a href="https://alpinejs.dev/component/dropdown" class="font-medium hover:text-gray-900"></a><a href="https://alpinejs.dev/component/dropdown">Dropdown</a></li>
+                                                                                                    <li><a href="https://alpinejs.dev/component/modal">Modal</a></li>
+                                                                                            </ul>
+                                        
+                                    <!-- If we ARE on a component page: -->
+                                                                    </li>
+                                                                                        <li>
+                                    <span class="font-medium">Directives</span>
+                                    <ul class="pl-3">
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/data" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>data</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/init" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>init</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/show" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>show</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/bind" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>bind</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/on" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>on</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/text" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>text</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/html" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>html</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/model" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>model</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/modelable" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>modelable</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/for" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>for</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/transition" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>transition</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/effect" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>effect</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/ignore" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>ignore</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/ref" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>ref</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/cloak" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>cloak</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/teleport" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>teleport</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/if" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>if</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/directives/id" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>id</a></li>
+                                                                            </ul>
+                                </li>
+                                                                                <!-- If it's the components section: -->
+                                                                                        <li>
+                                    <span class="font-medium">Magics</span>
+                                    <ul class="pl-3">
+                                                                                <li class=""><a href="https://alpinejs.dev/magics/el" class="hover:text-gray-900"> <span class="text-gray-300">$</span>el</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/magics/refs" class="hover:text-gray-900"> <span class="text-gray-300">$</span>refs</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/magics/store" class="hover:text-gray-900"> <span class="text-gray-300">$</span>store</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/magics/watch" class="hover:text-gray-900"> <span class="text-gray-300">$</span>watch</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/magics/dispatch" class="hover:text-gray-900"> <span class="text-gray-300">$</span>dispatch</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/magics/nextTick" class="hover:text-gray-900"> <span class="text-gray-300">$</span>nextTick</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/magics/root" class="hover:text-gray-900"> <span class="text-gray-300">$</span>root</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/magics/data" class="hover:text-gray-900"> <span class="text-gray-300">$</span>data</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/magics/id" class="hover:text-gray-900"> <span class="text-gray-300">$</span>id</a></li>
+                                                                            </ul>
+                                </li>
+                                                                                <!-- If it's the components section: -->
+                                                                                        <li>
+                                    <span class="font-medium">Globals</span>
+                                    <ul class="pl-3">
+                                                                                <li class=""><a href="https://alpinejs.dev/globals/alpine-data" class="hover:text-gray-900"> <span class="text-gray-300">Alpine.</span>data()</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/globals/alpine-store" class="hover:text-gray-900"> <span class="text-gray-300">Alpine.</span>store()</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/globals/alpine-bind" class="hover:text-gray-900"> <span class="text-gray-300">Alpine.</span>bind()</a></li>
+                                                                            </ul>
+                                </li>
+                                                                                <!-- If it's the components section: -->
+                                                                                        <li>
+                                    <span class="font-medium">Plugins</span>
+                                    <ul class="pl-3">
+                                                                                <li class=""><a href="https://alpinejs.dev/plugins/mask" class="hover:text-gray-900">Mask</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/plugins/intersect" class="hover:text-gray-900">Intersect</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/plugins/persist" class="hover:text-gray-900">Persist</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/plugins/focus" class="hover:text-gray-900">Focus</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/plugins/collapse" class="hover:text-gray-900">Collapse</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/plugins/anchor" class="hover:text-gray-900">Anchor</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/plugins/morph" class="hover:text-gray-900">Morph</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/plugins/sort" class="hover:text-gray-900">Sort</a></li>
+                                                                            </ul>
+                                </li>
+                                                                                <!-- If it's the components section: -->
+                                                                                        <li>
+                                    <span class="font-medium">Advanced</span>
+                                    <ul class="pl-3">
+                                                                                <li class=""><a href="https://alpinejs.dev/advanced/csp" class="hover:text-gray-900">CSP</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/advanced/reactivity" class="hover:text-gray-900">Reactivity</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/advanced/extending" class="hover:text-gray-900">Extending</a></li>
+                                                                                <li class=""><a href="https://alpinejs.dev/advanced/async" class="hover:text-gray-900">Async</a></li>
+                                                                            </ul>
+                                </li>
+                                                                        </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <style>[hover-scrollbar] { overflow-x: 'visible'; overflow-y: hidden; } [hover-scrollbar]:hover { overflow-y: auto }</style>
+    <aside class="fixed left-0 bottom-0 hidden w-48 px-8 pb-6 pt-8 md:top-[6rem] md:block lg:w-64" hover-scrollbar="">
+        
+        <ul class="space-y-2 text-gray-800">
+                            <!-- If it's the components section: -->
+                
+                                    <li class="font-medium"><a href="https://alpinejs.dev/start-here" class="hover:text-gray-900">Start Here</a></li>
+                                            <!-- If it's the components section: -->
+                
+                                    <li class="font-medium"><a href="https://alpinejs.dev/upgrade-guide" class="hover:text-gray-900">Upgrade From V2</a></li>
+                                            <!-- If it's the components section: -->
+                
+                                    <li>
+                        <span class="font-medium">Essentials</span>
+                        <ul class="pl-3">
+                                                        <li class=""><a href="https://alpinejs.dev/essentials/installation" class="hover:text-gray-900">Installation</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/essentials/state" class="hover:text-gray-900">State</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/essentials/templating" class="hover:text-gray-900">Templating</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/essentials/events" class="hover:text-gray-900">Events</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/essentials/lifecycle" class="hover:text-gray-900">Lifecycle</a></li>
+                                                    </ul>
+                    </li>
+                                            <!-- If it's the components section: -->
+                                    <li>
+                        <!-- If were not on a component page: -->
+                                                    <a href="https://alpinejs.dev/components" class="font-medium hover:text-gray-900">
+                                <div class="relative">
+                                    UI Components
+                                </div>
+
+                                </a><ul class="relative pl-3 font-medium"><a href="https://alpinejs.dev/components" class="font-medium hover:text-gray-900">
+                                    <div class="absolute inset-0 bg-gradient-to-b from-[#fff2] to-white"></div>
+                                                                            </a><li><a href="https://alpinejs.dev/components" class="font-medium hover:text-gray-900"></a><a href="https://alpinejs.dev/component/dropdown">Dropdown</a></li>
+                                                                            <li><a href="https://alpinejs.dev/component/modal">Modal</a></li>
+                                                                    </ul>
+                            
+                        <!-- If we ARE on a component page: -->
+                                            </li>
+                
+                                    <li>
+                        <span class="font-medium">Directives</span>
+                        <ul class="pl-3">
+                                                        <li class=""><a href="https://alpinejs.dev/directives/data" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>data</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/init" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>init</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/show" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>show</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/bind" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>bind</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/on" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>on</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/text" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>text</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/html" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>html</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/model" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>model</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/modelable" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>modelable</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/for" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>for</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/transition" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>transition</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/effect" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>effect</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/ignore" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>ignore</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/ref" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>ref</a></li>
+                                                        <li style="margin-left: -2.75rem" class="border-l-4 border-cyan-400 pl-10 font-semibold"><a href="https://alpinejs.dev/directives/cloak" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>cloak</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/teleport" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>teleport</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/if" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>if</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/directives/id" class="hover:text-gray-900"> <span class="text-gray-300">x-</span>id</a></li>
+                                                    </ul>
+                    </li>
+                                            <!-- If it's the components section: -->
+                
+                                    <li>
+                        <span class="font-medium">Magics</span>
+                        <ul class="pl-3">
+                                                        <li class=""><a href="https://alpinejs.dev/magics/el" class="hover:text-gray-900"> <span class="text-gray-300">$</span>el</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/magics/refs" class="hover:text-gray-900"> <span class="text-gray-300">$</span>refs</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/magics/store" class="hover:text-gray-900"> <span class="text-gray-300">$</span>store</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/magics/watch" class="hover:text-gray-900"> <span class="text-gray-300">$</span>watch</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/magics/dispatch" class="hover:text-gray-900"> <span class="text-gray-300">$</span>dispatch</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/magics/nextTick" class="hover:text-gray-900"> <span class="text-gray-300">$</span>nextTick</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/magics/root" class="hover:text-gray-900"> <span class="text-gray-300">$</span>root</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/magics/data" class="hover:text-gray-900"> <span class="text-gray-300">$</span>data</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/magics/id" class="hover:text-gray-900"> <span class="text-gray-300">$</span>id</a></li>
+                                                    </ul>
+                    </li>
+                                            <!-- If it's the components section: -->
+                
+                                    <li>
+                        <span class="font-medium">Globals</span>
+                        <ul class="pl-3">
+                                                        <li class=""><a href="https://alpinejs.dev/globals/alpine-data" class="hover:text-gray-900"> <span class="text-gray-300">Alpine.</span>data()</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/globals/alpine-store" class="hover:text-gray-900"> <span class="text-gray-300">Alpine.</span>store()</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/globals/alpine-bind" class="hover:text-gray-900"> <span class="text-gray-300">Alpine.</span>bind()</a></li>
+                                                    </ul>
+                    </li>
+                                            <!-- If it's the components section: -->
+                
+                                    <li>
+                        <span class="font-medium">Plugins</span>
+                        <ul class="pl-3">
+                                                        <li class=""><a href="https://alpinejs.dev/plugins/mask" class="hover:text-gray-900">Mask</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/plugins/intersect" class="hover:text-gray-900">Intersect</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/plugins/persist" class="hover:text-gray-900">Persist</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/plugins/focus" class="hover:text-gray-900">Focus</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/plugins/collapse" class="hover:text-gray-900">Collapse</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/plugins/anchor" class="hover:text-gray-900">Anchor</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/plugins/morph" class="hover:text-gray-900">Morph</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/plugins/sort" class="hover:text-gray-900">Sort</a></li>
+                                                    </ul>
+                    </li>
+                                            <!-- If it's the components section: -->
+                
+                                    <li>
+                        <span class="font-medium">Advanced</span>
+                        <ul class="pl-3">
+                                                        <li class=""><a href="https://alpinejs.dev/advanced/csp" class="hover:text-gray-900">CSP</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/advanced/reactivity" class="hover:text-gray-900">Reactivity</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/advanced/extending" class="hover:text-gray-900">Extending</a></li>
+                                                        <li class=""><a href="https://alpinejs.dev/advanced/async" class="hover:text-gray-900">Async</a></li>
+                                                    </ul>
+                    </li>
+                                    </ul>
+    </aside>
+
+    <main class="pt-32 pl-0 pr-0 md:pl-48 lg:pl-64 xl:pr-64">
+        <style>
+            .markdown>*+* { margin-top: 1.5rem; }
+            .markdown p { line-height: 1.75; }
+            .markdown h1, .markdown h2, .markdown h3 { color: #2d3342; scroll-margin-top: 4rem; font-weight: 800; letter-spacing: -.025em; }
+            .markdown h1, .markdown h2 { border-bottom-width: 1px; border-color: #edf2f7; }
+            .markdown h1 { font-size: 2.25rem; }
+            .markdown h2 { font-size: 1.5rem; }
+            .markdown h3 { font-size: 1.25rem; }
+            .markdown ul { list-style-type: disc; }
+            .markdown a { color: hsl(192deg 51% 46%); font-weight: 600; }
+            .markdown h1 a, .markdown h2 a, .markdown h3 a { position: relative; color: #2d3342; font-weight: 800; }
+            .markdown h1 a::before, .markdown h2 a::before, .markdown h3 a::before {
+                position: absolute;
+                left: -1.35rem;
+                content: "# ";
+                color: rgba(175, 187, 199);
+                font-weight: 600;
+            }
+            .markdown h1 a:hover::before, .markdown h2 a:hover::before, .markdown h3 a:hover::before {
+                color: #7e8a9e;
+            }
+            .markdown code { white-space: nowrap; padding-top: .1rem; padding-bottom: .1rem; padding-left: .25rem; padding-right: .25rem; font-size: .875rem; font-weight: 600; border-radius: .25rem; background-color: #edf2f7; }
+            pre {
+                overflow-y: auto;
+                background: #f6f7f9;
+                font-size: .875rem;
+                border-radius: .25rem;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                overflow-x: auto;
+                background: #f6f7f9;
+            }
+            pre code.torchlight {
+                display: block;
+                min-width: -webkit-max-content;
+                min-width: -moz-max-content;
+                min-width: max-content;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                padding-left: 0;
+                padding-right: 0;
+                background-color: #f6f7f9 !important;
+                white-space: pre;
+                font-weight: 400;
+            }
+            pre code.torchlight .line {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            pre code.torchlight .line-number,
+            pre code.torchlight .summary-caret {
+                margin-right: 1rem;
+            }
+            .markdown blockquote { font-size: .95em; color: #2d3748; padding: 1rem; border-left-width: 4px; border-color: rgba(119, 193, 210); background: #f6f7f9; }
+            .markdown table tbody td { border-color: #d8dee9; border-width: 1px; padding: .25rem .5rem }
+            .demo { background: white; padding: 1rem; border-width: 1px; border-radius: .25rem; border-color: #d8dee9; }
+            .demo li { list-style-position: inside; }
+            .demo button { padding: 0 .5rem; border-width: 1px; border-radius: .25rem; border-color: #a0aec0; background-color: #e2e8f0; }
+            .demo button:hover { background-color: #edf2f7; }
+            .demo input, .demo textarea, .demo select { padding: .25rem .5rem; border-width: 1px; border-radius: .25rem; border-color: #cbd5e0; }
+            .demo input[type="checkbox"] { padding: 0; }
+            .demo input[type="radio"] { padding: 0; border-radius: 999px; }
+            .demo select { padding-right: 2.5rem; }
+            /* .demo input[type="radio"] { border-radius: 999px; } */
+        </style>
+        <div class="m-auto max-w-3xl px-6 pb-24 text-gray-800 antialiased markdown" listen-for-intersection-of-titles="">
+            <h1>x-cloak</h1>
+<p>Sometimes, when you're using AlpineJS for a part of your template, there is a "blip" where you might see your uninitialized template after the page loads, but before Alpine loads.</p>
+<p><code>x-cloak</code> addresses this scenario by hiding the element it's attached to until Alpine is fully loaded on the page.</p>
+<p>For <code>x-cloak</code> to work however, you must add the following CSS to the page.</p>
+<pre><code data-theme="github-light" data-lang="css" class="torchlight" style="background-color: #fff; --theme-selection-background: #e2e5e9;"><!-- Syntax highlighted by torchlight.dev --><div class="line"><span style="color: #24292E;">[</span><span style="color: #6F42C1;">x-cloak</span><span style="color: #24292E;">] { </span><span style="color: #005CC5;">display</span><span style="color: #24292E;">: </span><span style="color: #005CC5;">none</span><span style="color: #24292E;"> </span><span style="color: #D73A49;">!important</span><span style="color: #24292E;">; }</span></div><div aria-hidden="true" hidden="" tabindex="-1" style="display: none;" class="torchlight-copy-target">
+[x-cloak] { display: none !important; }</div></code></pre>
+<p>The following example will hide the <code>&lt;span&gt;</code> tag until its <code>x-show</code> is specifically set to true, preventing any "blip" of the hidden element onto screen as Alpine loads.</p>
+<pre><code data-theme="github-light" data-lang="alpine" class="torchlight" style="background-color: #fff; --theme-selection-background: #e2e5e9;"><!-- Syntax highlighted by torchlight.dev --><div class="line"><span style="color: #24292E;">&lt;</span><span style="color: #22863A;">span</span><span style="color: #24292E;"> </span><span style="color: #6F42C1;">x-cloak</span><span style="color: #24292E;"> </span><span style="color: #6F42C1;">x-show</span><span style="color: #24292E;">=</span><span style="color: #032F62;">"</span><span style="color: #005CC5;">false</span><span style="color: #032F62;">"</span><span style="color: #24292E;">&gt;This will not 'blip' onto screen at any point&lt;/</span><span style="color: #22863A;">span</span><span style="color: #24292E;">&gt;</span></div><div aria-hidden="true" hidden="" tabindex="-1" style="display: none;" class="torchlight-copy-target">
+&lt;span x-cloak x-show="false"&gt;This will not 'blip' onto screen at any point&lt;/span&gt;</div></code></pre>
+<p><code>x-cloak</code> doesn't just work on elements hidden by <code>x-show</code> or <code>x-if</code>: it also ensures that elements containing data are hidden until the data is correctly set. The following example will hide the <code>&lt;span&gt;</code> tag until Alpine has set its text content to the <code>message</code> property.</p>
+<pre><code data-theme="github-light" data-lang="alpine" class="torchlight" style="background-color: #fff; --theme-selection-background: #e2e5e9;"><!-- Syntax highlighted by torchlight.dev --><div class="line"><span style="color: #24292E;">&lt;</span><span style="color: #22863A;">span</span><span style="color: #24292E;"> </span><span style="color: #6F42C1;">x-cloak</span><span style="color: #24292E;"> </span><span style="color: #6F42C1;">x-text</span><span style="color: #24292E;">=</span><span style="color: #032F62;">"</span><span style="color: #24292E;">message</span><span style="color: #032F62;">"</span><span style="color: #24292E;">&gt;&lt;/</span><span style="color: #22863A;">span</span><span style="color: #24292E;">&gt;</span></div><div aria-hidden="true" hidden="" tabindex="-1" style="display: none;" class="torchlight-copy-target">
+&lt;span x-cloak x-text="message"&gt;&lt;/span&gt;</div></code></pre>
+<p>When Alpine loads on the page, it removes all <code>x-cloak</code> property from the element, which also removes the <code>display: none;</code> applied by CSS, therefore showing the element.</p>
+<h2 id="alternative-to-global-syntax">Alternative to global syntax</h2>
+<p>If you'd like to achieve this same behavior, but avoid having to include a global style, you can use the following cool, but admittedly odd trick:</p>
+<pre><code data-theme="github-light" data-lang="alpine" class="torchlight" style="background-color: #fff; --theme-selection-background: #e2e5e9;"><!-- Syntax highlighted by torchlight.dev --><div class="line"><span style="color: #24292E;">&lt;</span><span style="color: #22863A;">template</span><span style="color: #24292E;"> </span><span style="color: #6F42C1;">x-if</span><span style="color: #24292E;">=</span><span style="color: #032F62;">"</span><span style="color: #005CC5;">true</span><span style="color: #032F62;">"</span><span style="color: #24292E;">&gt;</span></div><div class="line"><span style="color: #24292E;">    &lt;</span><span style="color: #22863A;">span</span><span style="color: #24292E;"> </span><span style="color: #6F42C1;">x-text</span><span style="color: #24292E;">=</span><span style="color: #032F62;">"</span><span style="color: #24292E;">message</span><span style="color: #032F62;">"</span><span style="color: #24292E;">&gt;&lt;/</span><span style="color: #22863A;">span</span><span style="color: #24292E;">&gt;</span></div><div class="line"><span style="color: #24292E;">&lt;/</span><span style="color: #22863A;">template</span><span style="color: #24292E;">&gt;</span></div><div aria-hidden="true" hidden="" tabindex="-1" style="display: none;" class="torchlight-copy-target">
+&lt;template x-if="true"&gt;
+    &lt;span x-text="message"&gt;&lt;/span&gt;
+&lt;/template&gt;</div></code></pre>
+<p>This will achieve the same goal as <code>x-cloak</code> by just leveraging the way <code>x-if</code> works.</p>
+<p>Because <code>&lt;template&gt;</code> elements are "hidden" in browsers by default, you won't see the <code>&lt;span&gt;</code> until Alpine has had a chance to render the <code>x-if="true"</code> and show it.</p>
+<p>Again, this solution is not for everyone, but it's worth mentioning for special cases.</p>
+
+            <div class="flex justify-between border-t border-gray-200 pt-4 text-gray-700">
+                <div>
+                                            <a class="font-bold text-cyan-400" href="https://alpinejs.dev/directives/ref">← x-ref</a>
+                                    </div>
+
+                <div>
+                                            <a class="font-bold text-cyan-400" href="https://alpinejs.dev/directives/teleport">x-teleport →</a>
+                                    </div>
+            </div>
+            <p class="mt-6 text-center text-sm text-gray-600">Code highlighting provided by <a href="https://torchlight.dev/" target="__blank" class="font-semibold text-cyan-400">Torchlight</a></p>
+            <div class="mt-6 flex items-center justify-center gap-4 text-center text-sm text-gray-600">
+                            </div>
+        </div>
+    </main>
+
+    <aside x-data="visibleNavHighlighter" x-on:scroll.window.throttle.50ms="onScroll()" class="fixed right-0 bottom-0 hidden w-64 overflow-y-auto py-8 px-6 md:top-[4rem] xl:block">
+                    <span x-show="headings.length &gt; 0" class="mb-2 block text-sm font-semibold uppercase tracking-wider text-gray-300">On this page</span>
+
+            <ul class="space-y-3 text-gray-800">
+                <template x-for="heading in headings"></template><li class="text-sm text-gray-600" :class="if (heading.tagName.toLowerCase() === &#39;h3&#39;) { return &#39;ml-4&#39; } else if (heading.tagName.toLowerCase() === &#39;h4&#39;) { return &#39;ml-8&#39; }">
+                        <a :href="&#39;#&#39;+heading.id" class="hover:text-gray-900 font-medium text-gray-900" :class="visibleHeadingId == heading.id &amp;&amp; &#39;font-medium text-gray-900&#39;" x-text="heading.innerText" href="https://alpinejs.dev/directives/cloak#alternative-to-global-syntax">Alternative to global syntax</a>
+                    </li>
+            </ul>
+
+            <div id="crbnad" class="mt-8">
+                <style>
+#crbnad {
+  width: 135px;
+  background-color: #fff;
+  border-radius: 3px;
+  font-size: 11px;
+}
+#crbnad a {
+  display: inline-block;
+  color: #4f5959;
+  font-weight: normal;
+}
+#crbnad span {
+  color: #4f5959;
+  display: block;
+}
+#crbnad img {
+  width: 125px;
+}
+#crbnad .carbon-img,
+#crbnad .carbon-text {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: normal;
+  color: #304455;
+}
+#crbnad .carbon-poweredby {
+  color: #aaa;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+                </style>
+                <script async="" type="text/javascript" src="./cloak — Alpine.js_files/carbon.js.download" id="_carbonads_js"></script>
+            </div>
+        
+    </aside>
+
+    <script>
+        document.addEventListener('alpine:initializing', () => {
+            Alpine.data('visibleNavHighlighter', () => ({
+                headings: undefined,
+                visibleHeadingId: null,
+
+                init() {
+                    // Grab all the headings inside the main container.
+                    this.headings = document.querySelectorAll('[listen-for-intersection-of-titles] h2:not([no-sidebar]), [listen-for-intersection-of-titles] h3:not([no-sidebar]), [listen-for-intersection-of-titles] h4:not([no-sidebar])')
+
+                    this.assignHeadingIds()
+
+                    this.onScroll()
+                },
+
+                assignHeadingIds() {
+                    // If a heading doesn't have an [id], we'll give it one
+                    // based on its text content.
+                    this.headings.forEach(heading => {
+                        if (heading.id) return
+
+                        heading.id = heading.textContent.replace(/\s+/g, '-').toLowerCase()
+                    })
+                },
+
+                onScroll() {
+                    // We're gonna highlight the first heading above an imaginary
+                    // drawn horizontally across the center of the screen.
+
+                    // Get the distance from the top of that line.
+                    let relativeTop = window.innerHeight / 2
+
+                    let headingsByDistanceFromTop = {}
+
+                    // Populate an object of headings by their distance from our
+                    // imaginary lines as the keys.
+                    this.headings.forEach(heading => {
+                        headingsByDistanceFromTop[heading.getBoundingClientRect().top - relativeTop] = heading
+                    })
+
+                    // Grab the first one that is above that line.
+                    let closestNegativeTop = Math.max(...Object.keys(headingsByDistanceFromTop).filter(top => top < 0))
+
+                    // If we couldn't find one, don't highlight anything.
+                    if (closestNegativeTop >= 0 || [Infinity, NaN, -Infinity].includes(closestNegativeTop)) return this.visibleHeadingId = null
+
+                    // Otherwise, highlight that heading.
+                    this.visibleHeadingId = headingsByDistanceFromTop[closestNegativeTop].id
+                },
+            }))
+        })
+    </script>
+    <script src="./cloak — Alpine.js_files/livewire.js.download" data-turbo-eval="false" data-turbolinks-eval="false"></script><script data-turbo-eval="false" data-turbolinks-eval="false">window.livewire = new Livewire();window.Livewire = window.livewire;window.livewire_app_url = '';window.livewire_token = 'SRP2p8bvBLNm08KmobShoLWerJHhVEat1lFlFa9j';window.deferLoadingAlpine = function (callback) {window.addEventListener('livewire:load', function () {callback();});};let started = false;window.addEventListener('alpine:initializing', function () {if (! started) {window.livewire.start();started = true;}});document.addEventListener("DOMContentLoaded", function () {if (! started) {window.livewire.start();started = true;}});</script>
+                <script src="./cloak — Alpine.js_files/js@3"></script>
+        <script>
+            if (document.querySelector('#docsearch')) {
+                docsearch({
+                    container: '#docsearch',
+                    appId: 'SM9GAGAUKZ',
+                    apiKey: '1fad8740c0cf75209d11ae25f1f6f55c',
+                    indexName: 'alpinejs',
+                });
+            }
+        </script>
+    <script defer="" src="./cloak — Alpine.js_files/vedd3670a3b1c4e178fdfb0cc912d969e1713874337387" integrity="sha512-EzCudv2gYygrCcVhu65FkAxclf3mYM6BCwiGUm6BEuLzSb5ulVhgokzCZED7yMIkzYVg65mxfIBNdNra5ZFNyQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;88096b705c997610&quot;,&quot;r&quot;:1,&quot;version&quot;:&quot;2024.4.1&quot;,&quot;token&quot;:&quot;d69104a59b7b48a28cb970743cd28453&quot;}" crossorigin="anonymous"></script>
+
+
+<div id="extension-ebdbc"></div></body></html>

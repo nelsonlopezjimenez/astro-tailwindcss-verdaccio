@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://flaviocopes.com/browser-dev-tools/ -->
+<html class="theme-newspaper" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- Global Metadata --><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Blogster"><meta name="theme-color" content="#ffffff"><link href="https://flaviocopes.com/favicon.ico" rel="shortcut icon"><!-- Primary Meta Tags --><title>Overview of the Browser DevTools</title><meta name="title" content="Overview of the Browser DevTools"><meta name="description" content="The Browser DevTools are a fundamental element in the frontend developer toolbox, and they are available in all modern browsers. Discover the basics of what they can do for you"><link rel="canonical" href="https://flaviocopes.com/browser-dev-tools/"><!-- Open Graph / Facebook --><meta property="og:title" content="Overview of the Browser DevTools"><meta property="og:description" content="The Browser DevTools are a fundamental element in the frontend developer toolbox, and they are available in all modern browsers. Discover the basics of what they can do for you"><meta property="og:type" content="article"><meta property="og:url" content="https://flaviocopes.com/browser-dev-tools"><meta property="article:author" content="Flavio Copes"><meta property="article:published_time" content="2018-03-07T06:04:59.000Z"><meta property="og:image" content="https://flaviocopes.com/images/og.png"><meta property="og:image:alt" content="Preview image for Overview of the Browser DevTools"><!-- Twitter --><meta property="twitter:title" content="Overview of the Browser DevTools"><meta property="twitter:description" content="The Browser DevTools are a fundamental element in the frontend developer toolbox, and they are available in all modern browsers. Discover the basics of what they can do for you"><meta property="twitter:site" content="@flaviocopes"><meta property="twitter:creator" content="@flaviocopes"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image" content="https://flaviocopes.com/images/og.png"><meta property="twitter:image:alt" content="Preview image for Overview of the Browser DevTools"><!-- {twitter.url && <meta property="twitter:url" content={twitter.url} />} --><link rel="preload" href="https://flaviocopes.com/fonts/roboto-mono-v22-latin-regular.woff2" as="font" type="font/woff2" crossorigin="crossorigin"><link rel="preload" href="https://flaviocopes.com/fonts/roboto-mono-v22-latin-700.woff2" as="font" type="font/woff2" crossorigin="crossorigin"><link rel="preload" href="https://flaviocopes.com/fonts/roboto-mono-v22-latin-italic.woff2" as="font" type="font/woff2" crossorigin="crossorigin"><style>
+    /* roboto-mono-regular - latin */
+    @font-face {
+      font-family: 'Roboto Mono';
+      font-style: normal;
+      font-weight: 400;
+      src:
+        local(''),
+        url('/fonts/roboto-mono-v22-latin-regular.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('/fonts/roboto-mono-v22-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /* roboto-mono-700 - latin */
+    @font-face {
+      font-family: 'Roboto Mono';
+      font-style: normal;
+      font-weight: 700;
+      src:
+        local(''),
+        url('/fonts/roboto-mono-v22-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('/fonts/roboto-mono-v22-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /* roboto-mono-italic - latin */
+    @font-face {
+      font-family: 'Roboto Mono';
+      font-style: italic;
+      font-weight: 400;
+      src:
+        local(''),
+        url('/fonts/roboto-mono-v22-latin-italic.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('/fonts/roboto-mono-v22-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+  </style><script>
+  const setDarkMode = () => {
+    if (typeof window !== "undefined") {
+      const isSystemColorSchemeDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      const storageTheme = sessionStorage.getItem("theme");
+      if (!storageTheme && isSystemColorSchemeDark) {
+        document.documentElement.classList.add("dark");
+        document.head.children.namedItem("theme-color").content = "#262626";
+      } else if (storageTheme === "dark") {
+        document.documentElement.classList.add("dark");
+        document.head.children.namedItem("theme-color").content = "#262626";
+      } else {
+        // we already server render light theme
+        document.head.children.namedItem("theme-color").content = "#ffffff";
+      }
+    }
+  };
+
+  // Runs on initial navigation
+  setDarkMode();
+  // Runs on view transitions navigation
+  document.addEventListener('astro:after-swap', setDarkMode);
+</script><link href="./Overview of the Browser DevTools_files/fontawesome.bareminimum.css" rel="stylesheet"><link href="./Overview of the Browser DevTools_files/brands.bareminimum.css" rel="stylesheet"><link href="./Overview of the Browser DevTools_files/solid.min.css" rel="stylesheet"><meta property="og:url" content="https://flaviocopes.com/browser-dev-tools/"><meta name="twitter:image" content="https://flaviocopes.com/images/og.png"><meta name="twitter:creator" content="@flaviocopes"><meta name="twitter:site" content="@flaviocopes"><meta name="twitter:card" content="summary"><link rel="apple-touch-icon" sizes="180x180" href="https://flaviocopes.com/img/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="96x96" href="https://flaviocopes.com/img/favicon-96x96.png"><link rel="icon" type="image/png" sizes="32x32" href="https://flaviocopes.com/img/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://flaviocopes.com/img/favicon-16x16.png"><style></style><link rel="alternate" type="application/rss+xml" title="Posts by Flavio Copes" href="https://flaviocopes.com/rss.xml"><link rel="stylesheet" href="./Overview of the Browser DevTools_files/_slug_.BY_bVCm3.css">
+<link rel="stylesheet" href="./Overview of the Browser DevTools_files/_slug_.CZgisuyh.css"><script type="module">function d(o){const t=document.head.querySelector('meta[name="theme-color"]');o==="dark"?(document.documentElement.classList.remove("light"),document.documentElement.classList.add("dark"),t&&(t.content="#262626")):(document.documentElement.classList.remove("dark"),document.documentElement.classList.add("light"),t&&(t.content="#ffffff"))}function a(o){o==="dark"?sessionStorage.setItem("theme","dark"):sessionStorage.setItem("theme","light")}class i extends HTMLElement{constructor(){super();let t=document.documentElement.classList.contains("dark")?"dark":"light";const c=this.querySelector("button"),e=c?.querySelector("#mode-circle");e&&(t==="dark"&&(e.classList.remove("light"),e.classList.add("dark")),e.classList.remove("invisible"),c?.addEventListener("click",()=>{if(t==="dark"){const s="light";e.classList.remove("dark"),e.classList.add("light"),d(s),a(s),t=s}else{const s="dark";e.classList.remove("light"),e.classList.add("dark"),d(s),a(s),t=s}e.classList.contains("duration-300")||e.classList.add("duration-300")}))}}customElements.define("mode-toggle",i);
+</script></head> <body class="max-w-3xl mx-auto min-h-screen px-6 sm:px-8 my-6 tracking-tighter"> <header data-astro-cid-3ef6ksr2=""> <a class="unset absolute z-10 left-[50%] -top-[100rem] translate-x-[-50%] bg-white text-black px-8 py-2 focus:top-[initial]" href="https://flaviocopes.com/browser-dev-tools/#main" data-astro-cid-3ef6ksr2="">
+Skip to content
+</a> <nav data-astro-cid-3ef6ksr2=""> <section class="text-text-bold" data-astro-cid-3ef6ksr2=""> <ul class="unset flex gap-4 [&amp;&gt;li]:p-0" data-astro-cid-3ef6ksr2=""> <li data-astro-cid-3ef6ksr2=""> <!-- DO NOT FORMAT. IT ADDS AN EXTRA SPACE ON RENDERED CONTENT. --><a href="https://flaviocopes.com/" class="unset animated-link" data-astro-cid-3ef6ksr2=""> <img src="./Overview of the Browser DevTools_files/og.png" alt="logo" class="w-4 -mt-1 inline" data-astro-cid-3ef6ksr2=""> Home
+</a> </li> <li data-astro-cid-3ef6ksr2="">
+⋅ <!-- DO NOT FORMAT. IT ADDS AN EXTRA SPACE ON RENDERED CONTENT. --><a href="https://flaviocopes.com/blog" class="unset animated-link" data-astro-cid-3ef6ksr2="">Tutorials</a> </li> <!-- <li>⋅ <HeaderLink href='https://sololab.io'>Solo Lab</HeaderLink></li> --> <!-- <li class='hidden md:inline'>
+          ⋅
+          <HeaderLink href='https://thevalleyofcode.com'>
+            Valley of Code
+          </HeaderLink>
+        </li> --> <li data-astro-cid-3ef6ksr2="">⋅ <!-- DO NOT FORMAT. IT ADDS AN EXTRA SPACE ON RENDERED CONTENT. --><a href="https://flaviocopes.com/access" class="unset animated-link" data-astro-cid-3ef6ksr2="">Books</a></li> <li data-astro-cid-3ef6ksr2="">⋅ <!-- DO NOT FORMAT. IT ADDS AN EXTRA SPACE ON RENDERED CONTENT. --><a href="https://flaviocopes.com/courses" class="unset animated-link" data-astro-cid-3ef6ksr2="">Courses</a></li> </ul> </section> </nav> <div class="justify-self-end hidden sm:flex items-center content-center text-text-bold" data-astro-cid-3ef6ksr2=""> <mode-toggle class="flex" data-astro-cid-tcsrer47=""> <button class="justify-self-end bg-black dark:bg-white ml-4 inline-flex h-6 w-11 items-center rounded-full" id="mode-toggle" role="switch" type="button" tabindex="0" aria-checked="false" data-headlessui-state="" data-astro-cid-tcsrer47=""><span class="sr-only" data-astro-cid-tcsrer47="">Toggle dark mode</span><span id="mode-circle" class="light inline-block h-4 w-4 rounded-full bg-gradient-to-tr" data-astro-cid-tcsrer47=""><span class="absolute top-0 right-0 w-[10px] h-[10px] rounded-full bg-white scale-[0]" data-astro-cid-tcsrer47=""></span> </span> </button> </mode-toggle>   </div> </header>  <main id="main" class="mb-20"> <section class="blog-post prose max-w-none prose-newspaper"> <h1 class="border-b-[1px] font-bold text-4xl md:text-5xl tracking-tighter pt-6 pb-10 overflow-hidden"> <span class="bg-gradient-to-br from-[#334155] via-[#1e293b] to-[#0f172a] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent"> Overview of the Browser DevTools </span> </h1> <time class="block mb-[2em] text-text-muted">Mar 7, 2018</time> <a href="https://flaviocopes.com/courses" class="block mt-10 text-sm text-white leading-relaxed text-center py-2 rounded-3xl !bg-none no-underline"> <div> <p class="inline-block px-1.5 py-0 mr-2 text-white bg-zinc-600 rounded-sm mb-0 text-lg font-bold mt-0">
+New Course Coming Soon:
+</p> </div> <p class="mt-0 inline-block px-1.5 py-0 mr-2 text-gray-800 bg-yellow-400 rounded-sm mb-4 text-lg font-bold">
+Get Really Good at Git
+</p> </a> <p class="mb-5 border-l-4 border-l-gray-800 pl-3">The Browser DevTools are a fundamental element in the frontend developer toolbox, and they are available in all modern browsers. Discover the basics of what they can do for you</p> <!-- TOC -->
+<ul>
+<li><a href="https://flaviocopes.com/browser-dev-tools/#the-browser-devtools">The Browser DevTools</a></li>
+<li><a href="https://flaviocopes.com/browser-dev-tools/#html-structure-and-css">HTML Structure and CSS</a>
+<ul>
+<li><a href="https://flaviocopes.com/browser-dev-tools/#the-html-panel">The HTML panel</a></li>
+<li><a href="https://flaviocopes.com/browser-dev-tools/#the-css-styles-panel">The CSS styles panel</a></li>
+</ul>
+</li>
+<li><a href="https://flaviocopes.com/browser-dev-tools/#the-console">The Console</a>
+<ul>
+<li><a href="https://flaviocopes.com/browser-dev-tools/#executing-custom-javascript">Executing custom JavaScript</a></li>
+<li><a href="https://flaviocopes.com/browser-dev-tools/#error-reporting">Error reporting</a></li>
+</ul>
+</li>
+<li><a href="https://flaviocopes.com/browser-dev-tools/#the-emulator">The emulator</a></li>
+<li><a href="https://flaviocopes.com/browser-dev-tools/#the-network-panel">The network panel</a></li>
+<li><a href="https://flaviocopes.com/browser-dev-tools/#javascript-debugger">JavaScript debugger</a></li>
+<li><a href="https://flaviocopes.com/browser-dev-tools/#application-and-storage">Application and Storage</a>
+<ul>
+<li><a href="https://flaviocopes.com/browser-dev-tools/#storage">Storage</a></li>
+<li><a href="https://flaviocopes.com/browser-dev-tools/#application">Application</a></li>
+</ul>
+</li>
+<li><a href="https://flaviocopes.com/browser-dev-tools/#security-tab">Security tab</a></li>
+<li><a href="https://flaviocopes.com/browser-dev-tools/#audits">Audits</a></li>
+</ul>
+<!-- /TOC -->
+<h2 id="the-browser-devtools">The Browser DevTools</h2>
+<p>I don’t think there was a time where websites and web applications were easy to build, as for backend technologies, but client-side development was surely easier than now, generally speaking.</p>
+<p>Once you figured out the differences between Internet Explored and Netscape Navigator, and avoided the proprietary tags and technology, all you had to use was HTML and later CSS.</p>
+<p><a href="https://thevalleyofcode.com/#javascript">JavaScript</a> was a tech for creating dialog boxes and a little bit more, but was definitely not as pervasive as today.</p>
+<p>Although lots of web pages are still plain HTML + CSS, like this page, many other websites are real applications that run in the browser.</p>
+<p>Just providing the source of the page, like browser did once upon a time, was not enough.</p>
+<p>Browser had to provide much more information on how they rendered the page, and what the page is currently doing, hence they introduced a <strong>feature for developers</strong>: their <strong>developer tools</strong>.</p>
+<p>Every browser is different and so their dev tools are slightly different. At the time of writing my favorite developer tools are provided by Chrome, and this is the browser we’ll talk here, although also Firefox and Edge have great tools as well.</p>
+<hr>
+<h2 id="html-structure-and-css">HTML Structure and CSS</h2>
+<p>The most basic form of usage, and a very common one, is inspecting the content of a webpage. When you open the DevTools that’s the panel the Elements panel is what you see:</p>
+<p><img src="./Overview of the Browser DevTools_files/1.png" alt="Elements panel of the Browser Dev Tools"></p>
+<h3 id="the-html-panel">The HTML panel</h3>
+<p>On the left, the HTML that composes the page.</p>
+<p>Hovering the elements in the HTML panel highlights the element in the page, and clicking the first icon in the toolbar allows you to click an element in the page, and analyze it in the inspector.</p>
+<p>You can drag and drop elements in the inspector to live change their positioning in the page.</p>
+<h3 id="the-css-styles-panel">The CSS styles panel</h3>
+<p>On the right, the CSS styles that are applied to the currently selected element.</p>
+<p>In addition to editing and disabling properties, you can add a new CSS property, with any target you want, by clicking the <code>+</code> icon.</p>
+<p>Also you can trigger a state for the selected element, so you can see the styles applied when it’s active, hovered, on focus.</p>
+<p>At the bottom, the <strong>box model</strong> of the selected element helps you figure out margins, paddings, border and dimensions at a quick glance:</p>
+<p><img src="./Overview of the Browser DevTools_files/2.png" alt="Box model in the CSS styles panel"></p>
+<hr>
+<h2 id="the-console">The Console</h2>
+<p>The second most important element of the DevTools is the Console.</p>
+<p>The Console can be seen on its own panel, or by pressing <code>Esc</code> in the Elements panel, it will show up in the bottom.</p>
+<p>The Console serves mainly two purposes: <em>executing custom JavaScript</em> and <em>error reporting</em>.</p>
+<h3 id="executing-custom-javascript">Executing custom JavaScript</h3>
+<p>At the bottom of the Console there is a blinking cursor. You can type any JavaScript there, and it will be promptly executed. As an example, try running:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#B392F0">alert</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'test'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span></code></pre>
+<p>The special identifier <code>$0</code> allows you to reference the element currently selected in the elements inspector. If you want to reference that as a jQuery selector, use <code>$($0)</code>.</p>
+<p>You can write more than one line with <code>shift-enter</code>. Pressing enter at the end of the script runs it.</p>
+<h3 id="error-reporting">Error reporting</h3>
+<p>Any error, warning or information that happens while rendering the page, and subsequently executing the JavaScript, is listed here.</p>
+<p>For example failing to load a resource from the network, with information on <em>why</em>, is reported in the console.</p>
+<p><img src="./Overview of the Browser DevTools_files/3.png" alt="Console Error Reporting"></p>
+<p>In this case, clicking the resource URL brings you to the Network panel, showing more info which you can use to determine the cause of the problem.</p>
+<p>You can filter those messages by level (Error / Warning / Info) and also filter them by content.</p>
+<p>Those messages can be user-generated in your own JavaScript by using the <a href="https://flaviocopes.com/console-api/"><strong>Console API</strong></a>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Some info message'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">warn</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Some warning message'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Some error message'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h2 id="the-emulator">The emulator</h2>
+<p>The Chrome DevTools embed a very useful device emulator which you can use to visualize your page in every device size you want.</p>
+<p><img src="./Overview of the Browser DevTools_files/4.png" alt="The device emulator"></p>
+<p>You can choose from the presets the most popular mobile devices, including iPhones, iPads, Android devices and much more, or specify the pixel dimensions yourself, and the screen definition (1x, 2x retina, 3x retina HD).</p>
+<p>In the same panel you can setup <strong>network throttling</strong> for that specific Chrome tab, to emulate a low speed connection and see how the page loads, and the “<strong>show media queries</strong>” option shows you how media queries modify the CSS of the page.</p>
+<hr>
+<h2 id="the-network-panel">The network panel</h2>
+<p>The Network Panel of the DevTools allows you to see all the connections that the browser must process while rendering a page.</p>
+<p><img src="./Overview of the Browser DevTools_files/5.png" alt="The network panel"></p>
+<p>At a quick glance the page shows:</p>
+<ul>
+<li>a toolbar where you can setup some options and filters</li>
+<li>a loading graph of the page as a whole</li>
+<li>every single request, with HTTP method, response code, size and other details</li>
+<li>a footer with the summary of the total requests, the total size of the page and some timing indications.</li>
+</ul>
+<p>A very useful option in the toolbar is <strong>preserve log</strong>. By enabling it, you can move to another page, and the logs will not be cleared.</p>
+<p>Another very useful tool to track loading time is <strong>disable cache</strong>. This can be enabled globally in the DevTools settings as well, to always disable cache when DevTools is open.</p>
+<p>Clicking a specific request in the list shows up the detail panel, with HTTP Headers report:</p>
+<p><img src="./Overview of the Browser DevTools_files/6.png" alt="The HTTP headers report in the network panel"></p>
+<p>And the loading time breakdown:</p>
+<p><img src="./Overview of the Browser DevTools_files/7.png" alt="The loading time breakdown"></p>
+<hr>
+<h2 id="javascript-debugger">JavaScript debugger</h2>
+<p>If you click an error message in the DevTools Console, the Sources tab opens and in addition to pointing you to the file and line where the error happened, you have the option to use the JavaScript debugger.</p>
+<p><img src="./Overview of the Browser DevTools_files/8.png" alt="The Javascript debugger"></p>
+<p>This is a full-featured debugger. You can set breakpoints, watch variables, and listen to <a href="https://thevalleyofcode.com/dom">DOM</a> changes or break on specific <a href="https://flaviocopes.com/xhr/">XHR</a> (AJAX) network requests, or event listeners.</p>
+<hr>
+<h2 id="application-and-storage">Application and Storage</h2>
+<p>The Application tab gives you lots of information about which information is stored inside the browser relative to your website.</p>
+<p><img src="./Overview of the Browser DevTools_files/9.png" alt="Application and storage"></p>
+<h3 id="storage">Storage</h3>
+<p>You gain access to detailed reports and tools to interact with the application storage:</p>
+<ul>
+<li><a href="https://flaviocopes.com/web-storage-api/">Local Storage</a></li>
+<li>Session Storage</li>
+<li><a href="https://flaviocopes.com/indexeddb/">IndexedDb</a></li>
+<li>Web SQL</li>
+<li><a href="https://flaviocopes.com/cookies/">Cookies</a></li>
+</ul>
+<p>and you can quickly wipe any information, to start with a clean slate.</p>
+<h3 id="application">Application</h3>
+<p>This tab also gives you tools to inspect and debug Progressive Web Apps.</p>
+<p>Click <strong>manifest</strong> to get information about the web app manifest, used to allow mobile users to add the app to their home, and simulate the “add to homescreen” events.</p>
+<p><strong>Service workers</strong> let you inspect your application service workers. If you don’t know what service workers are, in short they are a fundamental technology that powers modern web apps, to provide features like notification, capability to run offline and synchronize across devices.</p>
+<hr>
+<h2 id="security-tab">Security tab</h2>
+<p>The Security tab gives you all the information that the browser has relatively to the security of the connection to the website.</p>
+<p><img src="./Overview of the Browser DevTools_files/10.png" alt="The Security Tab"></p>
+<p>If there is any problem with the HTTPS connection, if the site is served over TLS, it will provide you more information about what’s causing it.</p>
+<hr>
+<h2 id="audits">Audits</h2>
+<p>The Audits tab will help you find and solve some issues relative to performance and in general the quality of the experience that users have when accessing your website.</p>
+<p>You can perform various kinds of audits depending on the kind of website:</p>
+<p><img src="./Overview of the Browser DevTools_files/11.png" alt="Audits by Lighthouse"></p>
+<p>The audit is provided by <a href="https://developers.google.com/web/tools/lighthouse/">Lighthouse</a>, an open source automated website quality check tool. It takes a while to run, then it provides you a very nice report with key actions to check.</p>
+<p><img src="./Overview of the Browser DevTools_files/12.png" alt="Lighthouse audit report"></p>
+<hr>
+<p>If you want to know more about the Chrome DevTools, check out this <a href="https://flaviocopes.com/chrome-devtools-tips/">Chrome DevTools Tips list</a> 😀</p>  <div class="mt-4 [&amp;&gt;div]:py-2">                         </div>  <div class="mt-10"> <p>Here is how can I help you:</p> <ul class="mt-5"> <li> <strong> <a href="https://flaviocopes.com/courses">COURSES</a> </strong> where I teach everything I know
+</li> <li> <strong><a href="https://flaviocopes.com/bootcamp">CODING BOOTCAMP</a></strong>
+cohort course - next edition in 2025
+</li> <li> <strong><a href="https://flaviocopes.com/access/">BOOKS</a></strong> 16 coding ebooks you can download
+      for free on JS Python C PHP and lots more
+</li>  <li> <a href="https://x.com/flaviocopes">Follow me on X</a> </li> </ul> </div> </section> </main>  <footer class="text-sm leading-[1.75] mt-4" data-astro-cid-sz7xmlte=""> <div data-astro-cid-sz7xmlte="">© 2024 Flavio Copes all rights reserved</div> </footer>  <script defer="" data-domain="flaviocopes.com" src="./Overview of the Browser DevTools_files/script.js.download"></script>  <div id="extension-ebdbc"></div></body></html>

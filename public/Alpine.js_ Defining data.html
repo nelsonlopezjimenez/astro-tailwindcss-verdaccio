@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://thevalleyofcode.com/alpine/4-define-data -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Defining data - Alpine.js is a great library to bring pages to life with client-side interactions, without the need to write a lot of custom JavaScript or use a more heavy UI library."><link rel="icon" type="image/png" href="https://thevalleyofcode.com/favicon.png"><meta name="generator" content="Astro v4.6.1"><title>Alpine.js: Defining data</title><!--<base href=".">--><base href="."><meta content="width=device-width,initial-scale=1" name="viewport"><link rel="preconnect" href="https://fonts.googleapis.com/"><link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><link href="./Alpine.js_ Defining data_files/css2" rel="stylesheet"><link href="./Alpine.js_ Defining data_files/css2(1)" rel="stylesheet"><script defer="" data-domain="thevalleyofcode.com" src="./Alpine.js_ Defining data_files/script.js.download"></script><meta property="og:title" content="Alpine.js: Defining data"><meta property="og:url" content="https://thevalleyofcode.com"><meta property="twitter:card" content="summary_large_image"><meta property="og:image" content="https://thevalleyofcode.com/images/og/alpine.png"><meta property="twitter:image" content="https://thevalleyofcode.com/images/og/alpine.png"><link rel="stylesheet" href="./Alpine.js_ Defining data_files/_slug_.DwSoIJLJ.css">
+<link rel="stylesheet" href="./Alpine.js_ Defining data_files/join.DiWGxQZH.css"></head> <body class="dark:bg-[rgb(41,43,54)] font-mono"> <div> <main class="mx-auto full h-min-screen max-w-4xl xl:max-w-screen-xl"> <div class="px-10"> <div class="flex flex-row flex-wrap px-3">  <section class="top-0 md:w-1/3"> <aside class="text-left p-6 pl-0 sm:!pl-6 sticky top-0 md:h-screen overflow-y-auto"> <div class="pt-6"> <a href="https://thevalleyofcode.com/"> <svg class="inline w-64 sm:w-40 lg:w-52 2xl:w-60" viewBox="0 0 85 49" fill="none" xmlns="http://www.w3.org/2000/svg"> <path class="words" d="M6.54175 1.95288H4.00366V9H2.43701V1.95288H-0.112305V0.375H6.54175V1.95288ZM7.34473 0.375H8.92261V2.5144H12.2693V0.375H13.8472V9H12.2693V4.10352H8.92261V9H7.34473V0.375ZM18.8447 7.46143C19.3726 7.46143 19.8311 7.34538 20.2205 7.11328C20.6135 6.87744 20.9748 6.48999 21.3042 5.95093L22.4216 6.95044C22.0623 7.55688 21.5644 8.05664 20.928 8.44971C20.2916 8.83903 19.6121 9.03369 18.8896 9.03369C17.7404 9.03369 16.7746 8.61442 15.9922 7.77588C15.2098 6.93734 14.8186 5.91162 14.8186 4.69873C14.8186 3.49333 15.2042 2.46761 15.9753 1.62158C16.7465 0.775553 17.6805 0.356283 18.7773 0.36377C19.9715 0.371257 20.9261 0.807373 21.6411 1.67212C22.3599 2.53312 22.7192 3.65617 22.7192 5.04126H16.4526C16.5275 5.83114 16.8083 6.43197 17.2949 6.84375C17.7853 7.25553 18.3019 7.46143 18.8447 7.46143ZM18.7773 1.94165C18.3543 1.93416 17.9388 2.06519 17.5308 2.33472C17.1265 2.6005 16.8289 2.98983 16.6379 3.50269H20.8662C20.5555 2.47697 19.8592 1.95662 18.7773 1.94165ZM32.1416 0.375H33.8655L30.3335 9.27515L26.8015 0.375H28.531L30.3335 5.03003L32.1416 0.375ZM38.571 9L38.1331 7.8938H35.3928L34.9548 9H33.3489L36.7629 0.0998535L40.177 9H38.571ZM35.9207 6.56299H37.5996L36.7629 4.42358L35.9207 6.56299ZM41.1035 9V0.375H42.6814V7.36597C43.3852 7.27987 44.0702 7.28923 44.7366 7.39404C45.4067 7.49886 45.8783 7.55127 46.1516 7.55127C47.08 7.55127 47.8549 7.37533 48.4763 7.02344L48.9929 8.41602C48.3191 8.80534 47.372 9 46.1516 9C45.8746 9 45.4516 8.95133 44.8826 8.854C44.3136 8.75293 43.724 8.70239 43.1138 8.70239C42.5036 8.70239 41.8335 8.8016 41.1035 9ZM45.854 4.70996H48.3752V6.16992H44.394V0.375H45.854V4.70996ZM54.8945 1.95288H51.2109V4.19336H53.9849L53.7546 5.75439H51.2109V7.42212H54.8945V9H49.6387V0.375H54.8945V1.95288ZM62.9187 0.375L60.0212 5.40063V9H58.4321V5.40063L55.5347 0.375H57.2585L59.2239 3.78906L61.1948 0.375H62.9187ZM70.9709 9.03369C69.8142 9.03369 68.8297 8.61255 68.0173 7.77026C67.205 6.92798 66.7988 5.90413 66.7988 4.69873C66.7988 3.50456 67.205 2.48633 68.0173 1.64404C68.8297 0.798014 69.8142 0.375 70.9709 0.375C72.1202 0.375 73.101 0.798014 73.9133 1.64404C74.7294 2.48633 75.1375 3.50456 75.1375 4.69873C75.1375 5.90413 74.7294 6.92798 73.9133 7.77026C73.101 8.61255 72.1202 9.03369 70.9709 9.03369ZM69.2302 6.51807C69.7094 7.01595 70.2896 7.26489 70.9709 7.26489C71.656 7.26489 72.2344 7.01595 72.7061 6.51807C73.1815 6.02018 73.4192 5.41374 73.4192 4.69873C73.4192 3.99495 73.1815 3.39412 72.7061 2.89624C72.2344 2.39461 71.656 2.1438 70.9709 2.1438C70.2896 2.1438 69.7094 2.39461 69.2302 2.89624C68.7511 3.39412 68.5115 3.99495 68.5115 4.69873C68.5115 5.40999 68.7511 6.01644 69.2302 6.51807ZM81.6343 1.95288H77.9507V4.19336H80.7246L80.4944 5.75439H77.9507V9H76.3784V0.375H81.6343V1.95288Z"></path> <path class="words" d="M3.51074 31.8062C1.31087 29.4347 0.210938 26.6243 0.210938 23.375C0.210938 20.1257 1.31087 17.3203 3.51074 14.959C5.71061 12.5876 8.35954 11.4019 11.4575 11.4019C14.1418 11.4019 16.5384 12.305 18.6475 14.1113L16.0439 17.5474C14.7018 16.4272 13.1427 15.8672 11.3667 15.8672C9.39893 15.8672 7.81462 16.624 6.61377 18.1377C5.42301 19.6413 4.82764 21.387 4.82764 23.375C4.82764 25.363 5.42806 27.1138 6.62891 28.6274C7.82975 30.131 9.40902 30.8828 11.3667 30.8828C13.062 30.8828 14.6211 30.3228 16.0439 29.2026L18.6475 32.6387C16.5384 34.4349 14.1418 35.3381 11.4575 35.3481C8.35954 35.3481 5.71061 34.1675 3.51074 31.8062ZM30.6812 35.0908C27.563 35.0908 24.909 33.9556 22.7192 31.6851C20.5295 29.4146 19.4346 26.6546 19.4346 23.4053C19.4346 20.1862 20.5295 17.4414 22.7192 15.1709C24.909 12.8903 27.563 11.75 30.6812 11.75C33.7791 11.75 36.423 12.8903 38.6128 15.1709C40.8127 17.4414 41.9126 20.1862 41.9126 23.4053C41.9126 26.6546 40.8127 29.4146 38.6128 31.6851C36.423 33.9556 33.7791 35.0908 30.6812 35.0908ZM25.9888 28.3096C27.2804 29.6517 28.8446 30.3228 30.6812 30.3228C32.5278 30.3228 34.0869 29.6517 35.3584 28.3096C36.64 26.9674 37.2808 25.3327 37.2808 23.4053C37.2808 21.5081 36.64 19.8885 35.3584 18.5464C34.0869 17.1942 32.5278 16.5181 30.6812 16.5181C28.8446 16.5181 27.2804 17.1942 25.9888 18.5464C24.6971 19.8885 24.0513 21.5081 24.0513 23.4053C24.0513 25.3226 24.6971 26.9574 25.9888 28.3096ZM48.6636 11.75C53.1945 11.75 56.7718 12.8247 59.3955 14.9741C62.0293 17.1235 63.3462 19.8835 63.3462 23.2539C63.3462 26.6445 62.0243 29.4499 59.3804 31.6699C56.7365 33.89 53.1642 35 48.6636 35H44.6221V11.75H48.6636ZM50.5557 30.7466C51.4639 30.7466 52.3822 30.6053 53.3105 30.3228C54.2389 30.0301 55.1219 29.5962 55.9595 29.021C56.797 28.4357 57.4782 27.6436 58.0029 26.6445C58.5277 25.6455 58.79 24.5153 58.79 23.2539C58.79 22.154 58.6134 21.1701 58.2603 20.3022C57.9172 19.4344 57.4631 18.7381 56.8979 18.2134C56.3429 17.6886 55.687 17.2547 54.9302 16.9116C54.1834 16.5685 53.4518 16.3314 52.7354 16.2002C52.0189 16.069 51.2923 16.0034 50.5557 16.0034H48.8755V30.7466H50.5557ZM80.4658 16.0034H70.5361V22.043H78.0137L77.3931 26.251H70.5361V30.7466H80.4658V35H66.2979V11.75H80.4658V16.0034Z"></path> <rect width="180" height="4" transform="translate(0 44)"></rect> <defs> <clippath id="clip0_0_1"> <rect width="149.98" height="4.15" fill="white" transform="translate(0 44)"></rect> </clippath> </defs> <style>
+    path {
+      fill: black;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      path {
+        fill: white;
+      }
+    }
+    rect {
+      fill: #ffd319;
+    }
+  </style> </svg> </a> </div> <header class="pt-2"> <div class="mb-8"> <span class="pb-20 borderbottom leading-[64px]"> <a href="https://thevalleyofcode.com/#alpinejs" class="text-3xl"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2 tracking-[-1px]">Alpine.js</span> </a> </span> </div> <!-- <span class='text-zinc-400'>{unit.description}</span>  --> </header> <h4 class="mt-10 text-zinc-700 dark:text-zinc-200"></h4><table class="text-blue-400  font-mono tracking-[-1px]  !border-none"> <tbody><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2">
+0:
+</span> </td> <td class="!p-0 !border-none">   <a class=" hover:underline " href="https://thevalleyofcode.com/alpine">
+Introduction  </a> </td> </tr> <tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 1:
+</span> </td> <td class="!p-0 !border-none">    <a class=" hover:underline  " href="https://thevalleyofcode.com/alpine/1-installation"> Installing Alpine </a> </td> </tr><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 2:
+</span> </td> <td class="!p-0 !border-none">    <a class=" hover:underline  " href="https://thevalleyofcode.com/alpine/2-alpine-basics"> The basics of Alpine </a> </td> </tr><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 3:
+</span> </td> <td class="!p-0 !border-none">    <a class=" hover:underline  " href="https://thevalleyofcode.com/alpine/3-events"> Events </a> </td> </tr><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 4:
+</span> </td> <td class="!p-0 !border-none"> <span class="font-bold ">
+▶︎
+</span>   <a class="underline  font-bold  hover:underline  " href="https://thevalleyofcode.com/alpine/4-define-data"> Defining data </a> </td> </tr><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 5:
+</span> </td> <td class="!p-0 !border-none">    <a class=" hover:underline  " href="https://thevalleyofcode.com/alpine/5-loop"> Looping </a> </td> </tr><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 6:
+</span> </td> <td class="!p-0 !border-none">    <a class=" hover:underline  " href="https://thevalleyofcode.com/alpine/6-bind-input"> Binding user input to variables </a> </td> </tr><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 7:
+</span> </td> <td class="!p-0 !border-none">    <a class=" hover:underline  " href="https://thevalleyofcode.com/alpine/7-watch-variables"> Watching variables change </a> </td> </tr><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 8:
+</span> </td> <td class="!p-0 !border-none">    <a class=" hover:underline  " href="https://thevalleyofcode.com/alpine/8-stores"> Stores </a> </td> </tr> </tbody></table> <p class="mt-5"> <a class="hover:underline text-zinc-700 dark:text-zinc-300 font-mono text-sm tracking-[-1px]" href="https://thevalleyofcode.com/#alpinejs">
+[← back to the Valley]</a> </p> <div class="y-space"></div> </aside> </section> <section class="w-full md:w-2/3"> <div class="py-5 mt-4"> <header> <div class="pt-0 sm:pl-5"> <div class="text-sm title white leading-[1.1em] mb-0"> <div class="pt-1"> <span class="text-5xl font-bold"> <span class="mr-2 text-zinc-700 dark:text-[#e1e1e1] tracking-tight font-serif">Alpine.js: Defining data</span> </span> </div> </div> </div> </header> <article class="mb-10"> <div class="p-6 pl-0 sm:!pl-6 pt-0 white col">  <nav class="mb"> <!--<span class='text-zinc-400'>last updated Sep 2023</span>--> <!-- <span class='yellow hover'>[&leftarrow; see all html lessons]</span>--> </nav> <div class="mb-6 tweak-1 text-base max-w-xl lg:max-w-full text-zinc-700 dark:text-[#e1e1e1]" id="content"> <p>We’ve seen how to define data using <code>x-data</code>:</p>
+<pre class="language-html"><code class="language-html code-highlight"><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">x-data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{ showThis: false }<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+</span><span class="code-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">x-show</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>showThis<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Show this<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</span></code></pre>
+<p>The string passed to <code>x-data</code> contains a JavaScript object, and we can add more variables into it:</p>
+<pre class="language-html"><code class="language-html code-highlight"><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">x-data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{ showThis: false, name: '' }<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+</span><span class="code-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">x-show</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>showThis<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Show this<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</span></code></pre>
+<p>But it’s kind of difficult to write JavaScript in this way, especially because it’s not syntax highlighted and being inside a string it’s easy to do errors and the editor cannot detect them for us.</p>
+<p>You can do this instead:</p>
+<pre class="language-js"><code class="language-js code-highlight"><span class="code-line"><span class="token maybe-class-name">Alpine</span><span class="token punctuation">.</span><span class="token method function property-access">data</span><span class="token punctuation">(</span><span class="token string">'mydata'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+</span><span class="code-line">  <span class="token literal-property property">showThis</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">''</span>
+</span><span class="code-line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</span></code></pre>
+<p>and then you associate <code>mydata</code> to an HTML tag:</p>
+<pre class="language-html"><code class="language-html code-highlight"><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">x-data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mydata<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+</span><span class="code-line">  
+</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</span></code></pre>
+<p>and in its children (and on the element itself, if you need) you have access to the variables defined in <code>mydata</code>:</p>
+<pre class="language-html"><code class="language-html code-highlight"><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">x-data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mydata<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+</span><span class="code-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">x-show</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>showThis<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Show this<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</span></code></pre>
+<p>This is very useful if you need to add methods that you can call when an event occurs, or when you have more complex data processing.</p>
+<p>Simple example, I have a shopping cart and in addition to the data, I have some utility functions to format this data nicely in my UI:</p>
+<pre class="language-js"><code class="language-js code-highlight"><span class="code-line"><span class="token maybe-class-name">Alpine</span><span class="token punctuation">.</span><span class="token method function property-access">data</span><span class="token punctuation">(</span><span class="token string">'shop'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+</span><span class="code-line">  <span class="token literal-property property">showCartOverlay</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token literal-property property">cart</span><span class="token operator">:</span> <span class="token known-class-name class-name">JSON</span><span class="token punctuation">.</span><span class="token method function property-access">parse</span><span class="token punctuation">(</span><span class="token dom variable">localStorage</span><span class="token punctuation">.</span><span class="token method function property-access">getItem</span><span class="token punctuation">(</span><span class="token string">'cart'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token literal-property property">subtotal</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token function">subtotalFormatted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line">    <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">formatAsPrice</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">subtotal</span><span class="token punctuation">)</span>
+</span><span class="code-line">  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token function">formatAsPrice</span><span class="token punctuation">(</span><span class="token parameter">price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line">    <span class="token keyword control-flow">return</span> <span class="token known-class-name class-name">Intl</span><span class="token punctuation">.</span><span class="token method function property-access"><span class="token maybe-class-name">NumberFormat</span></span><span class="token punctuation">(</span><span class="token string">'en-US'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">style</span><span class="token operator">:</span> <span class="token string">'currency'</span><span class="token punctuation">,</span> <span class="token literal-property property">currency</span><span class="token operator">:</span> <span class="token string">'USD'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">format</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span>
+</span><span class="code-line">  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token function">recalculateSubtotal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line">    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">subtotal</span> <span class="token operator">=</span> <span class="token number">0</span>
+</span><span class="code-line">    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">cart</span><span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">subtotal</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">subtotal</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token property-access">price</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</span><span class="code-line">  <span class="token punctuation">}</span>
+</span><span class="code-line"><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span></code></pre>
+<p>.. you got the idea.</p>
+<p>Now I can use functions like this:</p>
+<pre class="language-html"><code class="language-html code-highlight"><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">x-data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>shop<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+</span><span class="code-line">  ...
+</span><span class="code-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>ml-4<span class="token punctuation">'</span></span> <span class="token attr-name">x-text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>formatAsPrice(item.price)<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</span></code></pre>
+<p>It’s much cleaner than adding all those functions inside <code>x-data</code>.</p> <nav class="mt-10 sm:grid text-lg grid-cols-2"> <div class="mr-2 text-zinc-400"> 
+◀︎ <a class="" href="https://thevalleyofcode.com/alpine/3-events"> <span class=" text-zinc-400"> Events </span> </a>  </div> <div class="mr-2 white"> 
+▶︎ <a class="" href="https://thevalleyofcode.com/alpine/5-loop"> <span class="">Looping</span> </a>  </div> </nav> <h4 class="mt-10 text-zinc-700 dark:text-zinc-200">Lessons in this unit:</h4><table class="text-blue-400  font-mono tracking-[-1px]  !border-none"> <tbody><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2">
+0:
+</span> </td> <td class="!p-0 !border-none">   <a class=" hover:underline " href="https://thevalleyofcode.com/alpine">
+Introduction  </a> </td> </tr> <tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 1:
+</span> </td> <td class="!p-0 !border-none">    <a class=" hover:underline  " href="https://thevalleyofcode.com/alpine/1-installation"> Installing Alpine </a> </td> </tr><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 2:
+</span> </td> <td class="!p-0 !border-none">    <a class=" hover:underline  " href="https://thevalleyofcode.com/alpine/2-alpine-basics"> The basics of Alpine </a> </td> </tr><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 3:
+</span> </td> <td class="!p-0 !border-none">    <a class=" hover:underline  " href="https://thevalleyofcode.com/alpine/3-events"> Events </a> </td> </tr><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 4:
+</span> </td> <td class="!p-0 !border-none"> <span class="font-bold ">
+▶︎
+</span>   <a class="underline  font-bold  hover:underline  " href="https://thevalleyofcode.com/alpine/4-define-data"> Defining data </a> </td> </tr><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 5:
+</span> </td> <td class="!p-0 !border-none">    <a class=" hover:underline  " href="https://thevalleyofcode.com/alpine/5-loop"> Looping </a> </td> </tr><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 6:
+</span> </td> <td class="!p-0 !border-none">    <a class=" hover:underline  " href="https://thevalleyofcode.com/alpine/6-bind-input"> Binding user input to variables </a> </td> </tr><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 7:
+</span> </td> <td class="!p-0 !border-none">    <a class=" hover:underline  " href="https://thevalleyofcode.com/alpine/7-watch-variables"> Watching variables change </a> </td> </tr><tr class=" !border-none"> <td class="!p-0 !border-none"> <span class="text-zinc-700 dark:text-[#e1e1e1] mr-2"> 8:
+</span> </td> <td class="!p-0 !border-none">    <a class=" hover:underline  " href="https://thevalleyofcode.com/alpine/8-stores"> Stores </a> </td> </tr> </tbody></table> </div> <div>
+Are you intimidated by Git? Can’t figure out
+            merge vs rebase? Are you afraid of screwing up
+            something any time you have to do something in
+            Git? Do you rely on ChatGPT or random people’s
+            answer on StackOverflow to fix your problems?
+            Your coworkers are tired of explaining Git to
+            you all the time? Git is something we all need
+            to use, but few of us really master it. I
+            created this course to improve your Git (and
+            GitHub) knowledge at a radical level. Launching
+            May 21, 2024. <a class="underline" href="https://flaviocopes.com/courses">Join the waiting list!</a> </div>  </div> </article> </div> </section>  </div> </div> </main> </div> <script>
+      function processCodeBlocksForDiffs() {
+        Array.from(
+          document.querySelectorAll(
+            'span.code-line'
+          )
+        ).forEach(item => {
+          if (
+            item.firstChild?.textContent.startsWith(
+              '-'
+            ) &&
+            item.firstChild?.textContent !==
+              '--' &&
+            item.firstChild?.textContent !==
+              '---\n'
+          ) {
+            item.classList.add('deleted')
+            item.firstChild.textContent =
+              item.firstChild.textContent.replace(
+                '-',
+                ''
+              )
+          }
+          if (
+            item.firstChild?.textContent.startsWith(
+              '+'
+            )
+          ) {
+            item.classList.add('inserted')
+            item.firstChild.textContent =
+              item.firstChild.textContent.replace(
+                '+',
+                ''
+              )
+          }
+        })
+      }
+
+      processCodeBlocksForDiffs()
+
+      // document.addEventListener(
+      //   'astro:after-swap',
+      //   () => {
+      //     processCodeBlocksForDiffs()
+      //   }
+      // )
+    </script>  <div id="extension-ebdbc"></div></body></html>
