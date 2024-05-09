@@ -1038,7 +1038,7 @@ and src/pages/app/project/[project_id].astro:
 
 ```
 
-and src/components/app/Sidebar.astro:
+and src/components/app/Sidebar.astroF:
 
 ```
 
@@ -1064,34 +1064,9 @@ Here’s the result:
 
 [&rarr; top](#)
 
-## <img src="/image/_image (16).webp" alt="4.17" widht=70%>
 
 ---
 
-## <img src="/image/_image (17).webp" alt="4.18" widht=70%>
-
-<img src="/image/_image (18).webp" alt="4.19" widht=70%>
-<img src="/image/_image (19).webp" alt="4.20" widht=70%>
-<img src="/image/_image (20).webp" alt="4.22" widht=70%>
-<img src="/image/_image (21).webp" alt="4.22" widht=70%>
-<img src="/image/_image (22).webp" alt="4.23" widht=70%>
-<img src="/image/_image (23).webp" alt="4.24" widht=70%>
-<img src="/image/_image (24).webp" alt="4.25" widht=70%>
-<img src="/image/_image (25).webp" alt="4.26" widht=70%>
-<img src="/image/_image (26).webp" alt="4.27" widht=70%>
-<img src="/image/_image (27).webp" alt="4.28" widht=70%>
-<img src="/image/_image (28).webp" alt="4.29" widht=70%>
-<img src="/image/_image (29).webp" alt="4.30" widht=70%>
-<img src="/image/_image (30).webp" alt="4.31" widht=70%>
-<img src="/image/_image (31).webp" alt="4.32" widht=70%>
-<img src="/image/_image (32).webp" alt="4.33" widht=70%>
-<img src="/image/_image (33).webp" alt="4.34" widht=70%>
-<img src="/image/_image (34).webp" alt="4.3" widht=70%>
-16
-
-to
-
-34
 Looks much better!
 
 ## Delete a project
@@ -1209,7 +1184,8 @@ const tasks = await getTasks(project_id)
 
 Here’s the result:
 
-<img>
+
+## <img src="/image/_image (16).webp" alt="4.17" widht=70%>
 
 Let’s handle the API side now, that’s where we’ll make the magic happen (in other words, where we’ll actually delete the project by calling the PocketBase API).
 
@@ -1268,9 +1244,14 @@ The HX-Redirect HTTP header we pass to the response will make htmx redirect to t
 
 If you see an error like this in VS Code:
 
-<img/>
+
+## <img src="/image/_image (17).webp" alt="4.18" widht=70%>
 
 From the command palette of VS Code (View -> Command Palette) run “Developer: Restart Extension Host”
+
+
+<img src="/image/_image (18).webp" alt="4.19" widht=70%>
+
 
 The error should disappear (remember this, as similar errors might happen from time to time). It’s not really an application error, just some TypeScript / VS Code sync issue.
 
@@ -1280,7 +1261,9 @@ Try it! The project will be deleted and you’ll be sent back to the dashboard, 
 
 Since we set in PocketBase to “Cascade delete” all tasks when deleting a project, in module 1, tasks when a project is deleted, all projects tasks will be deleted from the database as well (this will keep the table cleaner automatically).
 
-Allow to edit the project status
+## Allow to edit the project status
+
+
 Let’s now allow people to edit the project’s current status.
 
 First we add a &lt;select> element where we list the statuses a project can have, which we default to the current active status.
@@ -1414,7 +1397,10 @@ import ProjectStatus from '@components/app/projects/ProjectStatus.astro'
 
 You should see this:
 
-<img/>
+
+<img src="/image/_image (19).webp" alt="4.20" widht=70%>
+
+
 
 When you change the value of the status, htmx issues a PUT request to /app/api/project/&lt;project_id> sending an action property with the change_status value.
 
@@ -1513,12 +1499,16 @@ The ProjectsStatusOptions[status as keyof typeof ProjectsStatusOptions] line is 
 
 Now you can change the status and the change will be reflected immediately, as you can notice by going back to the dashboard, or simply reloading the current page.
 
-Let people edit the project’s name.
+## Let people edit the project’s name.
+
 Now let’s add a way to edit a project’s name.
 
 When the user clicks the project name in the project page:
 
-<img/>
+
+<img src="/image/_image (20).webp" alt="4.22" widht=70%>
+
+
 
 We want to show a modal window like we did previously to create the project in the first place.
 
@@ -1551,7 +1541,10 @@ In src/pages/app/project/[project_id].astro we first wrap the project name into 
 
 Now if you click the project’s name, this modal should appear:
 
-<img/>
+
+<img src="/image/_image (21).webp" alt="4.22" widht=70%>
+
+
 
 However this time in the modal we want to display the content that allows to edit the current project name.
 
@@ -1559,8 +1552,8 @@ Let’s change the hx-get we just added to this:
 
 ```
 
-hx-get='/app/modals/project/new'
-hx-get=`/app/modals/project/${project.id}/edit`
+hx-get='/app/modals/project/new' //REMOVE
+hx-get=`/app/modals/project/${project.id}/edit` //ADD
 
 ```
 
@@ -1609,7 +1602,10 @@ const project = await getProject(project_id!)
 
 You should see this happening if you click the project’s name:
 
-<img/>
+
+<img src="/image/_image (22).webp" alt="4.23" widht=70%>
+
+
 
 Now, before saving the new name works, you need to edit src/pages/app/api/project/[project_id].astro to handle the change_name action:
 
@@ -1835,9 +1831,17 @@ const tasks = await getTasks(project_id)
 
 ```
 
+
+<img src="/image/_image (23).webp" alt="4.24" widht=70%>
+
+
+
 Clicking a button will prompt a confirmation, as it’s a destructive action:
 
-<img/>
+
+<img src="/image/_image (24).webp" alt="4.25" widht=70%>
+
+
 
 …but nothing else happens, because we haven’t implemented the API route.
 
@@ -1876,7 +1880,9 @@ Now tasks are deleted, and when this happens, the element is removed from the pa
 
 Note that the route we created gets 2 dynamic values, task_id and project_id. We’re not using the second one yet, but we’ll use it later.
 
-Add a way to mark tasks as done
+## Add a way to mark tasks as done
+
+
 Let’s now add a little “checkmark icon” to tasks. Once clicked, the task is marked as done.
 
 Create a “check” icon in its own Astro component, in src/components/app/icons/IconCheck.astro:
@@ -1967,6 +1973,10 @@ const tasks = await getTasks(project_id)
 ```
 
 Here’s the result so far:
+
+
+<imag/>
+
 
 When clicked, the button makes a PUT HTTP request to /app/api/project/<PROJECT_ID>/task/<TASK_ID>.
 
@@ -2070,7 +2080,14 @@ Basically we tell htmx to take this item we return and swap it into the item wit
 
 Try setting a todo as done now, you’ll see instant feedback in your app:
 
-Show “done” tasks in a different list
+
+<img src="/image/_image (25).webp" alt="4.26" widht=70%>
+
+
+
+## Show “done” tasks in a different list
+
+
 One design decision we make in the app now is to put the tasks already completed into a separate list.
 
 I think this will make OOB swaps “click” for you
@@ -2078,6 +2095,11 @@ I think this will make OOB swaps “click” for you
 Let’s do this in 2 steps.
 
 First I’m going to add a new “block” in the project page, right between “Tasks to do” and the “Danger zone”:
+
+
+<img src="/image/_image (26).webp" alt="4.27" widht=70%>
+
+
 
 I’ll call it “Tasks already done”, and we drop the &lt;TasksList /> component again.
 
@@ -2134,6 +2156,11 @@ This time the id of its container div is tasks-done:
 
 If you try changing the “done” status now, you’ll see only the top block actually shows changes immediately:
 
+
+
+<img src="/image/_image (27).webp" alt="4.28" widht=70%>
+
+
 Now add this to the returned HTML from src/pages/app/api/project/[project_id]/task/[task_id].astro:
 
 ```
@@ -2149,6 +2176,11 @@ Now add this to the returned HTML from src/pages/app/api/project/[project_id]/ta
 ```
 
 …and everything is in sync!
+
+
+<img src="/image/_image (28).webp" alt="4.29" widht=70%>
+
+
 
 Now we have to tell &lt;TaskList /> to only show “to-do” or “done” tasks depending on what we want to display.
 
@@ -2237,6 +2269,10 @@ export async function getTasks({
 ```
 
 Now done tasks appear in the second list, and undone tasks appear in the first one:
+
+
+<img src="/image/_image (29).webp" alt="4.30" widht=70%>
+
 
 ## Star a task
 
@@ -2372,6 +2408,11 @@ const tasks = await getTasks({ project_id, done })
 
 This should “just work”, you can star or un-star tasks in the list:
 
+
+<img src="/image/_image (30).webp" alt="4.31" widht=70%>
+
+
+
 ## Show starred tasks in the dashboard
 
 [&rarr; top](#)
@@ -2475,6 +2516,11 @@ and then we can add this list in the template:
 
 You should see (undone) starred tasks in the dashboard!
 
+
+<img src="/image/_image (31).webp" alt="4.32" widht=70%>
+
+
+
 Now any action we performed on tasks is possible also in this list (you can mark a task as done, or un-star it), but we don’t get immediate feedback on those actions
 
 Add this to src/pages/app/api/project/[project_id]/task/[task_id].astro:
@@ -2556,6 +2602,11 @@ export async function getStarredTasks() {
 ```
 
 However you’ll quickly notice a TypeScript error:
+
+
+<img src="/image/_image (32).webp" alt="4.33" widht=70%>
+
+
 
 TS doesn’t automatically pick up this relation.
 
@@ -2650,6 +2701,11 @@ Everything should be working fine now.
 
 The only thing is, here is a bit crowded:
 
+
+<img src="/image/_image (33).webp" alt="4.34" widht=70%>
+
+
+
 Let’s remove the delete button in this view:
 
 ```
@@ -2675,6 +2731,15 @@ Let’s remove the delete button in this view:
 ```
 
 Looks better:
+
+
+<img src="/image/_image (34).webp" alt="4.3" widht=70%>
+16
+
+to
+
+34
+
 
 ## Edit the task text
 
