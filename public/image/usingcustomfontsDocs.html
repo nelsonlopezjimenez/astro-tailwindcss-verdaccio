@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://docs.astro.build/en/guides/fonts/ -->
+<html lang="en" dir="ltr" data-has-toc="" data-has-sidebar="" data-theme="light" class="astro-w5t7svrm"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"><title>Using custom fonts | Docs</title><link rel="canonical" href="https://docs.astro.build/en/guides/fonts/"><link rel="alternate" hreflang="en" href="https://docs.astro.build/en/guides/fonts/"><link rel="alternate" hreflang="de" href="https://docs.astro.build/de/guides/fonts/"><link rel="alternate" hreflang="pt-BR" href="https://docs.astro.build/pt-br/guides/fonts/"><link rel="alternate" hreflang="es" href="https://docs.astro.build/es/guides/fonts/"><link rel="alternate" hreflang="zh-CN" href="https://docs.astro.build/zh-cn/guides/fonts/"><link rel="alternate" hreflang="zh-TW" href="https://docs.astro.build/zh-tw/guides/fonts/"><link rel="alternate" hreflang="fr" href="https://docs.astro.build/fr/guides/fonts/"><link rel="alternate" hreflang="hi" href="https://docs.astro.build/hi/guides/fonts/"><link rel="alternate" hreflang="ar" href="https://docs.astro.build/ar/guides/fonts/"><link rel="alternate" hreflang="ja" href="https://docs.astro.build/ja/guides/fonts/"><link rel="alternate" hreflang="ko" href="https://docs.astro.build/ko/guides/fonts/"><link rel="alternate" hreflang="pl" href="https://docs.astro.build/pl/guides/fonts/"><link rel="alternate" hreflang="ru" href="https://docs.astro.build/ru/guides/fonts/"><link rel="alternate" hreflang="it" href="https://docs.astro.build/it/guides/fonts/"><link rel="sitemap" href="https://docs.astro.build/sitemap-index.xml"><link rel="icon" href="https://docs.astro.build/favicon.ico" sizes="32x32"><link rel="shortcut icon" href="https://docs.astro.build/favicon.svg" type="image/svg+xml"><meta name="generator" content="Astro v4.6.3"><meta name="generator" content="Starlight v0.21.1"><meta property="og:title" content="Using custom fonts"><meta property="og:type" content="article"><meta property="og:url" content="https://docs.astro.build/en/guides/fonts/"><meta property="og:locale" content="en"><meta property="og:description" content="Looking to add some custom typefaces to an Astro website? Use Google Fonts with Fontsource or add a font of your choice."><meta property="og:site_name" content="Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Using custom fonts"><meta name="twitter:description" content="Looking to add some custom typefaces to an Astro website? Use Google Fonts with Fontsource or add a font of your choice."><meta name="description" content="Looking to add some custom typefaces to an Astro website? Use Google Fonts with Fontsource or add a font of your choice.">
+<meta property="og:image" content="https://docs.astro.build/open-graph/en/guides/fonts.webp">
+<meta name="twitter:image" content="https://docs.astro.build/open-graph/en/guides/fonts.webp">
+
+<!-- Algolia docsearch language facet -->
+<meta name="docsearch:language" content="en">
+<meta name="twitter:site" content="astrodotbuild">
+
+<!-- Fathom analytics -->
+<script src="./usingcustomfontsDocs_files/script.js.download" data-site="EZBHTSIG" defer=""></script>
+		
+		
+<script>
+	window.StarlightThemeProvider = (() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+		return {
+			updatePickers(theme = storedTheme || 'auto') {
+				document.querySelectorAll('starlight-theme-select').forEach((picker) => {
+					const select = picker.querySelector('select');
+					if (select) select.value = theme;
+					/** @type {HTMLTemplateElement | null} */
+					const tmpl = document.querySelector(`#theme-icons`);
+					const newIcon = tmpl && tmpl.content.querySelector('.' + theme);
+					if (newIcon) {
+						const oldIcon = picker.querySelector('svg.label-icon');
+						if (oldIcon) {
+							oldIcon.replaceChildren(...newIcon.cloneNode(true).childNodes);
+						}
+					}
+				});
+			},
+		};
+	})();
+</script>
+
+<template id="theme-icons"></template>
+	<link rel="stylesheet" href="./usingcustomfontsDocs_files/index.VfaO486A.css">
+<style>.action:where(.astro-vnzlvqnm){gap:.5em;align-items:center;border-radius:999rem;padding:.5rem 1.125rem;color:var(--sl-color-white);line-height:1.1875;text-decoration:none;font-size:var(--sl-text-sm)}.action:where(.astro-vnzlvqnm).primary,.action:where(.astro-vnzlvqnm).primary:hover{background:var(--sl-color-text-accent);color:var(--sl-color-black)}.action:where(.astro-vnzlvqnm).secondary{background:var(--sl-color-black);border:2px solid}.action:where(.astro-vnzlvqnm).minimal{padding-inline:0}@media (min-width: 50rem){.action:where(.astro-vnzlvqnm){font-size:var(--sl-text-base);padding:1rem 1.25rem}}
+.card-grid:where(.astro-qksvyjqd){display:grid;gap:1rem}.card-grid:where(.astro-qksvyjqd)>*{margin-top:0!important}@media (min-width: 50rem){.card-grid:where(.astro-qksvyjqd){grid-template-columns:1fr 1fr;gap:1.5rem}.stagger:where(.astro-qksvyjqd){--stagger-height: 5rem;padding-bottom:var(--stagger-height)}.stagger:where(.astro-qksvyjqd)>*:nth-child(2n){transform:translateY(var(--stagger-height))}}
+.card:where(.astro-ylab74ug){--sl-card-border: var(--sl-color-purple);--sl-card-bg: var(--sl-color-purple-low);border:1px solid var(--sl-color-gray-5);background-color:var(--sl-color-black);padding:clamp(1rem,calc(.125rem + 3vw),2.5rem);flex-direction:column;gap:clamp(.5rem,calc(.125rem + 1vw),1rem)}.card:where(.astro-ylab74ug):nth-child(4n+1){--sl-card-border: var(--sl-color-orange);--sl-card-bg: var(--sl-color-orange-low)}.card:where(.astro-ylab74ug):nth-child(4n+3){--sl-card-border: var(--sl-color-green);--sl-card-bg: var(--sl-color-green-low)}.card:where(.astro-ylab74ug):nth-child(4n+4){--sl-card-border: var(--sl-color-red);--sl-card-bg: var(--sl-color-red-low)}.card:where(.astro-ylab74ug):nth-child(4n+5){--sl-card-border: var(--sl-color-blue);--sl-card-bg: var(--sl-color-blue-low)}.title:where(.astro-ylab74ug){font-weight:600;font-size:var(--sl-text-h4);color:var(--sl-color-white);line-height:var(--sl-line-height-headings);gap:1rem;align-items:center}.card:where(.astro-ylab74ug) .icon:where(.astro-ylab74ug){border:1px solid var(--sl-card-border);background-color:var(--sl-card-bg);padding:.2em;border-radius:.25rem}.card:where(.astro-ylab74ug) .body:where(.astro-ylab74ug){margin:0;font-size:clamp(var(--sl-text-sm),calc(.5rem + 1vw),var(--sl-text-body))}
+svg:where(.astro-3zixussu){color:var(--sl-icon-color);font-size:var(--sl-icon-size, 1em);width:1em;height:1em}
+starlight-tabs:where(.astro-3jxmturq){display:block}.tablist-wrapper:where(.astro-3jxmturq){overflow-x:auto}:where(.astro-3jxmturq)[role=tablist]{display:flex;list-style:none;border-bottom:2px solid var(--sl-color-gray-5);padding:0}.tab:where(.astro-3jxmturq){margin-bottom:-2px}.tab:where(.astro-3jxmturq)>:where(.astro-3jxmturq)[role=tab]{display:flex;align-items:center;gap:.5rem;padding:0 1.25rem;text-decoration:none;border-bottom:2px solid var(--sl-color-gray-5);color:var(--sl-color-gray-3);outline-offset:var(--sl-outline-offset-inside)}.tab:where(.astro-3jxmturq) :where(.astro-3jxmturq)[role=tab][aria-selected]{color:var(--sl-color-white);border-color:var(--sl-color-text-accent);font-weight:600}.tablist-wrapper:where(.astro-3jxmturq)~[role=tabpanel]{margin-top:1rem}
+.badge:where(.astro-w254wjdn){display:inline-block;font-size:var(--sl-text-xs);font-family:var(--__sl-font-mono);border:1px solid;border-radius:.25rem;line-height:1;padding:.375em .5em;white-space:nowrap;color:var(--sl-color-white)}.neutral:where(.astro-w254wjdn){border-color:var(--sl-color-gray-5);background-color:var(--sl-color-gray-6)}.accent:where(.astro-w254wjdn){border-color:var(--sl-color-accent);background-color:var(--sl-color-accent-low)}
+.sl-link-card:where(.astro-if2wy6iw){display:grid;grid-template-columns:1fr auto;gap:.5rem;border:1px solid var(--sl-color-gray-5);border-radius:.5rem;padding:1rem;box-shadow:var(--sl-shadow-sm);position:relative}a:where(.astro-if2wy6iw){text-decoration:none;line-height:var(--sl-line-height-headings)}a:where(.astro-if2wy6iw):before{content:"";position:absolute;inset:0}.stack:where(.astro-if2wy6iw){flex-direction:column;gap:.5rem}.title:where(.astro-if2wy6iw){color:var(--sl-color-white);font-weight:600;font-size:var(--sl-text-lg)}.description:where(.astro-if2wy6iw){color:var(--sl-color-gray-3);line-height:1.5}.icon:where(.astro-if2wy6iw){color:var(--sl-color-gray-3)}.sl-link-card:where(.astro-if2wy6iw):hover{background:var(--sl-color-gray-7, var(--sl-color-gray-6));border-color:var(--sl-color-gray-2)}.sl-link-card:where(.astro-if2wy6iw):hover .icon:where(.astro-if2wy6iw){color:var(--sl-color-white)}
+.sl-steps{--bullet-size: calc(var(--sl-line-height) * 1rem);--bullet-margin: .375rem;list-style:none;padding-inline-start:0}.sl-steps>li{position:relative;padding-inline-start:calc(var(--bullet-size) + 1rem);padding-bottom:1px;min-height:calc(var(--bullet-size) + var(--bullet-margin))}.sl-steps>li+li{margin-top:0}.sl-steps>li:before{content:counter(list-item);position:absolute;top:0;inset-inline-start:0;width:var(--bullet-size);height:var(--bullet-size);line-height:var(--bullet-size);font-size:var(--sl-text-xs);font-weight:600;text-align:center;color:var(--sl-color-white);background-color:var(--sl-color-gray-6);border-radius:99rem;box-shadow:inset 0 0 0 1px var(--sl-color-gray-5)}.sl-steps>li:not(:last-of-type):after{--guide-width: 1px;content:"";position:absolute;top:calc(var(--bullet-size) + var(--bullet-margin));bottom:var(--bullet-margin);inset-inline-start:calc((var(--bullet-size) - var(--guide-width)) / 2);width:var(--guide-width);background-color:var(--sl-color-hairline-light)}.sl-steps>li>:first-child{--lh: calc(1em * var(--sl-line-height));--shift-y: calc(.5 * (var(--bullet-size) - var(--lh)));transform:translateY(var(--shift-y));margin-bottom:var(--shift-y)}.sl-steps>li>:first-child:where(h1,h2,h3,h4,h5,h6){--lh: calc(1em * var(--sl-line-height-headings))}@supports (--prop: 1lh){.sl-steps>li>:first-child{--lh: 1lh}}
+.card:where(.astro-har75nup){position:relative;margin:-.75rem;padding:.75rem;display:grid;grid-template-columns:auto 1fr;gap:.5rem;align-items:center;border-radius:.5rem}.card--minimal:where(.astro-har75nup){grid-template-columns:1fr;justify-items:center;text-align:center}.card:where(.astro-har75nup):hover,.card:where(.astro-har75nup):focus-within{background-color:var(--sl-color-gray-6);outline:1px solid var(--sl-color-text-accent)}@media (forced-colors: active){.card:where(.astro-har75nup):hover,.card:where(.astro-har75nup):focus-within{outline:1px solid LinkText}}.stack:where(.astro-har75nup){flex-direction:column;gap:.5rem}h3:where(.astro-har75nup){line-height:var(--sl-line-height-headings);font-size:var(--sl-text-lg);font-weight:600}.card--minimal:where(.astro-har75nup) h3:where(.astro-har75nup){font-size:var(--sl-text-body)}a:where(.astro-har75nup){text-decoration:none;color:var(--sl-color-white)}a:where(.astro-har75nup):focus{outline:none}a:where(.astro-har75nup):before{content:"";position:absolute;inset:0}
+.fluid-grid:where(.astro-oxk5cgh7){--column-min-width: 13rem;text-align:start;margin-block:.5rem;padding-inline-start:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--column-min-width),1fr));grid-template-columns:repeat(auto-fill,minmax(min(var(--column-min-width),100%),1fr));gap:1.5rem 2rem;list-style:none;align-items:start}@media (min-width: 37.75em){.fluid-grid:where(.astro-oxk5cgh7){gap:2rem}}.fluid-grid--minimal:where(.astro-oxk5cgh7){--column-min-width: 8rem;gap:1.5rem .75rem}
+.description:where(.astro-kq5jy4fu){color:var(--sl-color-gray-2);font-size:var(--sl-text-body-sm)}.tags:where(.astro-kq5jy4fu){gap:.5rem}
+.logo:where(.astro-anndpidy){display:flex;place-content:center;font-size:var(--logo-size);width:1em;height:1em;background-color:#17181c;border:1px solid hsl(224,10%,23%);outline:1px solid transparent;overflow:hidden}.circle:where(.astro-anndpidy){border-radius:50%}.rounded:where(.astro-anndpidy){border-radius:.125em}.logo:where(.astro-anndpidy) img:where(.astro-anndpidy){padding:var(--logo-padding);width:100%;height:100%}
+.integrations-nav:where(.astro-hu7fe7u2) .scope{font-weight:400;color:var(--sl-color-text)}
+starlight-file-tree:where(.astro-om2t42ka){--x-space: 1.5rem;--y-space: .125rem;--y-pad: 0;display:block;border:1px solid var(--sl-color-gray-5);padding:1rem;background-color:var(--sl-color-gray-6);font-size:var(--sl-text-xs);font-family:var(--__sl-font-mono);overflow-x:auto}starlight-file-tree:where(.astro-om2t42ka) .directory>details{border:0;padding:0;padding-inline-start:var(--x-space);background:transparent}starlight-file-tree:where(.astro-om2t42ka) .directory>details>summary{margin-inline-start:calc(-1 * var(--x-space));border:0;padding:var(--y-pad) .625rem;font-weight:400;color:var(--sl-color-white);max-width:100%;&::marker,&::-webkit-details-marker{color:var(--sl-color-gray-3)}&:hover,&:hover .tree-icon{cursor:pointer;color:var(--sl-color-text-accent);fill:var(--sl-color-text-accent);~ul{border-color:var(--sl-color-gray-4)}}&:hover .highlight .tree-icon{fill:var(--sl-color-text-invert)}}starlight-file-tree:where(.astro-om2t42ka) ul{margin-inline-start:.5rem;border-inline-start:1px solid var(--sl-color-gray-5);padding:0;padding-inline-start:.125rem;list-style:none}starlight-file-tree:where(.astro-om2t42ka)>ul{margin:0;border:0;padding:0}starlight-file-tree:where(.astro-om2t42ka) li{margin:var(--y-space) 0;padding:var(--y-pad) 0}starlight-file-tree:where(.astro-om2t42ka) .file{margin-inline-start:calc(var(--x-space) - .125rem);color:var(--sl-color-white)}starlight-file-tree:where(.astro-om2t42ka) .tree-entry{display:inline-flex;align-items:flex-start;flex-wrap:wrap;max-width:calc(100% - 1rem);@media (min-width: 30em){flex-wrap:nowrap}>:first-child{flex-shrink:0}}starlight-file-tree:where(.astro-om2t42ka) .empty{color:var(--sl-color-gray-3);padding-inline-start:.375rem}starlight-file-tree:where(.astro-om2t42ka) .comment{color:var(--sl-color-gray-3);padding-inline-start:1.625rem;max-width:24rem;min-width:12rem}starlight-file-tree:where(.astro-om2t42ka) .highlight{display:inline-block;border-radius:.25rem;padding-inline-end:.5rem;color:var(--sl-color-text-invert);background-color:var(--sl-color-text-accent)}starlight-file-tree:where(.astro-om2t42ka) svg{display:inline;fill:var(--sl-color-gray-3);vertical-align:middle;margin-inline:.25rem .375rem;width:.875rem;height:.875rem}starlight-file-tree:where(.astro-om2t42ka) .highlight svg.tree-icon{fill:var(--sl-color-text-invert)}
+</style><script type="module" src="./usingcustomfontsDocs_files/page.CZ0TFQCk.js.download"></script><style>astro-docs-tabs:where(.astro-aeeaujab){display:block}
+</style></head>
+	<body class="astro-w5t7svrm">
+		<a href="https://docs.astro.build/en/guides/fonts/#_top" class="astro-mn25ykfb">Skip to content</a>
+		<div class="page sl-flex astro-kfmhqf5u">
+	<header class="header astro-kfmhqf5u"><div class="header sl-flex astro-rgpghef3">
+	<div class="title-wrapper sl-flex astro-rgpghef3">
+		<span class="site-title sl-flex astro-oijwx5iz">
+	<a class="astro-logo astro-oijwx5iz" href="https://astro.build/" aria-label="Astro"><svg xmlns="http://www.w3.org/2000/svg" width="106" height="28" viewBox="0 -6 381 100">
+  <path class="flame" fill="currentColor" d="M25.8 85.2c-4.5-4.2-5.9-12.8-4-19.1 3.3 4 7.8 5.2 12.5 6 7.2 1 14.3.6 21-2.7l2.4-1.4c.6 1.8.8 3.7.5 5.6-.5 4.5-2.8 8-6.4 10.7-1.4 1.1-3 2-4.5 3-4.6 3.2-5.8 6.8-4 12.1v.6a12 12 0 0 1-5.3-4.6 13 13 0 0 1-2-7c0-1.2 0-2.5-.2-3.7-.4-3-1.8-4.3-4.5-4.4a5.2 5.2 0 0 0-5.4 4.2l-.1.7Z"></path>
+  <path fill="currentColor" d="M0 65s13.4-6.5 26.8-6.5l10.1-31.3c.4-1.5 1.5-2.5 2.7-2.5 1.3 0 2.4 1 2.8 2.5l10 31.3c16 0 26.9 6.5 26.9 6.5L56.5 3c-.6-1.8-1.7-3-3.2-3H26c-1.5 0-2.5 1.2-3.2 3L0 65Zm141-19.9c0 5.5-6.8 8.8-16.2 8.8-6.2 0-8.3-1.5-8.3-4.7 0-3.4 2.6-5 8.8-5 5.5 0 10.3 0 15.7.8v.1Zm.1-6.8a71 71 0 0 0-14.5-1.2c-17.7 0-26 4.2-26 14 0 10.1 5.7 14 18.8 14 11.2 0 18.8-2.8 21.6-9.8h.4l-.1 4.7c0 3.6.6 3.9 3.5 3.9h13.8c-.8-2.2-1.2-8.2-1.2-13.4l.2-15.4c0-11.5-6.9-18.8-28.5-18.8-9.3 0-19.6 1.6-27.5 4 .8 3.1 1.8 9.4 2.3 13.5a61.4 61.4 0 0 1 24-4.5c10.4 0 13.2 2.3 13.2 7.1v2Zm37.9 10c-1.9.3-4.5.3-7 .3a60 60 0 0 1-7.1-.4l-.1 2c0 9.5 6.2 15 28.1 15 20.6 0 27.3-5.5 27.3-15.1 0-9.2-4.4-13.7-24-14.7-15.2-.6-16.6-2.3-16.6-4.2 0-2.2 2-3.4 12.2-3.4 10.6 0 13.4 1.5 13.4 4.5v.7a153 153 0 0 1 14.1 0v-1.7c0-11.2-9.2-14.9-27.2-14.9-20.3 0-27 5-27 14.6 0 8.7 5.4 14.1 24.8 15 14.3.4 16 2 16 4.2 0 2.4-2.4 3.5-12.5 3.5-11.5 0-14.4-1.6-14.4-5v-.4Zm66-40.1a58.2 58.2 0 0 1-20.8 11.6v10.8h5V47c0 10 5.3 17.7 21.8 17.7 7 0 11.6-.8 17.4-2-.6-3.7-1.3-9.4-1.5-13.8a41 41 0 0 1-12.6 1.8c-6.6 0-9.3-1.8-9.3-7.1V30.8c8.6 0 17.1.2 22.1.4 0-4 .1-9.7.3-13.5l-22.1.2.2-9.7h-.5Zm44.7 20.1.3-10.6h-15.1c.2 6.5.2 13.3.2 23 0 10 0 16.7-.2 23.2H292c-.3-4.6-.3-12.3-.3-18.9 0-10.3 4.2-13.3 13.7-13.3 4.4 0 7.6.5 10.3 1.5.1-3.8.9-11.4 1.3-14.7a34 34 0 0 0-9.8-1.4c-8.2 0-14.2 3.3-17 11.3l-.6-.1Zm75.1 12.2c0 8.3-6 12.2-15.4 12.2S334 49 334 40.5c0-8.6 6-11.8 15.4-11.8 9.3 0 15.4 3.5 15.4 11.8Zm15.7-.4c0-16.5-13-24-31.1-24-18.3 0-30.8 7.5-30.8 24s11.6 25.3 30.7 25.3c19.2 0 31.2-8.8 31.2-25.3Z"></path>
+  <defs>
+    <lineargradient id="gradient" x1="21" x2="64.6" y1="100" y2="79.4" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D83333"></stop>
+      <stop offset="1" stop-color="#F041FF"></stop>
+    </lineargradient>
+  </defs>
+  <style>
+    [data-theme="dark"] .flame {
+      fill: url(#gradient);
+    }
+  </style>
+</svg>
+</a>
+	<a class="docs-logo astro-oijwx5iz" href="https://docs.astro.build/en/getting-started/" aria-label="Docs"><svg xmlns="http://www.w3.org/2000/svg" width="69" height="28" viewBox="0 -6 246 100">
+	<path fill="currentColor" d="M29 63.8c16.6 0 28.1-9.5 28.1-23.8 0-14.4-10.8-22.3-27.8-22.3H0v46.1h29ZM13.2 26.6h14.2c9.5 0 16 4.6 16 13.6 0 9.3-6 14.7-15.9 14.7H13.1V26.6Zm80.1 38.8c18.8 0 31-9.7 31-24.6 0-15-12.2-24.6-31-24.6-18.7 0-31 9.6-31 24.6 0 14.8 12.3 24.6 31 24.6Zm0-9.8c-10.3 0-17-6-17-14.8 0-9 6.7-14.9 17-14.9s17.1 6 17.1 14.9-6.8 14.8-17.1 14.8Zm66.3 9.8c15 0 25.5-6 29.3-16.4l-13.5-3c-1.9 6.1-7.2 9.4-15.4 9.4-10.4 0-17-5.8-17-14.7 0-9 6.4-14.7 16.8-14.7 8.4 0 13.7 3.4 15.5 9.7l13.6-2.4c-3-10.7-13.9-17.2-28.9-17.2-18.1 0-30.7 10.2-30.7 24.8 0 14.8 11.7 24.4 30.2 24.4Zm60.3 0c16.6 0 26.1-5.7 26.1-15.9 0-8.5-5.2-12.3-18-13.6l-12.7-1.2c-5.9-.7-7.8-1.8-7.8-4.6 0-3.2 3.9-4.8 11-4.8 8.8 0 15.4 2.8 18.9 7.3l8.2-7c-5.7-6.4-14.8-9.4-26.5-9.4-15.7 0-24.6 5.4-24.6 14.5 0 8.5 5.4 12.7 16.7 14l14.1 1.5c5.5.6 7.5 1.7 7.5 4.6 0 3.6-4 5.3-12.3 5.3-9.4 0-16.5-3.6-20.4-9l-9.3 6.5c4.7 7.3 15.4 11.8 29 11.8Z"></path>
+</svg>
+</a>
+</span>
+	</div>
+	<div class="sl-flex astro-rgpghef3">
+		<sl-doc-search data-translations="{&quot;button&quot;:&quot;Search&quot;,&quot;placeholder&quot;:&quot;Search docs&quot;,&quot;shortcutLabel&quot;:&quot;Press / to search&quot;,&quot;resultsFooterLede&quot;:&quot;Looking for an Astro integration or theme? Need more help?&quot;,&quot;resultsFooterIntegrations&quot;:&quot;Astro integrations directory&quot;,&quot;resultsFooterThemes&quot;:&quot;Astro themes showcase&quot;,&quot;resultsFooterDiscord&quot;:&quot;Join us on Discord&quot;,&quot;modal&quot;:{}}"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"><kbd class="DocSearch-Button-Key"><svg width="15" height="15" class="DocSearch-Control-Key-Icon"><path d="M4.505 4.496h2M5.505 5.496v5M8.216 4.496l.055 5.993M10 7.5c.333.333.5.667.5 1v2M12.326 4.5v5.996M8.384 4.496c1.674 0 2.116 0 2.116 1.5s-.442 1.5-2.116 1.5M3.205 9.303c-.09.448-.277 1.21-1.241 1.203C1 10.5.5 9.513.5 8V7c0-1.57.5-2.5 1.464-2.494.964.006 1.134.598 1.24 1.342M12.553 10.5h1.953" stroke-width="1.2" stroke="currentColor" fill="none" stroke-linecap="square"></path></svg></kbd><kbd class="DocSearch-Button-Key">K</kbd></span></button></sl-doc-search>
+
+<script type="module" src="./usingcustomfontsDocs_files/Search.astro_astro_type_script_index_0_lang.KVJPDVpd.js.download"></script>
+	</div>
+	<div class="sl-hidden md:sl-flex right-group astro-rgpghef3">
+		<div class="sl-flex social-icons astro-rgpghef3">
+			<a href="https://github.com/withastro/astro" rel="me" class="sl-flex astro-6ehpq7mf">
+					<span class="sr-only astro-6ehpq7mf">GitHub</span>
+					<svg aria-hidden="true" class="astro-6ehpq7mf astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"></path></svg>
+				</a><a href="https://astro.build/chat" rel="me" class="sl-flex astro-6ehpq7mf">
+					<span class="sr-only astro-6ehpq7mf">Discord</span>
+					<svg aria-hidden="true" class="astro-6ehpq7mf astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.93-1.51 13.78 13.78 0 0 0-.64 1.28 18.27 18.27 0 0 0-5.5 0 12.64 12.64 0 0 0-.64-1.28h-.05A19.74 19.74 0 0 0 3.64 4.4 20.26 20.26 0 0 0 .11 18.09l.02.02a19.9 19.9 0 0 0 6.04 3.03l.04-.02a14.24 14.24 0 0 0 1.23-2.03.08.08 0 0 0-.05-.07 13.1 13.1 0 0 1-1.9-.92.08.08 0 0 1 .02-.1 10.2 10.2 0 0 0 .41-.31h.04a14.2 14.2 0 0 0 12.1 0l.04.01a9.63 9.63 0 0 0 .4.32.08.08 0 0 1-.03.1 12.29 12.29 0 0 1-1.9.91.08.08 0 0 0-.02.1 15.97 15.97 0 0 0 1.27 2.01h.04a19.84 19.84 0 0 0 6.03-3.05v-.03a20.12 20.12 0 0 0-3.57-13.69ZM8.02 15.33c-1.18 0-2.16-1.08-2.16-2.42 0-1.33.96-2.42 2.16-2.42 1.21 0 2.18 1.1 2.16 2.42 0 1.34-.96 2.42-2.16 2.42Zm7.97 0c-1.18 0-2.15-1.08-2.15-2.42 0-1.33.95-2.42 2.15-2.42 1.22 0 2.18 1.1 2.16 2.42 0 1.34-.94 2.42-2.16 2.42Z"></path></svg>
+				</a>
+
+
+		</div>
+		<starlight-theme-select>
+	
+	<label style="--sl-select-width: 6.25em" class="astro-zjxt2uwz">
+	<span class="sr-only astro-zjxt2uwz">Select theme</span>
+	<svg aria-hidden="true" class="icon label-icon astro-zjxt2uwz astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"></path></svg>
+	<select value="auto" class="astro-zjxt2uwz">
+		<option value="dark" class="astro-zjxt2uwz">Dark</option><option value="light" class="astro-zjxt2uwz">Light</option><option value="auto" selected="true" class="astro-zjxt2uwz">Auto</option>
+	</select>
+	<svg aria-hidden="true" class="icon caret astro-zjxt2uwz astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+</label>
+</starlight-theme-select>
+
+
+<script>
+	StarlightThemeProvider.updatePickers();
+</script>
+
+<script type="module">class r extends HTMLElement{#e="starlight-theme";constructor(){super(),this.#r(this.#l());const e=this.querySelector("select");e&&e.addEventListener("change",t=>{t.currentTarget instanceof HTMLSelectElement&&this.#r(this.#t(t.currentTarget.value))})}#t(e){return e==="auto"||e==="dark"||e==="light"?e:"auto"}#s(){return matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}#r(e){StarlightThemeProvider.updatePickers(e),document.documentElement.dataset.theme=e==="auto"?this.#s():e,this.#a(e)}#a(e){typeof localStorage<"u"&&(e==="light"||e==="dark"?localStorage.setItem(this.#e,e):localStorage.removeItem(this.#e))}#l(){const e=typeof localStorage<"u"&&localStorage.getItem(this.#e);return this.#t(e)}}customElements.define("starlight-theme-select",r);</script>
+		<starlight-lang-select>
+			<label style="--sl-select-width: 7em" class="astro-zjxt2uwz">
+	<span class="sr-only astro-zjxt2uwz">Select language</span>
+	<svg aria-hidden="true" class="icon label-icon astro-zjxt2uwz astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"></path></svg>
+	<select value="/en/guides/fonts/" class="astro-zjxt2uwz">
+		<option value="/en/guides/fonts/" selected="true" class="astro-zjxt2uwz">English</option><option value="/de/guides/fonts/" class="astro-zjxt2uwz">Deutsch</option><option value="/pt-br/guides/fonts/" class="astro-zjxt2uwz">Português do Brasil</option><option value="/es/guides/fonts/" class="astro-zjxt2uwz">Español</option><option value="/zh-cn/guides/fonts/" class="astro-zjxt2uwz">简体中文</option><option value="/zh-tw/guides/fonts/" class="astro-zjxt2uwz">正體中文</option><option value="/fr/guides/fonts/" class="astro-zjxt2uwz">Français</option><option value="/hi/guides/fonts/" class="astro-zjxt2uwz">हिन्दी</option><option value="/ar/guides/fonts/" class="astro-zjxt2uwz">العربية</option><option value="/ja/guides/fonts/" class="astro-zjxt2uwz">日本語</option><option value="/ko/guides/fonts/" class="astro-zjxt2uwz">한국어</option><option value="/pl/guides/fonts/" class="astro-zjxt2uwz">Polski</option><option value="/ru/guides/fonts/" class="astro-zjxt2uwz">Русский</option><option value="/it/guides/fonts/" class="astro-zjxt2uwz">Italiano</option>
+	</select>
+	<svg aria-hidden="true" class="icon caret astro-zjxt2uwz astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+</label>
+		</starlight-lang-select>
+
+<script type="module">class n extends HTMLElement{constructor(){super();const e=this.querySelector("select");e&&e.addEventListener("change",t=>{t.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=t.currentTarget.value)})}}customElements.define("starlight-lang-select",n);</script>
+	</div>
+</div></header>
+	<nav class="sidebar astro-kfmhqf5u" aria-label="Main">
+				<starlight-menu-button class="astro-eeqfc6th">
+	<button aria-expanded="false" aria-label="Menu" aria-controls="starlight__sidebar" class="sl-flex md:sl-hidden astro-eeqfc6th">
+		<svg aria-hidden="true" class="astro-eeqfc6th astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"></path></svg>
+	</button>
+</starlight-menu-button>
+
+<script type="module">class s extends HTMLElement{constructor(){super(),this.btn=this.querySelector("button"),this.btn.addEventListener("click",()=>this.toggleExpanded());const t=this.closest("nav");t&&t.addEventListener("keyup",e=>this.closeOnEscape(e))}setExpanded(t){this.setAttribute("aria-expanded",String(t)),document.body.toggleAttribute("data-mobile-menu-expanded",t)}toggleExpanded(){this.setExpanded(this.getAttribute("aria-expanded")!=="true")}closeOnEscape(t){t.code==="Escape"&&(this.setExpanded(!1),this.btn.focus())}}customElements.define("starlight-menu-button",s);</script>
+				<div id="starlight__sidebar" class="sidebar-pane astro-kfmhqf5u">
+					<div class="sidebar-content sl-flex astro-kfmhqf5u">
+						<ul class="top-level astro-f4kmpaoc">
+	<li class="astro-f4kmpaoc">
+				<details open="" class="astro-f4kmpaoc">
+						<summary class="astro-f4kmpaoc">
+							<div class="group-label astro-f4kmpaoc">
+								<span class="large astro-f4kmpaoc">Start Here</span>
+								
+							</div>
+							<svg aria-hidden="true" class="caret astro-f4kmpaoc astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+						</summary>
+						<ul class="astro-f4kmpaoc">
+	<li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/getting-started/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Getting Started</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/install/auto/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Installation</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/editor-setup/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Editor Setup</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/upgrade-astro/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Upgrade Astro</span>
+						
+					</a>
+			</li>
+</ul>
+					</details>
+			</li><li class="astro-f4kmpaoc">
+				<details open="" class="astro-f4kmpaoc">
+						<summary class="astro-f4kmpaoc">
+							<div class="group-label astro-f4kmpaoc">
+								<span class="large astro-f4kmpaoc">Core Concepts</span>
+								
+							</div>
+							<svg aria-hidden="true" class="caret astro-f4kmpaoc astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+						</summary>
+						<ul class="astro-f4kmpaoc">
+	<li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/concepts/why-astro/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Why Astro</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/concepts/islands/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Astro Islands</span>
+						
+					</a>
+			</li>
+</ul>
+					</details>
+			</li><li class="astro-f4kmpaoc">
+				<details open="" class="astro-f4kmpaoc">
+						<summary class="astro-f4kmpaoc">
+							<div class="group-label astro-f4kmpaoc">
+								<span class="large astro-f4kmpaoc">Tutorials</span>
+								
+							</div>
+							<svg aria-hidden="true" class="caret astro-f4kmpaoc astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+						</summary>
+						<ul class="astro-f4kmpaoc">
+	<li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/tutorial/0-introduction/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Build a Blog</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/tutorials/add-content-collections/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Extend with Content Collections</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/tutorials/add-view-transitions/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Extend with View Transitions</span>
+						
+					</a>
+			</li>
+</ul>
+					</details>
+			</li><li class="astro-f4kmpaoc">
+				<details open="" class="astro-f4kmpaoc">
+						<summary class="astro-f4kmpaoc">
+							<div class="group-label astro-f4kmpaoc">
+								<span class="large astro-f4kmpaoc">Basics</span>
+								
+							</div>
+							<svg aria-hidden="true" class="caret astro-f4kmpaoc astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+						</summary>
+						<ul class="astro-f4kmpaoc">
+	<li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/basics/project-structure/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Project Structure</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/basics/astro-components/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Components</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/basics/astro-pages/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Pages</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/basics/layouts/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Layouts</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/basics/astro-syntax/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Astro Template Syntax</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/basics/rendering-modes/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Rendering Modes</span>
+						
+					</a>
+			</li>
+</ul>
+					</details>
+			</li><li class="astro-f4kmpaoc">
+				<details open="" class="astro-f4kmpaoc">
+						<summary class="astro-f4kmpaoc">
+							<div class="group-label astro-f4kmpaoc">
+								<span class="large astro-f4kmpaoc">Built-ins</span>
+								
+							</div>
+							<svg aria-hidden="true" class="caret astro-f4kmpaoc astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+						</summary>
+						<ul class="astro-f4kmpaoc">
+	<li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/content-collections/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Content Collections</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/view-transitions/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">View Transitions</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/prefetch/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Prefetch</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/dev-toolbar/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Dev Toolbar</span>
+						
+					</a>
+			</li>
+</ul>
+					</details>
+			</li><li class="astro-f4kmpaoc">
+				<details open="" class="astro-f4kmpaoc">
+						<summary class="astro-f4kmpaoc">
+							<div class="group-label astro-f4kmpaoc">
+								<span class="large astro-f4kmpaoc">Integrations</span>
+								
+							</div>
+							<svg aria-hidden="true" class="caret astro-f4kmpaoc astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+						</summary>
+						<ul class="astro-f4kmpaoc">
+	<li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/integrations-guide/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Add integrations</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/framework-components/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">UI Frameworks</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/server-side-rendering/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">SSR Adapters</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/astro-db/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Astro DB</span>
+						
+					</a>
+			</li>
+</ul>
+					</details>
+			</li><li class="astro-f4kmpaoc">
+				<details open="" class="astro-f4kmpaoc">
+						<summary class="astro-f4kmpaoc">
+							<div class="group-label astro-f4kmpaoc">
+								<span class="large astro-f4kmpaoc">Recipes</span>
+								
+							</div>
+							<svg aria-hidden="true" class="caret astro-f4kmpaoc astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+						</summary>
+						<ul class="astro-f4kmpaoc">
+	<li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/migrate-to-astro/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Migrate to Astro</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/recipes/studio/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Connect to Astro Studio</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/cms/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Connect a CMS</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/backend/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Add backend services</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/deploy/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Deploy your site</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/recipes/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">More recipes</span>
+						
+					</a>
+			</li>
+</ul>
+					</details>
+			</li><li class="astro-f4kmpaoc">
+				<details open="" class="astro-f4kmpaoc">
+						<summary class="astro-f4kmpaoc">
+							<div class="group-label astro-f4kmpaoc">
+								<span class="large astro-f4kmpaoc">Guides</span>
+								
+							</div>
+							<svg aria-hidden="true" class="caret astro-f4kmpaoc astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+						</summary>
+						<ul class="astro-f4kmpaoc">
+	<li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/routing/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Routing</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/markdown-content/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Markdown</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/client-side-scripts/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Scripts &amp; Event Handling</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/styling/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">CSS &amp; Styling</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/images/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Images</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/fonts/" aria-current="page" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Fonts</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/imports/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Imports</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/endpoints/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Endpoints</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/data-fetching/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Data Fetching</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/internationalization/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Internationalization</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/middleware/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Middleware</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/ecommerce/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">E-commerce</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/testing/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Testing</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/authentication/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Authentication</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/troubleshooting/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Troubleshooting</span>
+						
+					</a>
+			</li>
+</ul>
+					</details>
+			</li><li class="astro-f4kmpaoc">
+				<details open="" class="astro-f4kmpaoc">
+						<summary class="astro-f4kmpaoc">
+							<div class="group-label astro-f4kmpaoc">
+								<span class="large astro-f4kmpaoc">Configuration</span>
+								
+							</div>
+							<svg aria-hidden="true" class="caret astro-f4kmpaoc astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+						</summary>
+						<ul class="astro-f4kmpaoc">
+	<li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/configuring-astro/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">The Astro Config File</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/typescript/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">TypeScript</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/aliases/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Import Aliases</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/guides/environment-variables/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Environment Variables</span>
+						
+					</a>
+			</li>
+</ul>
+					</details>
+			</li><li class="astro-f4kmpaoc">
+				<details open="" class="astro-f4kmpaoc">
+						<summary class="astro-f4kmpaoc">
+							<div class="group-label astro-f4kmpaoc">
+								<span class="large astro-f4kmpaoc">Reference</span>
+								
+							</div>
+							<svg aria-hidden="true" class="caret astro-f4kmpaoc astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+						</summary>
+						<ul class="astro-f4kmpaoc">
+	<li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/reference/configuration-reference/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Configuration</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/reference/api-reference/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Runtime API</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/reference/integrations-reference/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Integrations API</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/reference/adapter-reference/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Adapter API</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/reference/image-service-reference/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Image Service API</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/reference/dev-toolbar-app-reference/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Dev Toolbar App API</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/reference/directives-reference/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Template Directives</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/reference/cli-reference/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">The Astro CLI</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/reference/error-reference/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Error Reference</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/reference/publish-to-npm/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">NPM Package Format</span>
+						
+					</a>
+			</li>
+</ul>
+					</details>
+			</li><li class="astro-f4kmpaoc">
+				<details open="" class="astro-f4kmpaoc">
+						<summary class="astro-f4kmpaoc">
+							<div class="group-label astro-f4kmpaoc">
+								<span class="large astro-f4kmpaoc">Community Resources</span>
+								
+							</div>
+							<svg aria-hidden="true" class="caret astro-f4kmpaoc astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+						</summary>
+						<ul class="astro-f4kmpaoc">
+	<li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/community-resources/content/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Courses, Guides, and Recipes</span>
+						
+					</a>
+			</li><li class="astro-f4kmpaoc">
+				<a href="https://docs.astro.build/en/community-resources/talks/" class="astro-f4kmpaoc">
+						<span class="astro-f4kmpaoc">Talks, Interviews, and Streams</span>
+						
+					</a>
+			</li>
+</ul>
+					</details>
+			</li>
+</ul>
+
+<div dir="ltr" lang="en" class="sponsors astro-kwmzlgva">
+	<h2 class="sponsors-title astro-kwmzlgva">Sponsored by</h2>
+	<a href="https://vercel.com/" aria-label="Vercel" class="astro-kwmzlgva">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 65" width="95" aria-hidden="true" class="astro-kwmzlgva">
+			<path d="M141.7 16.3c-11 0-19 7.1-19 18s9 18 20 18c6.7 0 12.5-2.7 16.2-7.1l-7.7-4.5c-2 2.2-5 3.5-8.5 3.5-4.8 0-8.9-2.5-10.4-6.5h28c.3-1 .4-2.2.4-3.5 0-10.8-8-18-19-18zm-9.5 14.4c1.3-4 4.7-6.4 9.5-6.4s8.2 2.5 9.4 6.4h-18.9zm117.2-14.4c-11 0-19 7.1-19 18s9 18 20 18a21 21 0 0 0 16.2-7.1l-7.7-4.5c-2 2.2-5 3.5-8.5 3.5-4.8 0-8.9-2.5-10.4-6.5h28c.2-1 .4-2.2.4-3.5 0-10.8-8-18-19-18zm-9.5 14.4c1.3-4 4.7-6.4 9.5-6.4s8.2 2.5 9.4 6.4H240zm-39 3.6c0 6 3.9 10 10 10 4.1 0 7.2-2 8.8-5l7.7 4.5a18.5 18.5 0 0 1-16.5 8.5c-11 0-19-7.2-19-18s8-18 19-18c7.3 0 13.3 3.1 16.5 8.4l-7.7 4.5c-1.6-3-4.7-5-8.8-5-6 0-10 4-10 10zm82.5-29v46h-9v-46h9zM37.6.3l37 64H.5l37-64zm92.4 5-27.7 48-27.8-48H85l17.4 30 17.3-30H130zm58.9 12v9.6c-1-.3-2-.5-3.2-.5-5.8 0-10 4-10 10v14.9h-9v-34h9v9.1c0-5 5.9-9.1 13.2-9.1z" class="astro-kwmzlgva"></path>
+		</svg>
+	</a>
+	<a href="https://www.storyblok.com/" aria-label="Storyblok" class="astro-kwmzlgva">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 251 53" width="125" aria-hidden="true" class="astro-kwmzlgva">
+			<g class="astro-kwmzlgva">
+				<path d="M73 37c-2 0-3.7-.2-5.5-.7-1.6-.6-3.2-1.5-4.5-2.7l2.4-4c1.3 1 2.5 1.6 3.8 2.1 1.2.6 2.4.8 3.6.8a4 4 0 0 0 2-.5c.4-.3.6-.7.6-1.3 0-.5-.2-1-.9-1.4-1-.4-2-.8-3-1L67.7 27a13 13 0 0 1-2.4-1.3c-.6-.4-1.1-1-1.4-1.6a5 5 0 0 1-.4-2c0-2.2.9-4.1 2.5-5.4a9.3 9.3 0 0 1 6.1-2c1.6 0 3.1.2 4.5.6 1.4.5 2.8 1.3 4.1 2.4l-2.6 4c-1-.8-2-1.4-3.2-1.9a7 7 0 0 0-2.8-.6c-.7 0-1.3.1-1.8.5-.5.2-.7.7-.7 1.3 0 .6.2 1 .8 1.4.5.3 1.5.6 3 1l3.8 1.2L80 26c1.3 1 2 2.5 1.8 4.1a6 6 0 0 1-2.4 5.1 10 10 0 0 1-6.4 1.9Zm25.8-1.4-3 1c-1.2.3-2.4.5-3.6.5-.8 0-1.6 0-2.3-.3a4.3 4.3 0 0 1-3.2-2.7c-.3-.8-.5-1.7-.5-2.7V20h-2.7v-4.9h2.7V8.3h6.5v6.8h4.4v5h-4.4v9c0 .7.2 1.2.6 1.6.3.3.8.4 1.3.4s1 0 1.5-.2l1.4-.6 1.2 5.3ZM111 37c-1.6 0-3.3-.3-4.8-.9a10 10 0 0 1-5.9-6 12 12 0 0 1 0-8.5c1-2.8 3.1-5 5.9-6 1.4-.6 3-1 4.8-1a11 11 0 0 1 10.7 7c1.1 2.7 1.1 5.8 0 8.5-1 2.7-3 5-5.8 6-1.5.6-3.2 1-4.9.9Zm-4.7-11c0 1.7.4 3 1.3 4 1 1 2.1 1.6 3.5 1.6 1.3 0 2.5-.6 3.4-1.6a6.4 6.4 0 0 0 1.4-4 6 6 0 0 0-1.4-4.1c-1-1-2-1.6-3.4-1.6-1.3 0-2.6.6-3.4 1.6a6 6 0 0 0-1 1.8c-.3.7-.4 1.5-.4 2.3Zm33.1-5.2c-1.5 0-3 .3-4.3.8a5.2 5.2 0 0 0-2.8 2.2v13h-6.5V15.1h6v4.3a8.4 8.4 0 0 1 2.9-3.4 6.5 6.5 0 0 1 3.6-1.3h1.1v6Zm2.9 19.1c1 .3 1.9.5 2.8.5.8 0 1.4-.2 1.9-.7a9 9 0 0 0 1.2-3L140 15.2h6.7l5 15.9 4.3-15.9h6.2l-8.2 25a8.5 8.5 0 0 1-11.7 5.3V40Zm35.3-2.8a8.1 8.1 0 0 1-7.2-4v3.6h-5.7v-30h6.6v12a8 8 0 0 1 10.8-3c1.1.5 2 1.3 3 2.3a14 14 0 0 1 1.8 12.4c-.5 1.3-1.2 2.6-2 3.5a9.6 9.6 0 0 1-7.3 3.2Zm-1.8-5.5a5 5 0 0 0 4.7-3.4c.8-2 .4-4.4-1-6.2-.8-1-2-1.7-3.4-1.7-1 0-2 .4-2.8 1-.9.8-1.6 1.7-2 2.8v4.5a5 5 0 0 0 4.6 3Zm15-24.8h6.6V29c0 1.7.7 2.5 2.1 2.5a5 5 0 0 0 2.1-.5l1 4.8a15 15 0 0 1-5.9 1.3c-1.9 0-3.3-.5-4.3-1.5s-1.6-2.4-1.6-4.3V6.8Zm24 30.3c-1.6 0-3.2-.3-4.8-.9-2.7-1-4.9-3.3-5.9-6a12 12 0 0 1 2.2-12 11.3 11.3 0 0 1 8.5-3.4 11 11 0 0 1 10.7 6.9c1.6 4.1.8 8.7-2.2 12a10 10 0 0 1-3.6 2.5c-1.6.6-3.2 1-4.9.9ZM210.2 26c0 1.7.4 3 1.3 4 1 1 2.1 1.6 3.5 1.6 1.3 0 2.5-.6 3.4-1.6a6.4 6.4 0 0 0 1.4-4 6 6 0 0 0-1.4-4.1c-1-1-2-1.6-3.4-1.6-1.3 0-2.6.6-3.4 1.6a6 6 0 0 0-1 1.8c-.3.7-.4 1.4-.4 2.3Zm34 10.7-5.6-8.7-2.3 2.4v6.3h-6.6v-30h6.6v17.4l7.2-8.9h7l-7.8 9.3 8.4 12.2h-7Z" class="astro-kwmzlgva"></path>
+				<path fill="#0AB3AF" d="M2.3 0C1 0 0 1 0 2.3v40.6c0 1.2 1 2 2.3 2h6V53l7.4-8H43c1.3 0 2-.8 2-2.1V2.3c0-1.2-.7-2.3-2-2.3H2.3Z" class="astro-kwmzlgva"></path>
+				<path fill="#FFF" d="M29.1 8.1c1 0 2 .2 2.7.7.8.4 1.5 1 2.1 1.6a7.7 7.7 0 0 1 1.8 5 8 8 0 0 1-1 4 6.5 6.5 0 0 1-3.2 2.7c1.7.5 3 1.3 4 2.5a7.8 7.8 0 0 1 1.4 4.8 6.2 6.2 0 0 1-3 5.6c-1 .6-2 1.2-3.3 1.5-1.2.3-2.6.5-4 .5H8.3V8.1h20.8Zm-3 16.2H15.8v4.9h10c.7 0 1.2-.3 1.7-.7.4-.4.6-1 .6-1.7 0-.6-.2-1.2-.5-1.7-.4-.5-.9-.8-1.5-.8Zm-.8-9.8h-9.5V19H25c.5 0 1-.2 1.4-.5.4-.3.6-1 .6-1.8 0-.7-.2-1.3-.5-1.6a2 2 0 0 0-1.3-.5Z" class="astro-kwmzlgva"></path>
+			</g>
+		</svg>
+	</a>
+	<a href="https://sentry.io/welcome/?utm_medium=partner&amp;utm_source=astro&amp;utm_campaign=astro-docs" aria-label="Sentry" class="astro-kwmzlgva">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 44" width="110" height="24" aria-hidden="true" class="astro-kwmzlgva">
+			<path d="M29,2.26a4.67,4.67,0,0,0-8,0L14.42,13.53A32.21,32.21,0,0,1,32.17,40.19H27.55A27.68,27.68,0,0,0,12.09,17.47L6,28a15.92,15.92,0,0,1,9.23,12.17H4.62A.76.76,0,0,1,4,39.06l2.94-5a10.74,10.74,0,0,0-3.36-1.9l-2.91,5a4.54,4.54,0,0,0,1.69,6.24A4.66,4.66,0,0,0,4.62,44H19.15a19.4,19.4,0,0,0-8-17.31l2.31-4A23.87,23.87,0,0,1,23.76,44H36.07a35.88,35.88,0,0,0-16.41-31.8l4.67-8a.77.77,0,0,1,1.05-.27c.53.29,20.29,34.77,20.66,35.17a.76.76,0,0,1-.68,1.13H40.6q.09,1.91,0,3.81h4.78A4.59,4.59,0,0,0,50,39.43a4.49,4.49,0,0,0-.62-2.28Z M124.32,28.28,109.56,9.22h-3.68V34.77h3.73V15.19l15.18,19.58h3.26V9.22h-3.73ZM87.15,23.54h13.23V20.22H87.14V12.53h14.93V9.21H83.34V34.77h18.92V31.45H87.14ZM71.59,20.3h0C66.44,19.06,65,18.08,65,15.7c0-2.14,1.89-3.59,4.71-3.59a12.06,12.06,0,0,1,7.07,2.55l2-2.83a14.1,14.1,0,0,0-9-3c-5.06,0-8.59,3-8.59,7.27,0,4.6,3,6.19,8.46,7.52C74.51,24.74,76,25.78,76,28.11s-2,3.77-5.09,3.77a12.34,12.34,0,0,1-8.3-3.26l-2.25,2.69a15.94,15.94,0,0,0,10.42,3.85c5.48,0,9-2.95,9-7.51C79.75,23.79,77.47,21.72,71.59,20.3ZM195.7,9.22l-7.69,12-7.64-12h-4.46L186,24.67V34.78h3.84V24.55L200,9.22Zm-64.63,3.46h8.37v22.1h3.84V12.68h8.37V9.22H131.08ZM169.41,24.8c3.86-1.07,6-3.77,6-7.63,0-4.91-3.59-8-9.38-8H154.67V34.76h3.8V25.58h6.45l6.48,9.2h4.44l-7-9.82Zm-10.95-2.5V12.6h7.17c3.74,0,5.88,1.77,5.88,4.84s-2.29,4.86-5.84,4.86Z" fill="currentColor" class="astro-kwmzlgva"></path>
+		</svg>
+	</a>
+</div>
+
+<div class="md:sl-hidden astro-3x5efdbn">
+	<div class="mobile-preferences sl-flex astro-alkpi2oa">
+	<div class="sl-flex social-icons astro-alkpi2oa">
+		<a href="https://github.com/withastro/astro" rel="me" class="sl-flex astro-6ehpq7mf">
+					<span class="sr-only astro-6ehpq7mf">GitHub</span>
+					<svg aria-hidden="true" class="astro-6ehpq7mf astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"></path></svg>
+				</a><a href="https://astro.build/chat" rel="me" class="sl-flex astro-6ehpq7mf">
+					<span class="sr-only astro-6ehpq7mf">Discord</span>
+					<svg aria-hidden="true" class="astro-6ehpq7mf astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.93-1.51 13.78 13.78 0 0 0-.64 1.28 18.27 18.27 0 0 0-5.5 0 12.64 12.64 0 0 0-.64-1.28h-.05A19.74 19.74 0 0 0 3.64 4.4 20.26 20.26 0 0 0 .11 18.09l.02.02a19.9 19.9 0 0 0 6.04 3.03l.04-.02a14.24 14.24 0 0 0 1.23-2.03.08.08 0 0 0-.05-.07 13.1 13.1 0 0 1-1.9-.92.08.08 0 0 1 .02-.1 10.2 10.2 0 0 0 .41-.31h.04a14.2 14.2 0 0 0 12.1 0l.04.01a9.63 9.63 0 0 0 .4.32.08.08 0 0 1-.03.1 12.29 12.29 0 0 1-1.9.91.08.08 0 0 0-.02.1 15.97 15.97 0 0 0 1.27 2.01h.04a19.84 19.84 0 0 0 6.03-3.05v-.03a20.12 20.12 0 0 0-3.57-13.69ZM8.02 15.33c-1.18 0-2.16-1.08-2.16-2.42 0-1.33.96-2.42 2.16-2.42 1.21 0 2.18 1.1 2.16 2.42 0 1.34-.96 2.42-2.16 2.42Zm7.97 0c-1.18 0-2.15-1.08-2.15-2.42 0-1.33.95-2.42 2.15-2.42 1.22 0 2.18 1.1 2.16 2.42 0 1.34-.94 2.42-2.16 2.42Z"></path></svg>
+				</a>
+
+
+	</div>
+	<starlight-theme-select>
+	
+	<label style="--sl-select-width: 6.25em" class="astro-zjxt2uwz">
+	<span class="sr-only astro-zjxt2uwz">Select theme</span>
+	<svg aria-hidden="true" class="icon label-icon astro-zjxt2uwz astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"></path></svg>
+	<select value="auto" class="astro-zjxt2uwz">
+		<option value="dark" class="astro-zjxt2uwz">Dark</option><option value="light" class="astro-zjxt2uwz">Light</option><option value="auto" selected="true" class="astro-zjxt2uwz">Auto</option>
+	</select>
+	<svg aria-hidden="true" class="icon caret astro-zjxt2uwz astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+</label>
+</starlight-theme-select>
+
+
+<script>
+	StarlightThemeProvider.updatePickers();
+</script>
+
+
+	<starlight-lang-select>
+			<label style="--sl-select-width: 7em" class="astro-zjxt2uwz">
+	<span class="sr-only astro-zjxt2uwz">Select language</span>
+	<svg aria-hidden="true" class="icon label-icon astro-zjxt2uwz astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"></path></svg>
+	<select value="/en/guides/fonts/" class="astro-zjxt2uwz">
+		<option value="/en/guides/fonts/" selected="true" class="astro-zjxt2uwz">English</option><option value="/de/guides/fonts/" class="astro-zjxt2uwz">Deutsch</option><option value="/pt-br/guides/fonts/" class="astro-zjxt2uwz">Português do Brasil</option><option value="/es/guides/fonts/" class="astro-zjxt2uwz">Español</option><option value="/zh-cn/guides/fonts/" class="astro-zjxt2uwz">简体中文</option><option value="/zh-tw/guides/fonts/" class="astro-zjxt2uwz">正體中文</option><option value="/fr/guides/fonts/" class="astro-zjxt2uwz">Français</option><option value="/hi/guides/fonts/" class="astro-zjxt2uwz">हिन्दी</option><option value="/ar/guides/fonts/" class="astro-zjxt2uwz">العربية</option><option value="/ja/guides/fonts/" class="astro-zjxt2uwz">日本語</option><option value="/ko/guides/fonts/" class="astro-zjxt2uwz">한국어</option><option value="/pl/guides/fonts/" class="astro-zjxt2uwz">Polski</option><option value="/ru/guides/fonts/" class="astro-zjxt2uwz">Русский</option><option value="/it/guides/fonts/" class="astro-zjxt2uwz">Italiano</option>
+	</select>
+	<svg aria-hidden="true" class="icon caret astro-zjxt2uwz astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+</label>
+		</starlight-lang-select>
+
+
+</div>
+</div>
+					</div>
+				</div>
+			</nav>
+	<div class="main-frame astro-kfmhqf5u">
+			
+			<div class="lg:sl-flex astro-yecetyhn">
+	<aside class="right-sidebar-container astro-yecetyhn">
+				<div class="right-sidebar astro-yecetyhn">
+					
+			<div class="lg:sl-hidden astro-evux67hy">
+				<mobile-starlight-toc data-min-h="2" data-max-h="3" class="astro-yitqccco">
+			<nav aria-labelledby="starlight__on-this-page--mobile" class="astro-yitqccco">
+				<details id="starlight__mobile-toc" class="astro-yitqccco">
+					<summary id="starlight__on-this-page--mobile" class="sl-flex astro-yitqccco">
+						<div class="toggle sl-flex astro-yitqccco">
+							On this page
+							<svg aria-hidden="true" class="caret astro-yitqccco astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"></path></svg>
+						</div>
+						<span class="display-current astro-yitqccco">
+					Register fonts in Tailwind
+				</span>
+					</summary>
+					<div class="dropdown astro-yitqccco">
+						<ul class="isMobile astro-duo6c6h2" style="--depth: 0;">
+	<li class="astro-duo6c6h2" style="--depth: 0;">
+				<a href="https://docs.astro.build/en/guides/fonts/#_top" class="astro-duo6c6h2" style="--depth: 0;">
+					<span class="astro-duo6c6h2" style="--depth: 0;">Overview</span>
+				</a>
+				
+			</li><li class="astro-duo6c6h2" style="--depth: 0;">
+				<a href="https://docs.astro.build/en/guides/fonts/#using-a-local-font-file" class="astro-duo6c6h2" style="--depth: 0;">
+					<span class="astro-duo6c6h2" style="--depth: 0;">Using a local font file</span>
+				</a>
+				
+			</li><li class="astro-duo6c6h2" style="--depth: 0;">
+				<a href="https://docs.astro.build/en/guides/fonts/#using-fontsource" class="astro-duo6c6h2" style="--depth: 0;">
+					<span class="astro-duo6c6h2" style="--depth: 0;">Using Fontsource</span>
+				</a>
+				
+			</li><li class="astro-duo6c6h2" style="--depth: 0;">
+				<a href="https://docs.astro.build/en/guides/fonts/#register-fonts-in-tailwind" class="astro-duo6c6h2" style="--depth: 0;" aria-current="true">
+					<span class="astro-duo6c6h2" style="--depth: 0;">Register fonts in Tailwind</span>
+				</a>
+				
+			</li><li class="astro-duo6c6h2" style="--depth: 0;">
+				<a href="https://docs.astro.build/en/guides/fonts/#more-resources" class="astro-duo6c6h2" style="--depth: 0;">
+					<span class="astro-duo6c6h2" style="--depth: 0;">More resources</span>
+				</a>
+				
+			</li>
+</ul>
+					</div>
+				</details>
+			</nav>
+		</mobile-starlight-toc>
+
+
+
+<script type="module" src="./usingcustomfontsDocs_files/MobileTableOfContents.astro_astro_type_script_index_0_lang.CKU6Rn8R.js.download"></script>
+			</div>
+			<div class="right-sidebar-panel sl-hidden lg:sl-block astro-evux67hy">
+				<div class="sl-container astro-evux67hy">
+					<starlight-toc data-min-h="2" data-max-h="3" class="astro-gbqdos4t">
+			<nav aria-labelledby="starlight__on-this-page" class="astro-gbqdos4t">
+				<h2 id="starlight__on-this-page" class="astro-gbqdos4t">
+					On this page
+				</h2>
+				
+						<ul class="astro-duo6c6h2" style="--depth: 0;">
+	<li class="astro-duo6c6h2" style="--depth: 0;">
+				<a href="https://docs.astro.build/en/guides/fonts/#_top" class="astro-duo6c6h2" style="--depth: 0;">
+					<span class="astro-duo6c6h2" style="--depth: 0;">Overview</span>
+				</a>
+				
+			</li><li class="astro-duo6c6h2" style="--depth: 0;">
+				<a href="https://docs.astro.build/en/guides/fonts/#using-a-local-font-file" class="astro-duo6c6h2" style="--depth: 0;">
+					<span class="astro-duo6c6h2" style="--depth: 0;">Using a local font file</span>
+				</a>
+				
+			</li><li class="astro-duo6c6h2" style="--depth: 0;">
+				<a href="https://docs.astro.build/en/guides/fonts/#using-fontsource" class="astro-duo6c6h2" style="--depth: 0;">
+					<span class="astro-duo6c6h2" style="--depth: 0;">Using Fontsource</span>
+				</a>
+				
+			</li><li class="astro-duo6c6h2" style="--depth: 0;">
+				<a href="https://docs.astro.build/en/guides/fonts/#register-fonts-in-tailwind" class="astro-duo6c6h2" style="--depth: 0;" aria-current="true">
+					<span class="astro-duo6c6h2" style="--depth: 0;">Register fonts in Tailwind</span>
+				</a>
+				
+			</li><li class="astro-duo6c6h2" style="--depth: 0;">
+				<a href="https://docs.astro.build/en/guides/fonts/#more-resources" class="astro-duo6c6h2" style="--depth: 0;">
+					<span class="astro-duo6c6h2" style="--depth: 0;">More resources</span>
+				</a>
+				
+			</li>
+</ul>
+						<h2 class="contribute astro-gbqdos4t">Contribute</h2>
+						<ul class="astro-gbqdos4t">
+							<li class="astro-gbqdos4t">
+								<a href="https://docs.astro.build/en/contribute/" class="astro-gbqdos4t">
+									<svg aria-hidden="true" class="astro-gbqdos4t astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.17 2.06A13.1 13.1 0 0 0 19 1.87a12.94 12.94 0 0 0-7 2.05 12.94 12.94 0 0 0-7-2 13.1 13.1 0 0 0-2.17.19 1 1 0 0 0-.83 1v12a1 1 0 0 0 1.17 1 10.9 10.9 0 0 1 8.25 1.91l.12.07h.11a.91.91 0 0 0 .7 0h.11l.12-.07A10.899 10.899 0 0 1 20.83 16 1 1 0 0 0 22 15V3a1 1 0 0 0-.83-.94ZM11 15.35a12.87 12.87 0 0 0-6-1.48H4v-10c.333-.02.667-.02 1 0a10.86 10.86 0 0 1 6 1.8v9.68Zm9-1.44h-1a12.87 12.87 0 0 0-6 1.48V5.67a10.86 10.86 0 0 1 6-1.8c.333-.02.667-.02 1 0v10.04Zm1.17 4.15a13.098 13.098 0 0 0-2.17-.19 12.94 12.94 0 0 0-7 2.05 12.94 12.94 0 0 0-7-2.05c-.727.003-1.453.066-2.17.19A1 1 0 0 0 2 19.21a1 1 0 0 0 1.17.79 10.9 10.9 0 0 1 8.25 1.91 1 1 0 0 0 1.16 0A10.9 10.9 0 0 1 20.83 20a1 1 0 0 0 1.17-.79 1 1 0 0 0-.83-1.15Z"></path></svg> Contribute
+								</a>
+							</li>
+							<li class="astro-gbqdos4t">
+								<a href="https://github.com/withastro/docs/edit/main/src/content/docs/en/guides/fonts.mdx" class="astro-gbqdos4t">
+									<svg aria-hidden="true" class="astro-gbqdos4t astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M22 7.24a1 1 0 0 0-.29-.71l-4.24-4.24a1 1 0 0 0-1.1-.22 1 1 0 0 0-.32.22l-2.83 2.83L2.29 16.05a1 1 0 0 0-.29.71V21a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .76-.29l10.87-10.93L21.71 8c.1-.1.17-.2.22-.33a1 1 0 0 0 0-.24v-.14l.07-.05ZM6.83 20H4v-2.83l9.93-9.93 2.83 2.83L6.83 20ZM18.17 8.66l-2.83-2.83 1.42-1.41 2.82 2.82-1.41 1.42Z"></path></svg> Edit this page
+								</a>
+							</li>
+							<li class="astro-gbqdos4t">
+								<a href="https://contribute.docs.astro.build/guides/i18n/" class="astro-gbqdos4t">
+									<svg aria-hidden="true" class="astro-gbqdos4t astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"></path></svg> Translate this page
+								</a>
+							</li>
+						</ul>
+						<feedback-form class="astro-skt2cqnz">
+	<button data-open-modal="" class="astro-skt2cqnz">
+		Give us feedback
+	</button>
+
+	<dialog style="padding:0" aria-label="Feedback form" class="astro-skt2cqnz">
+		<div class="dialog-frame astro-skt2cqnz">
+			<button data-close-modal="" class="astro-skt2cqnz">
+				<span class="sr-only astro-skt2cqnz">Close feedback form</span>
+				<svg aria-hidden="true" class="astro-skt2cqnz astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 2em;"><path d="m13.41 12 6.3-6.29a1.004 1.004 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1.004 1.004 0 0 0-1.42 1.42l6.3 6.29-6.3 6.29a1 1 0 0 0 0 1.42.998.998 0 0 0 1.42 0l6.29-6.3 6.29 6.3a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.42L13.41 12Z"></path></svg>
+			</button>
+			<div class="select-pane astro-skt2cqnz" tabindex="-1">
+				<h1 class="astro-skt2cqnz">What’s on your mind?</h1>
+				<div class="select-buttons astro-skt2cqnz">
+					<a class="github-button astro-skt2cqnz" href="https://github.com/withastro/docs/issues/new" target="_blank" rel="noopener noreferrer">
+						<svg aria-hidden="true" class="astro-skt2cqnz astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 4;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"></path></svg>
+						<h2 class="astro-skt2cqnz">
+							Create GitHub Issue
+						</h2>
+						<p class="astro-skt2cqnz">
+							Quickest way to alert our team of a problem.
+						</p>
+					</a>
+					<button data-select-feedback="" class="astro-skt2cqnz">
+						<svg aria-hidden="true" class="astro-skt2cqnz astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 4;"><path d="M12 16a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm10.67 1.47-8.05-14a3 3 0 0 0-5.24 0l-8 14A3 3 0 0 0 3.94 22h16.12a3 3 0 0 0 2.61-4.53Zm-1.73 2a1 1 0 0 1-.88.51H3.94a1 1 0 0 1-.88-.51 1 1 0 0 1 0-1l8-14a1 1 0 0 1 1.78 0l8.05 14a1 1 0 0 1 .05 1.02v-.02ZM12 8a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0V9a1 1 0 0 0-1-1Z"></path></svg>
+						<h2 class="astro-skt2cqnz">
+							Send us feedback
+						</h2>
+						<p class="astro-skt2cqnz">
+							Send us a message directly.
+						</p>
+					</button>
+				</div>
+			</div>
+			<form hidden="" class="astro-skt2cqnz">
+				<button data-back-button="" class="astro-skt2cqnz">
+					<span class="sr-only astro-skt2cqnz">Close feedback form</span>
+					<svg aria-hidden="true" class="astro-skt2cqnz astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"></path></svg>
+				</button>
+				<h1 class="astro-skt2cqnz">Send us feedback</h1>
+				<fieldset class="category-options astro-skt2cqnz">
+					<legend class="sr-only astro-skt2cqnz">Choose feedback category</legend>
+					<span class="category-option astro-skt2cqnz">
+								<input class="sr-only astro-skt2cqnz" id="issue24le3yx" type="radio" name="category" value="issue" checked="true">
+								<label for="issue24le3yx" class="astro-skt2cqnz">
+									<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentcolor" viewBox="0 0 24 24" class="astro-skt2cqnz">
+										<path d="M12 16a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm10.67 1.47-8.05-14a3 3 0 0 0-5.24 0l-8 14A3 3 0 0 0 3.94 22h16.12a3 3 0 0 0 2.61-4.53Zm-1.73 2a1 1 0 0 1-.88.51H3.94a1 1 0 0 1-.88-.51 1 1 0 0 1 0-1l8-14a1 1 0 0 1 1.78 0l8.05 14a1 1 0 0 1 .05 1.02v-.02ZM12 8a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0V9a1 1 0 0 0-1-1Z" class="astro-skt2cqnz"></path>
+									</svg>
+									<span class="astro-skt2cqnz">
+										Issue
+									</span>
+								</label>
+							</span><span class="category-option astro-skt2cqnz">
+								<input class="sr-only astro-skt2cqnz" id="idea24le3yx" type="radio" name="category" value="idea">
+								<label for="idea24le3yx" class="astro-skt2cqnz">
+									<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentcolor" viewBox="0 0 24 24" class="astro-skt2cqnz">
+										<path d="M17.09 2.82A8 8 0 0 0 5.86 14.13c.7.8 1.1 1.8 1.14 2.87v3a3 3 0 0 0 3 3h4a3 3 0 0 0 3-3v-2.81c.03-1.17.46-2.3 1.22-3.19a8 8 0 0 0-1.13-11.2v.02ZM15 20a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-1h6v1Zm1.67-7.24c-1 1.2-1.6 2.68-1.67 4.24h-2v-3a1 1 0 0 0-2 0v3H9a6.5 6.5 0 0 0-1.6-4.16 6 6 0 1 1 9.27-.08Z" class="astro-skt2cqnz"></path>
+									</svg>
+									<span class="astro-skt2cqnz">
+										Idea
+									</span>
+								</label>
+							</span><span class="category-option astro-skt2cqnz">
+								<input class="sr-only astro-skt2cqnz" id="other24le3yx" type="radio" name="category" value="other">
+								<label for="other24le3yx" class="astro-skt2cqnz">
+									<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentcolor" viewBox="0 0 24 24" class="astro-skt2cqnz">
+										<path d="M12 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm14 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" class="astro-skt2cqnz"></path>
+									</svg>
+									<span class="astro-skt2cqnz">
+										Other
+									</span>
+								</label>
+							</span>
+				</fieldset>
+				<label for="textarea24le3yx" class="sr-only astro-skt2cqnz">
+					Message
+				</label>
+				<textarea id="textarea24le3yx" name="text" cols="34" rows="3" required="" placeholder="What do you want us to know?" class="astro-skt2cqnz"></textarea>
+				<button type="submit" class="astro-skt2cqnz">Submit feedback</button>
+				<a href="https://astro.build/privacy/" style="text-decoration: underline; align-self: start; color: var(--sl-color-text-accent);" target="_blank" rel="noopener" class="astro-skt2cqnz">
+					Privacy Policy
+				</a>
+			</form>
+			<div class="success-pane astro-skt2cqnz" hidden="" tabindex="-1">
+				<img src="./usingcustomfontsDocs_files/houston-happy.fP8mBnGj.webp" alt="" width="128" height="128" class="astro-skt2cqnz">
+				<p class="astro-skt2cqnz">
+					Thanks! We received your feedback.
+				</p>
+			</div>
+		</div>
+	</dialog>
+</feedback-form>
+
+<script type="module">class p extends HTMLElement{constructor(){super();const n=this.querySelector("button[data-open-modal]"),h=this.querySelector("button[data-close-modal]"),b=this.querySelector("button[data-back-button]"),r=this.querySelector('button[type="submit"]'),i=this.querySelector("dialog"),f=this.querySelector(".dialog-frame"),m=this.querySelector("div.select-pane"),t=this.querySelector("form"),a=this.querySelector("div.success-pane"),d=this.querySelector("a.github-button"),y=this.querySelector("button[data-select-feedback]"),o=e=>{m.hidden=e!=="select",t.hidden=e!=="form",a.hidden=e!=="success",a.hidden||a.focus()},l=e=>{f.contains(e.target)||u()},k=e=>{o("select"),i.showModal(),t.querySelector("input:checked")?.focus(),e.stopPropagation(),window.addEventListener("click",l)},u=()=>{i.close(),window.removeEventListener("click",l)};n.addEventListener("click",k),h.addEventListener("click",u),b.addEventListener("click",()=>{o("select")}),d.addEventListener("click",()=>{const e=new URL("https://github.com/withastro/docs/issues/new"),s={issue:"⚠️ Issue",idea:"💡 Idea",other:"🐠 Feedback"};if(t.category.value in s){const c=s[t.category.value];e.searchParams.set("title",c)}t.text.value&&e.searchParams.set("body",t.text.value),d.href=e.href}),y.addEventListener("click",()=>{o("form")}),t.addEventListener("submit",async e=>{e.preventDefault(),r.disabled=!0;try{const s=await fetch("https://api.feedback.fish/feedback",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({projectId:"1b24b5d16c81bd",text:t.text.value,category:t.category.value,metadata:{url:location.pathname.replace(/\/$/,"")}})});if(!s.ok)throw new Error(s.statusText);const c=await s.json();if(c.error)throw new Error(c.error)}catch(s){console.error(`Error submitting feedback form
+`,s)}o("success"),r.disabled=!1,t.reset()}),n.disabled=!1}}customElements.define("feedback-form",p);</script>
+					
+			</nav>
+		</starlight-toc>
+
+
+
+<script type="module" src="./usingcustomfontsDocs_files/TableOfContents.astro_astro_type_script_index_0_lang.ok1Xr1fd.js.download"></script>
+				</div>
+				<div class="sl-container astro-evux67hy">
+					<aside class="not-content astro-mmwdqvkz">
+	<div class="astro-mmwdqvkz">
+		<a href="https://starlight.astro.build/" class="astro-mmwdqvkz">
+			<h2 class="astro-mmwdqvkz">Want to build your own Docs?</h2>
+		</a>
+		<p class="astro-mmwdqvkz">
+			Grab this template to get started.<b class="astro-mmwdqvkz">→</b>
+		</p>
+	</div>
+	<div class="astro-mmwdqvkz">
+		<img src="./usingcustomfontsDocs_files/houston_omg.CKiB_MJZ_wdOqF.webp" alt="" class="astro-mmwdqvkz" width="180" height="112" loading="lazy" decoding="async">
+	</div>
+</aside>
+				</div>
+			</div>
+		
+
+
+				</div>
+			</aside>
+	<div class="main-pane astro-yecetyhn">
+				
+				<main data-pagefind-body="" lang="en" dir="ltr" class="astro-w5t7svrm">
+					
+					
+					
+								<div class="content-panel astro-rof3un3p">
+	<div class="sl-container astro-rof3un3p">
+									<h1 id="_top" class="astro-ziuotvdb">Using custom fonts</h1>
+
+
+									</div>
+</div>
+								<div class="content-panel astro-rof3un3p">
+	<div class="sl-container astro-rof3un3p">
+									<div class="sl-markdown-content astro-klj6ju3r">
+	
+										<p>This guide will show you how to add web fonts to your project and use them in your components.</p>
+<div tabindex="-1" class="heading-wrapper level-h2"><h2 id="using-a-local-font-file">Using a local font file</h2><a class="anchor-link" href="https://docs.astro.build/en/guides/fonts/#using-a-local-font-file"><span aria-hidden="true" class="anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span is:raw="" class="sr-only">Section titled Using a local font file</span></a></div>
+<p>This example will demonstrate adding a custom font using the font file <code>DistantGalaxy.woff</code>.</p>
+<ol role="list" class="sl-steps">
+<li>
+<p>Add your font file to <code>public/fonts/</code>.</p>
+</li>
+<li>
+<p>Add the following <code>@font-face</code> statement to your CSS. This could be in a global <code>.css</code> file you import, a <code>&lt;style is:global&gt;</code> block, or a <code>&lt;style&gt;</code> block in a specific layout or component where you want to use this font.</p>
+<div class="expressive-code"><link rel="stylesheet" href="./usingcustomfontsDocs_files/ec.pjkke.css"><script type="module" src="./usingcustomfontsDocs_files/ec.sgewm.js.download"></script><figure class="frame not-content"><figcaption class="header"></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="code"><span style="--0:#809191;--1:#616671">/* Register your custom font family and tell the browser where to find it. */</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8D46B4">@font-face</span><span style="--0:#D6DEEB;--1:#403F53"> {</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#80CBC4;--1:#097174">font-family</span><span style="--0:#D6DEEB;--1:#403F53">: </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#9B504E">DistantGalaxy</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">;</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#80CBC4;--1:#097174">src</span><span style="--0:#D6DEEB;--1:#403F53">: </span><span style="--0:#C5E478;--1:#3C63B3">url</span><span style="--0:#D6DEEB;--1:#403F53">(</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#9B504E">/fonts/DistantGalaxy.woff</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">) </span><span style="--0:#C5E478;--1:#3C63B3">format</span><span style="--0:#D6DEEB;--1:#403F53">(</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#9B504E">woff</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">);</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#80CBC4;--1:#097174">font-weight</span><span style="--0:#D6DEEB;--1:#403F53">: </span><span style="--0:#FF6363;--1:#9B504E">normal</span><span style="--0:#D6DEEB;--1:#403F53">;</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#80CBC4;--1:#097174">font-style</span><span style="--0:#D6DEEB;--1:#403F53">: </span><span style="--0:#FF6363;--1:#9B504E">normal</span><span style="--0:#D6DEEB;--1:#403F53">;</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#80CBC4;--1:#097174">font-display</span><span style="--0:#D6DEEB;--1:#403F53">: </span><span style="--0:#FF6363;--1:#9B504E">swap</span><span style="--0:#D6DEEB;--1:#403F53">;</span></div></div><div class="ec-line"><div class="code"><span style="--0:#D6DEEB;--1:#403F53">}</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="/* Register your custom font family and tell the browser where to find it. */@font-face {  font-family: &#39;DistantGalaxy&#39;;  src: url(&#39;/fonts/DistantGalaxy.woff&#39;) format(&#39;woff&#39;);  font-weight: normal;  font-style: normal;  font-display: swap;}"><div></div></button></div></figure></div>
+</li>
+<li>
+<p>Use the <code>font-family</code> value from the <code>@font-face</code> statement to style elements in your component or layout. In this example, the <code>&lt;h1&gt;</code> heading will have the custom font applied, while the paragraph <code>&lt;p&gt;</code> will not.</p>
+<div class="expressive-code"><figure class="frame has-title not-content"><figcaption class="header"><span class="title">src/pages/example.astro</span></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="code"><span style="--0:#809191;--1:#616671">---</span></div></div><div class="ec-line"><div class="code"><span style="--0:#809191;--1:#616671">---</span></div></div><div class="ec-line"><div class="code">
+</div></div><div class="ec-line"><div class="code"><span style="--1:#8D46B4"><span style="--0:#7FDBCA">&lt;</span><span style="--0:#CAECE6">h1</span><span style="--0:#7FDBCA">&gt;</span></span><span style="--0:#D6DEEB;--1:#403F53">In a galaxy far, far away...</span><span style="--1:#8D46B4"><span style="--0:#7FDBCA">&lt;/</span><span style="--0:#CAECE6">h1</span><span style="--0:#7FDBCA">&gt;</span></span></div></div><div class="ec-line"><div class="code">
+</div></div><div class="ec-line"><div class="code"><span style="--1:#8D46B4"><span style="--0:#7FDBCA">&lt;</span><span style="--0:#CAECE6">p</span><span style="--0:#7FDBCA">&gt;</span></span><span style="--0:#D6DEEB;--1:#403F53">Custom fonts make my headings much cooler!</span><span style="--1:#8D46B4"><span style="--0:#7FDBCA">&lt;/</span><span style="--0:#CAECE6">p</span><span style="--0:#7FDBCA">&gt;</span></span></div></div><div class="ec-line"><div class="code">
+</div></div><div class="ec-line"><div class="code"><span style="--1:#8D46B4"><span style="--0:#7FDBCA">&lt;</span><span style="--0:#CAECE6">style</span><span style="--0:#7FDBCA">&gt;</span></span></div></div><div class="ec-line highlight mark"><div class="code"><span style="--0:#ff7474;--1:#834442">h1</span><span style="--0:#D6DEEB;--1:#403F53"> {</span></div></div><div class="ec-line highlight mark"><div class="code"><span class="indent">  </span><span style="--0:#80CBC4;--1:#086164">font-family</span><span style="--0:#D6DEEB;--1:#403F53">: </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#834442">DistantGalaxy</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">, </span><span style="--0:#7FDBCA;--1:#086164">sans-serif</span><span style="--0:#D6DEEB;--1:#403F53">;</span></div></div><div class="ec-line highlight mark"><div class="code"><span style="--0:#D6DEEB;--1:#403F53">}</span></div></div><div class="ec-line"><div class="code"><span style="--1:#8D46B4"><span style="--0:#7FDBCA">&lt;/</span><span style="--0:#CAECE6">style</span><span style="--0:#7FDBCA">&gt;</span></span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="------&lt;h1&gt;In a galaxy far, far away...&lt;/h1&gt;&lt;p&gt;Custom fonts make my headings much cooler!&lt;/p&gt;&lt;style&gt;h1 {  font-family: &#39;DistantGalaxy&#39;, sans-serif;}&lt;/style&gt;"><div></div></button></div></figure></div>
+</li>
+</ol>
+
+
+<div tabindex="-1" class="heading-wrapper level-h2"><h2 id="using-fontsource">Using Fontsource</h2><a class="anchor-link" href="https://docs.astro.build/en/guides/fonts/#using-fontsource"><span aria-hidden="true" class="anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span is:raw="" class="sr-only">Section titled Using Fontsource</span></a></div>
+<p>The <a href="https://fontsource.org/">Fontsource</a> project simplifies using Google Fonts and other open-source fonts. It provides npm modules you can install for the fonts you want to use.</p>
+<ol role="list" class="sl-steps">
+<li>
+<p>Find the font you want to use in <a href="https://fontsource.org/">Fontsource’s catalog</a>. This example will use <a href="https://fontsource.org/fonts/twinkle-star">Twinkle Star</a>.</p>
+</li>
+<li>
+<p>Install the package for your chosen font.</p>
+<astro-docs-tabs data-group="package-managers" class="astro-aeeaujab">
+	<starlight-tabs class="astro-3jxmturq">
+	<div class="tablist-wrapper not-content astro-3jxmturq">
+				<ul role="tablist" class="astro-3jxmturq">
+					<li role="presentation" class="tab astro-3jxmturq">
+							<a role="tab" href="https://docs.astro.build/en/guides/fonts/#tab-panel-214" id="tab-214" aria-selected="true" tabindex="0" class="astro-3jxmturq">
+								
+								npm
+							</a>
+						</li><li role="presentation" class="tab astro-3jxmturq">
+							<a role="tab" href="https://docs.astro.build/en/guides/fonts/#tab-panel-215" id="tab-215" tabindex="-1" class="astro-3jxmturq">
+								
+								pnpm
+							</a>
+						</li><li role="presentation" class="tab astro-3jxmturq">
+							<a role="tab" href="https://docs.astro.build/en/guides/fonts/#tab-panel-216" id="tab-216" tabindex="-1" class="astro-3jxmturq">
+								
+								Yarn
+							</a>
+						</li>
+				</ul>
+			</div>
+	
+		
+	<section id="tab-panel-214" aria-labelledby="tab-214" role="tabpanel">
+	
+		<div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3C63B3">npm</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3C63B3">install</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3C63B3">@fontsource/twinkle-star</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="npm install @fontsource/twinkle-star"><div></div></button></div></figure></div>
+	
+</section>
+	<section id="tab-panel-215" aria-labelledby="tab-215" role="tabpanel" hidden="">
+	
+		<div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3C63B3">pnpm</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3C63B3">add</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3C63B3">@fontsource/twinkle-star</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="pnpm add @fontsource/twinkle-star"><div></div></button></div></figure></div>
+	
+</section>
+	<section id="tab-panel-216" aria-labelledby="tab-216" role="tabpanel" hidden="">
+	
+		<div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3C63B3">yarn</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3C63B3">add</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3C63B3">@fontsource/twinkle-star</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="yarn add @fontsource/twinkle-star"><div></div></button></div></figure></div>
+	
+</section>
+
+	
+</starlight-tabs>
+
+
+
+<script type="module">class n extends HTMLElement{constructor(){super();const e=this.querySelector('[role="tablist"]');this.tabs=[...e.querySelectorAll('[role="tab"]')],this.panels=[...this.querySelectorAll(':scope > [role="tabpanel"]')],this.tabs.forEach((s,r)=>{s.addEventListener("click",t=>{t.preventDefault();const i=e.querySelector("[aria-selected]");t.currentTarget!==i&&this.switchTab(t.currentTarget,r)}),s.addEventListener("keydown",t=>{const i=this.tabs.indexOf(t.currentTarget),a=t.key==="ArrowLeft"?i-1:t.key==="ArrowRight"?i+1:t.key==="Home"?0:t.key==="End"?this.tabs.length-1:null;a!==null&&this.tabs[a]&&(t.preventDefault(),this.switchTab(this.tabs[a],a))})})}switchTab(e,s){if(!e)return;this.tabs.forEach(t=>{t.removeAttribute("aria-selected"),t.setAttribute("tabindex","-1")}),this.panels.forEach(t=>{t.hidden=!0});const r=this.panels[s];r&&(r.hidden=!1),e.removeAttribute("tabindex"),e.setAttribute("aria-selected","true"),e.focus()}}customElements.define("starlight-tabs",n);</script>
+</astro-docs-tabs>
+
+
+
+<script type="module">class n extends HTMLElement{tabs;panels;constructor(){super();const s=this.querySelector('[role="tablist"]'),t=this.querySelector("starlight-tabs");if(this.tabs=[...s.querySelectorAll('[role="tab"]')],this.panels=[...this.querySelectorAll('starlight-tabs > [role="tabpanel"]')],!this.dataset.group)return;const i=(e,r)=>{const l=t.getBoundingClientRect().top;t.__proto__.switchTab.bind(t)(e,r),document.querySelectorAll(`[data-group="${this.dataset.group}"] starlight-tabs`).forEach(a=>{a.parentElement.switchTab(a.firstElementChild?.firstElementChild?.children.item(r)?.firstElementChild,r)});const o=t.getBoundingClientRect().top;window.scrollTo(0,window.scrollY+(o-l))};t.switchTab=i}switchTab(s,t){if(!s)return;this.tabs.forEach(e=>{e.removeAttribute("aria-selected"),e.setAttribute("tabindex","-1")}),this.panels.forEach(e=>{e.hidden=!0});const i=this.panels[t];i&&(i.hidden=!1),s.removeAttribute("tabindex"),s.setAttribute("aria-selected","true")}}customElements.define("astro-docs-tabs",n);</script>
+<aside aria-label="Tip" class="starlight-aside starlight-aside--tip"><p class="starlight-aside__title" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" class="starlight-aside__icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.43909 8.85483L1.44039 8.85354L4.96668 5.33815C5.30653 4.99386 5.7685 4.79662 6.2524 4.78972L6.26553 4.78963L12.9014 4.78962L13.8479 3.84308C16.9187 0.772319 20.0546 0.770617 21.4678 0.975145C21.8617 1.02914 22.2271 1.21053 22.5083 1.4917C22.7894 1.77284 22.9708 2.13821 23.0248 2.53199C23.2294 3.94517 23.2278 7.08119 20.1569 10.1521L19.2107 11.0983V17.7338L19.2106 17.7469C19.2037 18.2308 19.0067 18.6933 18.6624 19.0331L15.1456 22.5608C14.9095 22.7966 14.6137 22.964 14.29 23.0449C13.9663 23.1259 13.6267 23.1174 13.3074 23.0204C12.9881 22.9235 12.7011 22.7417 12.4771 22.4944C12.2533 22.2473 12.1006 21.9441 12.0355 21.6171L11.1783 17.3417L6.65869 12.822L4.34847 12.3589L2.38351 11.965C2.05664 11.8998 1.75272 11.747 1.50564 11.5232C1.25835 11.2992 1.07653 11.0122 0.979561 10.6929C0.882595 10.3736 0.874125 10.034 0.955057 9.7103C1.03599 9.38659 1.20328 9.09092 1.43909 8.85483ZM6.8186 10.8724L2.94619 10.096L6.32006 6.73268H10.9583L6.8186 10.8724ZM15.2219 5.21703C17.681 2.75787 20.0783 2.75376 21.1124 2.8876C21.2462 3.92172 21.2421 6.31895 18.783 8.77812L12.0728 15.4883L8.51172 11.9272L15.2219 5.21703ZM13.9042 21.0538L13.1279 17.1811L17.2676 13.0414V17.68L13.9042 21.0538Z"></path><path d="M9.31827 18.3446C9.45046 17.8529 9.17864 17.3369 8.68945 17.1724C8.56178 17.1294 8.43145 17.1145 8.30512 17.1243C8.10513 17.1398 7.91519 17.2172 7.76181 17.3434C7.62613 17.455 7.51905 17.6048 7.45893 17.7835C6.97634 19.2186 5.77062 19.9878 4.52406 20.4029C4.08525 20.549 3.6605 20.644 3.29471 20.7053C3.35607 20.3395 3.45098 19.9148 3.59711 19.476C4.01221 18.2294 4.78141 17.0237 6.21648 16.5411C6.39528 16.481 6.54504 16.3739 6.65665 16.2382C6.85126 16.0016 6.92988 15.678 6.84417 15.3647C6.83922 15.3466 6.83373 15.3286 6.82767 15.3106C6.74106 15.053 6.55701 14.8557 6.33037 14.7459C6.10949 14.6389 5.84816 14.615 5.59715 14.6994C5.47743 14.7397 5.36103 14.7831 5.24786 14.8294C3.22626 15.6569 2.2347 17.4173 1.75357 18.8621C1.49662 19.6337 1.36993 20.3554 1.30679 20.8818C1.27505 21.1464 1.25893 21.3654 1.25072 21.5213C1.24662 21.5993 1.24448 21.6618 1.24337 21.7066L1.243 21.7226L1.24235 21.7605L1.2422 21.7771L1.24217 21.7827L1.24217 21.7856C1.24217 22.3221 1.67703 22.7579 2.2137 22.7579L2.2155 22.7579L2.22337 22.7578L2.23956 22.7577C2.25293 22.7575 2.27096 22.7572 2.29338 22.7567C2.33821 22.7555 2.40073 22.7534 2.47876 22.7493C2.63466 22.7411 2.85361 22.725 3.11822 22.6932C3.64462 22.6301 4.36636 22.5034 5.13797 22.2464C6.58274 21.7653 8.3431 20.7738 9.17063 18.7522C9.21696 18.639 9.26037 18.5226 9.30064 18.4029C9.30716 18.3835 9.31304 18.364 9.31827 18.3446Z"></path></svg>Tip</p><section class="starlight-aside__content"><p>You’ll find the correct package name in the “Quick Installation” section of each font page on Fontsource’s website. It will start with <code>@fontsource/</code> or <code>@fontsource-variable/</code> followed by the name of the font.</p></section></aside>
+</li>
+<li>
+<p>Import the font package in the component where you want to use the font. Usually, you will want to do this in a common layout component to make sure the font is available across your site.</p>
+<p>The import will automatically add the necessary <code>@font-face</code> rules needed to set up the font.</p>
+<div class="expressive-code"><figure class="frame has-title not-content"><figcaption class="header"><span class="title">src/layouts/BaseLayout.astro</span></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="code"><span style="--0:#809191;--1:#616671">---</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8D46B4">import</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#9B504E">@fontsource/twinkle-star</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">;</span></div></div><div class="ec-line"><div class="code"><span style="--0:#809191;--1:#616671">---</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="---import &#39;@fontsource/twinkle-star&#39;;---"><div></div></button></div></figure></div>
+</li>
+<li>
+<p>Use the font’s name as shown in the <code>body</code> example on its Fontsource page as the <code>font-family</code> value. This will work anywhere you can write CSS in your Astro project.</p>
+<div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="code"><span style="--0:#FF6363;--1:#9B504E">h1</span><span style="--0:#D6DEEB;--1:#403F53"> {</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#80CBC4;--1:#097174">font-family</span><span style="--0:#D6DEEB;--1:#403F53">: </span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#ECC48D;--1:#9B504E">Twinkle Star</span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#D6DEEB;--1:#403F53">, cursive;</span></div></div><div class="ec-line"><div class="code"><span style="--0:#D6DEEB;--1:#403F53">}</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="h1 {  font-family: &quot;Twinkle Star&quot;, cursive;}"><div></div></button></div></figure></div>
+</li>
+</ol>
+
+
+<div tabindex="-1" class="heading-wrapper level-h2"><h2 id="register-fonts-in-tailwind">Register fonts in Tailwind</h2><a class="anchor-link" href="https://docs.astro.build/en/guides/fonts/#register-fonts-in-tailwind"><span aria-hidden="true" class="anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span is:raw="" class="sr-only">Section titled Register fonts in Tailwind</span></a></div>
+<p>If you are using the <a href="https://docs.astro.build/en/guides/integrations-guide/tailwind/">Tailwind integration</a>, you can use either of the previous methods on this page to install your font, with some modification. You can either add an <a href="https://docs.astro.build/en/guides/fonts/#using-a-local-font-file"><code>@font-face</code> statement for a local font</a> or use <a href="https://docs.astro.build/en/guides/fonts/#using-fontsource">Fontsource’s <code>import</code> strategy</a> to install your font.</p>
+<p>To register your font in Tailwind:</p>
+<ol role="list" class="sl-steps">
+<li>
+<p>Follow either of the guides above, but skip the final step of adding <code>font-family</code> to your CSS.</p>
+</li>
+<li>
+<p>Add the typeface name to <code>tailwind.config.mjs</code>.</p>
+<p>This example adds <code>Inter</code> to the sans-serif font stack, with default fallback fonts from Tailwind CSS.</p>
+<div class="expressive-code"><figure class="frame has-title not-content"><figcaption class="header"><span class="title">tailwind.config.mjs</span></figcaption><pre tabindex="0"><code><div class="ec-line highlight ins"><div class="code"><span style="--0:#cb9bec;--1:#6a3587">import</span><span style="--0:#D6DEEB;--1:#403F53"> defaultTheme </span><span style="--0:#cb9bec;--1:#6a3587">from</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#773d3c">tailwindcss/defaultTheme</span><span style="--0:#D9F5DD;--1:#111111">'</span></div></div><div class="ec-line"><div class="code">
+</div></div><div class="ec-line"><div class="code"><span style="--0:#809191;--1:#616671">/** </span><span style="--0:#C792EA;--1:#8D46B4">@type</span><span style="--0:#809191;--1:#616671"> </span><span style="--0:#7690A6;--1:#4F687D">{import('tailwindcss').Config}</span><span style="--0:#809191;--1:#616671"> */</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8D46B4">export</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#C792EA;--1:#8D46B4">default</span><span style="--0:#D6DEEB;--1:#403F53"> {</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#D6DEEB;--1:#403F53">  </span></span><span style="--0:#D6DEEB;--1:#403F53">content: [</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#9B504E">./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">],</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#D6DEEB;--1:#403F53">  </span></span><span style="--0:#D6DEEB;--1:#403F53">theme: {</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#D6DEEB;--1:#403F53">    </span></span><span style="--0:#D6DEEB;--1:#403F53">extend: {</span></div></div><div class="ec-line highlight ins"><div class="code"><span class="indent"><span style="--0:#D6DEEB;--1:#403F53">      </span></span><span style="--0:#D6DEEB;--1:#403F53">fontFamily: {</span></div></div><div class="ec-line highlight ins"><div class="code"><span class="indent"><span style="--0:#D6DEEB;--1:#403F53">        </span></span><span style="--0:#D6DEEB;--1:#403F53">sans: [</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#773d3c">Inter</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">, </span><span style="--0:#7FDBCA;--1:#075759">...defaultTheme</span><span style="--0:#cb9bec;--1:#6a3587">.</span><span style="--0:#FAF39F;--1:#111111">fontFamily</span><span style="--0:#cb9bec;--1:#6a3587">.</span><span style="--0:#7FDBCA;--1:#075759">sans</span><span style="--0:#D6DEEB;--1:#403F53">],</span></div></div><div class="ec-line highlight ins"><div class="code"><span class="indent"><span style="--0:#D6DEEB;--1:#403F53">      </span></span><span style="--0:#D6DEEB;--1:#403F53">},</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#D6DEEB;--1:#403F53">    </span></span><span style="--0:#D6DEEB;--1:#403F53">},</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#D6DEEB;--1:#403F53">  </span></span><span style="--0:#D6DEEB;--1:#403F53">},</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#D6DEEB;--1:#403F53">  </span></span><span style="--0:#D6DEEB;--1:#403F53">plugins: [],</span></div></div><div class="ec-line"><div class="code"><span style="--0:#D6DEEB;--1:#403F53">}</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="import defaultTheme from &#39;tailwindcss/defaultTheme&#39;/** @type {import(&#39;tailwindcss&#39;).Config} */export default {  content: [&#39;./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}&#39;],  theme: {    extend: {      fontFamily: {        sans: [&#39;Inter&#39;, ...defaultTheme.fontFamily.sans],      },    },  },  plugins: [],}"><div></div></button></div></figure></div>
+<p>Now, all sans-serif text (the default with Tailwind) in your project will use your chosen font and the <code>font-sans</code> class will also apply the Inter font.</p>
+</li>
+</ol>
+
+
+<p>See <a href="https://tailwindcss.com/docs/font-family#using-custom-values">Tailwind’s docs on adding custom font families</a> for more information.</p>
+<div tabindex="-1" class="heading-wrapper level-h2"><h2 id="more-resources">More resources</h2><a class="anchor-link" href="https://docs.astro.build/en/guides/fonts/#more-resources"><span aria-hidden="true" class="anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span is:raw="" class="sr-only">Section titled More resources</span></a></div>
+<ul>
+<li>Learn how web fonts work in <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts">MDN’s web fonts guide</a>.</li>
+<li>Generate CSS for your font with <a href="https://www.fontsquirrel.com/tools/webfont-generator">Font Squirrel’s Webfont Generator</a>.</li>
+</ul>
+									
+
+	
+	
+	
+	
+	
+	<span id="docsearch-lvl0" hidden="" class="astro-klj6ju3r">Learn</span>
+</div>
+									<footer class="astro-sovznfwx">
+	<div class="meta sl-flex astro-sovznfwx">
+		<a href="https://github.com/withastro/docs/edit/main/src/content/docs/en/guides/fonts.mdx" class="sl-flex astro-dvlentyv">
+			<svg aria-hidden="true" class="astro-dvlentyv astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.2em;"><path d="M22 7.24a1 1 0 0 0-.29-.71l-4.24-4.24a1 1 0 0 0-1.1-.22 1 1 0 0 0-.32.22l-2.83 2.83L2.29 16.05a1 1 0 0 0-.29.71V21a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .76-.29l10.87-10.93L21.71 8c.1-.1.17-.2.22-.33a1 1 0 0 0 0-.24v-.14l.07-.05ZM6.83 20H4v-2.83l9.93-9.93 2.83 2.83L6.83 20ZM18.17 8.66l-2.83-2.83 1.42-1.41 2.82 2.82-1.41 1.42Z"></path></svg>
+			Edit page
+		</a>
+
+
+		
+	</div>
+	<div class="pagination-links astro-vhm3clna" dir="ltr">
+	<a href="https://docs.astro.build/en/guides/images/" rel="prev" class="astro-vhm3clna">
+				<svg aria-hidden="true" class="astro-vhm3clna astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;"><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"></path></svg>
+				<span class="astro-vhm3clna">
+					Previous
+					<br class="astro-vhm3clna">
+					<span class="link-title astro-vhm3clna">Images</span>
+				</span>
+			</a>
+	<a href="https://docs.astro.build/en/guides/imports/" rel="next" class="astro-vhm3clna">
+				<svg aria-hidden="true" class="astro-vhm3clna astro-3zixussu" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;"><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"></path></svg>
+				<span class="astro-vhm3clna">
+					Next
+					<br class="astro-vhm3clna">
+					<span class="link-title astro-vhm3clna">Imports</span>
+				</span>
+			</a>
+</div>
+</footer>
+								</div>
+</div>
+							
+				</main>
+			</div>
+</div>
+		</div>
+</div>
+	<div id="extension-ebdbc"></div></body></html>

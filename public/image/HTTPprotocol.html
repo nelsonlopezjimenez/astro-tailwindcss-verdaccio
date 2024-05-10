@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://flaviocopes.com/http/ -->
+<html class="theme-newspaper" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- Global Metadata --><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Blogster"><meta name="theme-color" content="#ffffff"><link href="https://flaviocopes.com/favicon.ico" rel="shortcut icon"><!-- Primary Meta Tags --><title>The HTTP protocol</title><meta name="title" content="The HTTP protocol"><meta name="description" content="A detailed description of how the HTTP protocol, and the Web, work"><link rel="canonical" href="https://flaviocopes.com/http/"><!-- Open Graph / Facebook --><meta property="og:title" content="The HTTP protocol"><meta property="og:description" content="A detailed description of how the HTTP protocol, and the Web, work"><meta property="og:type" content="article"><meta property="og:url" content="https://flaviocopes.com/http"><meta property="article:author" content="Flavio Copes"><meta property="article:published_time" content="2018-10-04T05:00:00.000Z"><meta property="og:image" content="https://flaviocopes.com/images/og.png"><meta property="og:image:alt" content="Preview image for The HTTP protocol"><!-- Twitter --><meta property="twitter:title" content="The HTTP protocol"><meta property="twitter:description" content="A detailed description of how the HTTP protocol, and the Web, work"><meta property="twitter:site" content="@flaviocopes"><meta property="twitter:creator" content="@flaviocopes"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:image" content="https://flaviocopes.com/images/og.png"><meta property="twitter:image:alt" content="Preview image for The HTTP protocol"><!-- {twitter.url && <meta property="twitter:url" content={twitter.url} />} --><link rel="preload" href="https://flaviocopes.com/fonts/roboto-mono-v22-latin-regular.woff2" as="font" type="font/woff2" crossorigin="crossorigin"><link rel="preload" href="https://flaviocopes.com/fonts/roboto-mono-v22-latin-700.woff2" as="font" type="font/woff2" crossorigin="crossorigin"><link rel="preload" href="https://flaviocopes.com/fonts/roboto-mono-v22-latin-italic.woff2" as="font" type="font/woff2" crossorigin="crossorigin"><style>
+    /* roboto-mono-regular - latin */
+    @font-face {
+      font-family: 'Roboto Mono';
+      font-style: normal;
+      font-weight: 400;
+      src:
+        local(''),
+        url('/fonts/roboto-mono-v22-latin-regular.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('/fonts/roboto-mono-v22-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /* roboto-mono-700 - latin */
+    @font-face {
+      font-family: 'Roboto Mono';
+      font-style: normal;
+      font-weight: 700;
+      src:
+        local(''),
+        url('/fonts/roboto-mono-v22-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('/fonts/roboto-mono-v22-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /* roboto-mono-italic - latin */
+    @font-face {
+      font-family: 'Roboto Mono';
+      font-style: italic;
+      font-weight: 400;
+      src:
+        local(''),
+        url('/fonts/roboto-mono-v22-latin-italic.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('/fonts/roboto-mono-v22-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+  </style><script>
+  const setDarkMode = () => {
+    if (typeof window !== "undefined") {
+      const isSystemColorSchemeDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      const storageTheme = sessionStorage.getItem("theme");
+      if (!storageTheme && isSystemColorSchemeDark) {
+        document.documentElement.classList.add("dark");
+        document.head.children.namedItem("theme-color").content = "#262626";
+      } else if (storageTheme === "dark") {
+        document.documentElement.classList.add("dark");
+        document.head.children.namedItem("theme-color").content = "#262626";
+      } else {
+        // we already server render light theme
+        document.head.children.namedItem("theme-color").content = "#ffffff";
+      }
+    }
+  };
+
+  // Runs on initial navigation
+  setDarkMode();
+  // Runs on view transitions navigation
+  document.addEventListener('astro:after-swap', setDarkMode);
+</script><link href="./HTTPprotocol_files/fontawesome.bareminimum.css" rel="stylesheet"><link href="./HTTPprotocol_files/brands.bareminimum.css" rel="stylesheet"><link href="./HTTPprotocol_files/solid.min.css" rel="stylesheet"><meta property="og:url" content="https://flaviocopes.com/http/"><meta name="twitter:image" content="https://flaviocopes.com/images/og.png"><meta name="twitter:creator" content="@flaviocopes"><meta name="twitter:site" content="@flaviocopes"><meta name="twitter:card" content="summary"><link rel="apple-touch-icon" sizes="180x180" href="https://flaviocopes.com/img/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="96x96" href="https://flaviocopes.com/img/favicon-96x96.png"><link rel="icon" type="image/png" sizes="32x32" href="https://flaviocopes.com/img/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://flaviocopes.com/img/favicon-16x16.png"><style></style><link rel="alternate" type="application/rss+xml" title="Posts by Flavio Copes" href="https://flaviocopes.com/rss.xml"><link rel="stylesheet" href="./HTTPprotocol_files/_slug_.D1_0ffhQ.css">
+<link rel="stylesheet" href="./HTTPprotocol_files/_slug_.CSb8iiiD.css"><script type="module">function d(o){const t=document.head.querySelector('meta[name="theme-color"]');o==="dark"?(document.documentElement.classList.remove("light"),document.documentElement.classList.add("dark"),t&&(t.content="#262626")):(document.documentElement.classList.remove("dark"),document.documentElement.classList.add("light"),t&&(t.content="#ffffff"))}function a(o){o==="dark"?sessionStorage.setItem("theme","dark"):sessionStorage.setItem("theme","light")}class i extends HTMLElement{constructor(){super();let t=document.documentElement.classList.contains("dark")?"dark":"light";const c=this.querySelector("button"),e=c?.querySelector("#mode-circle");e&&(t==="dark"&&(e.classList.remove("light"),e.classList.add("dark")),e.classList.remove("invisible"),c?.addEventListener("click",()=>{if(t==="dark"){const s="light";e.classList.remove("dark"),e.classList.add("light"),d(s),a(s),t=s}else{const s="dark";e.classList.remove("light"),e.classList.add("dark"),d(s),a(s),t=s}e.classList.contains("duration-300")||e.classList.add("duration-300")}))}}customElements.define("mode-toggle",i);
+</script></head> <body class="max-w-3xl mx-auto min-h-screen px-6 sm:px-8 my-6 tracking-tighter"> <header data-astro-cid-3ef6ksr2=""> <a class="unset absolute z-10 left-[50%] -top-[100rem] translate-x-[-50%] bg-white text-black px-8 py-2 focus:top-[initial]" href="https://flaviocopes.com/http/#main" data-astro-cid-3ef6ksr2="">
+Skip to content
+</a> <nav data-astro-cid-3ef6ksr2=""> <section class="text-text-bold" data-astro-cid-3ef6ksr2=""> <ul class="unset flex gap-4 [&amp;&gt;li]:p-0" data-astro-cid-3ef6ksr2=""> <li data-astro-cid-3ef6ksr2=""> <!-- DO NOT FORMAT. IT ADDS AN EXTRA SPACE ON RENDERED CONTENT. --><a href="https://flaviocopes.com/" class="unset animated-link" data-astro-cid-3ef6ksr2=""> <img src="./HTTPprotocol_files/og.png" alt="logo" class="w-4 -mt-1 inline" data-astro-cid-3ef6ksr2=""> Home
+</a> </li> <li data-astro-cid-3ef6ksr2="">
+⋅ <!-- DO NOT FORMAT. IT ADDS AN EXTRA SPACE ON RENDERED CONTENT. --><a href="https://flaviocopes.com/blog" class="unset animated-link" data-astro-cid-3ef6ksr2="">Tutorials</a> </li> <!-- <li>⋅ <HeaderLink href='https://sololab.io'>Solo Lab</HeaderLink></li> --> <!-- <li class='hidden md:inline'>
+          ⋅
+          <HeaderLink href='https://thevalleyofcode.com'>
+            Valley of Code
+          </HeaderLink>
+        </li> --> <li data-astro-cid-3ef6ksr2="">⋅ <!-- DO NOT FORMAT. IT ADDS AN EXTRA SPACE ON RENDERED CONTENT. --><a href="https://flaviocopes.com/access" class="unset animated-link" data-astro-cid-3ef6ksr2="">Books</a></li> <li data-astro-cid-3ef6ksr2="">⋅ <!-- DO NOT FORMAT. IT ADDS AN EXTRA SPACE ON RENDERED CONTENT. --><a href="https://flaviocopes.com/courses" class="unset animated-link" data-astro-cid-3ef6ksr2="">Courses</a></li> </ul> </section> </nav> <div class="justify-self-end hidden sm:flex items-center content-center text-text-bold" data-astro-cid-3ef6ksr2=""> <mode-toggle class="flex" data-astro-cid-tcsrer47=""> <button class="justify-self-end bg-black dark:bg-white ml-4 inline-flex h-6 w-11 items-center rounded-full" id="mode-toggle" role="switch" type="button" tabindex="0" aria-checked="false" data-headlessui-state="" data-astro-cid-tcsrer47=""><span class="sr-only" data-astro-cid-tcsrer47="">Toggle dark mode</span><span id="mode-circle" class="light inline-block h-4 w-4 rounded-full bg-gradient-to-tr" data-astro-cid-tcsrer47=""><span class="absolute top-0 right-0 w-[10px] h-[10px] rounded-full bg-white scale-[0]" data-astro-cid-tcsrer47=""></span> </span> </button> </mode-toggle>   </div> </header>  <main id="main" class="mb-20"> <section class="blog-post prose max-w-none prose-newspaper"> <h1 class="border-b-[1px] font-bold text-4xl md:text-5xl tracking-tighter pt-6 pb-10 overflow-hidden"> <span class="bg-gradient-to-br from-[#334155] via-[#1e293b] to-[#0f172a] dark:from-primary-main dark:via-primary-main dark:to-primary-main bg-clip-text text-transparent"> The HTTP protocol </span> </h1> <time class="block mb-[2em] text-text-muted">Oct 4, 2018</time> <a href="https://flaviocopes.com/courses" class="block mt-10 text-sm text-white leading-relaxed text-center py-2 rounded-3xl !bg-none no-underline"> <div> <p class="inline-block px-1.5 py-0 mr-2 text-white bg-zinc-600 rounded-sm mb-0 text-lg font-bold mt-0">
+New Courses Coming Soon
+</p> </div> <p class="mt-0 inline-block px-1.5 py-0 mr-2 text-gray-800 bg-yellow-400 rounded-sm mb-4 text-lg font-bold">
+Join the waiting lists
+</p> </a> <p class="mb-5 border-l-4 border-l-gray-800 pl-3">A detailed description of how the HTTP protocol, and the Web, work</p> <p>HTTP (<em>Hyper Text Transfer Protocol</em>) is one of the application protocols of TCP/IP, the suite of protocols that powers the Internet.</p>
+<p>Let me fix that: it’s not <em>one</em> of the protocols, it’s the most successful and popular one, by all means.</p>
+<p>HTTP is what makes the World Wide Web work, giving browsers a language to communicate to remote servers that host web pages.</p>
+<p>HTTP was first standardized in 1991, as a result of the work that Tim Berners-Lee did at CERN, the European Center of Nuclear Research, since 1989.</p>
+<p>The goal was to allow researchers to easily exchange and interlink their papers. It was meant as a way for the scientific community to work better.</p>
+<p>Back then the internet main applications basically consisted in FTP (the File Transfer Protocol), Email and Usenet (newsgroups, today almost abandoned).</p>
+<p>In 1993 Mosaic, the first graphical web browser, was released, and things skyrocketed from there.</p>
+<p>The Web became the killer app of the Internet.</p>
+<p>Over time the Web and the ecosystem around it have dramatically evolved, but the basics still remain. One example of evolution: HTTP now powers, in addition to web pages, REST APIs, one common way to programmatically access a service over the Internet.</p>
+<p>HTTP got a minor revision in 1997 with HTTP/1.1, and in 2015 its successor, <a href="https://flaviocopes.com/http-2/">HTTP/2</a>, was standardized and it’s now being implemented by the major Web Servers used across the globe.</p>
+<p>The HTTP protocol is considered insecure, just like any other protocol (SMTP, FTP..) not served over an encrypted connection. This is why there is a big push nowadays towards using HTTPS, which is HTTP served over TLS.</p>
+<p>That said, the building blocks of HTTP/2 and HTTPS have their roots in HTTP, and in this article I’ll introduce how HTTP works.</p>
+<h2 id="html-documents">HTML documents</h2>
+<p>HTTP is the way <strong>web browsers</strong> like Chrome, Firefox, Edge and many others (also called <em>clients</em> from here on) communicate with <strong>web servers</strong>.</p>
+<p>The name Hyper Text Transfer Protocol derives from the need of transferring not just files, like in FTP - the “File Transfer Protocol”, but hypertexts, which would be written using HTML, and then represented graphically by the browser with a nice presentation and interactive links.</p>
+<p>Links were the driving force that drove adoption, along with the ease of creation of new web pages.</p>
+<p>HTTP is what transfer those hypertext files (and as we’ll see also images and other file types) over the network.</p>
+<h2 id="hyperlinks">Hyperlinks</h2>
+<p>Inside a web browser, a document can point to another document using links.</p>
+<p>A link is composed by a first part that determines the protocol and the server address, either through a domain name or an IP.</p>
+<p>This part is not unique to HTTP, of course.</p>
+<p>Then there’s the document part. Anything appended to the address part represents the document path.</p>
+<p>For example, this document address is <code>https://flaviocopes.com/http/</code>:</p>
+<ul>
+<li><code>https</code> is the protocol.</li>
+<li><code>flaviocopes.com</code> is the domain name that points to my server</li>
+<li><code>/http/</code> is the document URL relative to the server root path.</li>
+</ul>
+<p>The path can be nested: <code>https://flaviocopes.com/page/privacy/</code> and in this case the document URL is <code>/page/privacy</code>.</p>
+<p>The web server is responsible for interpreting the request and, once analyzed, serving the correct response.</p>
+<h2 id="a-request">A request</h2>
+<p>What’s in a request?</p>
+<p>The first thing is <strong>the URL</strong>, which we’ve already seen before.</p>
+<p>When we enter an address and press enter in our browser, under the hoods the server sends to the correct IP address a request like this:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>GET /a-page</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>where /a-page is the URL you requested.</p>
+<p>The second thing is <strong>the HTTP method</strong> (also called verb).</p>
+<p>HTTP in the early days defined 3 of them:</p>
+<ul>
+<li><code>GET</code></li>
+<li><code>POST</code></li>
+<li><code>HEAD</code></li>
+</ul>
+<p>and HTTP/1.1 introduced</p>
+<ul>
+<li><code>PUT</code></li>
+<li><code>DELETE</code></li>
+<li><code>OPTIONS</code></li>
+<li><code>TRACE</code></li>
+</ul>
+<p>We’ll see them in detail in a minute.</p>
+<p>The third thing that composes a request is a set of <strong>HTTP headers</strong>.</p>
+<p>Headers are a set of <code>key: value</code> pairs that are used to communicate to the server-specific information that is predefined, so the server can know what we mean.</p>
+<p>I described them in detail in <a href="https://flaviocopes.com/http-request-headers/">the HTTP request headers list</a>.</p>
+<p>Give that list a quick look. All of those headers are optional, except <code>Host</code>.</p>
+<h2 id="http-methods">HTTP methods</h2>
+<h3 id="get">GET</h3>
+<p>GET is the most used method here. It’s the one that’s used when you type an URL in the browser address bar, or when you click a link.</p>
+<p>It asks the server to send the requested resource as a response.</p>
+<h3 id="head">HEAD</h3>
+<p>HEAD is just like GET, but tells the server to not send the response body back. Just the headers.</p>
+<h3 id="post">POST</h3>
+<p>The client uses the POST method to send data to the server. It’s typically used in forms, for example, but also when interacting with a REST API.</p>
+<h3 id="put">PUT</h3>
+<p>The PUT method is intended to create a resource at that specific URL, with the parameters passed in the request body. Mainly used in REST APIs</p>
+<h3 id="delete">DELETE</h3>
+<p>The DELETE method is called against an URL to request deletion of that resource. Mainly used in REST APIs</p>
+<h3 id="options">OPTIONS</h3>
+<p>When a server receives an OPTIONS request it should send back the list of HTTP methods allowed for that specific URL.</p>
+<h3 id="trace">TRACE</h3>
+<p>Returns back to the client the request that has been received. Used for debugging or diagnostic purposes.</p>
+<h2 id="http-clientserver-communication">HTTP Client/Server communication</h2>
+<p>HTTP, as most of the protocols that belong to the TCP/IP suite, is a <em>stateless</em> protocol.</p>
+<p>Servers have no idea what’s the current state of the client. All they care about is that they get request and they need to fulfill them.</p>
+<p>Any prior request is meaningless in this context, and this makes it possible for a web server to be very fast, as there’s less to process, and also it gives it bandwidth to handle a lot of concurrent requests.</p>
+<p>HTTP is also very lean, and communication is very fast in terms of overhead.  This contrasts with the protocols that were the most used at the time HTTP was introduced: TCP and POP/SMTP, the mail protocols, which involve lots of handshaking and confirmations on the receiving ends.</p>
+<p>Graphical browsers abstract all this communication, but we’ll illustrate it here for learning purposes.</p>
+<p>A message is composed by a first line, which starts with the HTTP method, then contains the resource relative path, and the protocol version:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>GET /a-page HTTP/1.1</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>After that, we need to add the HTTP request headers. As mentioned above, there are many headers, but the only mandatory one is <code>Host</code>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>GET /a-page HTTP/1.1</span></span>
+<span class="line"><span>Host: flaviocopes.com</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>How can you test this? Using <strong>telnet</strong>. This is a command-line tool that lets us connect to any server and send it commands.</p>
+<p>Open your terminal, and type <code>telnet flaviocopes.com 80</code></p>
+<p>This will open a terminal, that tells you</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Trying 178.128.202.129...</span></span>
+<span class="line"><span>Connected to flaviocopes.com.</span></span>
+<span class="line"><span>Escape character is '^]'.</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>You are connected to the Netlify web server that powers my blog. You can now type:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>GET /axios/ HTTP/1.1</span></span>
+<span class="line"><span>Host: flaviocopes.com</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span></code></pre>
+<p>and press enter on an empty line to fire the request.</p>
+<p>The response will be:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>HTTP/1.1 301 Moved Permanently</span></span>
+<span class="line"><span>Cache-Control: public, max-age=0, must-revalidate</span></span>
+<span class="line"><span>Content-Length: 46</span></span>
+<span class="line"><span>Content-Type: text/plain</span></span>
+<span class="line"><span>Date: Sun, 29 Jul 2018 14:07:07 GMT</span></span>
+<span class="line"><span>Location: https://flaviocopes.com/axios/</span></span>
+<span class="line"><span>Age: 0</span></span>
+<span class="line"><span>Connection: keep-alive</span></span>
+<span class="line"><span>Server: Netlify</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Redirecting to https://flaviocopes.com/axios/</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>See, this is an HTTP response we got back from the server. It’s a 301 Moved Permanently request. See <a href="https://flaviocopes.com/http-status-codes/">the HTTP status codes list</a> to know more about the status codes.</p>
+<p>It basically tells us the resource has permanently moved to another location.</p>
+<p>Why? Because we connected to port 80, which is the default for HTTP, but on my server I set up an automatic redirection to HTTPS.</p>
+<p>The new location is specified in the <code>Location</code> HTTP response header.</p>
+<p>There are other headers, all described in <a href="https://flaviocopes.com/http-response-headers/">the HTTP response headers list</a>.</p>
+<p>In both the request and the response, an empty line separates the request header from the request body. The response body in this case contains the string</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Redirecting to https://flaviocopes.com/axios/</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>which is 46 bytes long, as specified in the <code>Content-Length</code> header. It is shown in the browser when you open the page, while it automatically redirects you to the correct location.</p>
+<p>In this case we’re using telnet, the low-level tool that we can use to connect to any server, so we can’t have any kind of automatic redirect.</p>
+<p>Let’s do this process again, now connecting to port 443, which is the default port of the HTTPS protocol. We can’t use telnet because of the SSL handshake that must happen.</p>
+<p>Let’s keep things simple and use <code>curl</code>, another command-line tool. We cannot directly type the HTTP request, but we’ll see the response:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> -i</span><span style="color:#9ECBFF"> https://flaviocopes.com/axios/</span></span>
+<span class="line"></span></code></pre>
+<p>this is what we’ll get in return:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>HTTP/1.1 200 OK</span></span>
+<span class="line"><span>Cache-Control: public, max-age=0, must-revalidate</span></span>
+<span class="line"><span>Content-Type: text/html; charset=UTF-8</span></span>
+<span class="line"><span>Date: Sun, 29 Jul 2018 14:20:45 GMT</span></span>
+<span class="line"><span>Etag: "de3153d6eacef2299964de09db154b32-ssl"</span></span>
+<span class="line"><span>Strict-Transport-Security: max-age=31536000</span></span>
+<span class="line"><span>Age: 152</span></span>
+<span class="line"><span>Content-Length: 9797</span></span>
+<span class="line"><span>Connection: keep-alive</span></span>
+<span class="line"><span>Server: Netlify</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&lt;!DOCTYPE html&gt;</span></span>
+<span class="line"><span>&lt;html prefix="og: http://ogp.me/ns#" lang="en"&gt;</span></span>
+<span class="line"><span>&lt;head&gt;</span></span>
+<span class="line"><span>&lt;meta charset="utf-8"&gt;</span></span>
+<span class="line"><span>&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;</span></span>
+<span class="line"><span>&lt;title&gt;HTTP requests using Axios&lt;/title&gt;</span></span>
+<span class="line"><span>....</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>I cut the response, but you can see that the HTML of the page is being returned now.</p>
+<h2 id="other-resources">Other resources</h2>
+<p>An HTTP server will not just transfer HTML files, but typically it will also serve other files: CSS, JS, SVG, PNG, JPG, lots of different file types.</p>
+<p>This depends on the configuration.</p>
+<p>HTTP is perfectly capable of transferring those files as well, and the client will know about the file type, thus interpret them in the right way.</p>
+<p>This is how the web works: when an HTML page is retrieved by the browser, it’s interpreted and any other resource it needs to display property (CSS, JavaScript, images..) is retrieved through additional HTTP requests to the same server.</p>  <div class="mt-4 [&amp;&gt;div]:py-2">                         </div>  <div class="mt-10"> <p>Here is how can I help you:</p> <ul class="mt-5"> <li> <strong> <a href="https://flaviocopes.com/courses">COURSES</a> </strong> where I teach everything I know
+</li> <li> <strong><a href="https://flaviocopes.com/bootcamp">CODING BOOTCAMP</a></strong>
+cohort course - next edition in 2025
+</li> <li> <strong><a href="https://flaviocopes.com/access/">BOOKS</a></strong> 16 coding ebooks you can download
+      for free on JS Python C PHP and lots more
+</li>  <li> <a href="https://x.com/flaviocopes">Follow me on X</a> </li> </ul> </div> </section> </main>  <footer class="text-sm leading-[1.75] mt-4" data-astro-cid-sz7xmlte=""> <div data-astro-cid-sz7xmlte="">© 2024 Flavio Copes all rights reserved</div> </footer>  <script defer="" data-domain="flaviocopes.com" src="./HTTPprotocol_files/script.js.download">
+    </script>  <div id="extension-ebdbc"></div></body></html>

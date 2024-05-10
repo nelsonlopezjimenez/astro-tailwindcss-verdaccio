@@ -303,13 +303,15 @@ To do so, we declare an Alpine data variable **showMenu** initialized to **false
 
 Read more about this kind of approach in https://thevalleyofcode.com/alpine/4-define-data.
 
-[4-define-data](</Alpine.js_ Defining data.html>)
+**[markdown Define data](</Alpine.js_ Defining data.html>)**
 
-<a href="/Alpine.js_ Defining data.html">Define data</a>
+**anchor tag <a href="/Alpine.js_ Defining data.html">Define data</a>**
 
 This variable will now be available inside this **div** and all its child elements.
 
 If this variable is **true** we show the sidebar component before the page main content in **src/layouts/LayoutApp.astro** using the **x-show** Alpine directive (https://alpinejs.dev/directives/show):
+
+**[directives: show](</image/showAlpine.js.html>)**
 
 ```
   ...
@@ -486,7 +488,7 @@ To fix this, we use the **x-cloak** attribute provided by Alpine.js. This attrib
 
 Read more about it here: https://alpinejs.dev/directives/cloak
 
-[cloak — Alpine.js.html](/image/cloak — Alpine.js.html)
+**[cloak — Alpine.js.html](</image/cloak — Alpine.js.html>)**
 
 Add this snippet of CSS to the &lt;style> tag in **src/layouts/LayoutApp.astro:**
 
@@ -646,7 +648,7 @@ This is a different issue than the one we solved above with **x-cloak**.
 
 This issue is related to how our web application works.
 
-It’s essential to look at the Browser DevTools Network tab (see https://flaviocopes.com/browser-dev-tools/) [overview of the browser dev tools](pendinglocalurl) and see what happens when you click a link, everything gets requested from the server again on each link click:
+It’s essential to look at the Browser DevTools Network tab (see https://flaviocopes.com/browser-dev-tools/ and **[overview of the browser dev tools](</image/Overview of the Browser DevTools.html>)**) and see what happens when you click a link, everything gets requested from the server again on each link click:
 
 <img src="/image/_image (12).webp" alt="4.13" widht=70%>
 
@@ -656,15 +658,14 @@ It’s not exactly bad per se, it works, but you can improve this and provide a 
 
 I think we have 2 ways here.
 
-The first is using Astro View Transitions. It’s a very cool feature offered by Astro out of the box: https://docs.astro.build/en/guides/view-transitions/ [view transition](https://docs.astro.build/en/guides/view-transitions/) and basically by default when you enable them Astro will preload a page when you go over the link with the mouse, and will then have a nice CSS transition to the new content when the link is eventually clicked.
+The first is using Astro View Transitions. It’s a very cool feature offered by Astro out of the box: https://docs.astro.build/en/guides/view-transitions/ and  **[view transitions](</image/ViewTransitionsDocs.html>)** and basically by default when you enable them Astro will preload a page when you go over the link with the mouse, and will then have a nice CSS transition to the new content when the link is eventually clicked.
 
 This is a big perceived performance improvement over the default behavior of the browser.
 
 The other option is to enable Boost Mode in htmx.
 
-[\_\_\_ htmx ~ hx-boost Attribute](</image/___ htmx ~ hx-boost Attribute.html>)
+**[hx-boost Attribute](</image/___ htmx ~ hx-boost Attribute.html>)**
 
-<a href="/image/___ htmx ~ hx-boost Attribute.html">hx-boost</a>
 
 Boost mode can be enabled by just adding an attribute to the body: **hx-boost**.
 
@@ -797,7 +798,7 @@ Basically, TypeScript cannot determine the type of the project variable passed t
 
 To fix this we’re going to add types for our PocketBase data collections.
 
-PocketBase does not have built-in types support, but we’ll use the tool https://github.com/patmood/pocketbase-typegen to generate our types.
+PocketBase does not have built-in types support, but we’ll use the tool https://github.com/patmood/pocketbase-typegen and **[github pocketbase-typegen](</image/Github_pocketbase-typegen.html>)** to generate our types.
 
 We have to go to the terminal and run a command.
 
@@ -917,6 +918,8 @@ export type CollectionResponses = {
 }
 
 // Type for usage with type asserted PocketBase instance
+
+
 // https://github.com/pocketbase/js-sdk#specify-typescript-definitions
 
 export type TypedPocketBase = PocketBase & {
@@ -965,6 +968,8 @@ Note: we’ll have to re-run the npx pocketbase-typegen command we used above an
 
 It’s a small inconvenience, for a good benefit (having hints and type checking that will keep us on the right track).
 
+If npx command does not work, you should try to install the package pocketbase-typegen. I am still testing whether to install the package globally or locally and run the script from that location. Pending. Some students just copied the file from here and did some modifications for the app to work with selected types. If you followed the instructions verbatim, your types should be the same.
+
 ## Use the logo font for the pages title
 
 [&rarr; top](#)
@@ -977,11 +982,20 @@ Now I want to use this font in the app part too:
 
 To do this, I’m going to use Fontsource, a service I found in Astro’s documentation about fonts.
 
-This service simplifies including custom fonts, and in particular Google Fonts, and the font I used in the SVG logo was “M PLUS Rounded 1c”: https://fonts.google.com/specimen/M+PLUS+Rounded+1c
+This service simplifies including custom fonts, and in particular Google Fonts, and the font I used in the SVG logo was “M PLUS Rounded 1c”: https://fonts.google.com/specimen/M+PLUS+Rounded+1c or **[about fonts](</image/usingcustomfontsDocs.html>)**
+
+```**NOTE: REMEMBER TO CLICK ON THE LINK, THEN REFRESH SO THE STYLES ARE CORRECTLY APPLIED. IN GOING BACK, CLICK ON THE BACK ARROW, THE PAGE MIGHT NOT CHANGE BUT THE URL DID CHANGE, REFRESH THE PAGE.**```
 
 To include it in our site, first install it:
 
+```
+
 npm install @fontsource/m-plus-rounded-1c
+
+```
+
+NOTE: you may have already installed it, so no need to do this step. Just check your package.json file.
+
 Then in LayoutApp.astro you include it at the top:
 
 ```
@@ -1032,7 +1046,9 @@ and src/pages/app/project/[project_id].astro:
 <LayoutApp title={project.name}>
   <div class='mx-auto text-white max-w-7xl space-y-6'>
     <div
+    // REMOVE FOLLOWING LINE
       class='rounded-lg bg-zinc-900 px-5 py-4 sm:py-2.5 text-xl sm:text-2xl md:text-3xl text-white uppercase text-center font-extrabold'>
+      // ADD FOLLOWING LINE
       class='rounded-lg bg-zinc-900 px-5 py-4 sm:py-2.5 text-xl sm:text-2xl md:text-3xl text-white uppercase text-center font-extrabold font-rounded'>
       //...
 
@@ -1060,10 +1076,6 @@ Here’s the result:
 
 <img src="/image/_image (15).webp" alt="4.16" widht=70%>
 
-# PPENDING
-
-[&rarr; top](#)
-
 ---
 
 Looks much better!
@@ -1088,9 +1100,9 @@ We do this using htmx, by passing the URL we want to “trigger” with the hx-d
 
 ```
 
-This is all we have to do to make a HTTP DELETE network request to the server, to the specified endpoint. As a reminder, check out https://flaviocopes.com/http/ to see how HTTP requests work.
+This is all we have to do to make a HTTP DELETE network request to the server, to the specified endpoint. As a reminder, check out https://flaviocopes.com/http/ and **[HTTP Protocol](</image/HTTPprotocol.html>)** to see how HTTP requests work.
 
-Since this is a destructive action, we can also add a hx-confirm attribute to the element, to make the user confirm the action (this is something provided to us by htmx - see https://htmx.org/attributes/hx-confirm/):
+Since this is a destructive action, we can also add a hx-confirm attribute to the element, to make the user confirm the action (this is something provided to us by htmx - see https://htmx.org/attributes/hx-confirm/ and **[attributes hx-confirm](</image/htmx-hx-confirmAttribute.html>)**):
 
 ```
 
@@ -1230,7 +1242,7 @@ if (Astro.request.method === 'DELETE') {
 
 ```
 
-In this file we basically say this is a “partial”, like we do for all API pages (see https://docs.astro.build/en/basics/astro-pages/#page-partials). This is necessary so the output generated by Astro will be “clean”, because if you omit the first line, Astro will return a html tag as it thinks this is a complete web page, while in reality it’s not.
+In this file we basically say this is a “partial”, like we do for all API pages (see https://docs.astro.build/en/basics/astro-pages/#page-partials and **[page partials](</images/Pages _ Docs.html>)**). This is necessary so the output generated by Astro will be “clean”, because if you omit the first line, Astro will return a html tag as it thinks this is a complete web page, while in reality it’s not.
 
 We don’t want to return anything from this partial.
 
@@ -2041,14 +2053,14 @@ This is something called “out of band swaps”.
 
 Read more on
 
-[htmx 5-swap](</image/___ htmx ~ hx-boost Attribute.html>)
-<a href="/image/htmx_ Swap.html">htmx swap</a>
+**[htmx 5-swap](</image/___ htmx ~ hx-boost Attribute.html>)**
+
 
 or
 
-[swap oob](</image/___ htmx ~ hx-swap-oob Attribute.html>)
+**[swap oob](</image/___ htmx ~ hx-swap-oob Attribute.html>)**
 
-https://htmx.org/attributes/hx-swap-oob/
+
 
 and come back.
 
