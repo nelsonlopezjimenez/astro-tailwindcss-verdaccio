@@ -117,10 +117,10 @@ let titleSplit = theprops.title.split(' ');
 let modIdx = titleSplit[1];
 ---
 
-<div class="bg-red">
-    <p>Astro.props: <a href=`/index${modIdx}`>{theprops.title}</a></p>
+<div id="markdown">
+    <p>Astro.props: <a href=`/blog/my${modIdx-1}`>Previous module</a></p>
     <p>Astro.props: <a href=`/blog/my${modIdx}`>{theprops.title}</a></p>
-</div>
+
 
 {
     theprops.title.includes('1') ?
@@ -140,7 +140,7 @@ let modIdx = titleSplit[1];
                 contentArr4.map(i => <a href={'#'+ i.replaceAll(' ', '-').toLowerCase()}>{i}</a><br/>)
 
                 :
-                'It is not 1 or 3'
+                'It is not 1, 2, 3, or 4'
             )
         )
         
@@ -149,3 +149,4 @@ let modIdx = titleSplit[1];
 
 }
 
+</div>
