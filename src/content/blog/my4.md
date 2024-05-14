@@ -66,50 +66,44 @@ Let’s add a sidebar so people can navigate easily between projects, but also e
 
 Create the file **src/components/app/Sidebar.astro** and add this content to it:
 
-```
-
-<aside class='text-white'>
-  <div class='mb-6 rounded-lg bg-zinc-800'>
+```html
+<aside class="text-white">
+  <div class="mb-6 rounded-lg bg-zinc-800">
     <div
-      class='rounded-lg bg-zinc-900 px-5 py-4 sm:py-2.5 text-xl sm:text-2xl md:text-3xl text-white uppercase text-center font-extrabold'>
-      <a href='/app/dashboard'>SPRING24APP</a>
+      class="rounded-lg bg-zinc-900 px-5 py-4 sm:py-2.5 text-xl sm:text-2xl md:text-3xl text-white uppercase text-center font-extrabold"
+    >
+      <a href="/app/dashboard">SPRING24APP</a>
     </div>
   </div>
 </aside>
-
 ```
 
 Now we’re going to include this component in **src/layouts/LayoutApp.astro**:
 
-```
-
+```html
 ---
 import Sidebar from '@components/app/Sidebar.astro'
-
 //...
-
 ---
 
-  ...
-  <body x-data>
-    <main
-      class='min-h-screen dark:bg-black dark:text-white'>
-      <div class='max-w-5xl px-4 py-4 mx-auto'>
-        <dialog></dialog>
-        <slot /> // ============== MARKED TO DELETE
-        <div class='flex sm:space-x-6'>
-          <div class='hidden w-1/3 sm:block'>
-            <Sidebar />
-          </div>
-          <div class='w-full sm:w-2/3'>
-            <slot />
-          </div>
+...
+<body x-data>
+  <main class="min-h-screen dark:bg-black dark:text-white">
+    <div class="max-w-5xl px-4 py-4 mx-auto">
+      <dialog></dialog>
+      <slot /> // ============== MARKED TO DELETE
+      <div class="flex sm:space-x-6">
+        <div class="hidden w-1/3 sm:block">
+          <Sidebar />
+        </div>
+        <div class="w-full sm:w-2/3">
+          <slot />
         </div>
       </div>
-    </main>
-  </body>
-  ...
-
+    </div>
+  </main>
+</body>
+...
 ```
 
 REMINDER: lines marked to remove and following lines to be added!!
@@ -122,24 +116,30 @@ Let me adjust how the “projects” heading element looks like, so it’s “on
 
 In **src/pages/app/dashboard.astro**:
 
-```
-
+```html
 ---
 //...
 ---
 
-<LayoutApp title='Dashboard'>
-  <div class='py-10 mx-auto text-white max-w-7xl space-y-6'>//REMOVE
-  <div class='mx-auto text-white max-w-7xl space-y-6'>//ADD
-    <div
-      REMOVE THIS LINE: class='rounded-lg bg-zinc-900 px-5 py-4 sm:py-2.5 text-xl sm:text-3xl md:text-5xl text-white uppercase text-center font-extrabold'
-      //ADD FOLLOWING LINE
-      class='rounded-lg bg-zinc-900 px-5 py-4 sm:py-2.5 text-xl sm:text-2xl md:text-3xl text-white uppercase text-center font-extrabold'
-    >
+<LayoutApp title="Dashboard">
+  <!-- //REMOVE -->
+  <div class="py-10 mx-auto text-white max-w-7xl space-y-6">
+    <!-- //ADD  -->
+    <div class="mx-auto text-white max-w-7xl space-y-6">
+      <!-- REMOVE THIS LINE:  -->
+      <div class='rounded-lg bg-zinc-900 px-5 py-4 sm:py-2.5 text-xl sm:text-3xl md:text-5xl text-white uppercase text-center font-extrabold' >
+      <!-- ADD -->
+      <div
+      class='rounded-lg bg-zinc-900 px-5
+      py-4 sm:py-2.5 text-xl sm:text-2xl md:text-3xl text-white uppercase
+      text-center font-extrabold'
+      >
+
       Projects
     </div>
     ...
-
+  </div>
+</LayoutApp>
 ```
 
 <img src="/image/_image (1).webp" alt="MOD 4.2" width=70%>
@@ -150,25 +150,22 @@ Let’s also fix the single project view:
 
 In **src/pages/app/project/[project_id].astro**:
 
-```
+```html
+--- //... ---
 
----
-//...
----
-
-<LayoutApp title={project.name}>
-  <div class='py-10 mx-auto text-white max-w-7xl space-y-6'> //REMOVE
-  <div class='mx-auto text-white max-w-7xl space-y-6'> //ADD
-    <div
-    //REMOVE BELLOW
-      class='rounded-lg bg-zinc-900 px-5 py-4 sm:py-2.5 text-xl sm:text-3xl md:text-5xl text-white uppercase text-center font-extrabold'
-      //ADD BELOW
-      class='rounded-lg bg-zinc-900 px-5 py-4 sm:py-2.5 text-xl sm:text-2xl md:text-3xl text-white uppercase text-center font-extrabold'
-    >
-      {project.name}
+<LayoutApp title="{project.name}">
+  <div class="py-10 mx-auto text-white max-w-7xl space-y-6">
+    //REMOVE
+    <div class="mx-auto text-white max-w-7xl space-y-6">
+      //ADD <div //REMOVE BELLOW class='rounded-lg bg-zinc-900 px-5 py-4
+      sm:py-2.5 text-xl sm:text-3xl md:text-5xl text-white uppercase text-center
+      font-extrabold' //ADD BELOW class='rounded-lg bg-zinc-900 px-5 py-4
+      sm:py-2.5 text-xl sm:text-2xl md:text-3xl text-white uppercase text-center
+      font-extrabold' > {project.name}
     </div>
     ...
-
+  </div></LayoutApp
+>
 ```
 
 Here’s the result so far, with sidebar and main content well aligned:
@@ -311,7 +308,7 @@ This variable will now be available inside this **div** and all its child elemen
 
 If this variable is **true** we show the sidebar component before the page main content in **src/layouts/LayoutApp.astro** using the **x-show** Alpine directive (https://alpinejs.dev/directives/show):
 
-**[directives: show](</image/showAlpine.js.html>)**
+**[directives: show](/image/showAlpine.js.html)**
 
 ```
   ...
@@ -658,14 +655,13 @@ It’s not exactly bad per se, it works, but you can improve this and provide a 
 
 I think we have 2 ways here.
 
-The first is using Astro View Transitions. It’s a very cool feature offered by Astro out of the box: https://docs.astro.build/en/guides/view-transitions/ and  **[view transitions](</image/ViewTransitionsDocs.html>)** and basically by default when you enable them Astro will preload a page when you go over the link with the mouse, and will then have a nice CSS transition to the new content when the link is eventually clicked.
+The first is using Astro View Transitions. It’s a very cool feature offered by Astro out of the box: https://docs.astro.build/en/guides/view-transitions/ and **[view transitions](/image/ViewTransitionsDocs.html)** and basically by default when you enable them Astro will preload a page when you go over the link with the mouse, and will then have a nice CSS transition to the new content when the link is eventually clicked.
 
 This is a big perceived performance improvement over the default behavior of the browser.
 
 The other option is to enable Boost Mode in htmx.
 
 **[hx-boost Attribute](</image/___ htmx ~ hx-boost Attribute.html>)**
-
 
 Boost mode can be enabled by just adding an attribute to the body: **hx-boost**.
 
@@ -798,7 +794,7 @@ Basically, TypeScript cannot determine the type of the project variable passed t
 
 To fix this we’re going to add types for our PocketBase data collections.
 
-PocketBase does not have built-in types support, but we’ll use the tool https://github.com/patmood/pocketbase-typegen and **[github pocketbase-typegen](</image/Github_pocketbase-typegen.html>)** to generate our types.
+PocketBase does not have built-in types support, but we’ll use the tool https://github.com/patmood/pocketbase-typegen and **[github pocketbase-typegen](/image/Github_pocketbase-typegen.html)** to generate our types.
 
 We have to go to the terminal and run a command.
 
@@ -982,9 +978,9 @@ Now I want to use this font in the app part too:
 
 To do this, I’m going to use Fontsource, a service I found in Astro’s documentation about fonts.
 
-This service simplifies including custom fonts, and in particular Google Fonts, and the font I used in the SVG logo was “M PLUS Rounded 1c”: https://fonts.google.com/specimen/M+PLUS+Rounded+1c or **[about fonts](</image/usingcustomfontsDocs.html>)**
+This service simplifies including custom fonts, and in particular Google Fonts, and the font I used in the SVG logo was “M PLUS Rounded 1c”: https://fonts.google.com/specimen/M+PLUS+Rounded+1c or **[about fonts](/image/usingcustomfontsDocs.html)**
 
-```**NOTE: REMEMBER TO CLICK ON THE LINK, THEN REFRESH SO THE STYLES ARE CORRECTLY APPLIED. IN GOING BACK, CLICK ON THE BACK ARROW, THE PAGE MIGHT NOT CHANGE BUT THE URL DID CHANGE, REFRESH THE PAGE.**```
+`**NOTE: REMEMBER TO CLICK ON THE LINK, THEN REFRESH SO THE STYLES ARE CORRECTLY APPLIED. IN GOING BACK, CLICK ON THE BACK ARROW, THE PAGE MIGHT NOT CHANGE BUT THE URL DID CHANGE, REFRESH THE PAGE.**`
 
 To include it in our site, first install it:
 
@@ -1100,9 +1096,9 @@ We do this using htmx, by passing the URL we want to “trigger” with the hx-d
 
 ```
 
-This is all we have to do to make a HTTP DELETE network request to the server, to the specified endpoint. As a reminder, check out https://flaviocopes.com/http/ and **[HTTP Protocol](</image/HTTPprotocol.html>)** to see how HTTP requests work.
+This is all we have to do to make a HTTP DELETE network request to the server, to the specified endpoint. As a reminder, check out https://flaviocopes.com/http/ and **[HTTP Protocol](/image/HTTPprotocol.html)** to see how HTTP requests work.
 
-Since this is a destructive action, we can also add a hx-confirm attribute to the element, to make the user confirm the action (this is something provided to us by htmx - see https://htmx.org/attributes/hx-confirm/ and **[attributes hx-confirm](</image/htmx-hx-confirmAttribute.html>)**):
+Since this is a destructive action, we can also add a hx-confirm attribute to the element, to make the user confirm the action (this is something provided to us by htmx - see https://htmx.org/attributes/hx-confirm/ and **[attributes hx-confirm](/image/htmx-hx-confirmAttribute.html)**):
 
 ```
 
@@ -2055,12 +2051,9 @@ Read more on
 
 **[htmx 5-swap](</image/___ htmx ~ hx-boost Attribute.html>)**
 
-
 or
 
 **[swap oob](</image/___ htmx ~ hx-swap-oob Attribute.html>)**
-
-
 
 and come back.
 
