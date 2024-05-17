@@ -31,15 +31,6 @@ Create the file **src/pages/signup.astro,** and inside this file paste this code
 
 
 
-#
-        function test() {
-    console.log("this code will have");
-        }
-
-
-
-
-
 ```
 
 ---
