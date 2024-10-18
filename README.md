@@ -1,3 +1,19 @@
+
+# At gen2local1905
+## 10.18.2024 mdy
+
+1. ssh-keygen'd
+1. uploaded public key
+1. created config file at .ssh
+1. npm install'd
+1. README file updated.
+
+### Today's goals
+1. Form
+1. Flex
+1. Tailwind
+1. Q4 AM
+
 # Astro Starter Kit: Basics
 
 ```sh
